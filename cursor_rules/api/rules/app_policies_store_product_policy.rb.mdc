@@ -1,0 +1,46 @@
+---
+description: Policy class for managing permissions related to StoreProduct actions.
+globs: ['app/policies/store_product_policy.rb']
+alwaysApply: false
+---
+
+# StoreProductPolicy Documentation
+
+## Overview
+The `StoreProductPolicy` class defines the authorization rules for actions related to `StoreProduct` objects. It inherits from `ApplicationPolicy`, which provides a base structure for defining permissions in the application. This policy is crucial for ensuring that only authorized users can perform certain actions on store products.
+
+## Key Components
+
+### Classes
+- **StoreProductPolicy**: The main policy class that defines permissions for various actions related to store products.
+  - **Scope**: A nested class that determines which records a user is allowed to access based on their role (admin or regular user).
+
+### Methods
+- **resolve**: Determines the scope of products a user can access. Admin users can access all products, while regular users can only access products they own.
+- **search?**: Returns true if the user is authenticated, allowing them to search for products.
+- **index?**: Returns true if the user is authenticated, allowing them to view the list of products.
+- **create?**: Returns true if the user is authenticated, allowing them to create new products.
+- **update?**: Returns true if the user is authenticated, allowing them to update existing products.
+- **show?**: Returns true if the user is authenticated, allowing them to view a specific product.
+- **destroy?**: Returns true if the user is authenticated, allowing them to delete a product.
+- **permitted_attributes_for_update**: Returns a list of attributes that can be updated based on the user's role. Admins can update all attributes, while clients with API sync cannot update the SKU.
+- **permitted_attributes_for_create**: Returns all attributes that can be set when creating a new product.
+- **all_attrs**: A private method that lists all possible attributes for a store product.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically check permissions in your controllers or services like so:
+```ruby
+if StoreProductPolicy.new(user, product).update?
+  # Proceed with update logic
+else
+  # Handle unauthorized access
+end
+```
+
+## Best Practices
+- Ensure that the user object passed to the policy is always authenticated to avoid unauthorized access.
+- Regularly review the permissions defined in this policy to ensure they align with the application's security requirements.
+- When adding new attributes to the store product, remember to update the `permitted_attributes_for_update` and `permitted_attributes_for_create` methods accordingly.

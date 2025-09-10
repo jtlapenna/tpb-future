@@ -1,0 +1,35 @@
+---
+description: Serializer for WelcomeAsset model in the application.
+globs: ['app/serializers/welcome_asset_serializer.rb']
+alwaysApply: false
+---
+
+# WelcomeAssetSerializer Documentation
+
+## Overview
+The `WelcomeAssetSerializer` is a serializer class that inherits from `ActiveModel::Serializer`. It is responsible for defining how the `WelcomeAsset` model is represented in JSON format when it is rendered in API responses. This serializer specifies which attributes of the model should be included in the serialized output.
+
+## Key Components
+- **Class Definition**: `class WelcomeAssetSerializer < ActiveModel::Serializer`
+  - This line defines the `WelcomeAssetSerializer` class, which extends the functionality of `ActiveModel::Serializer`, a part of the ActiveModel Serializers gem used for building JSON APIs.
+
+- **Attributes**: `attributes :id, :asset_position_id`
+  - This line specifies that the serialized output will include the `id` and `asset_position_id` attributes of the `WelcomeAsset` model. These attributes will be part of the JSON response when an instance of `WelcomeAsset` is serialized.
+
+- **Associations**: `has_one :asset`
+  - This line indicates that the `WelcomeAsset` model has a one-to-one relationship with the `Asset` model. When the `WelcomeAsset` is serialized, the associated `Asset` will also be included in the output, allowing clients to access related data easily.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `WelcomeAsset` model.
+
+## Usage Example
+To use the `WelcomeAssetSerializer`, you would typically render a `WelcomeAsset` instance in a controller action like so:
+```ruby
+render json: @welcome_asset, serializer: WelcomeAssetSerializer
+```
+This will return a JSON response that includes the `id`, `asset_position_id`, and the associated `asset` data.
+
+## Best Practices
+- Ensure that the attributes specified in the serializer are relevant to the API consumers. Avoid including sensitive information that should not be exposed.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- If the `WelcomeAsset` model evolves, remember to update this serializer to reflect any changes in attributes or associations.

@@ -1,0 +1,31 @@
+---
+description: Documentation for the run_sync_job.sh script used to execute a store synchronization job in a Rails application.
+globs: ['run_sync_job.sh']
+alwaysApply: false
+---
+
+# run_sync_job.sh Documentation
+
+## Overview
+The `run_sync_job.sh` script is a shell script designed to execute a specific job within a Rails application running in a Docker container. This script is primarily used to synchronize store data by invoking the `StoreSyncJob` directly from the Rails console.
+
+## Key Components
+- **Docker Command**: The script begins with a command to execute a bash shell inside a running Docker container named `aim-tpb-be-api-1`. This allows the user to interact with the Rails application environment directly.
+- **Rails Console**: After entering the container, the script opens the Rails console, which provides an interactive Ruby shell for executing Rails commands.
+- **StoreSyncJob**: The main functionality of the script is to perform the `StoreSyncJob` with a specific store ID (in this case, `242`). This job is responsible for synchronizing data related to the specified store.
+
+## Dependencies
+This script does not import or depend on any other files within the repository. It operates independently by executing commands within the Docker container.
+
+## Usage Example
+To use this script, simply run it from the command line:
+```bash
+sh run_sync_job.sh
+```
+This will execute the commands within the script, allowing you to perform the store synchronization job.
+
+## Best Practices
+- Ensure that the Docker container `aim-tpb-be-api-1` is running before executing this script to avoid errors.
+- Modify the store ID in the script as needed to synchronize different stores.
+- Use caution when running jobs in the Rails console, as it can affect the application's state and data.
+- Consider adding error handling or logging to the script for better traceability and debugging.

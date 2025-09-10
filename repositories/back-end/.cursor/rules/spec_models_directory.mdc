@@ -1,0 +1,32 @@
+---
+description: Documentation for the spec/models directory containing model specifications for the application.
+globs: ['spec/models/*']
+alwaysApply: false
+---
+
+# Overview of the `spec/models` Directory
+
+The `spec/models` directory contains RSpec test files that define the behavior and expectations of the application's models. Each file corresponds to a specific model and includes tests that ensure the model's methods and validations work as intended.
+
+## Summary of Key Files and Their Roles
+- **store_article_spec.rb**: Tests for the `StoreArticle` model, focusing on its attributes and methods related to article storage.
+- **customer_spec.rb**: Contains tests for the `Customer` model, validating customer-related functionalities and data integrity.
+- **product_spec.rb**: Tests the `Product` model, ensuring that product attributes and behaviors are correctly implemented.
+- **order_spec.rb**: Validates the `Order` model, checking order processing and relationships with other models.
+- **payment_gateway_spec.rb**: Tests the integration and functionality of payment gateways used in the application.
+
+## Relationship to Other Parts of the Codebase
+This directory is integral to the overall testing strategy of the application. It ensures that the models behave correctly, which is crucial for the application's business logic. The tests in this directory are often referenced by other parts of the codebase, especially in controllers and services that interact with these models.
+
+## Common Patterns or Conventions Used
+- Each test file is named after the model it tests, following the convention `<model_name>_spec.rb`.
+- Tests are organized into describe blocks that group related tests, making it easier to understand the purpose of each test.
+- Use of `let` and `before` hooks to set up test data and context, promoting DRY (Don't Repeat Yourself) principles.
+
+## Best Practices When Working with Files in This Directory
+- Ensure that each test file is focused on a single model to maintain clarity and organization.
+- Write clear and descriptive test cases that explain what behavior is being tested.
+- Regularly run the test suite to catch any regressions or issues introduced by changes in the models.
+- Keep tests up to date with model changes to ensure they accurately reflect the current state of the application.
+
+By following these guidelines, developers can maintain a robust and effective testing suite that supports the ongoing development of the application.

@@ -1,0 +1,51 @@
+---
+description: Documentation for the StoreCategoryKioskLayout model in the application.
+globs: ['app/models/store_category_kiosk_layout.rb']
+alwaysApply: false
+---
+
+# StoreCategoryKioskLayout Model Documentation
+
+## Overview
+The `StoreCategoryKioskLayout` model represents the association between store categories and kiosk layouts in the application. It is designed to facilitate the management of layouts for different store categories within kiosks, allowing for a flexible and organized structure in the database.
+
+## Key Components
+- **Class Definition**: The class `StoreCategoryKioskLayout` inherits from `ApplicationRecord`, which means it is an ActiveRecord model that interacts with the database.
+- **Associations**:
+  - `belongs_to :store_category`: This establishes a relationship where each `StoreCategoryKioskLayout` instance is associated with a single `StoreCategory`.
+  - `belongs_to :kiosk_layout`: This establishes a relationship where each `StoreCategoryKioskLayout` instance is associated with a single `KioskLayout`.
+
+## Schema Information
+The model corresponds to the `store_category_kiosk_layouts` table in the database, which includes the following fields:
+- `id`: Primary key for the record.
+- `order`: An integer that may represent the order of the layout.
+- `created_at`: Timestamp for when the record was created.
+- `updated_at`: Timestamp for when the record was last updated.
+- `kiosk_layout_id`: Foreign key linking to the `kiosk_layouts` table.
+- `store_category_id`: Foreign key linking to the `store_categories` table.
+
+### Indexes
+- `index_store_category_kiosk_layouts_on_kiosk_layout_id`: Index on the `kiosk_layout_id` for faster lookups.
+- `index_store_category_kiosk_layouts_on_store_category_id`: Index on the `store_category_id` for faster lookups.
+
+### Foreign Keys
+- `fk_rails_... (kiosk_layout_id => kiosk_layouts.id)`: Ensures referential integrity between `store_category_kiosk_layouts` and `kiosk_layouts`.
+- `fk_rails_... (store_category_id => store_categories.id)`: Ensures referential integrity between `store_category_kiosk_layouts` and `store_categories`.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the ActiveRecord framework for its functionality.
+
+## Usage Examples
+To create a new association between a store category and a kiosk layout:
+```ruby
+store_category_kiosk_layout = StoreCategoryKioskLayout.create(
+  store_category_id: 1,
+  kiosk_layout_id: 2,
+  order: 1
+)
+```
+
+## Best Practices
+- Ensure that foreign keys are always valid to maintain data integrity.
+- Use validations in the model to enforce any business rules related to the associations.
+- Consider adding scopes or methods to the model for common queries related to store category and kiosk layout associations.

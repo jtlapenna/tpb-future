@@ -1,0 +1,45 @@
+---
+description: Documentation for the ClientService class in the Angular application.
+globs: ['src/app/clients/services/client.service.ts']
+alwaysApply: false
+---
+
+# ClientService Documentation
+
+## Overview
+The `ClientService` class is an Angular service that extends the `CrudService` to manage `Client` resources. It provides methods to create new client instances and retrieve the resource name in both singular and plural forms.
+
+## Key Components
+
+### Class: ClientService
+- **Extends:** `CrudService<Client>`  
+  This indicates that `ClientService` inherits the CRUD operations defined in `CrudService` for the `Client` model.
+
+### Method: createResource
+- **Signature:** `createResource(params: any): Client`  
+  This method takes parameters and returns a new instance of the `Client` class. It is used to create a new client resource based on the provided parameters.
+
+### Method: resourceName
+- **Signature:** `resourceName({plural}: {plural?: boolean} = {}): string`  
+  This method returns the name of the resource. If the `plural` parameter is set to true, it returns 'clients'; otherwise, it returns 'client'. This is useful for generating resource names dynamically based on context.
+
+## Dependencies
+- **Imports:**  
+  - `CrudService` from `../../core/services`: This is the base service that provides common CRUD functionality.  
+  - `Client` from `../models`: This is the model representing a client entity in the application.
+
+- **Used By:**  
+  - `src/app/clients/clients.module.ts`: This module imports `ClientService` to provide client-related functionalities within the application.
+
+## Usage Example
+To create a new client, you can use the `createResource` method as follows:
+```typescript
+const clientService = new ClientService();
+const newClient = clientService.createResource({ name: 'John Doe', email: 'john@example.com' });
+console.log(newClient);
+```
+
+## Best Practices
+- Ensure that the parameters passed to `createResource` match the expected structure of the `Client` model to avoid runtime errors.
+- Use the `resourceName` method to maintain consistency in naming conventions throughout the application, especially when dealing with routes or API endpoints.
+- Consider implementing additional methods for updating and deleting clients if they are not already provided by the `CrudService`.

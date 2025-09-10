@@ -1,0 +1,48 @@
+---
+description: Documentation for the StoreSync model in the application.
+globs: ['app/models/store_sync.rb']
+alwaysApply: false
+---
+
+# StoreSync Model Documentation
+
+## Overview
+The `StoreSync` model is responsible for managing the synchronization of store products with their corresponding store sync items. It handles the processing of items, updating product attributes, and maintaining the status of the synchronization process. This model is integral to ensuring that product data is accurately reflected in the system based on external sources.
+
+## Key Components
+
+### Class Definition
+- **`class StoreSync < ApplicationRecord`**: Inherits from `ApplicationRecord`, making it a part of the Active Record framework.
+
+### Enum
+- **`enum status: {pending: 0, in_progress: 1, finished: 2}`**: Defines the possible statuses for a store sync operation, allowing for easy tracking of the sync process.
+
+### Associations
+- **`belongs_to :store`**: Establishes a relationship with the `Store` model, indicating that each `StoreSync` belongs to a specific store.
+- **`has_many :store_sync_items, dependent: :destroy`**: Indicates that a store sync can have multiple associated sync items, which will be destroyed if the store sync is deleted.
+
+### Callbacks
+- **`after_validation :try_to_finish, on: :update`**: A callback that attempts to finish the sync process after validation on update.
+
+### Scopes
+- **`scope :owner`**: A scope to filter store syncs by the owner, joining with related models to find the correct user.
+
+### Instance Methods
+- **`def process_items`**: The core method that processes each store sync item, updating product details, handling images, and managing product attributes based on the sync item data.
+- **`private` methods**: Includes helper methods like `find_brand`, `find_category`, `try_to_finish`, `similar_products?`, and `find_attr_value` to encapsulate logic used within the main processing method.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the context of the application.
+
+## Usage Examples
+To use the `StoreSync` model, you would typically create an instance and call the `process_items` method to initiate the synchronization process:
+```ruby
+store_sync = StoreSync.find(store_sync_id)
+store_sync.process_items
+```
+
+## Best Practices
+- Ensure that the `store` associated with the `StoreSync` is correctly set up to avoid issues during synchronization.
+- Regularly monitor the logs for any warnings or errors during the processing of items to maintain data integrity.
+- When modifying the `process_items` method, be cautious of the implications on product data and ensure thorough testing to prevent data loss or corruption.
+- Utilize the enum status to track the progress of sync operations and handle retries or failures appropriately.

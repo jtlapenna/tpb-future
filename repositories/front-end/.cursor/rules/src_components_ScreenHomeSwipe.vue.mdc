@@ -1,0 +1,50 @@
+---
+description: Documentation for the ScreenHomeSwipe component in a Vue.js application.
+globs: ['src/components/ScreenHomeSwipe.vue']
+alwaysApply: false
+---
+
+# ScreenHomeSwipe.vue Documentation
+
+## Overview
+The `ScreenHomeSwipe.vue` file defines a Vue.js component that serves as the home screen for a swipe-based interface. It includes animations and interactions for a store logo and a swipe gesture to navigate to other parts of the application. The component is designed to enhance user experience with visual feedback and transitions.
+
+## Key Components
+
+### Template Structure
+- **Main Container**: The root `<div>` element has dynamic classes based on the visibility of the background image.
+- **Store Logo**: An image element that displays the store logo, with event listeners for touch interactions to hold and release the logo.
+- **Catcher**: A text element prompting users to swipe to get started.
+- **Swipe Animation**: A hidden element that becomes visible during transitions.
+- **Active Cart Button**: A conditional button that appears if the active cart feature is enabled.
+
+### Script Section
+- **Imports**: The component imports GSAP for animations and jQuery for DOM manipulation. It also imports the `ActiveCartButton` component.
+- **Data Properties**: Includes properties for managing the store logo, its ratio, and a reload timeout.
+- **Computed Properties**: `isBackGroundvisible` determines if the background image should be displayed based on configuration.
+- **Lifecycle Hooks**: 
+  - `created`: Initializes the store logo and sets up event listeners.
+  - `destroyed`: Cleans up event listeners to prevent memory leaks.
+  - `mounted`: Removes any unwanted sidebar elements on mount.
+
+### Methods
+- **transitionEnter**: Handles the entrance animation for the component, using GSAP to animate the opacity and position of elements.
+- **onTransitionLeave**: Manages the exit animation, ensuring a smooth transition when leaving the screen.
+- **onSwipe**: Triggers a navigation event when a swipe gesture is detected.
+- **logoHold / logoRelease**: Emit events to manage a hard refresh when the logo is held or released.
+- **setStoreLogoRatio**: Calculates and sets the logo's aspect ratio based on its natural dimensions.
+
+## Dependencies
+This component does not import any other files from the repository, nor is it imported by any other files. It relies on external libraries like GSAP and jQuery for animations and DOM manipulation.
+
+## Usage Examples
+To use the `ScreenHomeSwipe` component, include it in a parent component's template:
+```html
+<screen-home-swipe :isActiveCartFeatureActivated="true"></screen-home-swipe>
+```
+
+## Best Practices
+- Ensure that the store logo is correctly configured in the application settings to avoid broken images.
+- Use the `isActiveCartFeatureActivated` prop to conditionally render the active cart button based on the application's state.
+- Clean up event listeners in the `destroyed` lifecycle hook to prevent memory leaks and unintended behavior.
+- When modifying animations, keep performance in mind, especially on mobile devices.

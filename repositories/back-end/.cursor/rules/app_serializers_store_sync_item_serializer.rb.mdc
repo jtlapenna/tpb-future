@@ -1,0 +1,38 @@
+---
+description: Serializer for store synchronization items in the application.
+globs: ['app/serializers/store_sync_item_serializer.rb']
+alwaysApply: false
+---
+
+# StoreSyncItemSerializer
+
+## Overview
+The `StoreSyncItemSerializer` is a serializer class that defines how store synchronization items are represented in JSON format. It is part of the ActiveModel Serializers framework, which is used to create a structured JSON response for API endpoints in Ruby on Rails applications.
+
+## Key Components
+- **Class Definition**: The class `StoreSyncItemSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies the fields that will be included in the serialized output. In this case, the following attributes are included:
+  - `id`: The unique identifier for the store sync item.
+  - `sku`: The stock keeping unit, a unique identifier for the product.
+  - `name`: The name of the product.
+  - `size_name`: The size of the product, if applicable.
+  - `category`: The category to which the product belongs.
+  - `stock`: The current stock level of the product.
+  - `brand`: The brand of the product.
+  - `status`: The current status of the product (e.g., active, inactive).
+  - `store_product_id`: The identifier linking the product to a specific store.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the store sync item model.
+
+## Usage Example
+To use this serializer, you would typically render a store sync item in a controller action like so:
+```ruby
+render json: @store_sync_item, serializer: StoreSyncItemSerializer
+```
+This would return a JSON representation of the `@store_sync_item` object, including only the specified attributes.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data model and are relevant for the API consumers.
+- Keep the serializer focused on a single responsibility, which is to format the output for the store sync item. Avoid adding business logic within the serializer.
+- Regularly review and update the serializer as the underlying data model changes to ensure consistency in the API responses.

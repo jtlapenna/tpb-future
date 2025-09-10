@@ -1,0 +1,48 @@
+graph TB
+    %% Pattern Detection Decision Tree
+    %% This diagram guides the classification of style patterns
+    
+    %% Define styles
+    classDef input fill:#00C796,stroke:#333,stroke-width:2px,color:white
+    classDef decision fill:#7168DF,stroke:#333,stroke-width:2px,color:white
+    classDef output fill:#EE991B,stroke:#333,stroke-width:2px,color:white
+    classDef process fill:#5dc4bf,stroke:#333,stroke-width:2px,color:white
+    
+    %% Initial Input
+    A[Style Code]:::input --> B{Is Global?}:::decision
+    
+    %% Global Branch
+    B -->|Yes| C[Global Style]:::output
+    
+    %% Theme Branch
+    B -->|No| D{Is Theme?}:::decision
+    D -->|Yes| E[Theme Variable]:::output
+    
+    %% Component Branch
+    D -->|No| F{Is Component?}:::decision
+    F -->|Yes| G{Has ViewEncapsulation?}:::decision
+    F -->|No| H{Is Utility?}:::decision
+    
+    %% Component Sub-branch
+    G -->|Yes| I[Scoped Style]:::output
+    G -->|No| J[Regular Style]:::output
+    
+    %% Utility Branch
+    H -->|Yes| K[Utility Class]:::output
+    H -->|No| L[Unknown Pattern]:::output
+    
+    %% Dynamic Pattern Detection
+    I & J --> M{Has Dynamic Styles?}:::decision
+    M -->|Yes| N[Dynamic Pattern]:::process
+    M -->|No| O[Static Pattern]:::process
+    
+    %% Utility Pattern Detection
+    K --> P{Is Mixin?}:::decision
+    P -->|Yes| Q[Mixin Pattern]:::process
+    P -->|No| R[Helper Pattern]:::process
+    
+    %% Add notes
+    %% Note: Decision flow prioritizes global and theme patterns
+    %% Note: Component styles are further classified by encapsulation
+    %% Note: Utility patterns are identified last to ensure proper categorization
+    %% Note: Each path leads to a specific pattern classification 

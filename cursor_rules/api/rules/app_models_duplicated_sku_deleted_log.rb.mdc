@@ -1,0 +1,52 @@
+---
+description: Documentation for the DuplicatedSkuDeletedLog model in the application.
+globs: ['app/models/duplicated_sku_deleted_log.rb']
+alwaysApply: false
+---
+
+# DuplicatedSkuDeletedLog Model Documentation
+
+## Overview
+The `DuplicatedSkuDeletedLog` model is responsible for tracking logs of deleted SKUs (Stock Keeping Units) within a store's product inventory. This model is part of the application's data layer and interacts with the database to store relevant information about deleted SKUs, including their associated store and product details.
+
+## Key Components
+- **Class Definition**: `DuplicatedSkuDeletedLog` inherits from `ApplicationRecord`, which means it is an ActiveRecord model that can interact with the database.
+- **Associations**:
+  - `belongs_to :store`: This establishes a relationship with the `Store` model, indicating that each log entry is associated with a specific store.
+  - `belongs_to :store_product`: This establishes a relationship with the `StoreProduct` model, indicating that each log entry is associated with a specific product in the store.
+
+## Schema Information
+The database table for this model is `duplicated_sku_deleted_logs`, which contains the following fields:
+- `id`: Primary key for the log entry.
+- `deleted_sku`: A string representing the SKU that was deleted.
+- `created_at`: Timestamp for when the log entry was created.
+- `updated_at`: Timestamp for when the log entry was last updated.
+- `deleted_store_product_id`: A string that references the ID of the deleted store product.
+- `store_id`: A foreign key linking to the `stores` table.
+- `store_product_id`: A foreign key linking to the `store_products` table.
+
+### Indexes
+- `index_duplicated_sku_deleted_logs_on_store_id`: Index on the `store_id` for faster lookups.
+- `index_duplicated_sku_deleted_logs_on_store_product_id`: Index on the `store_product_id` for faster lookups.
+
+### Foreign Keys
+- `store_id` references `stores.id`
+- `store_product_id` references `store_products.id`
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently within the application.
+
+## Usage Examples
+To create a new log entry for a deleted SKU, you can use the following code:
+```ruby
+DuplicatedSkuDeletedLog.create(
+  deleted_sku: 'SKU12345',
+  store_id: 1,
+  store_product_id: 2
+)
+```
+
+## Best Practices
+- Ensure that the `deleted_sku` is unique to avoid confusion in logs.
+- Always validate the presence of `store_id` and `store_product_id` to maintain data integrity.
+- Consider adding additional logging or error handling when creating log entries to capture any issues during the process.

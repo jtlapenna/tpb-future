@@ -1,0 +1,39 @@
+---
+description: Validator for date format and validity in the Treez application.
+globs: ['app/lib/treez/date_validator.rb']
+alwaysApply: false
+---
+
+# Treez::DateValidator
+
+## Overview
+The `Treez::DateValidator` class is a custom validator for ActiveModel that ensures a given date attribute in a model is both in the correct format (YYYY-MM-DD) and represents a valid date. This is particularly useful for ensuring data integrity in applications that require date inputs.
+
+## Key Components
+
+### Class: `Treez::DateValidator`
+- **Inherits from**: `ActiveModel::EachValidator`
+- **Method: `validate_each(record, attribute, value)`**  
+  This method is called for each attribute being validated. It checks if the value matches the expected date format and if it is a valid date. If either check fails, it calls `record_error` to add an error to the record.
+
+- **Method: `record_error(record, attribute, name, value)`**  
+  This protected method adds an error message to the record's errors for the specified attribute. It merges additional options with the error message.
+
+- **Method: `is_date?(value)`**  
+  This protected method attempts to parse the given value as a date. If successful, it checks if the formatted date matches the original value. If parsing fails, it returns false.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a custom validator within the Treez application.
+
+## Usage Example
+To use the `Treez::DateValidator`, you would typically include it in a model like this:
+```ruby
+class Event < ApplicationRecord
+  validates :event_date, date: true
+end
+```
+
+## Best Practices
+- Ensure that the date format is consistently used across the application to avoid validation errors.
+- Consider adding additional error messages or handling for edge cases, such as leap years or invalid dates.
+- Keep the validation logic simple and focused on its purpose to maintain readability and ease of maintenance.

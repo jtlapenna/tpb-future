@@ -1,0 +1,51 @@
+---
+description: Documentation for the ScreenHomeSpotlightCards component in a Vue.js application.
+globs: ['src/components/ScreenHomeSpotlightCards.vue']
+alwaysApply: false
+---
+
+# ScreenHomeSpotlightCards.vue Documentation
+
+## Overview
+The `ScreenHomeSpotlightCards` component is a Vue.js single-file component that serves as a spotlight feature on the home screen of an application. It displays a collection of products or brands, depending on the configuration, and includes animations for transitions between states. The component is designed to enhance user engagement by showcasing featured items prominently.
+
+## Key Components
+- **Template Structure**: The template consists of a main container that conditionally renders a spotlight section or a default card section based on the component's state. It utilizes a slider for showcasing products or brands and includes a button for active cart features.
+- **Props**: The component accepts several props:
+  - `products`: An array of product objects to display.
+  - `brands`: An array of brand objects to display.
+  - `isGeneratingIndex`: A boolean indicating if the index is being generated.
+  - `isActiveCartFeatureActivated`: A boolean indicating if the active cart feature is enabled.
+- **Data Properties**: The component maintains several data properties, including `welcomeMessage`, `useBrandSpotlight`, and `currentBrandLogo`, which are used to manage the display and functionality of the component.
+- **Lifecycle Hooks**: The component uses lifecycle hooks such as `created`, `mounted`, and `destroyed` to manage setup and teardown processes, including event listeners for transitions.
+- **Methods**: Key methods include:
+  - `transitionEnter`: Handles the animation for entering the component.
+  - `onTransitionLeave`: Manages the animation for leaving the component.
+  - `UpdateBrandLogo`: Updates the current brand logo based on user interaction.
+
+## Dependencies
+This component imports the following child components:
+- `Slider`: A component for displaying products or brands in a sliding format.
+- `ScreenHomeCards`: A component that displays individual product cards.
+- `ActiveCartButton`: A button component for managing active cart features.
+
+The component does not import or export any other files in the repository, making it self-contained.
+
+## Usage Example
+To use the `ScreenHomeSpotlightCards` component, include it in a parent component's template as follows:
+```html
+<screen-home-spotlight-cards
+  :products="products"
+  :brands="brands"
+  :is-generating-index="isGeneratingIndex"
+  :is-active-cart-feature-activated="isActiveCartFeatureActivated"
+/>
+```
+
+## Best Practices
+- Ensure that the `products` and `brands` props are properly populated before rendering the component to avoid empty states.
+- Use the `isGeneratingIndex` prop to manage loading states effectively, providing feedback to users during data fetching.
+- When modifying the component, maintain the existing animation logic to ensure a smooth user experience.
+- Keep the styles scoped to avoid conflicts with other components in the application.
+
+By following these guidelines, developers can effectively utilize and maintain the `ScreenHomeSpotlightCards` component within the codebase.

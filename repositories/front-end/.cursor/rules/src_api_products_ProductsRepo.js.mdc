@@ -1,0 +1,58 @@
+---
+description: Documentation for the ProductsRepo class which manages product data retrieval and storage.
+globs: ['src/api/products/ProductsRepo.js']
+alwaysApply: false
+---
+
+# ProductsRepo.js Documentation
+
+## Overview
+The `ProductsRepo` class is responsible for managing product data retrieval from both local and remote sources. It extends the base `Repo` class and provides methods to show individual products and list all products, while also handling local storage of product data.
+
+## Key Components
+
+### Class: ProductsRepo
+- **Constructor**: Initializes the `ProductsRepo` with instances of `ProductsRemote` and `ProductsLocal`, and sets the resource name to 'products'.
+
+### Method: show(productId)
+- **Description**: Retrieves a product by its ID. It first attempts to fetch the product from local storage. If not found, it fetches it from a remote source and saves it locally for future access.
+- **Parameters**: `productId` - The ID of the product to retrieve.
+- **Returns**: An `Observable` that emits the product data or an error if the retrieval fails.
+
+### Method: index(options)
+- **Description**: Fetches a list of products from the remote source and saves them locally if the configuration allows it. Emits a custom event before fetching.
+- **Parameters**: `options` - Options to customize the product retrieval.
+- **Returns**: A promise that resolves with the products and metadata.
+
+### Method: indexLocal(products)
+- **Description**: Updates local storage based on the provided product list. It saves products with stock and deletes those without stock, setting an expiration date for saved products.
+- **Parameters**: `products` - An array of product objects to process.
+- **Returns**: A promise that resolves to true upon successful processing.
+
+## Dependencies
+- **Repo**: The base class that provides common repository functionality.
+- **ProductsLocal**: Handles local storage operations for products.
+- **ProductsRemote**: Manages remote API calls to fetch product data.
+
+This file is not imported by any other files in the repository, indicating it is a standalone module for product management.
+
+## Usage Example
+To use the `ProductsRepo`, you can import it and call its methods as follows:
+```javascript
+import ProductsRepo from './ProductsRepo';
+
+// Show a product by ID
+ProductsRepo.show('12345').subscribe(product => {
+  console.log('Product:', product);
+});
+
+// List products
+ProductsRepo.index({ limit: 10 }).then(({ products, meta }) => {
+  console.log('Products:', products);
+});
+```
+
+## Best Practices
+- Ensure that the local storage configuration is set correctly to avoid unnecessary API calls.
+- Handle errors gracefully when using the `show` and `index` methods to provide a better user experience.
+- Use observables effectively to manage asynchronous data streams when working with the `show` method.

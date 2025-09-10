@@ -1,0 +1,34 @@
+---
+description: Documentation for the spec/support directory containing helper files for testing.
+globs: ['spec/support/*']
+alwaysApply: false
+---
+
+# Overview of the `spec/support` Directory
+
+The `spec/support` directory is designed to house various helper modules and classes that facilitate testing within the codebase. These files provide reusable functionality that can be included in test cases, promoting DRY (Don't Repeat Yourself) principles and enhancing the maintainability of the test suite.
+
+## Key Files and Their Roles
+
+- **request_helper.rb**: This file contains helper methods for making HTTP requests in tests, simplifying the process of simulating API calls and handling responses.
+- **paginated_resources.rb**: This module provides utilities for testing paginated resources, ensuring that pagination logic is correctly implemented and tested.
+- **policies_helpers.rb**: This file includes helper methods related to authorization policies, making it easier to test user permissions and access control in various scenarios.
+- **serialization_helper.rb**: This module offers methods for testing serialization logic, ensuring that data is correctly formatted when being sent or received.
+- **application_helper.rb**: This file contains general-purpose helper methods that can be used across different test files, providing common functionality that aids in writing tests.
+
+## Relationship to Other Parts of the Codebase
+
+The files in the `spec/support` directory are utilized by various test files located in the `spec` directory. They serve as a foundation for writing tests that require common functionality, thereby reducing redundancy and improving the clarity of test cases. By keeping these helpers organized in one directory, developers can easily locate and modify them as needed.
+
+## Common Patterns and Conventions
+
+- **Modular Design**: Each helper file is designed to encapsulate specific functionality, making it easy to understand and maintain.
+- **Naming Conventions**: Files are named descriptively to reflect their purpose, which aids in quickly identifying the right helper for a given testing scenario.
+- **Include Statements**: Helper modules are typically included in the relevant test files, allowing for seamless access to the methods they provide.
+
+## Best Practices
+
+- **Keep Helpers Focused**: Ensure that each helper file has a single responsibility and does not become a catch-all for unrelated methods.
+- **Document Methods**: Provide clear documentation for each method within the helper files to explain its purpose and usage, making it easier for other developers to understand and utilize them.
+- **Avoid Dependencies**: Since this directory does not import from external files, maintain this practice to keep the helpers self-contained and easy to test.
+- **Regular Refactoring**: Periodically review and refactor helper methods to ensure they remain relevant and efficient as the codebase evolves.

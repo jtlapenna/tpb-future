@@ -1,0 +1,186 @@
+{
+    "version": "1.0",
+    "last_updated": "2024-03-18",
+    "templates": {
+        "core_analysis": {
+            "code_review": {
+                "file": "code_review_analysis.txt",
+                "description": "Analyzes code quality and implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["quality", "maintainability", "complexity"]
+            },
+            "architecture": {
+                "file": "architecture_analysis.txt",
+                "description": "Analyzes architectural design and implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["design", "patterns", "structure"]
+            },
+            "pattern": {
+                "file": "pattern_analysis.txt",
+                "description": "Analyzes code patterns and anti-patterns",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["patterns", "anti-patterns", "best_practices"]
+            }
+        },
+        "technical_implementation": {
+            "api": {
+                "file": "api_analysis.txt",
+                "description": "Analyzes API implementation and integration",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["endpoints", "documentation", "security"]
+            },
+            "database": {
+                "file": "database_analysis.txt",
+                "description": "Analyzes database implementation and management",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["schema", "performance", "security"]
+            },
+            "caching": {
+                "file": "caching_analysis.txt",
+                "description": "Analyzes caching implementation and optimization",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["performance", "memory", "distribution"]
+            },
+            "logging": {
+                "file": "logging_analysis.txt",
+                "description": "Analyzes logging implementation and management",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["coverage", "quality", "security"]
+            },
+            "monitoring": {
+                "file": "monitoring_analysis.txt",
+                "description": "Analyzes monitoring implementation and observability",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["metrics", "alerts", "dashboards"]
+            },
+            "error_handling": {
+                "file": "error_handling_analysis.txt",
+                "description": "Analyzes error handling implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["coverage", "recovery", "logging"]
+            }
+        },
+        "platform_infrastructure": {
+            "cloud": {
+                "file": "cloud_analysis.txt",
+                "description": "Analyzes cloud implementation and service integration",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["scalability", "reliability", "security"]
+            },
+            "mobile": {
+                "file": "mobile_analysis.txt",
+                "description": "Analyzes mobile implementation and platform support",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["ui", "performance", "platform"]
+            },
+            "cross_platform": {
+                "file": "cross_platform_analysis.txt",
+                "description": "Analyzes cross-platform implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["compatibility", "performance", "security"]
+            },
+            "devops": {
+                "file": "devops_analysis.txt",
+                "description": "Analyzes DevOps implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["ci_cd", "deployment", "security"]
+            },
+            "microservices": {
+                "file": "microservices_analysis.txt",
+                "description": "Analyzes microservices implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["boundaries", "communication", "security"]
+            }
+        },
+        "quality_compliance": {
+            "security": {
+                "file": "security_analysis.txt",
+                "description": "Analyzes security implementation and vulnerabilities",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["authentication", "authorization", "data_protection"]
+            },
+            "performance": {
+                "file": "performance_analysis.txt",
+                "description": "Analyzes performance characteristics and optimization",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["bottlenecks", "optimization", "metrics"]
+            },
+            "compliance": {
+                "file": "compliance_analysis.txt",
+                "description": "Analyzes compliance implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["regulations", "standards", "audit"]
+            },
+            "accessibility": {
+                "file": "accessibility_analysis.txt",
+                "description": "Analyzes accessibility implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["standards", "compliance", "usability"]
+            },
+            "internationalization": {
+                "file": "internationalization_analysis.txt",
+                "description": "Analyzes internationalization implementation",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["translation", "formatting", "cultural"]
+            }
+        },
+        "documentation_testing": {
+            "documentation": {
+                "file": "documentation_analysis.txt",
+                "description": "Analyzes documentation quality and completeness",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["completeness", "accuracy", "clarity"]
+            },
+            "test_coverage": {
+                "file": "test_coverage_analysis.txt",
+                "description": "Analyzes test coverage and quality",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["coverage", "quality", "patterns"]
+            }
+        },
+        "data_management": {
+            "data": {
+                "file": "data_analysis.txt",
+                "description": "Analyzes data implementation and management",
+                "dependencies": ["knowledge_base", "cursor_rules"],
+                "categories": ["storage", "processing", "security"]
+            }
+        },
+        "cursor_rules": {
+            "cursor_rules": {
+                "file": "cursor_rules_analysis.txt",
+                "description": "Analyzes cursor rules implementation and compliance",
+                "dependencies": ["knowledge_base"],
+                "categories": ["compliance", "coverage", "effectiveness"]
+            }
+        }
+    },
+    "knowledge_bases": {
+        "api": {
+            "path": "knowledge-bases/api-knowledge-base",
+            "description": "API implementation knowledge base"
+        },
+        "frontend": {
+            "path": "knowledge-bases/front-end-knowledge-base",
+            "description": "Frontend implementation knowledge base"
+        },
+        "cms": {
+            "path": "knowledge-bases/cms-knowledge-base",
+            "description": "CMS implementation knowledge base"
+        }
+    },
+    "cursor_rules": {
+        "api": {
+            "path": "analysis/reports/cross-repo/llm_analysis/cursor_rules/api/rules",
+            "description": "API cursor rules"
+        },
+        "frontend": {
+            "path": "analysis/reports/cross-repo/llm_analysis/cursor_rules/frontend/rules",
+            "description": "Frontend cursor rules"
+        },
+        "cms": {
+            "path": "analysis/reports/cross-repo/llm_analysis/cursor_rules/cms/rules",
+            "description": "CMS cursor rules"
+        }
+    }
+} 

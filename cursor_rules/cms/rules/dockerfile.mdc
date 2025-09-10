@@ -1,0 +1,39 @@
+---
+description: Dockerfile for setting up an Angular application environment.
+globs: ['dockerfile']
+alwaysApply: false
+---
+
+# Dockerfile Documentation
+
+## Overview
+This Dockerfile is used to create a Docker image for an Angular application. It sets up the environment by installing necessary dependencies and configuring the application to run in a containerized environment.
+
+## Key Components
+- **FROM node:16.17.0-alpine**: This line specifies the base image for the Docker container, which is a lightweight version of Node.js (version 16.17.0) based on Alpine Linux. This is ideal for running Node.js applications due to its small size.
+- **WORKDIR /cms**: This command sets the working directory inside the container to `/cms`. All subsequent commands will be run in this directory.
+- **RUN apk add --no-cache git**: This command installs Git in the container without caching the package index, which helps keep the image size smaller.
+- **COPY package*.json ./**: This command copies the `package.json` and `package-lock.json` files from the local directory to the working directory in the container. These files are essential for managing the application's dependencies.
+- **RUN npm install -g @angular/cli**: This installs the Angular CLI globally in the container, allowing the use of Angular commands.
+- **RUN npm ci**: This command installs the dependencies listed in `package-lock.json`, ensuring a clean and reproducible build.
+- **EXPOSE 4200**: This line informs Docker that the container will listen on port 4200 at runtime, which is the default port for Angular applications.
+- **CMD ["npm", "run", "start"]**: This command specifies the default command to run when the container starts, which is to execute the `start` script defined in `package.json`.
+
+## Dependencies
+This Dockerfile does not import any other files in the repository, nor is it imported by any other files. It is a standalone file that defines the environment for the Angular application.
+
+## Usage Example
+To build the Docker image using this Dockerfile, navigate to the directory containing the file and run:
+```bash
+docker build -t my-angular-app .
+```
+To run the container, use:
+```bash
+docker run -p 4200:4200 my-angular-app
+```
+
+## Best Practices
+- Always ensure that the base image is up to date to avoid security vulnerabilities.
+- Use multi-stage builds if the application grows in complexity to keep the final image size small.
+- Regularly update dependencies in `package.json` and `package-lock.json` to benefit from the latest features and security patches.
+- Consider using `.dockerignore` to exclude unnecessary files from the build context, which can speed up the build process and reduce image size.

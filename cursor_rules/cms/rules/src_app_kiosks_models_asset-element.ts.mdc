@@ -1,0 +1,46 @@
+---
+description: Documentation for the AssetElement model in the kiosks module.
+globs: ['src/app/kiosks/models/asset-element.ts']
+alwaysApply: false
+---
+
+# AssetElement Model Documentation
+
+## Overview
+The `AssetElement` class represents an element associated with an asset in the kiosks module of the application. It encapsulates properties related to the asset's position and type, and it initializes itself based on a provided JSON object.
+
+## Key Components
+- **Class: AssetElement**  
+  This class defines the structure and behavior of an asset element. It includes the following properties:
+  - `id`: A unique identifier for the asset element.
+  - `coordX`: The X coordinate of the asset element.
+  - `coordY`: The Y coordinate of the asset element.
+  - `elementType`: The type of the element (e.g., 'picture_in_picture').
+  - `link`: A link associated with the asset element.
+  - `asset`: An instance of the `Asset` class, initialized with an empty asset or the asset data from the JSON if the element type is 'picture_in_picture'.
+
+- **Constructor**  
+  The constructor takes a JSON object as an argument and initializes the properties of the `AssetElement` instance. It checks the `elementType` to determine if it should instantiate the `asset` property with specific data.
+
+## Dependencies
+This file imports the `Asset` class from `src/app/core/models/asset.ts`, which is essential for managing asset-related data. The `AssetElement` class is also imported by `src/app/kiosks/models/kiosk-asset.ts`, indicating its role in the broader context of kiosk asset management.
+
+## Usage Example
+To create an instance of `AssetElement`, you can pass a JSON object like this:
+```typescript
+const assetElementData = {
+  id: 1,
+  coord_x: '100',
+  coord_y: '200',
+  element_type: 'picture_in_picture',
+  asset: { /* asset data */ },
+  link: 'http://example.com'
+};
+
+const assetElement = new AssetElement(assetElementData);
+```
+
+## Best Practices
+- Ensure that the JSON object passed to the constructor contains all necessary fields to avoid undefined properties.
+- When working with the `elementType`, be cautious of the types you expect to handle, especially if you plan to extend functionality in the future.
+- Keep the `Asset` class updated to reflect any changes in asset management requirements, as it directly impacts the `AssetElement` class.

@@ -1,0 +1,44 @@
+---
+description: Documentation for the CustomerOrder model in the application.
+globs: ['app/models/customer_order.rb']
+alwaysApply: false
+---
+
+# CustomerOrder Model Documentation
+
+## Overview
+The `CustomerOrder` model represents an order placed by a customer in the application. It is responsible for managing the order's data, including its status, associated store, and customer information. This model is built on top of `ApplicationRecord`, which provides it with the necessary ActiveRecord functionalities to interact with the database.
+
+## Key Components
+- **Constants**:  
+  `ALLOWED_STATUS` - An array of strings representing the valid statuses an order can have. This includes statuses like `VERIFICATION_PENDING`, `AWAITING_PROCESSING`, `IN_PROCESS`, `PACKED_READY`, `OUT_FOR_DELIVERY`, `COMPLETED`, `CANCELED`, and `REMOVED`.
+
+- **Associations**:  
+  `belongs_to :store` - This establishes a relationship indicating that each `CustomerOrder` is associated with a single `Store`.
+
+- **Validations**:  
+  `validates :customer_id, :order_id, presence: true` - This ensures that both `customer_id` and `order_id` must be present for a `CustomerOrder` to be valid.
+
+- **Store**:  
+  `store :data, coder: JSON` - This line indicates that the `data` attribute is stored as JSON, allowing for flexible data storage.
+
+- **Scopes**:  
+  `scope :sorted, -> { order created_at: :desc }` - This scope allows for retrieving customer orders sorted by their creation date in descending order.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the application, relying solely on the ActiveRecord framework for its functionality.
+
+## Usage Examples
+To create a new customer order, you can use the following code:
+```ruby
+CustomerOrder.create(customer_id: 1, order_id: 'ORD123', status: 'VERIFICATION_PENDING')
+```
+To retrieve all customer orders sorted by creation date:
+```ruby
+CustomerOrder.sorted
+```
+
+## Best Practices
+- Ensure that the `customer_id` and `order_id` are always provided when creating a new order to avoid validation errors.
+- Use the `sorted` scope to retrieve orders in a consistent order, especially when displaying them in the UI.
+- When modifying the `ALLOWED_STATUS` constant, ensure that all parts of the application that rely on order statuses are updated accordingly to prevent inconsistencies.

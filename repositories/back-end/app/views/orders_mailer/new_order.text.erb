@@ -1,0 +1,27 @@
+<% if @is_for_customer %>
+<%= @settings[:notifications_intro] %>
+<% else %>
+Customer: <%= @order[:customer_name] %> <%= @is_update ? '[UPDATED]' : ''%>
+Email: <%= @order[:customer_email] %>
+
+Just submitted an order for:
+<% end %>
+
+<% if @order[:items] %>
+
+<% @order[:items].each do |item| %>
+
+<% if product = StoreProduct.find_by(id: item[:product_id]) %>
+<%= product.name_for_catalog %> <%= item[:quantity] %> <%= number_to_currency(item[:price_total]) %>
+<% else %>
+<%= item[:product_id] %> <%= item[:quantity] %> <%= number_to_currency(item[:price_total]) %>
+<% end %>
+
+<% end %>
+
+<% total = @order[:items].sum{|i| i[:price_total] } %>
+Total: <%= number_to_currency(total) %>
+
+<% else %>
+No items.
+<% end %>

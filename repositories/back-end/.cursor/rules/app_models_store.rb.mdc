@@ -1,0 +1,60 @@
+---
+description: Documentation for the Store model in the application, detailing its purpose, functionality, and key components.
+globs: ['app/models/store.rb']
+alwaysApply: false
+---
+
+# Store Model Documentation
+
+## Overview
+The `Store` model represents a retail store in the application, inheriting from `ApplicationRecord`. It manages various aspects of a store's data, including its relationship with clients, products, and external APIs. The model includes validations, associations, and methods to handle store-specific logic, such as syncing with external services and managing notifications.
+
+## Key Components
+
+### Enum
+- **featured_mode**: Defines the mode in which the store can be featured, with options for RFID, manual, or both.
+
+### Associations
+- **belongs_to :client**: Each store can optionally belong to a client.
+- **has_many :kiosks**: A store can have multiple kiosks, which are nullified on deletion.
+- **has_many :store_categories**: Stores can have multiple categories, linking to products.
+- **has_many :store_products**: Products are linked through categories.
+- **has_many :customers**: Each store can have multiple customers.
+- **has_one :logo**: Each store can have one logo associated with it.
+- **has_one :settings**: Each store can have specific settings.
+
+### Validations
+- Ensures that essential fields like `name`, `api_key`, and `dispensary_name` are present and valid based on the `api_type`.
+- Validates the presence and format of various API-related fields depending on the selected API type.
+
+### Callbacks
+- **before_validation**: Sanitizes notification settings before validation.
+- **after_create**: Sets up webhooks and schedules sync jobs after a store is created.
+
+### Methods
+- **from_token_payload**: Retrieves a store instance from a given token payload, raising an error if not found.
+- **to_token_payload**: Prepares a token payload for the store instance.
+- **api_parser**: Returns the appropriate API parser based on the store's `api_type`.
+- **schedule_sync**: Schedules a sync job for the store based on its sync frequency settings.
+- **set_shopify_base_url**: Configures the Shopify API base URL if the store uses Shopify.
+
+### API Configuration Methods
+- Methods like `treez_api_config`, `flowhub_api_config`, etc., return configuration hashes for different API integrations.
+
+## Dependencies
+This file does not import or depend on any other files in the repository, nor is it imported by any other files. It operates independently, managing its own data and logic.
+
+## Usage Examples
+- To create a new store:
+  ```ruby
+  store = Store.create(name: 'My Store', client_id: client.id, api_type: 'treez')
+  ```
+- To schedule a sync for a store:
+  ```ruby
+  store.schedule_sync
+  ```
+
+## Best Practices
+- Ensure that all required fields are populated when creating or updating a store to avoid validation errors.
+- Use the provided API configuration methods to interact with external services, ensuring that the correct parameters are passed based on the `api_type`.
+- Regularly review and update the sync frequency settings to maintain data consistency with external systems.

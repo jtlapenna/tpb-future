@@ -1,0 +1,42 @@
+---
+description: Documentation for the StorePrice model in the application.
+globs: ['app/models/store_price.rb']
+alwaysApply: false
+---
+
+# StorePrice Model Documentation
+
+## Overview
+The `StorePrice` model represents the prices associated with a specific store in the application. It is responsible for managing the price data, ensuring that each price entry is unique to a store, and providing a scope for querying prices based on the store owner.
+
+## Key Components
+- **Class Definition**: `class StorePrice < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the model with ActiveRecord functionalities.
+
+- **Associations**: `belongs_to :store`
+  - This establishes a relationship where each `StorePrice` is linked to a single `Store`. This means that each price entry is associated with a specific store.
+
+- **Validations**: `validates :name, presence: true, uniqueness: { scope: :store_id }`
+  - Ensures that the `name` attribute is always present and unique within the context of the `store_id`. This prevents duplicate price names for the same store.
+
+- **Scopes**: `scope :owner, lambda { |owner| joins(:store).merge(Store.owner(owner)) }`
+  - This scope allows for querying `StorePrice` records that belong to stores owned by a specific owner. It uses a join with the `Store` model to filter results based on ownership.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently but relies on the `Store` model for its associations and queries.
+
+## Usage Examples
+To create a new store price:
+```ruby
+store_price = StorePrice.create(name: 'Discount Price', store_id: 1)
+```
+
+To find all prices for a specific store owner:
+```ruby
+StorePrice.owner(owner_id)
+```
+
+## Best Practices
+- Always ensure that the `name` attribute is unique for each store to avoid validation errors.
+- Use the defined scope for querying prices by store owner to maintain clean and efficient database queries.
+- Consider adding additional validations or methods as needed to enhance the functionality of the `StorePrice` model.

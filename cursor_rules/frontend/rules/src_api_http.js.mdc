@@ -1,0 +1,48 @@
+---
+description: Documentation for the HTTP configuration file used in API interactions.
+globs: ['src/api/http.js']
+alwaysApply: false
+---
+
+# HTTP Configuration Documentation
+
+## Overview
+The `http.js` file is responsible for configuring an Axios instance that facilitates HTTP requests to a specific API. It sets up the base URL and authentication token required for making requests to the API endpoints defined by the `TPB_API_URL`, `TPB_CATALOG_ID`, and `TPB_STORE_TOKEN` environment variables or fallback configurations.
+
+## Key Components
+- **Axios Instance**: The file exports a configured Axios instance named `HTTP`. This instance is pre-configured with a base URL and default parameters, making it easier to perform API calls throughout the application.
+- **Environment Variables**: The configuration relies on several environment variables:
+  - `TPB_API_URL`: The base URL for the API.
+  - `TPB_CATALOG_ID`: The catalog ID used in the API requests.
+  - `TPB_STORE_TOKEN`: The token used for authentication in API requests.
+
+If these environment variables are not set, the code falls back to values defined in `self.kioskConfig`, ensuring that the application can still function in different environments.
+
+## Dependencies
+This file does not import any other files within the repository. However, it is imported by several other files, which utilize the configured Axios instance for making API requests:
+- `src/api/RemoteRepo.js`
+- `src/api/feature-tags/FeatureTagsRemote.js`
+- `src/api/products/ProductsRemote.js`
+- `src/api/brands/BrandsRemote.js`
+- `src/api/articles/ArticlesRemote.js`
+- `src/api/rfid/RFIDRemote.js`
+
+## Usage Example
+To use the configured HTTP instance in another file, you can import it as follows:
+```javascript
+import HTTP from './http';
+
+// Example API call using the HTTP instance
+HTTP.get('/some-endpoint')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+```
+
+## Best Practices
+- **Environment Configuration**: Ensure that the necessary environment variables are set in your development and production environments to avoid runtime errors.
+- **Error Handling**: Always implement error handling when making API calls to gracefully manage any issues that may arise during requests.
+- **Reuse the HTTP Instance**: Use the exported `HTTP` instance across your application to maintain consistency in API requests and to leverage the pre-configured settings.

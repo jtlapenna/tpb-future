@@ -1,0 +1,32 @@
+---
+description: Policy class for managing layout position permissions in the application.
+globs: ['app/policies/layout_position_policy.rb']
+alwaysApply: false
+---
+
+# LayoutPositionPolicy Documentation
+
+## Overview
+The `LayoutPositionPolicy` class is a policy class that inherits from `ApplicationPolicy`. It is designed to manage permissions related to layout positions within the application. This class serves as a placeholder for defining authorization rules specific to layout positions, although currently, it does not implement any specific rules.
+
+## Key Components
+- **Class Definition**: `LayoutPositionPolicy` inherits from `ApplicationPolicy`, which means it can utilize any methods or properties defined in the parent class. 
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a policy class, which may be extended in the future to include specific authorization logic.
+
+## Usage Examples
+While there are no specific methods defined in this class yet, it can be used in conjunction with controllers or services that require authorization checks for layout positions. For example:
+
+```ruby
+if LayoutPositionPolicy.new(user, layout_position).update?
+  # Allow update action
+else
+  # Deny update action
+end
+```
+
+## Best Practices
+- **Extending Functionality**: As the application grows, consider adding specific methods to this policy class to handle various authorization checks related to layout positions. For example, methods like `create?`, `update?`, or `destroy?` can be implemented to define who can perform these actions.
+- **Consistency**: Ensure that any new methods added to this policy are consistent with the naming conventions and logic used in other policy classes within the application.
+- **Documentation**: Keep the documentation updated as new methods are added to provide clarity on the purpose and usage of each method.

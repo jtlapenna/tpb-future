@@ -1,0 +1,32 @@
+---
+description: Serializer for minimal store category representation in the application.
+globs: ['app/serializers/store_category_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# StoreCategoryMinimalSerializer
+
+## Overview
+The `StoreCategoryMinimalSerializer` is a serializer class that defines how a minimal representation of a store category is structured when converted to JSON. It is part of the ActiveModel Serializers framework, which is used to create JSON representations of Ruby objects in a Rails application.
+
+## Key Components
+- **Class Definition**: The class `StoreCategoryMinimalSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects.
+- **Attributes**: The `attributes` method specifies which fields of the store category should be included in the serialized output. In this case, it includes `:id` and `:name`.
+- **Associations**:
+  - `belongs_to :store`: This indicates that each store category is associated with a single store. The `serializer: StoreMinimalSerializer` option specifies that when the store is serialized, it should use the `StoreMinimalSerializer` for its representation.
+  - `has_many :store_category_taxes`: This indicates that a store category can have multiple associated store category taxes, which will be serialized as part of the output.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, focusing solely on the serialization of store category data.
+
+## Usage Example
+To use this serializer, you would typically call it within a controller action when rendering a store category object. For example:
+```ruby
+render json: @store_category, serializer: StoreCategoryMinimalSerializer
+```
+This would return a JSON response containing the `id` and `name` of the store category, along with the associated store and store category taxes.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data needed by the client. Avoid over-fetching data by only including necessary fields.
+- When adding new associations, consider the performance implications of serializing related objects, especially if they have many records.
+- Keep the serializer focused on a single responsibility, which is to format the output for the store category. If additional logic is needed, consider using service objects or decorators.

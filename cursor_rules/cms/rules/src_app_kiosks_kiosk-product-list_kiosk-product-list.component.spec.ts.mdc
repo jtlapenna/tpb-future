@@ -1,0 +1,35 @@
+---
+description: Unit tests for the KioskProductListComponent in an Angular application.
+globs: ['src/app/kiosks/kiosk-product-list/kiosk-product-list.component.spec.ts']
+alwaysApply: false
+---
+
+# KioskProductListComponent Spec
+
+## Overview
+This file contains unit tests for the `KioskProductListComponent`, which is part of an Angular application. The tests are designed to ensure that the component is created successfully and functions as expected within the application.
+
+## Key Components
+- **Imports**: The file imports necessary testing utilities from Angular's testing framework, as well as a custom testing module (`PeakTestingModule`) and the component being tested (`KioskProductListComponent`).
+- **describe**: This function groups the tests for the `KioskProductListComponent`. It provides a context for the tests, making it clear which component is being tested.
+- **beforeEach**: This function is called before each test. It sets up the testing environment by configuring the testing module, compiling the components, and creating an instance of the component to be tested.
+- **it**: This function defines an individual test case. In this file, there is a single test case that checks if the component is created successfully.
+
+## Dependencies
+- **PeakTestingModule**: A custom module that likely includes shared testing utilities and configurations for the application.
+- **COMMON_PROVIDERS** and **FAKE_SERVICES**: These are likely mock services and providers used to isolate the component from its dependencies during testing.
+- **CUSTOM_ELEMENTS_SCHEMA**: This schema allows the use of custom elements in the component template without Angular throwing errors about unknown elements.
+
+The `KioskProductListComponent` itself is imported from `kiosk-product-list.component.ts`, which contains the actual implementation of the component.
+
+## Usage Examples
+To run the tests defined in this file, you can use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this spec file.
+
+## Best Practices
+- Ensure that all components have corresponding spec files to maintain test coverage.
+- Use mock services to isolate components and avoid dependencies on external services during testing.
+- Keep tests focused and concise, testing one aspect of the component at a time to improve readability and maintainability.

@@ -1,0 +1,57 @@
+---
+description: Documentation for the service worker cache synchronization script.
+globs: ['static/js/sw-cache-sync.js']
+alwaysApply: false
+---
+
+# sw-cache-sync.js Documentation
+
+## Overview
+The `sw-cache-sync.js` file is a service worker script responsible for managing the caching of various resources in a web application. It ensures that the application can efficiently fetch and cache data from the API, allowing for improved performance and offline capabilities.
+
+## Key Components
+
+### Global Variables
+- `self.ressourcesToCache`: An object that holds arrays for caching API resources and assets.
+- `self.queueApiProcessing`: A boolean flag indicating if the API processing queue is active.
+- `self.queueAssetProcessing`: A boolean flag indicating if the asset processing queue is active.
+- `self.firstPass`: A flag to track the first pass of cache checking.
+
+### Functions
+- **checkCache**: Initiates the cache checking process and logs the status if logging is enabled.
+- **checkArticles**: Fetches articles from the API, updates the cache, and processes the queue.
+- **checkBrands**: Fetches brands, compares them with cached data, and updates the cache accordingly.
+- **checkCategories**: Fetches categories and caches them, processing each category's assets.
+- **checkProducts**: Fetches product data, caches it, and parses the products for further processing.
+- **parseProducts**: Parses fetched product data and manages caching based on the product's update status.
+- **checkRfids**: Fetches RFID data and updates the cache.
+- **checkSettings**: Fetches application settings and updates the cache.
+- **ressourceURL**: Constructs a resource URL for API requests, including necessary query parameters.
+- **queueRessource**: Adds a resource URL to the appropriate cache queue.
+- **deleteRessource**: Deletes a resource from the cache.
+- **fetchAndCache**: Fetches a resource and adds it to the cache.
+- **cacheRessource**: Caches a resource based on the response from the API.
+- **compareAndCacheAssets**: Compares online assets with cached assets and updates the cache as necessary.
+- **compareAndCacheRessourcesAssets**: Compares online resources with cached resources and manages asset caching.
+- **cacheRessourceAssets**: Caches assets associated with a resource.
+- **recursivelyFindAssets**: Recursively finds and returns assets from a resource object.
+- **processQueue**: Processes the API and asset queues to fetch resources.
+- **fetchNextRessource**: Fetches the next resource in the queue and handles the response.
+
+### Event Listeners
+- **message**: Listens for messages from the service worker context to trigger cache checking.
+
+## Dependencies
+This file does not import or export any modules and is not used by any other files in the repository. It operates independently as a service worker script.
+
+## Usage Examples
+To trigger the cache checking process, send a message to the service worker:
+```javascript
+navigator.serviceWorker.controller.postMessage('check cache');
+```
+
+## Best Practices
+- Ensure that the `SW_LOG` configuration is set appropriately to enable or disable logging for debugging purposes.
+- Regularly review the caching strategy to ensure that outdated resources are not retained in the cache longer than necessary.
+- Test the service worker in various scenarios, including offline mode, to ensure that the caching behavior meets user expectations.
+- Keep the API endpoints and resource URLs updated to reflect any changes in the backend services.

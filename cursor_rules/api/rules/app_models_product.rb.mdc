@@ -1,0 +1,70 @@
+---
+description: Documentation for the Product model in the application, detailing its attributes, relationships, and functionality.
+globs: ['app/models/product.rb']
+alwaysApply: false
+---
+
+# Product Model Documentation
+
+## Overview
+The `Product` model represents a product in the application, inheriting from `ApplicationRecord`. It integrates with Algolia for search functionality and supports tagging, video, and image associations. This model is crucial for managing product data and its relationships within the application.
+
+## Key Components
+
+### Class Declaration
+```ruby
+class Product < ApplicationRecord
+```
+The `Product` class inherits from `ApplicationRecord`, which provides it with Active Record functionalities.
+
+### Included Modules
+- `AlgoliaSearch`: Enables search capabilities using Algolia.
+- `Reviewable`: Presumably adds review-related functionalities (not detailed in this file).
+
+### Algolia Search Configuration
+```ruby
+algoliasearch per_environment: true, ... do
+```
+This block configures Algolia search settings, including attributes to be indexed and conditions for indexing.
+
+### Associations
+- `belongs_to :category`: Each product belongs to a category.
+- `has_many :product_variants`: A product can have multiple variants.
+- `has_many :attribute_values`: Allows for flexible attributes associated with the product.
+- `has_one :video`: Each product can have one associated video.
+- `has_many :images`: Supports multiple images for a product.
+
+### Scopes
+- `name_like`: Searches for products by name using a case-insensitive match.
+- `with_category`: Filters products by category.
+
+### Callbacks
+- `before_save :track_tags_changes`: Updates the `updated_at` timestamp if the tags change before saving the product.
+
+### Validations
+- `validates :name, presence: true`: Ensures that a product must have a name.
+
+### Instance Methods
+- `video_url`: Returns the URL of the associated video if it exists.
+- `will_save_change_to_category?`: Checks if the category is being changed during save operations.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it self-contained. However, it relies on the `ApplicationRecord`, `AlgoliaSearch`, and `Reviewable` modules, which are defined elsewhere in the codebase.
+
+## Usage Examples
+To create a new product:
+```ruby
+product = Product.new(name: 'Sample Product', description: 'A great product', category_id: 1)
+product.save
+```
+
+To search for products by name:
+```ruby
+products = Product.name_like('Sample')
+```
+
+## Best Practices
+- Ensure that all required fields, such as `name`, are validated before saving a product.
+- Use scopes for querying products to maintain clean and efficient code.
+- Be cautious when modifying tags, as it triggers updates to the `updated_at` timestamp.
+- Regularly review Algolia settings to ensure optimal search performance.

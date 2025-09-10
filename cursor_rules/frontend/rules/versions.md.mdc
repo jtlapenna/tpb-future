@@ -1,0 +1,35 @@
+---
+description: Documentation for the versions.md file that outlines version changes and bug fixes in the codebase.
+globs: ['versions.md']
+alwaysApply: false
+---
+
+# versions.md Documentation
+
+## Overview
+The `versions.md` file serves as a changelog for the project, documenting the changes, new features, and bug fixes introduced in each version of the software. This file is crucial for developers and users to track the evolution of the codebase and understand what modifications have been made over time.
+
+## Key Components
+
+### Version Entries
+Each version entry in the file is structured with a version number followed by a list of changes and bug fixes. For example:
+
+- **V1.6.0**: This version currently has no changes documented.
+- **V1.5.0**: This version includes significant updates such as new layouts, offline support, and data analytics features, along with several bug fixes.
+
+### Changes Section
+The `Changes` section lists new features or enhancements made in that version. For instance, in V1.5.0, new layouts like "CCC layout" and "AdSales Layout" were introduced.
+
+### Bugfix Section
+The `Bugfix` section details any issues that were resolved in the version. For example, V1.5.0 fixed bugs related to analytics events and product stock visibility.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a documentation file, providing a historical record of changes.
+
+## Usage Examples
+While this file does not contain executable code, it is used as a reference for developers and stakeholders to understand the history of the project. It is recommended to review this file before upgrading to a new version to be aware of any new features or critical bug fixes.
+
+## Best Practices
+- **Keep it Updated**: Ensure that every new version release is documented promptly to maintain an accurate changelog.
+- **Be Descriptive**: When documenting changes, provide clear and concise descriptions to help users understand the impact of the changes.
+- **Consistency**: Follow a consistent format for each version entry to enhance readability and usability of the changelog.

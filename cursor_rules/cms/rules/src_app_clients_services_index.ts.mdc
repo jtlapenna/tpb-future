@@ -1,0 +1,38 @@
+---
+description: Documentation for the index file that re-exports client services.
+globs: ['src/app/clients/services/index.ts']
+alwaysApply: false
+---
+
+# Overview
+
+The `index.ts` file in the `src/app/clients/services` directory serves as a central export point for the client service functionalities. It simplifies the import process for other modules by re-exporting everything from the `client.service` file.
+
+# Purpose and Functionality
+
+This file does not contain any logic or functionality of its own; instead, it acts as a conduit for the exports from `client.service.ts`. This pattern is commonly used in TypeScript to create a cleaner and more organized module structure.
+
+# Key Components
+
+- **Re-exports**: The only line in this file is `export * from './client.service';`, which means that all exports from `client.service.ts` are made available to any module that imports from this `index.ts` file. This includes any classes, functions, or constants defined in `client.service.ts`.
+
+# Dependencies
+
+- **Imports**: This file does not import any other files in the repository.
+- **Exports**: It re-exports everything from `client.service.ts`, which means that any changes made to the exports in `client.service.ts` will automatically be reflected when importing from this `index.ts` file.
+
+# Usage Examples
+
+To use the services defined in `client.service.ts`, you can import them directly from this `index.ts` file as follows:
+
+```typescript
+import { ClientService } from './services'; // This imports from index.ts
+```
+
+This allows for a more concise import statement and keeps the import paths cleaner.
+
+# Best Practices
+
+- **Organize Exports**: Use index files to group related exports together, making it easier for other developers to find and use the services.
+- **Keep It Simple**: Avoid adding additional logic or exports in index files; their purpose should be solely to re-export.
+- **Consistent Naming**: Ensure that the naming conventions in `client.service.ts` are clear and descriptive, as they will be the primary interface for consumers of this module.

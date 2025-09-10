@@ -1,0 +1,67 @@
+---
+description: Documentation for the Firebase Messaging Service Worker file.
+globs: ['static/js/firebase-messaging-sw.js']
+alwaysApply: false
+---
+
+# Firebase Messaging Service Worker
+
+## Overview
+This file serves as a service worker for handling Firebase Cloud Messaging (FCM) in a web application. It is responsible for receiving background messages and displaying notifications to users when the application is not in the foreground.
+
+## Key Components
+- **Firebase Initialization**: The service worker initializes the Firebase app using the provided configuration object, which includes API keys and project identifiers necessary for connecting to Firebase services.
+- **Messaging Instance**: An instance of Firebase Messaging is created to handle background messages. This instance is crucial for receiving notifications when the app is not active.
+- **Background Message Handling**: The `onBackgroundMessage` method is used to define how to handle incoming messages. In this case, it displays a notification using the `showNotification` method.
+
+## File Structure
+```javascript
+// Import Firebase libraries
+importScripts("https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/8.6.7/firebase-messaging.js");
+
+// Initialize Firebase with configuration
+firebase.initializeApp({
+  apiKey: 'AIzaSyDD-bDnGXYawIfiyUjjKgFEzJxsuksmnDs',
+  authDomain: 'tpb-kiosk-fe-vue.firebaseapp.com',
+  databaseURL: 'https://tpb-kiosk-fe-vue.firebaseio.com',
+  projectId: 'tpb-kiosk-fe-vue',
+  storageBucket: 'tpb-kiosk-fe-vue.appspot.com',
+  messagingSenderId: '32483309252',
+  appId: '1:363009717442:web:2f451c22612f687e08f75b',
+  measurementId: 'G-9FGF22C995'
+});
+
+// Create messaging instance
+const messaging = firebase.messaging();
+
+// Handle background messages
+messaging.onBackgroundMessage((message) => {
+  return self.showNotification(
+    message.notification.title,
+    message.notification
+  );
+});
+```
+
+## Dependencies
+This file does not import or export any other files within the repository. It solely relies on Firebase's external scripts for functionality.
+
+## Usage Example
+To use this service worker, ensure that it is registered in your main application file (e.g., `index.js` or `app.js`). Here’s a simple example of how to register the service worker:
+```javascript
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/static/js/firebase-messaging-sw.js')
+    .then((registration) => {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch((error) => {
+      console.error('Service Worker registration failed:', error);
+    });
+}
+```
+
+## Best Practices
+- **Security**: Never expose sensitive information such as API keys in your service worker. Consider using environment variables or other secure methods to manage configuration.
+- **Testing**: Test the service worker in various scenarios to ensure that notifications are displayed correctly and that the service worker behaves as expected when the app is in the background.
+- **Updates**: Keep the Firebase libraries updated to the latest version to benefit from new features and security improvements.

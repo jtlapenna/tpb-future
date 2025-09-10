@@ -1,0 +1,28 @@
+---
+description: Documentation for the .nvmrc file specifying the Node.js version to be used in the project.
+globs: ['.nvmrc']
+alwaysApply: false
+---
+
+# .nvmrc Documentation
+
+## Overview
+The `.nvmrc` file is used to specify the version of Node.js that the project should use. This is particularly useful in environments where multiple versions of Node.js are installed, allowing developers to easily switch to the correct version for the project.
+
+## Key Components
+- **Node.js Version**: The content of the file consists of a single line indicating the version of Node.js to be used. In this case, it specifies `14.18.0`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It serves as a standalone configuration file for Node Version Manager (NVM).
+
+## Usage
+To use the specified Node.js version in your development environment, ensure that you have NVM installed. You can switch to the version specified in the `.nvmrc` file by running the following command in your terminal:
+```bash
+nvm use
+```
+This command reads the version from the `.nvmrc` file and switches to that version if it is installed.
+
+## Best Practices
+- Always keep the `.nvmrc` file updated with the version of Node.js that your project is currently using. This helps maintain consistency across different development environments.
+- When starting a new project or updating dependencies, check if the Node.js version needs to be updated in the `.nvmrc` file.
+- Encourage team members to use NVM and the `.nvmrc` file to avoid version conflicts.

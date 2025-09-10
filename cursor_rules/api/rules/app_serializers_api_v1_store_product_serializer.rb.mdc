@@ -1,0 +1,46 @@
+---
+description: Serializer for StoreProduct in the API V1 namespace, converting product data to JSON format.
+globs: ['app/serializers/api/v1/store_product_serializer.rb']
+alwaysApply: false
+---
+
+# StoreProductSerializer Documentation
+
+## Overview
+The `StoreProductSerializer` class is responsible for serializing the `StoreProduct` model into JSON format for API responses in version 1 of the API. It defines how the product data is structured when sent to clients, ensuring that only the necessary attributes are included and formatted correctly.
+
+## Key Components
+- **Attributes**: The serializer specifies several attributes to be included in the serialized output:
+  - `id`: The unique identifier for the product.
+  - `sku`: The stock keeping unit for the product.
+  - `tag_list`: A sorted list of tags associated with the product.
+  - `stock`: The current stock level of the product.
+  - `created_at`: The timestamp when the product was created.
+  - `name_for_catalog`: The name of the product, aliased as `name`.
+  - `description_for_catalog`: The description of the product, aliased as `description`.
+  - `updated_at`: The most recent update timestamp among the product, its variant, and its parent product.
+  - `video_url`: The URL of the product's promotional video, if available.
+
+- **Relationships**: The serializer defines relationships to other models:
+  - `store_category`: A belongs-to relationship with the `StoreCategory` model, serialized using `StoreCategoryMinimalSerializer`.
+  - `brand_for_catalog`: A belongs-to relationship with the `Brand` model, serialized using `BrandMinimalSerializer`.
+  - `primary_image` and `thumb_image`: Belongs-to relationships for the product's images.
+  - `video_for_catalog`: A has-one relationship for the product's video asset, serialized using `AssetSerializer`.
+  - `product_values`: A has-many relationship for associated product values.
+  - `images`: A custom has-many relationship that combines the product's images and its own images.
+
+- **Custom Methods**: The `tag_list` method sorts the product's tags before serialization, ensuring a consistent order in the output.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the API V1 namespace.
+
+## Usage Example
+To use the `StoreProductSerializer`, you would typically instantiate it with a `StoreProduct` object and render it in a controller action:
+```ruby
+render json: StoreProductSerializer.new(@store_product)
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer align with the requirements of the API consumers.
+- Keep the serializer focused on the specific model it represents, avoiding unnecessary complexity.
+- Regularly review and update the serializer as the underlying model changes to maintain consistency in the API responses.

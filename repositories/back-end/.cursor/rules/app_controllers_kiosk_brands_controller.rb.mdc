@@ -1,0 +1,38 @@
+---
+description: Documentation for the KioskBrandsController in a Ruby on Rails application.
+globs: ['app/controllers/kiosk_brands_controller.rb']
+alwaysApply: false
+---
+
+# KioskBrandsController Documentation
+
+## Overview
+The `KioskBrandsController` is responsible for handling requests related to brands associated with a specific kiosk in a Ruby on Rails application. It provides functionality to list brands, with optional filtering based on a search query.
+
+## Key Components
+- **Class Definition**: `KioskBrandsController` inherits from `ApplicationController`, which means it has access to all the methods and functionalities provided by the base controller.
+- **Modules Included**: The controller includes two modules, `Paged` and `Sortable`, which likely provide pagination and sorting functionalities for the brand listings.
+- **before_action**: The `find_kiosk` method is called before executing any action in this controller, ensuring that the `@kiosk` instance variable is set based on the `kiosk_id` parameter.
+
+### Actions
+- **index**: This action retrieves a list of brands associated with the kiosk. It supports optional filtering based on a search query (`params[:q]`). If a query is provided, it performs a case-insensitive search on the brand names. The results are paginated and serialized into JSON format for API responses.
+  - **Parameters**: 
+    - `params[:q]`: Optional search query for filtering brand names.
+  - **Response**: Returns a JSON object containing the brands, along with pagination metadata.
+
+- **find_kiosk**: This private method fetches the kiosk based on the `kiosk_id` parameter and sets it to the `@kiosk` instance variable. It uses `policy_scope` to ensure that the user has the appropriate permissions to access the kiosk.
+
+## Dependencies
+This controller does not import any other files and is not imported by any other files in the repository. It operates independently, relying on the Rails framework and the included modules for its functionality.
+
+## Usage Examples
+To retrieve a list of brands for a specific kiosk, a GET request can be made to the following endpoint:
+```
+GET /kiosks/:kiosk_id/brands?q=search_term
+```
+This will return a JSON response with the filtered list of brands.
+
+## Best Practices
+- Ensure that the `kiosk_id` parameter is always provided in requests to avoid errors when fetching the kiosk.
+- Use the `params[:q]` parameter judiciously to avoid performance issues with large datasets. Consider implementing additional optimizations if necessary.
+- Follow the conventions of the Rails framework for naming and structuring controllers and actions to maintain consistency across the codebase.

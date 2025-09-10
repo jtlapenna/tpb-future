@@ -1,0 +1,28 @@
+---
+description: Documentation for the spec directory containing test helpers for the codebase.
+globs: ['spec/*']
+alwaysApply: false
+---
+
+# Spec Directory Documentation
+
+## Overview
+The `spec` directory is dedicated to holding test files and helper modules that facilitate the testing of the application. It serves as the foundation for writing and organizing tests, ensuring that the codebase remains robust and maintainable.
+
+## Key Files
+- **spec_helper.rb**: This file is essential for configuring RSpec, the testing framework used in this codebase. It sets up the testing environment and includes necessary configurations that apply to all tests.
+- **acceptance_helper.rb**: This helper is specifically designed for acceptance tests, providing shared functionality and configurations that are relevant to testing user interactions and system behavior.
+- **rails_helper.rb**: This file is crucial for Rails applications, as it loads the Rails environment and includes additional configurations needed for testing Rails-specific features.
+
+## Relation to Other Parts of the Codebase
+The `spec` directory is closely tied to the application code, as it contains tests that validate the functionality of the code found in the `app` directory. It ensures that any changes made to the application are verified through automated tests, promoting a test-driven development approach.
+
+## Common Patterns and Conventions
+- Tests are typically organized by feature or functionality, with corresponding spec files named after the classes or modules they are testing.
+- Helper files are used to encapsulate shared logic, reducing duplication across test files.
+- RSpec conventions are followed, including the use of `describe`, `context`, and `it` blocks to structure tests clearly.
+
+## Best Practices
+- Keep the `spec_helper.rb` and `rails_helper.rb` files updated with any new configurations or dependencies as the project evolves.
+- Use descriptive names for spec files and test cases to improve readability and maintainability.
+- Regularly run tests to ensure that all functionality is covered and that the codebase remains stable after changes.

@@ -1,0 +1,30 @@
+---
+description: Documentation for the config.ru file used in a Rack-based Rails application.
+globs: ['config.ru']
+alwaysApply: false
+---
+
+# Overview
+The `config.ru` file is a crucial component in Rack-based applications, serving as the entry point for the application when it is run on a Rack server. It is responsible for loading the application environment and initiating the application.
+
+# Purpose and Functionality
+This file is used to configure the Rack server to run a Ruby on Rails application. It requires the environment configuration and then runs the Rails application, allowing it to handle incoming web requests.
+
+# Key Components
+- **require_relative 'config/environment'**: This line loads the Rails application environment, which sets up the necessary configurations and dependencies for the application to function correctly.
+- **run Rails.application**: This command tells Rack to run the Rails application, which is defined in the loaded environment. It is the main entry point for handling requests.
+
+# Dependencies
+- This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as the entry point for the application.
+
+# Usage Examples
+To start the application using this file, you would typically run a command like:
+```bash
+rackup config.ru
+```
+This command starts the Rack server and uses the `config.ru` file to load and run the Rails application.
+
+# Best Practices
+- Ensure that the `config/environment.rb` file is correctly set up to load all necessary components of your Rails application.
+- Keep the `config.ru` file clean and minimal, focusing solely on the application startup process.
+- Regularly review and test the application startup process to ensure that all dependencies are correctly loaded and that the application runs smoothly.

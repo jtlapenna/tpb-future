@@ -1,0 +1,38 @@
+---
+description: UserPolicy class that defines authorization rules for user actions.
+globs: ['app/policies/user_policy.rb']
+alwaysApply: false
+---
+
+# UserPolicy Documentation
+
+## Overview
+The `UserPolicy` class is responsible for defining the authorization rules for user-related actions within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application. This policy specifically governs the permissions for showing and updating user records.
+
+## Key Components
+- **Class Definition**: `UserPolicy < ApplicationPolicy`
+  - This class extends the `ApplicationPolicy`, allowing it to utilize shared authorization logic.
+
+- **Methods**:
+  - `show?`: Determines if a user is allowed to view a specific user record. The user can view the record if they are an admin or if they are the same as the record being accessed.
+  - `update?`: Similar to `show?`, this method checks if a user can update a user record based on the same conditions: being an admin or the owner of the record.
+  - `permitted_attributes`: Returns an array of attributes that are permitted for mass assignment when creating or updating user records. This includes `name`, `email`, `password`, `password_confirmation`, and `client_id`.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use the `UserPolicy`, you would typically instantiate it within a controller action to check permissions:
+```ruby
+policy = UserPolicy.new(current_user, user)
+if policy.show?
+  # Allow access to the user record
+else
+  # Deny access
+end
+```
+
+## Best Practices
+- Ensure that the `admin?` method is properly defined in the `ApplicationPolicy` to accurately reflect admin status.
+- Regularly review the `permitted_attributes` to ensure they align with the current requirements of the application and maintain security best practices.
+- When adding new actions or modifying existing ones, consider the implications on user permissions and update the policy accordingly.

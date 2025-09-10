@@ -1,0 +1,47 @@
+---
+description: Documentation for the index file in the models directory of the stores module.
+globs: ['src/app/stores/models/index.ts']
+alwaysApply: false
+---
+
+# Overview
+
+The `index.ts` file in the `src/app/stores/models` directory serves as a central export hub for various model components related to the store functionality in the application. By re-exporting modules, it simplifies the import process for other parts of the application that need to access these models.
+
+# Purpose and Functionality
+
+This file consolidates exports from multiple model files, allowing developers to import all necessary store-related models from a single location. This approach enhances code organization and maintainability, making it easier to manage dependencies within the store module.
+
+# Key Components
+
+The following components are exported from this file:
+
+- `store`: Represents the main store model, encapsulating the core functionalities and properties of a store.
+- `welcome-asset`: Contains the model for welcome assets associated with the store, such as promotional materials.
+- `store-settings`: Defines the configuration settings for the store, allowing customization of various parameters.
+- `store-price`: Manages pricing information for products within the store.
+- `store-article`: Represents articles or items available in the store.
+- `rfid-product`: Handles RFID-related functionalities for products, enhancing inventory management.
+- `store-product`: Represents individual products in the store, including their attributes and behaviors.
+- `purchase-limit`: Defines limits on purchases, which can be useful for managing stock and customer behavior.
+- `tax`: Manages tax-related information applicable to store transactions.
+
+# Relationship to Other Files
+
+This `index.ts` file does not import any other files, nor is it imported by any other files in the repository. However, it serves as a crucial link for other modules that need to access the various store models. By exporting these models, it allows for a cleaner and more organized import structure in other parts of the application.
+
+# Usage Examples
+
+To use the models exported from this file, you can import them as follows:
+
+```typescript
+import { store, storePrice, storeProduct } from 'src/app/stores/models';
+```
+
+This single import statement allows you to access multiple models without needing to import each one individually, streamlining your code.
+
+# Best Practices
+
+- **Centralized Imports**: Always use the `index.ts` file for importing store models to maintain a clean and organized codebase.
+- **Consistent Naming**: Ensure that the names of the exported models are consistent and descriptive to enhance readability and maintainability.
+- **Documentation**: Keep the documentation up to date as new models are added or existing ones are modified to ensure clarity for all developers working with the codebase.

@@ -1,0 +1,47 @@
+---
+description: Documentation for the BlazeApiParser class responsible for parsing and syncing inventory data from the Blaze API.
+globs: ['app/parsers/blaze_api_parser.rb']
+alwaysApply: false
+---
+
+# BlazeApiParser Documentation
+
+## Overview
+The `BlazeApiParser` class is designed to interact with the Blaze API to manage and sync inventory data for a specific store. It handles the retrieval of product information, processes inventory data, and manages promotions associated with products. This class is crucial for ensuring that the store's inventory is up-to-date and accurately reflects the data provided by the Blaze API.
+
+## Key Components
+
+### Class: `BlazeApiParser`
+- **Initialization**: The class is initialized with a `store_id`, which is used to fetch the store's data and settings.
+
+### Methods:
+- **`initialize(store_id:)`**: Sets up the instance with the provided store ID.
+- **`store`**: Lazy loads the store object associated with the given store ID.
+- **`api_client`**: Initializes the API client for interacting with the Blaze API using store credentials.
+- **`inventory_products`**: Fetches the inventory products from the Blaze API.
+- **`parse`**: The main method that processes the inventory data, removes duplicate SKUs, and creates `StoreSyncItem` objects for valid products.
+- **`generate_cannabis_attributes(api_product)`**: Extracts and formats cannabis-related attributes from the API product data.
+- **`promotions(promotion, api_product)`**: Manages promotions for products based on the data received from the API.
+- **`get_thc(api_product)`**: Retrieves THC values from the API product data.
+- **`get_cbd(api_product)`**: Retrieves CBD values from the API product data.
+- **`get_prices(api_product)`**: Determines the price of the product based on various pricing structures.
+- **`get_weight_value(api_product)`**: Gets the weight value of the product based on its weight type.
+- **`get_weight_name(api_product)`**: Returns a human-readable name for the product's weight.
+- **`get_quantity(quantities, inventory_list)`**: Determines the available quantity of the product based on the inventory list.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the Blaze API for data retrieval.
+
+## Usage Examples
+To use the `BlazeApiParser`, you would typically instantiate it with a store ID and call the `parse` method:
+```ruby
+parser = BlazeApiParser.new(store_id: 1)
+result = parser.parse
+puts result
+```
+
+## Best Practices
+- Ensure that the store ID provided during initialization is valid and corresponds to an existing store in the database.
+- Handle exceptions gracefully, especially when dealing with external API calls, to avoid crashes and ensure logging of errors for debugging.
+- Regularly review and update the API client configuration to accommodate any changes in the Blaze API.
+- Consider implementing unit tests for the methods to ensure reliability and correctness of the data processing logic.

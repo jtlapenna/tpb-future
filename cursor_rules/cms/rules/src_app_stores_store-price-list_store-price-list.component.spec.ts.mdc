@@ -1,0 +1,34 @@
+---
+description: Unit tests for the StorePriceListComponent in the Angular application.
+globs: ['src/app/stores/store-price-list/store-price-list.component.spec.ts']
+alwaysApply: false
+---
+
+# StorePriceListComponent Spec
+
+## Overview
+This file contains unit tests for the `StorePriceListComponent`, which is part of the Angular application. The tests are designed to ensure that the component is created successfully and behaves as expected within the application.
+
+## Key Components
+- **Imports**: The file imports necessary testing utilities from Angular's testing framework, as well as the component under test and a custom testing module.
+- **describe**: This function groups the tests for the `StorePriceListComponent`. It provides a context for the tests, making it clear which component is being tested.
+- **beforeEach**: This function is called before each test to set up the testing environment. It configures the testing module, compiles the components, and initializes the component instance.
+- **it**: This function defines an individual test case. In this file, there is a single test case that checks if the component is created successfully.
+
+## Dependencies
+- **StorePriceListComponent**: The component being tested, located at `src/app/stores/store-price-list/store-price-list.component.ts`.
+- **PeakTestingModule**: A custom testing module imported from `src/app/test`, which likely contains shared testing utilities or configurations.
+- **CUSTOM_ELEMENTS_SCHEMA**: This schema is used to ignore unknown elements in the component template, which is useful when testing components that may use custom elements.
+
+## Usage Example
+To run the tests defined in this file, you can use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this spec file.
+
+## Best Practices
+- Ensure that all components have corresponding spec files to maintain test coverage.
+- Keep tests isolated and focused on a single functionality to make debugging easier.
+- Use descriptive names for test cases to clarify their purpose and expected outcomes.
+- Regularly run tests during development to catch issues early.

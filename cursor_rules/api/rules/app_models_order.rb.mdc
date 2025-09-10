@@ -1,0 +1,53 @@
+---
+description: Documentation for the Order model in the application.
+globs: ['app/models/order.rb']
+alwaysApply: false
+---
+
+# Order Model Documentation
+
+## Overview
+The `Order` class represents an order in the application. It encapsulates the details of an order, including the customer, items, and the store associated with the order. This model includes validations to ensure that essential attributes are present and that the items in the order are valid.
+
+## Key Components
+
+### Attributes
+- `customer_id`: The ID of the customer placing the order.
+- `items`: An array of items included in the order, each represented by an `OrderItem` object.
+- `store_id`: The ID of the store where the order is placed.
+- `id`: The unique identifier for the order.
+
+### Validations
+- The model validates the presence of `store_id` and `items` to ensure that an order cannot be created without these essential details.
+- A custom validation method, `validate_items`, checks the validity of each item in the order and collects any errors.
+
+### Methods
+- `attributes`: Returns a hash representation of the order's attributes, with all values initialized to `nil`.
+- `new_record?`: Returns `true` if the order is a new record (i.e., it does not have an ID yet).
+- `items=`: A custom setter method that initializes the `items` attribute by mapping the input values to `OrderItem` objects, associating each item with the current order.
+
+### Validation Method
+- `validate_items`: Iterates through the items in the order, checking for validity. If any item is invalid, it collects error messages and associates them with the appropriate attribute name in the errors hash.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a model for managing order data.
+
+## Usage Example
+To create a new order, you can instantiate the `Order` class and set its attributes:
+```ruby
+order = Order.new
+order.customer_id = 1
+order.store_id = 2
+order.items = [{ name: 'Item 1', price: 10 }, { name: 'Item 2', price: 20 }]
+
+if order.valid?
+  # Save the order to the database
+else
+  puts order.errors.full_messages
+end
+```
+
+## Best Practices
+- Always ensure that `store_id` and `items` are set before attempting to save an order to avoid validation errors.
+- Use the `new_record?` method to check if an order is new before performing operations that depend on the order's ID.
+- When adding items to an order, ensure that each item is valid to prevent errors during validation.

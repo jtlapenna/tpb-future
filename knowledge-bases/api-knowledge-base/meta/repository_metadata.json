@@ -1,0 +1,89 @@
+{
+  "repository_name": "thepeakbeyond-aim-tpb-be",
+  "repository_description": "The Peak Beyond's backend system for cannabis retail kiosks",
+  "repository_type": "backend",
+  "primary_language": "Ruby",
+  "framework": "Ruby on Rails",
+  "database": "PostgreSQL",
+  "related_repositories": [
+    {
+      "name": "Frontend (Angular Kiosk UI)",
+      "description": "Touchscreen interface for customer interactions",
+      "relationship": "Consumes APIs provided by this repository"
+    },
+    {
+      "name": "CMS (Angular)",
+      "description": "Admin panel for managing products, pricing, and content",
+      "relationship": "Consumes APIs provided by this repository"
+    },
+    {
+      "name": "Kiosk Install (SysAdmin)",
+      "description": "Manages kiosk deployment, configuration, and updates",
+      "relationship": "Deploys and configures this repository"
+    }
+  ],
+  "key_components": [
+    {
+      "name": "API Controllers",
+      "path": "app/controllers",
+      "description": "Handle API requests and responses"
+    },
+    {
+      "name": "Models",
+      "path": "app/models",
+      "description": "Define data structures and business logic"
+    },
+    {
+      "name": "POS Integration Libraries",
+      "path": "app/lib",
+      "description": "Integrate with various POS systems"
+    },
+    {
+      "name": "Background Jobs",
+      "path": "app/jobs",
+      "description": "Handle asynchronous processing"
+    },
+    {
+      "name": "Serializers",
+      "path": "app/serializers",
+      "description": "Format data for API responses"
+    },
+    {
+      "name": "Operations",
+      "path": "app/operations",
+      "description": "Encapsulate complex business operations"
+    }
+  ],
+  "external_dependencies": [
+    {
+      "name": "Treez",
+      "type": "POS System",
+      "integration_point": "app/lib/treez"
+    },
+    {
+      "name": "Dutchie",
+      "type": "POS System",
+      "integration_point": "app/lib/dutchie"
+    },
+    {
+      "name": "Blaze",
+      "type": "POS System",
+      "integration_point": "app/lib/blaze"
+    },
+    {
+      "name": "Flowhub",
+      "type": "POS System",
+      "integration_point": "app/lib/flowhub"
+    },
+    {
+      "name": "COVA",
+      "type": "POS System",
+      "integration_point": "app/lib/covasoft"
+    },
+    {
+      "name": "Shopify",
+      "type": "E-commerce Platform",
+      "integration_point": "app/lib/shopify"
+    }
+  ]
+} 

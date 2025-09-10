@@ -1,0 +1,47 @@
+---
+description: Documentation for the KioskAssetSerializer in the API V1 module.
+globs: ['app/serializers/api/v1/kiosk_asset_serializer.rb']
+alwaysApply: false
+---
+
+# KioskAssetSerializer Documentation
+
+## Overview
+The `KioskAssetSerializer` is a serializer class that formats the `KioskAsset` model for JSON representation in the API V1 namespace. It inherits from `ActiveModel::Serializer`, which provides a way to customize the JSON output of the model attributes and relationships.
+
+## Key Components
+- **Attributes**: The serializer defines several attributes that will be included in the JSON output:
+  - `id`: The unique identifier for the kiosk asset.
+  - `text`: The main text associated with the asset.
+  - `secondary_text`: Additional text information.
+  - `text_position`: The position of the text, represented by its label.
+  - `section_position`: The section position of the asset, represented by its label.
+  - `asset_position`: The asset's position, represented by its label.
+  - `code`: A code associated with the asset.
+  - `created_at`: Timestamp of when the asset was created.
+  - `updated_at`: Timestamp of when the asset was last updated.
+
+- **Custom Methods**: The serializer includes custom methods to retrieve the labels for `text_position`, `section_position`, and `asset_position`:
+  - `text_position`: Returns the label of the text position if it exists.
+  - `section_position`: Returns the label of the section position if it exists.
+  - `asset_position`: Returns the label of the asset position if it exists.
+
+- **Relationships**: The serializer defines relationships to other models:
+  - `has_many :asset_elements`: This relationship is defined twice with different keys:
+    - `pictures_in_pictures`: Retrieves asset elements of type 'picture_in_picture'.
+    - `dots`: Retrieves asset elements of type 'dot'.
+  - `has_one :asset`: This relationship retrieves a single asset associated with the kiosk asset.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the API V1 namespace.
+
+## Usage Examples
+To use the `KioskAssetSerializer`, you would typically instantiate it with a `KioskAsset` object and render it in a controller action:
+```ruby
+render json: KioskAssetSerializer.new(kiosk_asset)
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the fields available in the `KioskAsset` model.
+- When adding new attributes or relationships, consider how they will affect the JSON output and the performance of your API.
+- Use the custom methods to encapsulate logic related to how attributes are represented, keeping the serializer clean and focused on formatting.

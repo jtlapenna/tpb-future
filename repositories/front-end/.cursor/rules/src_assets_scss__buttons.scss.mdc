@@ -1,0 +1,43 @@
+---
+description: Documentation for the SCSS file defining button styles in the project.
+globs: ['src/assets/scss/_buttons.scss']
+alwaysApply: false
+---
+
+# _buttons.scss Documentation
+
+## Overview
+The `_buttons.scss` file contains styles for button components used throughout the application. It defines the appearance and behavior of buttons, ensuring a consistent look and feel across different parts of the user interface.
+
+## Key Components
+
+### .btn
+- **Description**: This class applies a text transformation to buttons, converting all text to uppercase. This is a common design pattern for buttons to enhance readability and emphasize action.
+- **Usage**: Apply the `.btn` class to any button element to ensure the text is displayed in uppercase.
+
+### .checkout
+- **Description**: This is a block representing the checkout section of the application. It contains nested elements that define specific button styles related to the checkout process.
+
+#### &__button
+- **Description**: This is a modifier for the checkout button, allowing for additional styles to be applied based on the button's state or purpose.
+
+##### &--offline
+- **Description**: This modifier indicates that the checkout button is in an offline state. It is used to visually differentiate the button when the application is not connected to the internet.
+
+###### .checkout__button__background
+- **Description**: This nested class applies a grayscale filter to the button's background when in the offline state, signaling to users that the button is inactive or unavailable.
+
+## Dependencies
+This file does not import any other SCSS files and is not imported by any other files in the repository. It stands alone, meaning that any styles defined here are self-contained and do not rely on external styles.
+
+## Usage Examples
+To use the button styles defined in this file, you can include the classes in your HTML as follows:
+```html
+<button class="btn checkout__button checkout__button--offline">Checkout</button>
+```
+
+## Best Practices
+- Always use the `.btn` class for buttons to maintain consistency in text styling.
+- When creating buttons for the checkout process, utilize the `.checkout` block and its modifiers to ensure proper styling and functionality.
+- Be mindful of the offline state and apply the `&--offline` modifier when necessary to inform users of the button's status.
+- Keep the styles in this file focused on button-related styles to maintain clarity and ease of maintenance.

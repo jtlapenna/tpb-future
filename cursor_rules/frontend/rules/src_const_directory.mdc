@@ -1,0 +1,38 @@
+---
+description: Documentation for the src/const directory, which contains global constants used throughout the codebase.
+globs: ['src/const/*']
+alwaysApply: false
+---
+
+# Overview of src/const Directory
+
+The `src/const` directory is dedicated to defining global constants that are utilized across various parts of the application. This helps maintain consistency and reduces the risk of errors due to hardcoded values scattered throughout the codebase.
+
+## Key Files
+
+- **globals.js**: This file contains a collection of global constants that are used throughout the application. These constants may include configuration values, API endpoints, or any other static values that need to be referenced in multiple locations.
+
+## Relationship to Other Parts of the Codebase
+
+Files in the `src/const` directory are imported by several other modules, indicating their importance in the overall architecture of the application. The following files import from `src/const`:
+- `src/mixins/aeropayEvent.js`
+- `src/plugins/config.js`
+- `src/main.js`
+- `src/api/messaging/fb.js`
+- `src/api/messaging/index.js`
+
+This shows that the constants defined in `globals.js` are integral to the functionality of various components, plugins, and APIs within the application.
+
+## Common Patterns and Conventions
+
+When working with the `src/const` directory, it is important to follow these conventions:
+- **Naming**: Use clear and descriptive names for constants to ensure they convey their purpose effectively. For example, use `API_BASE_URL` instead of a generic name like `URL`.
+- **Organization**: Group related constants together within `globals.js` to improve readability. Consider using comments to separate different sections of constants.
+
+## Best Practices
+
+- **Avoid Hardcoding Values**: Always reference constants from `globals.js` instead of hardcoding values in other files. This promotes maintainability and reduces the risk of inconsistencies.
+- **Document Changes**: If you need to modify or add new constants, document the changes clearly in the code to inform other developers of the updates.
+- **Limit Scope**: Only include constants in `globals.js` that are truly global. If a constant is only used in a specific module, consider defining it within that module instead.
+
+By adhering to these guidelines, developers can ensure that the `src/const` directory remains a reliable source of constants that enhance the maintainability and clarity of the codebase.

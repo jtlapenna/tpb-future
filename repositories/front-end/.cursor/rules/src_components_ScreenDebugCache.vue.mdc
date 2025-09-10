@@ -1,0 +1,38 @@
+---
+description: Documentation for the ScreenDebugCache component in the Vue.js application.
+globs: ['src/components/ScreenDebugCache.vue']
+alwaysApply: false
+---
+
+# ScreenDebugCache.vue Documentation
+
+## Overview
+The `ScreenDebugCache` component provides a debug console for inspecting cached products and store configurations in a Vue.js application. It displays information about the cache state, secure context, and service worker availability, along with a list of products currently stored in the cache.
+
+## Key Components
+- **Template**: The HTML structure includes headings, lists, and conditional rendering to display cache information and products.
+- **Data Properties**:
+  - `cacheProducts`: An array to hold products retrieved from the cache.
+  - `cacheStore`: A variable to store the configuration of the store if available.
+  - `cacheURLs`: An array to keep track of the URLs of cached items.
+- **Computed Properties**:
+  - `cacheAvailable`: Checks if the Cache API is supported in the browser.
+  - `secureContext`: Indicates if the current context is secure (HTTPS).
+  - `swAvailable`: Checks if the Service Worker API is available.
+  - `swState`: Retrieves the current state of the service worker.
+- **Lifecycle Hook**:
+  - `created()`: Opens the cache named 'kiosk-api-cache', retrieves cached items, and populates `cacheProducts` and `cacheStore` based on the cached data.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the browser's Cache API and Service Worker API.
+
+## Usage Example
+To use this component, simply include it in your Vue.js application as follows:
+```html
+<ScreenDebugCache />
+```
+
+## Best Practices
+- Ensure that the application is served over HTTPS to utilize secure contexts and service workers effectively.
+- Regularly check the cache and manage its contents to avoid stale data.
+- Consider implementing error handling for cache operations to enhance user experience and debugging capabilities.

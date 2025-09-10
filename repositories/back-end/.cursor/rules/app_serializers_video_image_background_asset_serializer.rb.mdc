@@ -1,0 +1,35 @@
+---
+description: Serializer for VideoImageBackgroundAsset model in the application.
+globs: ['app/serializers/video_image_background_asset_serializer.rb']
+alwaysApply: false
+---
+
+# VideoImageBackgroundAssetSerializer
+
+## Overview
+The `VideoImageBackgroundAssetSerializer` is a serializer class that is part of the ActiveModel::Serializer framework. It is responsible for defining how the `VideoImageBackgroundAsset` model is represented in JSON format when it is rendered in API responses. This serializer specifies which attributes of the model should be included in the serialized output.
+
+## Key Components
+- **Class Definition**: The class `VideoImageBackgroundAssetSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method defines the fields that will be included in the serialized output. In this case, it includes `:id` and `:asset_position_id`.
+- **Associations**: The `has_one :asset` line indicates that this serializer includes a relationship to another model, `Asset`. This means that when a `VideoImageBackgroundAsset` is serialized, it will also include the associated `Asset` object in the output.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, focusing solely on the serialization of the `VideoImageBackgroundAsset` model.
+
+## Usage Example
+When an instance of `VideoImageBackgroundAsset` is rendered in a JSON response, it will look something like this:
+```json
+{
+  "id": 1,
+  "asset_position_id": 5,
+  "asset": {
+    // Asset attributes here
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including unnecessary data to keep the response lightweight.
+- When adding new attributes or associations, consider the impact on performance and the size of the serialized output.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.

@@ -1,0 +1,35 @@
+---
+description: CSS styles for the on-screen keyboard number interface.
+globs: ['src/assets/css/onScreenKeyboardNumber.css']
+alwaysApply: false
+---
+
+# Overview
+
+The `onScreenKeyboardNumber.css` file contains the styling for an on-screen keyboard specifically designed for numeric input. This keyboard is intended to be displayed on-screen, allowing users to input numbers through a graphical interface.
+
+# Purpose and Functionality
+
+This CSS file defines the layout, appearance, and interactive behavior of the on-screen keyboard. It ensures that the keyboard is visually appealing and user-friendly, with styles that enhance usability and accessibility.
+
+# Key Components
+
+- **Container Styles**: The main container for the keyboard is defined by the `#osk-container-number` selector. It is styled to be fixed in position, hidden by default, and responsive to different screen sizes.
+- **Key Styles**: Each key on the keyboard is represented by a `li` element within the container. The styles applied to these keys include dimensions, alignment, and hover effects to improve user interaction.
+- **Special Keys**: Specific classes such as `.osk-capslock`, `.osk-tab`, `.osk-shift`, and others are used to style special function keys, ensuring they have appropriate widths and behaviors.
+- **Customizable Styles**: The file includes sections for customizable styles, allowing developers to easily modify the appearance of the keyboard without altering the core functionality.
+
+# Dependencies
+
+This file does not import any other files and is not imported by any other files in the repository. It stands alone, meaning that any changes made here will not affect other stylesheets or components directly.
+
+# Usage Examples
+
+To use this CSS file, ensure that the corresponding HTML structure is in place. The keyboard should be initialized in the JavaScript code, which will toggle the visibility of the `#osk-container-number` based on user interaction.
+
+# Best Practices
+
+- **Maintain Consistency**: When modifying styles, ensure that changes are consistent with the overall design of the application.
+- **Responsive Design**: Test the keyboard on various screen sizes to ensure it remains functional and visually appealing.
+- **Accessibility**: Consider accessibility features, such as keyboard navigation and screen reader compatibility, when implementing the on-screen keyboard functionality.
+- **Performance**: Minimize the use of heavy styles or animations that could impact performance, especially on lower-end devices.

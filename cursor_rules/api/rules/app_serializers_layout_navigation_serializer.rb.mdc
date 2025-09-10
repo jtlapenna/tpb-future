@@ -1,0 +1,35 @@
+---
+description: Serializer for layout navigation items in the application.
+globs: ['app/serializers/layout_navigation_serializer.rb']
+alwaysApply: false
+---
+
+# LayoutNavigationSerializer
+
+## Overview
+The `LayoutNavigationSerializer` is a serializer class that is part of the ActiveModel::Serializer framework. It is responsible for defining how layout navigation items are represented in JSON format when they are serialized. This is particularly useful for APIs that need to send structured data to clients.
+
+## Key Components
+- **Class Definition**: The class `LayoutNavigationSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies which attributes of the object should be included in the serialized output. In this case, it includes only the `id` attribute.
+- **Associations**: The `has_many :items` line indicates that this serializer can include a collection of associated `items` when serializing a layout navigation object. This allows for a nested representation of the data.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for layout navigation items.
+
+## Usage Example
+When a layout navigation object is serialized, it will produce a JSON representation that includes the `id` and an array of associated items. For example:
+```json
+{
+  "id": 1,
+  "items": [
+    {"id": 1, "name": "Home"},
+    {"id": 2, "name": "About"}
+  ]
+}
+```
+
+## Best Practices
+- Ensure that the `items` association is properly defined in the corresponding model to avoid serialization errors.
+- Keep the serializer focused on the specific attributes and associations that are necessary for the API response to minimize payload size.
+- Regularly review and update the serializer as the data model evolves to ensure it accurately reflects the current structure of the data.

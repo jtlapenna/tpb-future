@@ -1,0 +1,71 @@
+---
+description: Documentation for the IndexedDB API handling in the kiosk application.
+globs: ['src/api/db.js']
+alwaysApply: false
+---
+
+# IndexedDB API Handler
+
+## Overview
+This file provides an interface for interacting with the IndexedDB database in the kiosk application. It manages the database connection, schema creation, and CRUD operations for products stored in the database.
+
+## Key Components
+
+### Constants
+- **DB_NAME**: The name of the database, set to 'kioskDB'.
+- **DB_VERSION**: The version of the database, initialized to 1.
+- **DB**: A variable to hold the database instance once opened.
+
+### Functions
+1. **getDb()**:  
+   - Opens a connection to the IndexedDB database. If the database is already open, it resolves with the existing instance. If not, it creates the database and its object stores (products, brands, articles, rfids, tags) during the `onupgradeneeded` event.
+   - **Returns**: A promise that resolves to the database instance.
+
+2. **deleteProduct(product)**:  
+   - Deletes a product from the 'products' object store based on the provided product object.
+   - **Parameters**: `product` - The product object to be deleted.
+   - **Returns**: A promise that resolves when the deletion is complete.
+
+3. **getProducts()**:  
+   - Retrieves all products from the 'products' object store and returns them as an array.
+   - **Returns**: A promise that resolves to an array of products.
+
+4. **getProduct(productId)**:  
+   - Fetches a single product by its ID from the 'products' object store.
+   - **Parameters**: `productId` - The ID of the product to retrieve.
+   - **Returns**: A promise that resolves to the product object.
+
+5. **saveProducts(cat)**:  
+   - Saves a product category to the 'products' object store.
+   - **Parameters**: `cat` - The product category object to save.
+   - **Returns**: A promise that resolves when the save operation is complete.
+
+6. **saveProduct(product)**:  
+   - Saves a product to the 'products' object store. If the product is published and has stock, it is added; otherwise, it is deleted from the store.
+   - **Parameters**: `product` - The product object to save or delete.
+   - **Returns**: A promise that resolves when the operation is complete.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, managing its own database interactions.
+
+## Usage Examples
+To use the functions provided in this file, you can import the default export and call the methods as needed:
+```javascript
+import db from './src/api/db';
+
+// To get all products
+db.getProducts().then(products => {
+  console.log(products);
+});
+
+// To save a new product
+const newProduct = { id: 1, name: 'Sample Product', status: 'published', stock: 10 };
+db.saveProduct(newProduct).then(() => {
+  console.log('Product saved!');
+});
+```
+
+## Best Practices
+- Always handle promises returned by the database methods to avoid unhandled promise rejections.
+- Ensure that the product object conforms to the expected structure before saving or deleting.
+- Use the `getDb()` method to ensure that the database is properly initialized before performing any operations.

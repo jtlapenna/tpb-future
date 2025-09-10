@@ -1,0 +1,64 @@
+---
+description: Documentation for the KioskLayout model in the application.
+globs: ['app/models/kiosk_layout.rb']
+alwaysApply: false
+---
+
+# KioskLayout Model Documentation
+
+## Overview
+The `KioskLayout` class is an ActiveRecord model that represents the layout configuration for kiosks in the application. It defines various attributes and relationships that determine how a kiosk's interface is structured and displayed to users. This model is crucial for managing the visual and functional aspects of kiosks, including navigation, templates, and associated assets.
+
+## Key Components
+
+### Enums
+- **template**: Defines the layout template options available for kiosks, including `shopping`, `brand`, `limited`, and `menu_boards_layout`.
+- **home_layout**: Specifies different home screen layouts such as `swipe`, `rfidswipe`, and others.
+- **nav_ui**: Indicates the type of navigation UI, either `regular` or `condensed`.
+- **stand_side**: Determines the side of the stand (left or right).
+- **screen_type**: Specifies the type of screen, either `tablet` or `big_screen`.
+
+### Associations
+- **belongs_to**: 
+  - `kiosk`: Each layout is associated with a specific kiosk.
+  - `store_category`: Optional association to categorize the kiosk layout.
+  - `welcome_asset`, `video_image_background_asset`: Optional assets that can be associated with the layout.
+  - `product_layout`: Optional association to a product layout.
+
+- **has_one**: 
+  - `navigation`: Each layout can have one navigation configuration, which is destroyed if the layout is deleted.
+
+- **has_many**: 
+  - `kiosk_assets`: Multiple assets can be associated with a kiosk layout.
+  - `store_category_kiosk_layouts`: Allows for many-to-many relationships with store categories.
+
+### Validations
+- Ensures that the `template` attribute is always present when creating a new `KioskLayout`.
+
+### Callbacks
+- **before_create**: Sets the default template to `shopping` if none is provided and builds default navigation if it does not exist.
+- **after_update**: Cleans up previous product layout values if the product layout has changed.
+
+### Methods
+- **template_shopping**: Sets the template to `shopping`.
+- **build_default_navigation**: Initializes the navigation for the layout if it is not already set.
+- **destroy_previous_product_layout_value**: Removes previous product layout values associated with the kiosk when the product layout changes.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it self-contained. It relies on ActiveRecord for ORM functionality and is part of the application's model layer.
+
+## Usage Examples
+To create a new kiosk layout:
+```ruby
+kiosk_layout = KioskLayout.new(
+  template: :shopping,
+  home_layout: :swipe,
+  kiosk: some_kiosk_instance
+)
+kiosk_layout.save
+```
+
+## Best Practices
+- Always ensure that the `template` attribute is set when creating a new `KioskLayout` to avoid validation errors.
+- Use the provided methods for setting defaults and managing associated records to maintain data integrity.
+- Be cautious when modifying associations, especially with dependent records, to prevent unintended data loss.

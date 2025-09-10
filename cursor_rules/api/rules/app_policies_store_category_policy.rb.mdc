@@ -1,0 +1,42 @@
+---
+description: Policy class for managing permissions related to StoreCategory resources.
+globs: ['app/policies/store_category_policy.rb']
+alwaysApply: false
+---
+
+# StoreCategoryPolicy
+
+## Overview
+The `StoreCategoryPolicy` class defines authorization rules for the `StoreCategory` resource within the application. It inherits from `ApplicationPolicy`, which provides a base structure for defining policies in the application. This policy determines what actions a user can perform on `StoreCategory` objects based on their role (e.g., admin or regular user).
+
+## Key Components
+
+### Classes
+- **StoreCategoryPolicy**: The main policy class that encapsulates the authorization logic for `StoreCategory` resources.
+  - **Scope**: A nested class that defines the scope of records that a user can access. It includes a `resolve` method that returns different scopes based on whether the user is an admin or a regular user.
+
+### Methods
+- **resolve**: This method checks if the user is an admin. If true, it returns all records in the scope. If false, it restricts the records to those owned by the user.
+- **index?**: Returns true if the user is authenticated, allowing them to view the list of `StoreCategory` records.
+- **create?**: Returns true if the user is authenticated, allowing them to create new `StoreCategory` records.
+- **update?**: Returns true if the user is authenticated, allowing them to update existing `StoreCategory` records.
+- **show?**: Returns true if the user is authenticated, allowing them to view a specific `StoreCategory` record.
+- **permitted_attributes**: Defines the attributes that are permitted for mass assignment when creating or updating `StoreCategory` records. This includes `name`, `order`, and nested attributes for `banner`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It relies solely on the `ApplicationPolicy` class for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined in it when checking permissions in your controllers or views. For example:
+```ruby
+if StoreCategoryPolicy.new(current_user, @store_category).update?
+  # Allow the update action
+else
+  # Deny access
+end
+```
+
+## Best Practices
+- Ensure that the `user` object is always passed to the policy methods to maintain security and proper authorization checks.
+- Regularly review and update the permitted attributes in the `permitted_attributes` method to align with any changes in the `StoreCategory` model.
+- Use the `Scope` class to manage record visibility effectively, especially as the application scales and user roles become more complex.

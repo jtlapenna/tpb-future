@@ -1,0 +1,30 @@
+---
+description: Serializer for Kiosk Product Layout in the application.
+globs: ['app/serializers/kiosk_product_layout_serializer.rb']
+alwaysApply: false
+---
+
+# KioskProductLayoutSerializer
+
+## Overview
+The `KioskProductLayoutSerializer` is a serializer class that formats the data representation of a `KioskProductLayout` object for JSON output. It is part of the ActiveModel::Serializer framework, which is used to create a structured JSON response for API endpoints.
+
+## Key Components
+- **Class Definition**: The class inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the object.
+- **Attributes**:  
+  - `stylesheet`: This attribute returns the `stylesheet` property of the `@object`, which is expected to be a `KioskProductLayout` instance.
+  - `has_many :values`: This association indicates that the `KioskProductLayout` can have multiple `product_layout_values`, which are also serialized as part of the response.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on the serialization of the `KioskProductLayout` object.
+
+## Usage Example
+To use this serializer, you would typically call it within a controller action that responds to JSON requests. For example:
+```ruby
+render json: @kiosk_product_layout, serializer: KioskProductLayoutSerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the `KioskProductLayout` model.
+- Keep the serializer focused on formatting the output without including business logic. Any data manipulation should be handled in the model or service layer.
+- Regularly review and update the serializer as the underlying model changes to ensure consistency in the API response.

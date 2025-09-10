@@ -1,0 +1,50 @@
+---
+description: Documentation for the AppPage class used in end-to-end testing with Protractor.
+globs: ['e2e/src/app.po.ts']
+alwaysApply: false
+---
+
+# AppPage Class Documentation
+
+## Overview
+The `AppPage` class is a part of the end-to-end testing framework using Protractor. It provides methods to interact with the application under test, specifically for navigating to the application and retrieving text from specific elements on the page.
+
+## Key Components
+
+### Class: AppPage
+- **Purpose**: Encapsulates the actions that can be performed on the application page during end-to-end tests.
+
+#### Method: navigateTo()
+- **Description**: Navigates to the base URL of the application. This method returns a promise that resolves when the navigation is complete.
+- **Usage**: Call this method at the beginning of your test to ensure you are on the correct page.
+
+#### Method: getParagraphText()
+- **Description**: Retrieves the text content of a specific element on the page, identified by the CSS selector `app-root .content span`. This method returns a promise that resolves to the text of the element.
+- **Usage**: Use this method to assert that the expected text is displayed on the page during your tests.
+
+## Dependencies
+This file does not import any other files in the repository. However, it is imported by the following file:
+- `e2e/src/app.e2e-spec.ts`: This file contains the actual end-to-end tests that utilize the `AppPage` class to perform actions and assertions on the application.
+
+## Usage Example
+```javascript
+import { AppPage } from './app.po';
+
+describe('My Application', () => {
+  let page: AppPage;
+
+  beforeEach(() => {
+    page = new AppPage();
+  });
+
+  it('should display welcome message', () => {
+    page.navigateTo();
+    expect(page.getParagraphText()).toEqual('Welcome to my app!');
+  });
+});
+```
+
+## Best Practices
+- Always ensure that the base URL is correctly set in your Protractor configuration to avoid navigation errors.
+- Use meaningful CSS selectors in the `getParagraphText()` method to ensure that your tests are robust and less prone to breaking due to changes in the HTML structure.
+- Keep the `AppPage` class focused on page interactions to maintain separation of concerns in your test code.

@@ -1,0 +1,27 @@
+---
+description: Configuration file for Prettier code formatter.
+globs: ['.prettierrc']
+alwaysApply: false
+---
+
+# Overview
+The `.prettierrc` file is a configuration file for Prettier, a popular code formatting tool. This file defines the formatting rules that Prettier will apply to the codebase, ensuring consistent style across the project.
+
+# Key Components
+- **singleQuote**: This option, when set to `true`, enforces the use of single quotes for strings instead of double quotes. This is a stylistic choice that can help maintain consistency in string formatting throughout the codebase.
+- **semi**: This option, when set to `false`, disables the automatic insertion of semicolons at the end of statements. This can lead to a cleaner look in some coding styles, particularly in JavaScript.
+
+# Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file that Prettier reads when formatting code.
+
+# Usage Examples
+To use this configuration, simply ensure that Prettier is installed in your project. You can run Prettier from the command line or integrate it into your development environment. For example:
+```bash
+npx prettier --write .
+```
+This command will format all files in the current directory according to the rules specified in `.prettierrc`.
+
+# Best Practices
+- **Consistency**: Always use the same configuration across your team to avoid style discrepancies. Consider adding the `.prettierrc` file to version control.
+- **Integration**: Integrate Prettier with your code editor to automatically format code on save. This helps maintain code quality and reduces the need for manual formatting.
+- **Review Changes**: When making changes to the `.prettierrc` file, review the impact on the codebase by checking the diffs in version control to ensure that the new formatting rules align with team preferences.

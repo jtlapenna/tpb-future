@@ -1,0 +1,38 @@
+---
+description: Serializer for Kiosk Layout objects in the application.
+globs: ['app/serializers/kiosk_layout_serializer.rb']
+alwaysApply: false
+---
+
+# KioskLayoutSerializer Documentation
+
+## Overview
+The `KioskLayoutSerializer` is responsible for serializing the `KioskLayout` objects in the application. It defines how the attributes of a `KioskLayout` instance are represented in JSON format when sent to the client. This serializer is part of the ActiveModel::Serializer framework, which provides a way to customize the JSON output of models.
+
+## Key Components
+- **Attributes**: The serializer includes a variety of attributes that represent the properties of a `KioskLayout`. These include:
+  - `id`: Unique identifier for the kiosk layout.
+  - `template`: The layout template used for the kiosk.
+  - `disable_overlay_mask`: A boolean indicating if the overlay mask is disabled.
+  - `home_layout`, `nav_ui`, `product_layout_id`, etc.: Various other properties that define the layout and functionality of the kiosk.
+
+- **Associations**: The serializer defines several associations that link the `KioskLayout` to other models:
+  - `belongs_to :kiosk`: Links to the `Kiosk` model using the `KioskMinimalSerializer` for a minimal representation.
+  - `has_many :store_category_kiosk_layouts`: Represents the relationship with store category layouts.
+  - `has_many :store_categories`: Custom logic to serialize store categories, including their order and store ID.
+  - `has_one :navigation`: Represents a single navigation object associated with the kiosk layout.
+  - `has_many :kiosk_assets`: Represents multiple assets associated with the kiosk.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the context of the application, relying solely on the ActiveModel::Serializer framework.
+
+## Usage Examples
+To use the `KioskLayoutSerializer`, you would typically instantiate it with a `KioskLayout` object and render it in a controller action:
+```ruby
+render json: @kiosk_layout, serializer: KioskLayoutSerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the `KioskLayout` model.
+- When adding new attributes or associations, consider the impact on the JSON output and how it will be consumed by the client.
+- Keep the serializer focused on its purpose; avoid adding business logic or complex calculations within the serializer.

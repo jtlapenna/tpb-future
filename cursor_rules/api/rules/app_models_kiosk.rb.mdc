@@ -1,0 +1,48 @@
+---
+description: Documentation for the Kiosk model in the application.
+globs: ['app/models/kiosk.rb']
+alwaysApply: false
+---
+
+# Kiosk Model Documentation
+
+## Overview
+The `Kiosk` model represents a kiosk in the application, which is associated with a store and manages various products and their configurations. It provides functionality for tagging, filtering products based on criteria, and managing layouts and RFID products.
+
+## Key Components
+- **Inheritance**: The `Kiosk` class inherits from `ApplicationRecord`, which provides it with ActiveRecord functionalities.
+- **Tagging**: The model uses the `acts_as_taggable` gem to allow tagging of kiosks with various tags.
+- **Enums**: It defines an enum `product_filter_criteria` to categorize how products are filtered (e.g., custom, all, brand, category).
+- **Associations**:
+  - `belongs_to :store`: Each kiosk belongs to a specific store.
+  - `has_one :layout`: Each kiosk can have one layout associated with it.
+  - `has_many :kiosk_products`: A kiosk can have multiple products associated with it.
+  - `has_many :store_products`: It can access products through kiosk products.
+  - `has_many :product_variants`: It can access product variants through store products.
+  - `has_many :rfid_products`: It can manage RFID products.
+- **Validations**: The model includes validations for presence and numericality of various attributes to ensure data integrity.
+- **Scopes**: It defines scopes like `active` and `owner` to filter kiosks based on specific criteria.
+- **Callbacks**: It uses callbacks to automatically build layouts and manage products when a kiosk is created or updated.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently but relies on the ActiveRecord framework and the `acts_as_taggable` gem for its functionalities.
+
+## Usage Examples
+To create a new kiosk:
+```ruby
+kiosk = Kiosk.create(name: 'Main Kiosk', store: some_store)
+```
+To retrieve active kiosks:
+```ruby
+active_kiosks = Kiosk.active
+```
+To get the brands associated with a kiosk:
+```ruby
+brands = kiosk.brands
+```
+
+## Best Practices
+- Ensure that all required fields are validated before saving a kiosk to maintain data integrity.
+- Use the provided scopes to filter kiosks efficiently rather than manually querying the database.
+- When adding or updating products, leverage the `auto_add_products!` and `auto_replace_products!` methods to maintain consistency in product associations.
+- Be cautious when modifying the `product_filter_criteria` as it directly affects the products associated with the kiosk.

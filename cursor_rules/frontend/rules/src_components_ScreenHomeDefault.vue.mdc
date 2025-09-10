@@ -1,0 +1,54 @@
+---
+description: Documentation for the ScreenHomeDefault component in a Vue.js application.
+globs: ['src/components/ScreenHomeDefault.vue']
+alwaysApply: false
+---
+
+# ScreenHomeDefault.vue
+
+## Overview
+The `ScreenHomeDefault.vue` file defines a Vue.js component that serves as the default screen for a home interface in a web application. It incorporates various UI elements, including a store logo, a welcome message, and navigation components, while also handling animations and transitions for a smooth user experience.
+
+## Key Components
+- **Template**: The template section contains the HTML structure of the component, including:
+  - An image for the store logo that adjusts based on its loading state.
+  - A message catcher that displays a welcome message, which varies based on configuration settings.
+  - An optional illustration that appears if RFID functionality is enabled.
+  - A navigation component (`TheNav`) and an active cart button that is conditionally rendered.
+
+- **Script**: The script section defines the component's logic, including:
+  - **Data Properties**:  
+    - `navLayout`: Defines the layout of the navigation.
+    - `storeLogo`: Holds the URL of the store logo.
+    - `storeLogoRatio`: Determines the aspect ratio of the logo.
+    - `welcomeMessage`: Stores the message displayed to the user.
+  - **Lifecycle Hooks**:  
+    - `created()`: Initializes the component by setting the store logo and welcome message based on configuration.
+    - `destroyed()`: Cleans up event listeners when the component is destroyed.
+  - **Methods**:  
+    - `transitionEnter()`: Handles the entrance animation of the component.
+    - `onTransitionLeave()`: Manages the exit animation of the component.
+    - `logoHold()` and `logoRelease()`: Emit events for refreshing the application when the logo is held or released.
+    - `setStoreLogoRatio()`: Calculates the aspect ratio of the store logo image.
+
+- **Style**: The style section uses SCSS to define the appearance of the component, including positioning and responsive styles for the store logo and other elements.
+
+## Dependencies
+This component imports the following child components:
+- `LottieContainer`: Used for displaying animations.
+- `TheNav`: Represents the navigation bar.
+- `ActiveCartButton`: A button that indicates the status of the shopping cart.
+
+It does not import or export any other files in the repository, nor is it imported by any other files.
+
+## Usage Examples
+To use this component, simply include it in a parent component's template:
+```html
+<screen-home-default :is-active-cart-feature-activated="true"></screen-home-default>
+```
+
+## Best Practices
+- Ensure that the configuration settings (like `$config.STORE_LOGO` and `$config.RFID_ENABLED`) are properly set before using this component to avoid runtime errors.
+- When modifying the welcome message, consider localization and user experience to ensure clarity and engagement.
+- Use the provided methods for handling logo interactions to maintain consistent behavior across the application.
+- Keep the animations smooth and responsive to enhance user experience, especially on mobile devices.

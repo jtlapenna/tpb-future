@@ -1,0 +1,48 @@
+---
+description: Documentation for utility styles in the SCSS codebase.
+globs: ['src/app/scss/_utils.scss']
+alwaysApply: false
+---
+
+# _utils.scss Documentation
+
+## Overview
+The `_utils.scss` file contains a collection of utility classes and mixins that are designed to enhance the styling capabilities of the application. These utilities provide reusable styles for layout, spacing, typography, and background variations, making it easier to maintain a consistent design throughout the codebase.
+
+## Key Components
+
+### Utility Classes
+- **Flexbox Utilities**: Classes like `.display-flex` and `.flex-nowrap` facilitate the use of flexbox layouts.
+- **Margin and Padding Utilities**: Classes such as `.no-margin`, `.no-padding`, and margin/padding variants (`.mt`, `.mb`, etc.) allow for quick adjustments to spacing.
+- **Border Utilities**: Classes like `.no-border` and border variants (`.bt`, `.br`, etc.) help manage borders effectively.
+- **Text and Background Variants**: Classes for text emphasis and background colors (e.g., `.bg-primary`, `.text-success`) are included to ensure consistent color usage across the application.
+
+### Mixins
+- **Transition Mixins**: Used for smooth transitions on various properties, enhancing user experience.
+- **Responsive Font Sizes**: The file includes a loop to create responsive font size classes based on predefined sizes.
+- **Animation Mixins**: Classes for animations (e.g., `.fade-up`) are defined to provide visual feedback during state changes in Angular views.
+
+### Circle and Rounded Classes
+- Classes like `.circle`, `.rounded`, and their variations provide a way to create visually appealing elements that can be used with background and text color classes.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It serves as a standalone utility file, providing essential styles that can be utilized throughout the application.
+
+## Usage Examples
+- To create a flex container, use the class `.display-flex`:
+  ```html
+  <div class="display-flex">
+      <div>Item 1</div>
+      <div>Item 2</div>
+  </div>
+  ```
+- For a button with no border:
+  ```html
+  <button class="btn no-border">Click Me</button>
+  ```
+
+## Best Practices
+- **Consistency**: Use the utility classes provided in this file to maintain a consistent design across the application.
+- **Avoid Inline Styles**: Rely on the utility classes instead of inline styles to keep the HTML clean and maintainable.
+- **Responsive Design**: Utilize the responsive font size and spacing utilities to ensure the application looks good on all devices.
+- **Documentation**: When adding new utilities or modifying existing ones, ensure to update this documentation for clarity and maintainability.

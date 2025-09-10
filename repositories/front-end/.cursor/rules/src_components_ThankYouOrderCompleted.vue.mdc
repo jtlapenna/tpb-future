@@ -1,0 +1,35 @@
+---
+description: Documentation for the ThankYouOrderCompleted component in a Vue.js application.
+globs: ['src/components/ThankYouOrderCompleted.vue']
+alwaysApply: false
+---
+
+# ThankYouOrderCompleted.vue Documentation
+
+## Overview
+The `ThankYouOrderCompleted.vue` component is a Vue.js single-file component that displays a thank you message to the user after they have completed an order. It provides a button to restart the session, allowing users to initiate a new order process.
+
+## Key Components
+- **Template**: The template section contains a transition effect that animates the appearance and disappearance of the thank you message. It includes a strong message and a button for restarting the session.
+- **Script**: The script section defines the component's logic, including lifecycle hooks and methods for handling animations and session management.
+  - **Methods**:
+    - `transitionEnter(el, done)`: Handles the animation when the component enters the view. It uses GSAP for smooth transitions.
+    - `onTransitionLeave(el, done)`: Manages the animation when the component leaves the view, fading out the message.
+    - `restartSession()`: Emits an event to restart the session and tracks the session end with an analytics client if available.
+- **Styles**: The styles are scoped to this component and define the layout and appearance of the thank you message and button.
+
+## Dependencies
+This component does not import any other files from the repository, nor is it imported by any other files. It relies on external libraries such as jQuery and GSAP for animations.
+
+## Usage Example
+To use this component, simply include it in your Vue application where you want to display the thank you message after an order is completed. Ensure that the parent component handles the `restart-session` event to reset the application state appropriately.
+
+```html
+<ThankYouOrderCompleted />
+```
+
+## Best Practices
+- Ensure that the GSAP library is included in your project to avoid animation issues.
+- Use the `restartSession` method to track user interactions for analytics purposes.
+- Keep the component's styles scoped to prevent conflicts with other components in the application.
+- Test the transition animations across different devices to ensure a smooth user experience.

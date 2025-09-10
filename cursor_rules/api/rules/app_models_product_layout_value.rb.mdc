@@ -1,0 +1,59 @@
+---
+description: Documentation for the ProductLayoutValue model in the application.
+globs: ['app/models/product_layout_value.rb']
+alwaysApply: false
+---
+
+# ProductLayoutValue Model Documentation
+
+## Overview
+The `ProductLayoutValue` class is an ActiveRecord model that represents a value associated with a product layout in the application. It establishes relationships with other models, validates its attributes, and provides scopes for querying related data.
+
+## Key Components
+
+### Class Definition
+- **Class Name**: `ProductLayoutValue`
+- **Inheritance**: Inherits from `ApplicationRecord`, which provides the model with ActiveRecord functionalities.
+
+### Associations
+- **belongs_to**:
+  - `product_layout_element`: This establishes a connection to the `ProductLayoutElement` model, indicating that each `ProductLayoutValue` is associated with a specific layout element.
+  - `kiosk_product`: This creates a relationship with the `KioskProduct` model, with the `touch: true` option ensuring that the associated `KioskProduct` is updated whenever the `ProductLayoutValue` is modified.
+
+- **has_one**:
+  - `asset`: This sets up a one-to-one relationship with the `Asset` model, allowing each `ProductLayoutValue` to have a single associated asset. The `dependent: :destroy` option ensures that the associated asset is deleted if the `ProductLayoutValue` is destroyed.
+
+### Nested Attributes
+- **accepts_nested_attributes_for**: This allows nested attributes for the `asset`, enabling the creation or updating of associated assets through the `ProductLayoutValue` form. The options `allow_destroy: true` and `reject_if: :all_blank` provide flexibility in managing associated records.
+
+### Delegations
+- The model delegates several methods to the associated `product_layout_element`, allowing access to its methods with a prefixed name (e.g., `element_medium?`, `element_dot?`, etc.). This simplifies the interface and keeps the code clean.
+
+### Validations
+- The model includes validations to ensure the presence of certain attributes based on the type of layout element:
+  - `link` must be present if the element is a dot.
+  - `content` must be present if the element is text.
+  - `asset` must be present if the element is medium.
+
+### Scopes
+- **for_kiosk**: A scope that retrieves `ProductLayoutValue` records associated with a specific kiosk by joining with the `KioskProduct` model.
+- **for_layout**: A scope that retrieves `ProductLayoutValue` records associated with a specific product layout by joining with the `ProductLayoutElement` model.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies on the ActiveRecord framework and the associated models (`ProductLayoutElement`, `KioskProduct`, and `Asset`) to function correctly.
+
+## Usage Examples
+To create a new `ProductLayoutValue` with an associated asset:
+```ruby
+product_layout_value = ProductLayoutValue.new(
+  content: 'Sample Content',
+  link: 'http://example.com',
+  asset_attributes: { file: uploaded_file }
+)
+product_layout_value.save
+```
+
+## Best Practices
+- Ensure that the associated models (`ProductLayoutElement`, `KioskProduct`, and `Asset`) are properly defined and have the necessary validations and associations.
+- Use the provided scopes to efficiently query `ProductLayoutValue` records based on kiosk or layout context.
+- When working with nested attributes, validate the presence of required fields to avoid validation errors during form submissions.

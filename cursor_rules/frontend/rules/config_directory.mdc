@@ -1,0 +1,26 @@
+---
+description: Documentation for the config directory containing configuration files for the application.
+globs: ['config/*']
+alwaysApply: false
+---
+
+# Config Directory Documentation
+
+## Overview
+The `config` directory is dedicated to storing configuration files that are essential for the application's setup and runtime behavior. This directory plays a crucial role in defining how various components of the application interact and function.
+
+## Key Files
+- **workbox.js**: This file is responsible for configuring Workbox, a library that simplifies service worker management and caching strategies for web applications. It contains settings that dictate how resources are cached and served to enhance performance and reliability.
+- **index.js**: This file serves as the main entry point for the configuration settings. It typically exports the configuration objects or functions that other parts of the application can import and utilize to access the defined settings.
+
+## Relationship to Other Parts of the Codebase
+The `config` directory is integral to the overall architecture of the application. While it does not import from or export to any external files, its contents are often referenced by other modules within the codebase. For instance, components that require specific configurations will import settings from `index.js` to ensure they operate under the correct parameters.
+
+## Common Patterns and Conventions
+- **Modular Configuration**: Each configuration file should focus on a specific aspect of the application (e.g., caching, environment variables) to promote clarity and maintainability.
+- **Exporting Configurations**: Use named exports in `index.js` to allow for selective imports in other modules, which helps in keeping the codebase clean and organized.
+
+## Best Practices
+- **Keep Configurations Centralized**: Ensure that all configuration-related files are kept within the `config` directory to maintain a clear structure.
+- **Document Configuration Options**: Include comments within the configuration files to explain the purpose of each setting, making it easier for other developers to understand and modify them as needed.
+- **Version Control**: Regularly review and update the configurations to reflect any changes in application requirements or dependencies, ensuring that the application remains robust and efficient.

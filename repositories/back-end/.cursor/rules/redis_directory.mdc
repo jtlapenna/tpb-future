@@ -1,0 +1,27 @@
+---
+description: Documentation for the Redis directory in the codebase.
+globs: ['redis/*']
+alwaysApply: false
+---
+
+# Redis Directory Documentation
+
+## Overview
+The `redis` directory contains configuration and setup files necessary for deploying and managing a Redis instance within the application. It serves as a central point for Redis-related configurations and initialization scripts.
+
+## Key Files
+- **Dockerfile**: This file is used to build a Docker image for the Redis service. It contains instructions on how to set up the Redis environment, including installing necessary packages and configuring the service to run in a containerized environment.
+- **init.sh**: This shell script is responsible for initializing the Redis server. It may include commands to start the Redis service, set up initial configurations, or perform any necessary setup tasks before the service is fully operational.
+- **redis.conf**: This is the main configuration file for Redis. It contains various settings that control the behavior of the Redis server, such as memory management, persistence options, and network settings.
+
+## Relation to Other Parts of the Codebase
+The `redis` directory is integral to the application's backend services, particularly those that require caching or data storage capabilities. It may interact with other services or components that rely on Redis for data retrieval and storage. Understanding the configurations in this directory is crucial for developers working on features that depend on Redis.
+
+## Common Patterns and Conventions
+- The files in this directory follow standard naming conventions, making it easy to identify their purpose at a glance.
+- The use of a `Dockerfile` indicates a containerized approach to deploying Redis, which is a common practice in modern application development.
+
+## Best Practices
+- When modifying `redis.conf`, ensure that changes are tested in a development environment before deploying to production to avoid service disruptions.
+- Keep the `init.sh` script idempotent, meaning it should be safe to run multiple times without causing unintended side effects.
+- Regularly review and update the Dockerfile to ensure it uses the latest stable version of Redis and adheres to security best practices.

@@ -1,0 +1,49 @@
+---
+description: Documentation for the AdBannerLocationService class in the ad-banner module.
+globs: ['src/app/stores/ad-banner/service/ad-banner-location.service.ts']
+alwaysApply: false
+---
+
+# AdBannerLocationService Documentation
+
+## Overview
+The `AdBannerLocationService` class is a service in the Angular application that extends the `CrudService` to manage `AdBannerLocation` resources. It provides methods for creating and managing ad banner locations, which are essential for displaying advertisements in the application.
+
+## Key Components
+- **Class**: `AdBannerLocationService`
+  - Inherits from `CrudService<AdBannerLocation>` to leverage CRUD operations for the `AdBannerLocation` model.
+
+- **Method**: `createResource(params: any): AdBannerLocation`
+  - Creates a new instance of `AdBannerLocation` using the provided parameters.
+
+- **Method**: `resourceName({plural}: {plural?: boolean} = {}): string`
+  - Returns the resource name as either singular or plural based on the input parameter. Useful for API calls and resource identification.
+
+- **Method**: `resourcePath({ parentId }: { parentId?: number } = {}): string`
+  - Constructs the API path for accessing ad banner locations, allowing for parent-child resource relationships.
+
+- **Method**: `overrideResourceName({plural}: {plural?: boolean} = {}): string`
+  - Overrides the default resource name to use 'widget-locations' instead of 'ad_banner_locations', providing flexibility in naming conventions.
+
+## Dependencies
+This service imports the following:
+- **Model**: `AdBannerLocation` from `src/app/stores/ad-banner/models/ad-banner-location.ts`
+
+It is utilized by:
+- `e-commerce.module.ts`
+- `e-commerce-form.component.ts`
+
+These dependencies indicate that the service is integral to the e-commerce functionality of the application, particularly in managing ad banner locations.
+
+## Usage Example
+To create a new ad banner location, you can use the `createResource` method:
+```typescript
+const adBannerLocationService = new AdBannerLocationService();
+const newLocation = adBannerLocationService.createResource({ name: 'Homepage Banner', position: 'top' });
+```
+
+## Best Practices
+- Ensure that the parameters passed to `createResource` match the expected structure of the `AdBannerLocation` model to avoid runtime errors.
+- When overriding resource names, maintain consistency across the application to prevent confusion in API interactions.
+- Utilize the pluralization feature of `resourceName` to keep API calls clear and semantically correct.
+- Regularly review and update the service methods as the application evolves to ensure they meet current requirements.

@@ -1,0 +1,41 @@
+---
+description: Documentation for the ArticleSerializer class in the serializers directory.
+globs: ['app/serializers/article_serializer.rb']
+alwaysApply: false
+---
+
+# ArticleSerializer Documentation
+
+## Overview
+The `ArticleSerializer` class is responsible for serializing `Article` objects into JSON format for API responses. It leverages the `ActiveModel::Serializer` framework to define how the attributes of an article are represented in the serialized output.
+
+## Key Components
+- **Class Definition**: `class ArticleSerializer < ActiveModel::Serializer`
+  - This line defines the `ArticleSerializer` class, which inherits from `ActiveModel::Serializer`, allowing it to utilize the serialization features provided by the ActiveModel framework.
+
+- **Attributes**: `attributes :id, :title, :text, :tag, :icon, :excerpt`
+  - This line specifies the attributes of the `Article` model that should be included in the serialized output. The attributes listed are:
+    - `id`: The unique identifier for the article.
+    - `title`: The title of the article.
+    - `text`: The main content of the article.
+    - `tag`: Any tags associated with the article.
+    - `icon`: An icon representing the article.
+    - `excerpt`: A short summary or excerpt of the article.
+
+- **Associations**: `belongs_to :category`
+  - This line indicates that each article belongs to a category. When serialized, the associated category information can also be included if needed.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the `Article` model.
+
+## Usage Examples
+To use the `ArticleSerializer`, you would typically call it within a controller action when rendering an article:
+```ruby
+render json: @article, serializer: ArticleSerializer
+```
+This will return a JSON representation of the `@article` object, formatted according to the attributes defined in the serializer.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data you want to expose through your API.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- If you need to include additional data or relationships, consider creating separate serializers for those models to keep the code organized and maintainable.

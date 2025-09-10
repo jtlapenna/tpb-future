@@ -1,0 +1,42 @@
+---
+description: Serializer for AssetElement model in the application.
+globs: ['app/serializers/asset_element_serializer.rb']
+alwaysApply: false
+---
+
+# AssetElementSerializer
+
+## Overview
+The `AssetElementSerializer` class is responsible for serializing the `AssetElement` model into a JSON format that can be easily consumed by clients. It leverages the `ActiveModel::Serializer` framework to define which attributes of the model should be included in the serialized output.
+
+## Key Components
+- **Class Definition**: `class AssetElementSerializer < ActiveModel::Serializer`
+  - This line defines the `AssetElementSerializer` class, which inherits from `ActiveModel::Serializer`, allowing it to utilize the serialization features provided by the ActiveModel framework.
+
+- **Attributes**: `attributes :id, :link, :coord_x, :coord_y, :element_type`
+  - This line specifies the attributes of the `AssetElement` model that will be included in the serialized output. The attributes defined are:
+    - `id`: The unique identifier for the asset element.
+    - `link`: A URL or reference link associated with the asset element.
+    - `coord_x`: The x-coordinate of the asset element's position.
+    - `coord_y`: The y-coordinate of the asset element's position.
+    - `element_type`: The type of the asset element, which may define its behavior or appearance.
+
+- **Associations**: `has_one :asset`
+  - This line indicates that each `AssetElement` is associated with one `Asset`. This relationship allows the serializer to include related asset data when serializing an asset element.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, focusing solely on the serialization of the `AssetElement` model.
+
+## Usage Examples
+To use the `AssetElementSerializer`, you would typically instantiate it with an instance of the `AssetElement` model. For example:
+```ruby
+asset_element = AssetElement.find(1)
+serializer = AssetElementSerializer.new(asset_element)
+serialized_data = serializer.as_json
+```
+This would produce a JSON representation of the `asset_element` instance, including the specified attributes and associated asset.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data needed by the client. Avoid including unnecessary attributes to keep the payload lightweight.
+- When adding new attributes or associations, consider the impact on performance and the size of the serialized output.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.

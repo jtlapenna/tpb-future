@@ -1,0 +1,45 @@
+---
+description: Documentation for the TreezApiParser class responsible for parsing API data related to store products and promotions.
+globs: ['app/parsers/treez_api_parser.rb']
+alwaysApply: false
+---
+
+# TreezApiParser Documentation
+
+## Overview
+The `TreezApiParser` class is designed to handle the parsing of product and promotion data from the Treez API for a specific store. It manages the synchronization of store products with the API data, ensuring that promotions are correctly applied and that duplicate products are handled appropriately.
+
+## Key Components
+
+### Class: `TreezApiParser`
+- **Initialization**: The class is initialized with a `store_id`, which is used to fetch store-specific data.
+- **Methods**:
+  - `store`: Retrieves the store object associated with the given `store_id`.
+  - `parse`: Main method that determines which parsing method to use based on the store's API version.
+  - `parsev25`: Handles parsing for API version 2.5, including managing promotions and handling duplicate SKUs.
+  - `parse_old`: Handles parsing for older API versions, focusing on product sizes and attributes.
+  - `get_product`: Fetches product details from the API using the SKU.
+  - `get_active_promotion`: Retrieves active promotions for a given product ID.
+  - `generate_cannabis_attributes`: Generates attributes specific to cannabis products based on API data.
+  - `products`: Fetches products from the API based on the type name.
+  - `treez_product_types`: Returns the types of products to be fetched from the API.
+
+### Error Handling
+The class includes robust error handling, utilizing Sentry for error reporting and logging errors to Rails logger. This ensures that any issues during parsing or data manipulation are captured and can be addressed.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the Treez API for data retrieval.
+
+## Usage Examples
+To use the `TreezApiParser`, you would typically instantiate it with a store ID and call the `parse` method:
+```ruby
+parser = TreezApiParser.new(store_id: 123)
+result = parser.parse
+```
+This will initiate the parsing process and return a result containing any errors encountered and the synchronized store data.
+
+## Best Practices
+- Ensure that the store ID provided during initialization is valid and corresponds to an existing store in the database.
+- Handle potential errors gracefully, especially when dealing with API responses and database operations.
+- Regularly review and update the parsing logic to accommodate changes in the API structure or business requirements.
+- Utilize logging effectively to monitor the parsing process and troubleshoot issues as they arise.

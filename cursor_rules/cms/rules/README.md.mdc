@@ -1,0 +1,52 @@
+---
+description: Documentation for the README.md file in the PeakBeyondWeb project.
+globs: ['README.md']
+alwaysApply: false
+---
+
+# Overview
+
+The `README.md` file serves as the primary documentation for the PeakBeyondWeb project, which is built using Angular. It provides essential information about the project setup, development processes, and testing procedures, making it easier for developers to understand how to work with the codebase.
+
+# Key Components
+
+## Project Generation
+- **Angular CLI Version**: The project was generated using Angular CLI version 8.3.20, which is crucial for managing Angular applications.
+
+## Development Server
+- **Command**: `ng serve`
+- **Functionality**: This command starts a local development server at `http://localhost:4200/`. The application will automatically reload when changes are made to the source files, facilitating a smooth development experience.
+
+## Code Scaffolding
+- **Command**: `ng generate component component-name`
+- **Functionality**: This command allows developers to create new components, directives, pipes, services, classes, guards, interfaces, enums, and modules, streamlining the development process.
+
+## Build Process
+- **Command**: `ng build`
+- **Functionality**: This command compiles the application into an output directory (`dist/`). The `--prod` flag can be used for production builds, optimizing the application for deployment.
+
+## Testing
+- **Unit Tests**: Run `ng test` to execute unit tests using Karma.
+- **End-to-End Tests**: Run `ng e2e` to execute end-to-end tests using Protractor. Ensure the app is served with `ng serve` before running these tests.
+
+## Further Help
+- For additional help with Angular CLI, use `ng help` or refer to the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# Dependencies
+
+This `README.md` file does not import or get imported by any other files in the repository. It stands alone as a guide for developers working on the PeakBeyondWeb project.
+
+# Usage Examples
+- To start the development server, simply run:
+  ```bash
+  ng serve
+  ```
+- To generate a new component named `example`:
+  ```bash
+  ng generate component example
+  ```
+
+# Best Practices
+- Always ensure you are using the correct version of Angular CLI as specified in the README.
+- Regularly check the README for updates on commands and project structure as the project evolves.
+- Utilize the scaffolding commands to maintain consistency in component creation and project structure.

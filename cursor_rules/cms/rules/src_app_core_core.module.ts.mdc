@@ -1,0 +1,57 @@
+---
+description: Documentation for the CoreModule in an Angular application.
+globs: ['src/app/core/core.module.ts']
+alwaysApply: false
+---
+
+# CoreModule Documentation
+
+## Overview
+The `CoreModule` is a central module in the Angular application that provides essential services, guards, and HTTP interceptors. It is designed to be imported only once in the application to prevent multiple instances of core services and to ensure a single point of configuration for JWT authentication and error handling.
+
+## Key Components
+
+### 1. JWT Options
+- **`jwtOptionsFactory`**: A factory function that retrieves the JWT token from local storage and defines the whitelisted domains for the JWT authentication.
+
+### 2. JWT Auth Options
+- **`jwtAuthOptionsFactory`**: A factory function that configures the JWT authentication options, including user mapping from JSON and URLs for authentication and current user retrieval.
+
+### 3. Providers
+- **`HTTP_INTERCEPTORS`**: The `RequestErrorsInterceptor` is provided to handle HTTP errors globally.
+- Services such as `SidebarService`, `TagsService`, `AssetsService`, `StoreSyncService`, and `LayoutPositionService` are registered for dependency injection.
+- The `AdminGuard` is included to protect routes that require admin privileges.
+
+### 4. Module Imports
+- The module imports `CommonModule`, `HttpClientModule`, `SimpleNotificationsModule`, `JwtModule`, and `JwtAuthModule` to provide necessary functionalities for HTTP requests, notifications, and JWT handling.
+
+## Dependencies
+This module depends on several other files within the codebase:
+- **Interceptors**: `src/app/core/interceptors`
+- **Guards**: `src/app/core/guards/admin-guard.service.ts`
+- **Module Import Guard**: `src/app/core/module-import-guard.ts`
+- **Environment Configuration**: `src/environments/environment.ts`
+- **Services**: `src/app/core/services`
+- **Models**: `src/app/core/models`
+
+The `CoreModule` is imported by the `AppModule` located at `src/app/app.module.ts`, making it a foundational part of the application structure.
+
+## Usage Example
+To use the `CoreModule`, simply import it in the `AppModule`:
+```typescript
+import { CoreModule } from './core/core.module';
+
+@NgModule({
+  imports: [
+    CoreModule,
+    // other modules
+  ],
+  // declarations, providers, etc.
+})
+export class AppModule {}
+```
+
+## Best Practices
+- Ensure that the `CoreModule` is only imported once in the application to avoid multiple instances of services.
+- Use the provided services and guards throughout the application to maintain consistency and leverage the core functionalities.
+- Keep the JWT token management secure and ensure that sensitive information is not exposed in the client-side code.

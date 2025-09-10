@@ -1,0 +1,54 @@
+---
+description: Documentation for the CartContract class used for validating cart data in the application.
+globs: ['app/contracts/cart_contract.rb']
+alwaysApply: false
+---
+
+# CartContract Documentation
+
+## Overview
+The `CartContract` class is responsible for validating the structure and content of cart data in the application. It uses the `Dry::Validation` library to enforce rules on the cart's items, ensuring that the data adheres to specified constraints before processing.
+
+## Key Components
+- **Class Definition**: `CartContract < Dry::Validation::Contract`
+  - Inherits from `Dry::Validation::Contract`, allowing for the definition of validation rules.
+
+- **Configuration**: 
+  - Sets up the message backend to use I18n for internationalization and specifies a namespace for cart-related messages.
+
+- **Options**: 
+  - `option :store`: Allows the contract to access the store context, which contains settings and products.
+
+- **Parameters**: 
+  - Defines the expected structure of the `cart` parameter, which must include an array of `items`, each containing a `product_id` and a `quantity` greater than zero.
+
+- **Validation Rule**: 
+  - The `rule(:cart)` method checks if the cart items adhere to purchase limits defined in the store settings. It calculates the total weight of items in each category and compares it against the defined limits. If limits are exceeded, it adds a failure message to the validation context.
+
+- **Private Methods**: 
+  - `purchase_limits`: Retrieves the purchase limits from the store settings.
+  - `category_info(cart_items)`: Processes the cart items to calculate total weights and associated product IDs for each category.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the `Dry::Validation` library and the store context provided during its initialization.
+
+## Usage Examples
+To use the `CartContract`, instantiate it with a store context and call the `call` method with the cart data:
+```ruby
+store = Store.find(store_id)
+contract = CartContract.new(store: store)
+result = contract.call(cart_data)
+
+if result.success?
+  # Proceed with processing the cart
+else
+  # Handle validation errors
+  puts result.errors.to_h
+end
+```
+
+## Best Practices
+- Ensure that the `store` option is always provided when instantiating the `CartContract` to avoid nil errors.
+- Validate cart data before processing to prevent issues related to invalid input.
+- Keep the purchase limits and product weights updated in the store settings to ensure accurate validation.
+- Use I18n keys for error messages to support multiple languages in the application.

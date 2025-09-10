@@ -1,0 +1,69 @@
+image: atlassian/default-image:3
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Build image and push to ECR
+          deployment: Production
+          image: amazon/aws-cli:2.3.3
+          services:
+            - docker
+          caches:
+            - docker
+          script:
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            - docker build -t api-tpb-ecr .
+            - pipe: atlassian/aws-ecr-push-image:1.6.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: us-west-2
+                IMAGE_NAME: api-tpb-ecr
+                TAGS: latest $BUILD_ID
+
+      - step:
+          name: Build sidekiq and push to ECR
+          deployment: Sidekiq
+          image: amazon/aws-cli:2.3.3
+          services:
+            - docker
+          caches:
+            - docker
+          script:
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            - docker build -t sidekiq-tpb-ecr . -f Dockerfile_Sidekiq
+            - pipe: atlassian/aws-ecr-push-image:1.6.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: us-west-2
+                IMAGE_NAME: sidekiq-tpb-ecr
+                TAGS: latest $BUILD_ID
+
+      - step:
+          name: "Deploy to Production"
+          script:
+            - echo "Deployment to Production!"
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.3
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: us-west-2
+                APPLICATION_NAME: 'tpb-api-be'
+                COMMAND: 'deploy-only'
+                ENVIRONMENT_NAME: 'api-prod'
+                VERSION_LABEL: 'api-prod-stable'
+                WAIT: 'true'
+
+      - step:
+          name: Updating Sidekiq Production
+          script:
+            - ssh -t centos@sidekiq.thepeakbeyond.com "cd /srv/cms && sudo systemctl stop puma && sudo systemctl stop sidekiq && git pull origin master && bundle install && rails db:migrate && sudo systemctl start puma && sudo systemctl start sidekiq"
+            - ssh -t centos@sidekiq2.thepeakbeyond.com "cd /srv/cms && sudo systemctl stop puma && sudo systemctl stop sidekiq && git pull origin master && bundle install && rails db:migrate && sudo systemctl start puma && sudo systemctl start sidekiq"
+
+
+    staging:
+      - step:
+          name: Updating API Staging
+          script:
+            - ssh -t centos@cms-stage.thepeakbeyond.com "cd /srv/cms && sudo systemctl stop puma && sudo systemctl stop sidekiq && git pull origin staging && bundle install && rails db:migrate && sudo systemctl start puma && sudo systemctl start sidekiq"

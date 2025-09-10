@@ -1,0 +1,50 @@
+---
+description: Documentation for the OrderItem model in the application.
+globs: ['app/models/order_item.rb']
+alwaysApply: false
+---
+
+# OrderItem Model Documentation
+
+## Overview
+The `OrderItem` class represents an item in an order within the application. It encapsulates the details of a product being ordered, including its quantity and the associated order. This model is responsible for validating the presence of necessary attributes and ensuring that the product exists in the store's inventory.
+
+## Key Components
+- **Attributes**:  
+  - `product_id`: The ID of the product being ordered.  
+  - `quantity`: The number of units of the product being ordered.  
+  - `order`: The associated order object.  
+  - `product_value_id`: An additional identifier for the product value (not utilized in the current implementation).
+
+- **Delegations**:  
+  - `store_id`: Delegates the `store_id` method to the associated `order`, allowing access to the store's ID from the order context.
+
+- **Validations**:  
+  - Ensures that both `product_id` and `quantity` are present.  
+  - Validates that `quantity` is a number and can be blank.  
+  - Custom validation to check if the product exists in the store's inventory when `product_id` is present.
+
+- **Methods**:  
+  - `attributes`: Returns a hash representation of the model's attributes, initialized to `nil`.  
+  - `product`: Fetches the product from the `StoreProduct` model based on the `product_id` and `store_id`.  
+  - `validate_product_exists`: Adds an error if the product cannot be found.  
+  - `product_id?`: Checks if `product_id` is present.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the `StoreProduct` model for product validation.
+
+## Usage Examples
+To create an order item, you can instantiate the `OrderItem` class and set its attributes:
+```ruby
+order_item = OrderItem.new(product_id: 1, quantity: 2)
+if order_item.valid?
+  # Proceed with order processing
+else
+  # Handle validation errors
+end
+```
+
+## Best Practices
+- Always ensure that `product_id` and `quantity` are set before saving an `OrderItem` to avoid validation errors.
+- Use the `valid?` method to check for validation errors before processing an order item.
+- Consider implementing additional methods for calculating total price or handling discounts in the future.

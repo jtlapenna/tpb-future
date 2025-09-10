@@ -1,0 +1,33 @@
+---
+description: Documentation for the src directory containing core application files.
+globs: ['src/*']
+alwaysApply: false
+---
+
+# Overview of the `src` Directory
+
+The `src` directory serves as the main source folder for the application, containing essential files that define the structure, style, and functionality of the web application. It is the starting point for the application build process and houses the core components that are compiled and served to users.
+
+## Key Files and Their Roles
+- **favicon.ico**: This file is the icon that appears in the browser tab for the application, providing a visual identity to the web app.
+- **index.html**: The main HTML file that serves as the entry point for the application. It links to the necessary scripts and stylesheets, and it is where the Angular application is bootstrapped.
+- **main.ts**: The main TypeScript file that initializes the Angular application. It bootstraps the root module and starts the application.
+- **styles.scss**: This file contains the global styles for the application, written in SCSS (Sassy CSS), allowing for nested styles and variables.
+- **test.ts**: A TypeScript file that sets up the testing environment for the application, ensuring that tests can be run effectively.
+- **polyfills.ts**: This file includes polyfills needed for the application to support various browsers, ensuring compatibility with older versions of browsers.
+
+## Relationship to Other Parts of the Codebase
+The `src` directory is closely linked to other parts of the codebase, particularly the `src/app` and `src/environments` directories. The `app.module.ts` file in the `app` directory is the root module that imports components, services, and other modules necessary for the application. The `environment.ts` file in the `environments` directory provides configuration settings that can vary between development and production environments, allowing for environment-specific behavior.
+
+## Common Patterns and Conventions
+- **File Naming**: Files are named using camelCase for TypeScript files and kebab-case for stylesheets and HTML files, following Angular style guidelines.
+- **SCSS Usage**: Styles are organized in SCSS files, allowing for modular and maintainable styles through the use of variables and mixins.
+- **Testing**: The presence of a `test.ts` file indicates a commitment to testing, and developers should follow best practices for writing unit and integration tests for their components and services.
+
+## Best Practices
+- **Keep the `index.html` clean**: Only include necessary scripts and styles in the `index.html` file to maintain performance and clarity.
+- **Organize styles logically**: Use SCSS features to keep styles modular and avoid duplication. Consider using a separate SCSS file for each component.
+- **Utilize environment files**: Make use of the `environment.ts` file to manage configuration settings, ensuring that sensitive information is not hard-coded into the application.
+- **Write tests**: Always write tests for new components and services to ensure reliability and maintainability of the codebase.
+
+By following these guidelines, developers can effectively manage and contribute to the `src` directory, ensuring a well-structured and maintainable codebase.

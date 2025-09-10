@@ -1,0 +1,26 @@
+---
+description: Documentation for the public directory containing static files for the web application.
+globs: ['public/*']
+alwaysApply: false
+---
+
+# Public Directory Documentation
+
+## Overview
+The `public` directory serves as the root for static assets that are directly accessible by the web browser. It contains essential files that are served to users when they access the web application.
+
+## Key Files
+- **index.html**: This is the main HTML file that serves as the entry point for the web application. It typically contains the structure of the webpage and links to stylesheets and scripts necessary for rendering the application.
+- **robots.txt**: This file provides instructions to web crawlers about which pages should not be indexed. It helps manage the visibility of the site in search engine results.
+
+## Relation to Other Parts of the Codebase
+The `public` directory is crucial for the web application's frontend. It is where the browser fetches the initial HTML and other static resources. Other parts of the codebase, such as backend services or API endpoints, may interact with the content served from this directory, but they do not directly import from it.
+
+## Common Patterns and Conventions
+- The `index.html` file should always be present as it is the default file served when accessing the root of the web application.
+- The `robots.txt` file should be updated as necessary to reflect the desired indexing behavior for search engines.
+
+## Best Practices
+- Ensure that the `index.html` file is well-structured and follows HTML5 standards for better compatibility and performance.
+- Regularly review and update the `robots.txt` file to align with the current SEO strategy and ensure that sensitive or non-public pages are not indexed.
+- Keep the `public` directory organized and avoid clutter by only including necessary files. Consider using subdirectories for images, styles, and scripts if the number of files grows.

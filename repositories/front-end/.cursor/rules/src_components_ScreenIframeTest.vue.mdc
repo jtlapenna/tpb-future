@@ -1,0 +1,30 @@
+---
+description: Documentation for the ScreenIframeTest.vue component in the codebase.
+globs: ['src/components/ScreenIframeTest.vue']
+alwaysApply: false
+---
+
+# ScreenIframeTest.vue Documentation
+
+## Overview
+The `ScreenIframeTest.vue` component is designed to provide a simple interface for testing an iframe within a Vue.js application. It allows users to open a specified URL in a new window and provides a button to trigger this action.
+
+## Key Components
+- **Template**: The template consists of a `div` containing a button and an iframe. The button, when clicked, triggers the `showInframe` method, which opens a new window with a specified URL.
+- **Data**: The component maintains a single piece of reactive data, `shoppifyHtml`, which is currently set to `null`. This could be used to store HTML content to be displayed in the iframe, although it is not utilized in the current implementation.
+- **Methods**:
+  - `showInframe()`: This method opens a new window with a specified URL. It also sets up a timer to check if the child window is closed, alerting the user when it is.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, making it easy to test and integrate without external dependencies.
+
+## Usage Example
+To use this component, simply include it in your Vue application. When the button is clicked, it will open the specified URL in a new window:
+```html
+<ScreenIframeTest />
+```
+
+## Best Practices
+- Ensure that the URL used in the `showInframe` method is safe and trusted to avoid security issues such as phishing or cross-site scripting (XSS).
+- Consider implementing error handling for the case where the child window fails to open (e.g., due to popup blockers).
+- If you plan to use the `shoppifyHtml` data property, ensure that it is properly sanitized before being rendered in the iframe to prevent XSS vulnerabilities.

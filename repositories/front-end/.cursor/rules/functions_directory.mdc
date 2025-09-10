@@ -1,0 +1,29 @@
+---
+description: Documentation for the functions directory in the codebase.
+globs: ['functions/*']
+alwaysApply: false
+---
+
+# Functions Directory Documentation
+
+## Overview
+The `functions` directory contains JavaScript files that define various functions used throughout the application. These functions are essential for implementing core logic and operations that the application relies on.
+
+## Key Files
+- **index.js**: This file serves as the main entry point for the functions defined in this directory. It typically exports the primary functions for use in other parts of the application.
+- **config.js**: This file contains configuration settings that may be used by the functions in this directory. It centralizes configuration management, making it easier to adjust settings without modifying individual function files.
+- **.eslintrc.js**: This file configures ESLint, a tool for identifying and fixing problems in JavaScript code. It ensures that the code in this directory adheres to specified coding standards and best practices.
+
+## Relationship to Other Parts of the Codebase
+The functions defined in this directory are utilized across various modules of the application. They may be imported into other directories or components, allowing for a modular approach to code organization. Since there are no external dependencies, the functions are self-contained, promoting reusability and maintainability.
+
+## Common Patterns and Conventions
+- **Modularity**: Each function should ideally be defined in its own file if it is complex or has multiple responsibilities. This promotes clarity and ease of testing.
+- **Naming Conventions**: Function names should be descriptive and follow camelCase formatting to enhance readability.
+- **Documentation**: Each function should be documented with comments explaining its purpose, parameters, and return values to facilitate understanding and usage by other developers.
+
+## Best Practices
+- **Keep Functions Focused**: Each function should perform a single task or operation. This makes them easier to test and debug.
+- **Use Configuration Wisely**: Utilize the `config.js` file to manage settings that may change based on the environment (development, testing, production).
+- **Linting**: Regularly run ESLint to ensure code quality and adherence to coding standards. This helps maintain a clean and consistent codebase.
+- **Testing**: Implement unit tests for functions to ensure they work as expected and to catch any regressions in future changes.

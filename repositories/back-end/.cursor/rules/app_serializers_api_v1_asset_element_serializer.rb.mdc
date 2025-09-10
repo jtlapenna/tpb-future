@@ -1,0 +1,36 @@
+---
+description: Serializer for AssetElement in the API V1 namespace, defining how asset elements are represented in JSON.
+globs: ['app/serializers/api/v1/asset_element_serializer.rb']
+alwaysApply: false
+---
+
+# AssetElementSerializer Documentation
+
+## Overview
+The `AssetElementSerializer` class is part of the API version 1 (V1) namespace and is responsible for serializing `AssetElement` objects into JSON format. This serializer defines the attributes that will be included in the JSON response when an `AssetElement` is requested through the API.
+
+## Key Components
+- **Class Definition**: The class `AssetElementSerializer` inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+- **Attributes**: The serializer specifies the following attributes to be included in the serialized output:
+  - `id`: The unique identifier for the asset element.
+  - `link`: A URL or reference link associated with the asset element.
+  - `coord_x`: The x-coordinate of the asset element.
+  - `coord_y`: The y-coordinate of the asset element.
+  - `created_at`: The timestamp when the asset element was created.
+  - `updated_at`: The timestamp when the asset element was last updated.
+- **Associations**: The serializer includes a conditional association with the `Asset` model. The `has_one :asset` line indicates that each `AssetElement` can be associated with one `Asset`, but this association is only included in the serialized output if the `element_type` of the `AssetElement` is 'picture_in_picture'. This is controlled by the `if` option, which uses a lambda to check the condition.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the API V1 namespace.
+
+## Usage Example
+To use the `AssetElementSerializer`, you would typically render an `AssetElement` object in a controller action like so:
+```ruby
+render json: @asset_element, serializer: Api::V1::AssetElementSerializer
+```
+This will return a JSON representation of the `@asset_element` object, including the specified attributes and any associated asset if applicable.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data model and are relevant for the API consumers.
+- Use conditional associations judiciously to avoid sending unnecessary data in the API response, which can improve performance and reduce payload size.
+- Keep the serializer focused on a single responsibility: transforming the `AssetElement` object into a JSON format. Avoid adding business logic within the serializer.

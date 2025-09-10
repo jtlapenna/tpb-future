@@ -1,0 +1,36 @@
+---
+description: Documentation for the app/jobs directory containing background job classes.
+globs: ['app/jobs/*']
+alwaysApply: false
+---
+
+# Overview of the app/jobs Directory
+
+The `app/jobs` directory is responsible for housing background job classes in the application. These jobs are designed to handle asynchronous processing, allowing the application to perform tasks in the background without blocking the main thread. This is particularly useful for operations that may take a significant amount of time, such as data synchronization, cleanup tasks, and webhook handling.
+
+## Summary of Key Files
+
+- **store_sync_job.rb**: This job is responsible for synchronizing data between the application and an external store, ensuring that product information is up-to-date.
+- **clean_active_carts_job.rb**: This job cleans up active shopping carts that have not been updated for a certain period, helping to maintain a tidy database and improve performance.
+- **clean_database_job.rb**: This job performs routine maintenance on the database, such as removing obsolete records or optimizing tables.
+- **create_shopify_webhook_job.rb**: This job sets up webhooks for Shopify, allowing the application to receive real-time updates from the Shopify platform.
+- **customer_sync_job.rb**: This job synchronizes customer data between the application and external services, ensuring consistency across platforms.
+- **application_job.rb**: This is a base class for all jobs in the application, providing shared functionality and configuration for job processing.
+- **share_product_text_message_job.rb**: This job handles the sending of text messages to users regarding product information, enhancing user engagement.
+
+## Relationship to Other Parts of the Codebase
+
+The jobs in this directory are typically invoked by controllers or service objects within the application. They may be triggered by user actions, scheduled tasks, or external events. The results of these jobs can affect various parts of the application, such as updating user interfaces or modifying database records.
+
+## Common Patterns and Conventions
+
+- Each job class should inherit from `ApplicationJob`, which provides a standard interface and configuration for job processing.
+- Jobs should be designed to be idempotent, meaning that running them multiple times should not produce unintended side effects.
+- Use descriptive names for job classes to clearly indicate their purpose and functionality.
+
+## Best Practices
+
+- Keep job classes focused on a single responsibility to enhance maintainability and readability.
+- Ensure that jobs handle errors gracefully and implement retry logic where appropriate.
+- Document the purpose and usage of each job class to aid other developers in understanding their functionality.
+- Regularly review and refactor job classes to ensure they remain efficient and relevant as the application evolves.

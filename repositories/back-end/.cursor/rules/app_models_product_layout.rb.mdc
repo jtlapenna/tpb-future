@@ -1,0 +1,44 @@
+---
+description: Documentation for the ProductLayout model in the application.
+globs: ['app/models/product_layout.rb']
+alwaysApply: false
+---
+
+# ProductLayout Model Documentation
+
+## Overview
+The `ProductLayout` model represents a layout configuration for products in the application. It is responsible for managing the relationships between various elements, tabs, and kiosk layouts associated with a product layout. This model leverages ActiveRecord to interact with the `product_layouts` database table.
+
+## Key Components
+- **Associations**:
+  - `has_many :elements`: This association connects the `ProductLayout` to multiple `ProductLayoutElement` instances, allowing for a flexible structure of elements within a layout. The `dependent: :destroy` option ensures that all associated elements are removed if the layout is deleted.
+  - `accepts_nested_attributes_for :elements`: This allows for nested attributes to be passed for elements, enabling the creation and destruction of elements through the `ProductLayout` form.
+  - `has_many :tabs`: Similar to elements, this association connects the layout to multiple `ProductLayoutTab` instances, also with the `dependent: :destroy` option.
+  - `has_many :kiosk_layouts`: This association links the layout to kiosk layouts, with the `dependent: :nullify` option, meaning that if a `ProductLayout` is deleted, the associated kiosk layouts will not be deleted but will have their reference set to null.
+
+- **Validations**:
+  - `validates :name`: Ensures that the `name` attribute is present and unique (case insensitive) for each `ProductLayout` instance, enforcing data integrity.
+
+## Schema Information
+The `ProductLayout` model corresponds to the `product_layouts` table in the database, which includes the following fields:
+- `id`: Primary key for the table.
+- `name`: A string representing the name of the layout.
+- `stylesheet`: A text field for storing custom styles associated with the layout.
+- `created_at` and `updated_at`: Timestamps for record creation and updates.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the codebase, focusing solely on the `ProductLayout` functionality.
+
+## Usage Examples
+To create a new `ProductLayout` with associated elements and tabs, you can use the following code:
+```ruby
+product_layout = ProductLayout.new(name: 'New Layout')
+product_layout.elements.build(name: 'Element 1')
+product_layout.tabs.build(name: 'Tab 1')
+product_layout.save
+```
+
+## Best Practices
+- Always ensure that the `name` attribute is unique and present when creating or updating a `ProductLayout` instance to avoid validation errors.
+- When working with nested attributes for elements and tabs, be mindful of the `allow_destroy` option to prevent accidental deletions.
+- Regularly review the associations and validations to ensure they meet the evolving requirements of the application.

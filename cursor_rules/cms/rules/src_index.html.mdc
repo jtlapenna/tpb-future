@@ -1,0 +1,32 @@
+---
+description: Documentation for the main HTML entry point of the Peak Beyond application.
+globs: ['src/index.html']
+alwaysApply: false
+---
+
+# Overview
+
+The `src/index.html` file serves as the main entry point for the Peak Beyond web application. It sets up the basic structure of the HTML document and includes essential metadata and styles required for the application to function correctly.
+
+## Key Components
+
+- **DOCTYPE Declaration**: The file begins with `<!doctype html>`, which defines the document type and version of HTML being used (HTML5).
+- **HTML Structure**: The document is structured with `<html>`, `<head>`, and `<body>` tags, which are standard in HTML documents.
+- **Meta Tags**: The `<head>` section includes meta tags for character set, viewport settings for responsive design, and a link to a favicon.
+- **Theme Configuration**: A script is included to set the theme for the application to Bootstrap 4, which is essential for styling the application.
+- **Root Component**: The `<app-root>` tag is a placeholder for the Angular application, which will be rendered dynamically. Inline CSS is provided to style the loading state of the application until Angular takes over.
+
+## Dependencies
+
+This file does not import any other files in the repository, nor is it imported by any other files. It acts as a standalone entry point for the application.
+
+## Usage Examples
+
+This file is automatically served when the application is launched. Developers do not need to interact with it directly unless changes to the HTML structure or metadata are required.
+
+## Best Practices
+
+- **Maintain Structure**: Ensure that the basic structure of the HTML document is preserved to avoid rendering issues.
+- **Update Metadata**: Regularly update the title and meta tags to reflect changes in the application or its branding.
+- **Avoid Inline Styles**: While inline styles are used here for the loading state, consider moving styles to external stylesheets for maintainability once the application is fully loaded.
+- **Testing**: Always test the application in various browsers to ensure that the HTML structure and styles render correctly across different environments.

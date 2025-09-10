@@ -1,0 +1,33 @@
+---
+description: CSS styles for the on-screen keyboard component.
+globs: ['src/assets/css/onScreenKeyboard.css']
+alwaysApply: false
+---
+
+# Overview
+
+The `onScreenKeyboard.css` file contains the styling for an on-screen keyboard component used in the application. It defines the layout, appearance, and interactive behaviors of the keyboard elements, ensuring a user-friendly interface for input.
+
+# Key Components
+
+- **#osk-container**: The main container for the on-screen keyboard. It is initially hidden and positioned fixed on the screen. It has a defined width and background color, along with rounded corners and a shadow effect.
+
+- **Keyboard Keys**: Each key on the keyboard is represented by a `<li>` element within the `#osk-container`. The styles applied to these keys include dimensions, margins, and hover effects to enhance user interaction.
+
+- **Special Keys**: Specific classes like `.osk-capslock`, `.osk-tab`, `.osk-shift`, etc., define the behavior and appearance of special keys. For example, the `.osk-capslock` key has a unique width and transforms text to uppercase when active.
+
+- **Dragger**: The `.osk-dragger` class allows the keyboard to be moved around the screen. It is styled to be transparent and only visible when hovered over.
+
+# Dependencies
+
+This file does not import any other files and is not imported by any other files in the repository. It is a standalone CSS file that directly styles the on-screen keyboard component.
+
+# Usage Examples
+
+To use the on-screen keyboard, ensure that the HTML structure matches the expected layout, with a container having the ID `osk-container` and child `<li>` elements for each key. The CSS will automatically apply the defined styles to these elements.
+
+# Best Practices
+
+- **Maintain Consistency**: When adding new keys or modifying existing ones, ensure that the styles remain consistent with the current design to maintain a cohesive user experience.
+- **Responsive Design**: Test the keyboard on various screen sizes to ensure it behaves as expected, especially since it has defined widths and margins.
+- **Accessibility**: Consider adding ARIA roles and properties to the keyboard elements to improve accessibility for users relying on assistive technologies.

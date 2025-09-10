@@ -1,0 +1,58 @@
+---
+description: Documentation for the Slider component in the Vue.js codebase.
+globs: ['src/components/Slider.vue']
+alwaysApply: false
+---
+
+# Slider Component Documentation
+
+## Overview
+The `Slider.vue` file defines a Vue.js component that implements a slider interface for displaying either brand images or product information. It utilizes the `Hooper` library for creating a responsive and interactive carousel experience. The component is designed to handle both video and image content, providing a seamless user experience for navigating through brands and products.
+
+## Key Components
+- **Template Structure**: The template consists of two main `hooper` instances that conditionally render based on the `useBrandSpotlight` prop. Each `hooper` contains multiple `slide` elements that display either brand images or product details.
+- **Props**: The component accepts several props:
+  - `useBrandSpotlight`: Boolean to toggle between brand spotlight and product display.
+  - `products`: Array of product objects to be displayed.
+  - `brands`: Array of brand objects for the brand spotlight.
+  - `product_Id`, `brand_Id`: IDs for the current product and brand.
+  - `url_Brand_Video`, `url_Brand_Image`: URLs for brand video and image content.
+  - `fixed_button`: Boolean to determine button positioning.
+  - `useNoCardsConfig`: Boolean to toggle card display configuration.
+  - `isGeneratingIndex`: Boolean to manage index generation state.
+- **Methods**: Key methods include:
+  - `redirectProduct(product)`: Navigates to the product detail page.
+  - `redirectBrand(brand)`: Navigates to the brand detail page.
+  - `redirectAllProducts()`: Navigates to the products listing page.
+  - `invalidUrl(url)`: Validates the URL format for media content.
+- **Computed Properties**: 
+  - `productsWithImagesOrVideos`: Filters and sorts products based on the provided `product_Id`.
+  - `brandWithImages`: Filters brands based on the provided `brand_Id` and emits the brand logo URL.
+- **Watchers**: Monitors changes to `currentSlide` to update the brand logo URL accordingly.
+- **Filters**: Includes a `formatPrice` filter to format product prices for display.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies solely on the `Hooper` library for carousel functionality and the `ProductImage` component for displaying product images.
+
+## Usage Examples
+To use the `Slider` component, include it in a parent component and pass the required props:
+```vue
+<Slider
+  :useBrandSpotlight="true"
+  :products="productsArray"
+  :brands="brandsArray"
+  :product_Id="selectedProductId"
+  :brand_Id="selectedBrandId"
+  :url_Brand_Video="brandVideoUrl"
+  :url_Brand_Image="brandImageUrl"
+  :fixed_button="true"
+  :useNoCardsConfig="false"
+  :isGeneratingIndex="false"
+/>
+```
+
+## Best Practices
+- Ensure that the `products` and `brands` props are properly populated to avoid rendering issues.
+- Use the `redirectProduct` and `redirectBrand` methods to handle navigation, ensuring that the application state is managed correctly.
+- Validate media URLs using the `invalidUrl` method to prevent errors during rendering.
+- Keep the component's props and data reactive to ensure a smooth user experience when interacting with the slider.

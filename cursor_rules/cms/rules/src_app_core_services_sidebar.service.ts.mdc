@@ -1,0 +1,54 @@
+---
+description: Documentation for the SidebarService in the Angular application.
+globs: ['src/app/core/services/sidebar.service.ts']
+alwaysApply: false
+---
+
+# SidebarService Documentation
+
+## Overview
+The `SidebarService` is an Angular service that manages the state of a sidebar component in the application. It provides a mechanism to emit state changes, allowing other components to react to these changes.
+
+## Key Components
+- **Class: SidebarService**  
+  This is the main class of the file, decorated with `@Injectable()`, which allows it to be injected into other components or services.
+
+- **Property: stateChanges**  
+  An instance of `EventEmitter` that is used to emit events whenever the sidebar's state changes.
+
+- **Method: onChanges()**  
+  Returns an `Observable<string>` that allows subscribers to listen for state changes emitted by the `stateChanges` EventEmitter.
+
+- **Method: toggle(state: any)**  
+  Accepts a state parameter and emits it through the `stateChanges` EventEmitter. This method is used to toggle the sidebar's state.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a service that can be utilized wherever sidebar state management is required within the application.
+
+## Usage Example
+To use the `SidebarService`, you can inject it into a component as follows:
+```typescript
+import { Component } from '@angular/core';
+import { SidebarService } from './services/sidebar.service';
+
+@Component({
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html'
+})
+export class SidebarComponent {
+  constructor(private sidebarService: SidebarService) {
+    this.sidebarService.onChanges().subscribe(state => {
+      console.log('Sidebar state changed:', state);
+    });
+  }
+
+  toggleSidebar() {
+    this.sidebarService.toggle('newState');
+  }
+}
+```
+
+## Best Practices
+- Ensure that the state emitted is meaningful and can be easily interpreted by subscribers.
+- Avoid emitting too frequently to prevent performance issues with excessive subscriptions.
+- Consider using specific types instead of `any` for the state parameter in the `toggle` method to improve type safety and clarity.

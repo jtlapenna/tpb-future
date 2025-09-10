@@ -1,0 +1,30 @@
+---
+description: Documentation for the kiosk services index file in the application.
+globs: ['src/app/kiosks/services/index.ts']
+alwaysApply: false
+---
+
+# Kiosk Services Index File
+
+## Overview
+This file serves as an entry point for exporting various kiosk-related services in the application. It consolidates the exports from individual service files, making it easier to import these services elsewhere in the codebase.
+
+## Key Components
+- **kiosk.service**: This service likely handles the core functionalities related to kiosks, such as managing kiosk data, operations, and interactions.
+- **kiosk-layout.service**: This service is responsible for managing the layout configurations and settings for kiosks, ensuring that the user interface is displayed correctly.
+- **kiosk-product.service**: This service manages product-related functionalities within the kiosk, such as product listings, details, and interactions.
+- **kiosk-category.service**: This service handles the categorization of products within the kiosk, allowing for better organization and navigation.
+
+## Dependencies
+This file does not import any other files, nor is it imported by any other files in the repository. It acts as a standalone module that aggregates exports from the specified services.
+
+## Usage Example
+To use any of the services exported from this file, you can import them in another module as follows:
+```typescript
+import { KioskService, KioskLayoutService, KioskProductService, KioskCategoryService } from './services';
+```
+
+## Best Practices
+- Ensure that each service is well-documented individually, as this file serves as a gateway to those services.
+- When adding new services, remember to include their exports in this index file to maintain a clean and organized structure.
+- Keep the services focused on their specific responsibilities to adhere to the Single Responsibility Principle.

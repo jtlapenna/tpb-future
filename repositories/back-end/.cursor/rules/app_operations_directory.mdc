@@ -1,0 +1,31 @@
+---
+description: Documentation for the app/operations directory, which contains operation classes for handling various business logic.
+globs: ['app/operations/*']
+alwaysApply: false
+---
+
+# Overview of the app/operations Directory
+
+The `app/operations` directory is designed to encapsulate various operation classes that handle specific business logic within the application. These operations are typically invoked in response to user actions or system events, and they serve as a central point for executing complex workflows.
+
+## Key Files
+
+- **clone_kiosk_operation.rb**: This file contains the `CloneKioskOperation` class, which is responsible for cloning kiosk configurations. It encapsulates the logic required to duplicate existing kiosk settings and ensure that all necessary data is replicated correctly.
+
+## Relationship to Other Parts of the Codebase
+
+The operations defined in this directory are often called from controllers or service objects, which handle incoming requests and delegate the execution of business logic to the appropriate operation class. This separation of concerns helps maintain a clean architecture and promotes reusability across the application.
+
+## Common Patterns and Conventions
+
+- **Naming Conventions**: Each operation class should be named using the `CamelCase` format, reflecting the action it performs. For example, `CloneKioskOperation` clearly indicates its purpose.
+- **Single Responsibility Principle**: Each operation should focus on a single task or workflow, making it easier to test and maintain.
+- **Error Handling**: Operations should include robust error handling to manage exceptions and provide meaningful feedback to the calling context.
+
+## Best Practices
+
+- **Keep Operations Focused**: Ensure that each operation class handles a specific task without taking on additional responsibilities. This makes the code easier to understand and maintain.
+- **Document Your Code**: Include comments and documentation within your operation classes to explain the purpose and functionality of the code. This is especially important for complex operations.
+- **Test Thoroughly**: Write unit tests for each operation to ensure that they behave as expected under various conditions. This will help catch issues early and improve the reliability of your application.
+
+By following these guidelines, developers can effectively work within the `app/operations` directory and contribute to a well-structured and maintainable codebase.

@@ -1,0 +1,51 @@
+---
+description: Documentation for analyzing code quality in the back-end repository.
+globs: ['CODE_QUALITY_ANALYSIS.md']
+alwaysApply: false
+---
+
+# CODE_QUALITY_ANALYSIS.md Documentation
+
+## Overview
+This document provides a comprehensive analysis of the code quality within the back-end repository. It focuses on various aspects such as code organization, style, architecture, testing, performance, security, and maintainability. The goal is to identify patterns, practices, and potential areas of concern in the existing codebase to enhance overall code quality.
+
+## Key Components
+
+### 1. Code Organization Analysis
+- **Directory Structure**: Evaluates the organization of application directories and modules, ensuring adherence to Rails conventions and clear separation of concerns.
+- **Module Organization**: Assesses feature-based organization and naming conventions for modules.
+
+### 2. Code Style Analysis
+- **Ruby Style**: Reviews formatting, naming conventions, and documentation practices to ensure consistency and clarity in the code.
+- **Documentation**: Emphasizes the importance of code comments and API documentation for maintainability.
+
+### 3. Architecture Analysis
+- **Design Patterns**: Analyzes the implementation of MVC and service objects to ensure proper design principles are followed.
+- **Code Reuse**: Looks at the usage of concerns and helper methods to promote DRY principles and modular design.
+
+### 4. Testing Analysis
+- **Test Coverage**: Evaluates the extent of unit and integration tests, ensuring comprehensive coverage of the codebase.
+- **Test Quality**: Reviews the organization and practices of tests to maintain high quality and reliability.
+
+### 5. Performance Analysis
+- **Database**: Focuses on query optimization and caching strategies to enhance database performance.
+- **Application**: Analyzes response times and resource management to identify bottlenecks and improve efficiency.
+
+### 6. Security Analysis
+- **Authentication**: Reviews user authentication and authorization practices to ensure secure access control.
+- **Data Protection**: Assesses input validation and data security measures to protect sensitive information.
+
+### 7. Maintainability Analysis
+- **Code Complexity**: Evaluates method and class complexity to identify areas for simplification.
+- **Code Dependencies**: Analyzes external and internal dependencies to manage risks associated with versioning and conflicts.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a guide for analyzing code quality.
+
+## Best Practices
+- Regularly review and update the analysis to reflect changes in the codebase.
+- Use this document as a checklist during code reviews to ensure adherence to quality standards.
+- Encourage team members to contribute to the analysis by providing feedback and suggestions for improvement.
+
+## Usage Example
+Developers can refer to this document when onboarding new team members or during code reviews to ensure that the code adheres to the established quality standards. It serves as a reference point for discussions around code quality and improvement initiatives.

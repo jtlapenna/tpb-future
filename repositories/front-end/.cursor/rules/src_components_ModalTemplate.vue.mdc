@@ -1,0 +1,54 @@
+---
+description: Documentation for the ModalTemplate component in a Vue.js application.
+globs: ['src/components/ModalTemplate.vue']
+alwaysApply: false
+---
+
+# ModalTemplate.vue Documentation
+
+## Overview
+The `ModalTemplate.vue` file defines a reusable modal component for a Vue.js application. This component provides a structured layout for displaying content in a modal dialog, including a background overlay and customizable inner content. It also manages the on-screen keyboard behavior when the modal is active.
+
+## Key Components
+
+### Template Structure
+- **Modal Container**: The main wrapper for the modal, which includes the inner content and a background overlay.
+- **Slot**: The `<slot></slot>` element allows for dynamic content insertion, enabling developers to pass any content they wish to display within the modal.
+
+### Script Section
+- **mounted()**: This lifecycle hook initializes the modal's behavior when it is mounted. It sets up event listeners for keyboard input and manages the on-screen keyboard's visibility and positioning.
+- **beforeDestroy()**: This lifecycle hook cleans up by hiding the on-screen keyboard and resetting its z-index when the modal is destroyed.
+- **data()**: Returns an empty object, which can be extended in the future if state management is needed.
+
+### Styles
+- The component uses scoped SCSS for styling, ensuring that styles do not leak into other components. It includes styles for the modal's background, container, inner content, and close button, with responsive design considerations for different modal sizes (large, small).
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies solely on jQuery for DOM manipulation and event handling.
+
+## Usage Example
+To use the `ModalTemplate` component, you can include it in another Vue component as follows:
+```vue
+<template>
+  <ModalTemplate>
+    <h1>Your Content Here</h1>
+    <p>This is a customizable modal.</p>
+  </ModalTemplate>
+</template>
+
+<script>
+import ModalTemplate from './ModalTemplate.vue';
+
+export default {
+  components: {
+    ModalTemplate
+  }
+};
+</script>
+```
+
+## Best Practices
+- Ensure that the modal is only used for content that requires user attention, as excessive use can lead to a poor user experience.
+- Always provide a clear way to close the modal, either through a close button or by clicking outside the modal.
+- Test the modal's behavior with various screen sizes and content lengths to ensure it remains user-friendly and visually appealing.
+- Consider accessibility best practices, such as keyboard navigation and screen reader support, when implementing modals.

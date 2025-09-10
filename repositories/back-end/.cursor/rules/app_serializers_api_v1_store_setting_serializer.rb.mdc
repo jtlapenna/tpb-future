@@ -1,0 +1,58 @@
+---
+description: Documentation for the StoreSettingSerializer class in the API V1 module.
+globs: ['app/serializers/api/v1/store_setting_serializer.rb']
+alwaysApply: false
+---
+
+# StoreSettingSerializer Documentation
+
+## Overview
+The `StoreSettingSerializer` class is part of the `Api::V1` module and is responsible for serializing store settings data into a JSON format that can be easily consumed by clients. This serializer utilizes the `ActiveModel::Serializer` framework to define which attributes of the store settings should be included in the serialized output.
+
+## Key Components
+- **Class**: `StoreSettingSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides a way to customize the JSON output of the model.
+  - **Attributes**: The following attributes are serialized:
+    - `admin_email`: The email address of the store administrator.
+    - `printer_location`: The location of the printer used in the store.
+    - `pos_location`: The point of sale location.
+    - `main_color`: The primary color used in the store's branding.
+    - `secondary_color`: The secondary color used in the store's branding.
+    - `featured_products_on_top_for_brands_page`: Boolean indicating if featured products should be shown on top of the brands page.
+    - `featured_products_on_top_for_effects_and_uses_page`: Boolean for effects and uses page.
+    - `featured_products_on_top_for_products_page`: Boolean for products page.
+    - `idle_delay`: Delay time before the system goes idle.
+    - `restart_delay`: Delay time before the system restarts.
+    - `service_worker_log`: Log for service worker activities.
+    - `default_product_description`: Default description for products.
+    - `heap_id`: Identifier for Heap analytics.
+    - `dispensary_license_number`: License number for the dispensary.
+    - `lat`: Latitude of the store location.
+    - `lng`: Longitude of the store location.
+    - `t_a_c`: Terms and conditions.
+    - `global_ad_enabled`: Flag to enable global advertisements.
+    - `show_thc_cbd_values`: Flag to show THC and CBD values.
+    - `disable_tax_message`: Flag to disable tax messages.
+    - `rfid_popup_setting`: Settings for RFID popups.
+    - `enable_request_tax`: Flag to enable tax requests.
+    - `show_alternative_flower_icon`: Flag to show alternative flower icons.
+    - `use_master_category`: Flag to use master categories.
+    - `checkout_message`: Message displayed at checkout.
+    - `printer_mac_address`: MAC address of the printer.
+    - `enable_toggle_tax`: Flag to enable toggle for tax.
+    - `default_toggle_customer_type`: Default customer type for toggling.
+  - **Associations**: The serializer has a `has_one` association with `background_media`, which allows for the inclusion of background media data in the serialized output.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on the serialization of store settings.
+
+## Usage Example
+To use the `StoreSettingSerializer`, you would typically instantiate it with a store setting object and render it in a controller action:
+```ruby
+render json: StoreSettingSerializer.new(store_setting)
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are always up-to-date with the model they represent.
+- Use meaningful names for attributes to maintain clarity in the serialized output.
+- When adding new attributes, consider the impact on the API consumers and document any changes accordingly.

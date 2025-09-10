@@ -1,0 +1,56 @@
+---
+description: Service for managing Kiosk Layout resources in the application.
+globs: ['src/app/kiosks/services/kiosk-layout.service.ts']
+alwaysApply: false
+---
+
+# KioskLayoutService Documentation
+
+## Overview
+The `KioskLayoutService` is an Angular service that extends the `CrudService` to manage `KioskLayout` resources. It provides methods for creating new kiosk layouts and generating resource names and paths based on the context of the application.
+
+## Key Components
+
+### Class: KioskLayoutService
+- **Extends:** `CrudService<KioskLayout>`  
+  This class inherits from `CrudService`, which provides basic CRUD operations for the `KioskLayout` model.
+
+#### Methods:
+
+1. **createResource(params: any): KioskLayout**  
+   - **Description:** Creates a new instance of `KioskLayout` using the provided parameters.  
+   - **Parameters:**  
+     - `params`: An object containing the properties to initialize the `KioskLayout`.  
+   - **Returns:** A new `KioskLayout` object.
+
+2. **resourceName({plural}: {plural?: boolean} = {}): string**  
+   - **Description:** Returns the name of the resource, either singular or plural based on the input parameter.  
+   - **Parameters:**  
+     - `plural`: A boolean indicating whether to return the plural form of the resource name.  
+   - **Returns:** A string representing the resource name (e.g., 'kiosk_layout' or 'kiosk_layouts').
+
+3. **resourcePath({parentId}: {parentId?: number} = {}): string**  
+   - **Description:** Constructs the path for accessing kiosk layouts, optionally including a parent ID.  
+   - **Parameters:**  
+     - `parentId`: An optional number representing the ID of the parent kiosk.  
+   - **Returns:** A string representing the resource path (e.g., 'kiosks/1/layouts').
+
+## Dependencies
+- **Imports:**  
+  - `CrudService` from `../../core/services`: This is the base service that provides CRUD functionality.  
+  - `KioskLayout` from `../models`: This is the model representing the structure of a kiosk layout.
+
+- **Not Imported By:**  
+  This service is not imported by any other files in the repository, indicating it may be used internally within the kiosks module.
+
+## Usage Examples
+To create a new kiosk layout, you can use the `createResource` method:
+```typescript
+const kioskLayoutService = new KioskLayoutService();
+const newLayout = kioskLayoutService.createResource({ name: 'New Layout', configuration: {} });
+```
+
+## Best Practices
+- Ensure that the parameters passed to `createResource` match the expected structure of the `KioskLayout` model to avoid runtime errors.
+- Use the `resourceName` method to maintain consistency in naming conventions throughout the application.
+- When constructing paths with `resourcePath`, always check if the `parentId` is valid to prevent incorrect API calls.

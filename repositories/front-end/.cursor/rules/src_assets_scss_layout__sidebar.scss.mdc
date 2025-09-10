@@ -1,0 +1,43 @@
+---
+description: Documentation for the sidebar layout styles in the SCSS codebase.
+globs: ['src/assets/scss/layout/_sidebar.scss']
+alwaysApply: false
+---
+
+# Sidebar Layout Styles Documentation
+
+## Overview
+The `_sidebar.scss` file contains the styles for the sidebar component of the application. It defines the layout, positioning, and appearance of the sidebar, including its background and cart elements. The sidebar is designed to be fixed on the left side of the viewport, providing a consistent navigation experience for users.
+
+## Key Components
+
+### .the-sidebar
+- **Positioning**: The sidebar is fixed to the top-left corner of the viewport, ensuring it remains visible as users scroll through the content.
+- **Dimensions**: The sidebar's height is set to a variable `$sidebar-height`, and its width adjusts based on the screen size, defined by the `$sidebar-width` variable for larger screens.
+- **Z-Index**: The sidebar has a z-index of 3, placing it above other elements in the layout.
+
+### .nav-container
+- **Purpose**: This nested class serves as a container for navigation elements within the sidebar, ensuring they occupy the full height of the sidebar.
+
+### .store-bg
+- **Background Image**: This class provides a semi-transparent background image for the sidebar, which is hidden on larger screens to maintain a clean layout.
+- **Image Styling**: The image is set to cover the entire background area, maintaining its aspect ratio with `object-fit: cover`.
+
+### Media Queries
+- The sidebar's styles adapt based on the screen size using a media query for minimum width defined by `$md-breakpoint`.
+- On larger screens, the background image is hidden, and the sidebar expands to its full width and height.
+
+### .cart and .the-nav
+- **Cart Styles**: The cart is styled to be a flexible container positioned at the bottom of the sidebar, allowing for a clean and accessible layout.
+- **Flexbox Usage**: The cart uses flexbox for layout, ensuring that its contents are centered and responsive.
+
+## Dependencies
+This file does not import any other SCSS files and is not imported by any other files in the repository. It stands alone in defining the sidebar's styles.
+
+## Usage Examples
+To use the sidebar styles, ensure that the `_sidebar.scss` file is included in your main SCSS file. The sidebar will automatically apply the defined styles based on the screen size.
+
+## Best Practices
+- **Variable Management**: Ensure that the `$sidebar-height` and `$sidebar-width` variables are defined in a central location for easy adjustments.
+- **Responsive Design**: Always test the sidebar on various screen sizes to ensure that the layout behaves as expected.
+- **Maintainability**: Keep the styles organized and consider using comments to explain complex sections of the code for future developers.

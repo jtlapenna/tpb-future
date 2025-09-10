@@ -1,0 +1,40 @@
+---
+description: Documentation for the Rakefile in a Rails application.
+globs: ['Rakefile']
+alwaysApply: false
+---
+
+# Rakefile Documentation
+
+## Overview
+The `Rakefile` is a crucial component of a Ruby on Rails application that allows developers to define and manage tasks using Rake, a Ruby build program. This file serves as the entry point for Rake tasks, enabling the automation of common tasks such as database migrations, testing, and deployment.
+
+## Key Components
+- **Task Definition**: The Rakefile allows you to add custom tasks by placing them in files located in the `lib/tasks` directory, with a `.rake` extension. For example, you can create a file named `lib/tasks/capistrano.rake` to define deployment tasks.
+- **Rails Application Loading**: The line `require_relative 'config/application'` loads the Rails application configuration, which is necessary for accessing the Rails environment and its components.
+- **Task Loading**: The line `Rails.application.load_tasks` automatically loads all the Rake tasks defined in the application, making them available for execution.
+
+## Dependencies
+This Rakefile does not import any other files in the repository, nor is it imported by any other files. It operates independently, relying solely on the Rails framework to function.
+
+## Usage Examples
+To define a custom Rake task, create a new file in the `lib/tasks` directory:
+```ruby
+# lib/tasks/my_task.rake
+namespace :my_namespace do
+  desc "This is my custom task"
+  task my_task: :environment do
+    puts 'Hello, World!'
+  end
+end
+```
+You can then run this task from the command line using:
+```bash
+rake my_namespace:my_task
+```
+
+## Best Practices
+- **Organize Tasks**: Keep your Rake tasks organized by grouping related tasks into namespaces and placing them in separate files within the `lib/tasks` directory.
+- **Documentation**: Always provide a description for your tasks using the `desc` method to help other developers understand their purpose.
+- **Environment Awareness**: Use the `:environment` prerequisite to ensure that your tasks have access to the Rails application context when needed.
+- **Testing**: Consider writing tests for your Rake tasks to ensure they behave as expected, especially if they perform critical operations.

@@ -1,0 +1,33 @@
+---
+description: Serializer for ProductLayoutValue model in the application.
+globs: ['app/serializers/product_layout_value_serializer.rb']
+alwaysApply: false
+---
+
+# ProductLayoutValueSerializer
+
+## Overview
+The `ProductLayoutValueSerializer` is a serializer class that defines how the `ProductLayoutValue` model is represented in JSON format. It is part of the ActiveModel::Serializer framework, which is used to create a structured and consistent API response.
+
+## Key Components
+- **Class Definition**: The class `ProductLayoutValueSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method specifies which attributes of the `ProductLayoutValue` model should be included in the serialized output. In this case, the following attributes are included:
+  - `id`: The unique identifier for the product layout value.
+  - `link`: A URL or reference link associated with the product layout value.
+  - `content`: The content or description of the product layout value.
+  - `product_layout_element_id`: The identifier for the associated product layout element.
+- **Associations**: The `has_one :asset` line indicates that each `ProductLayoutValue` can be associated with one `asset`, which will also be serialized when the `ProductLayoutValue` is serialized.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `ProductLayoutValue` model.
+
+## Usage Examples
+To use this serializer, you would typically call it when rendering a `ProductLayoutValue` object in a controller action. For example:
+```ruby
+render json: @product_layout_value, serializer: ProductLayoutValueSerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the attributes available in the `ProductLayoutValue` model.
+- Keep the serializer focused on the specific model it represents to maintain clarity and separation of concerns.
+- When adding new attributes or associations, consider the impact on the API response and ensure that they are necessary for the client consuming the API.

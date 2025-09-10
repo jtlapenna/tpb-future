@@ -1,0 +1,52 @@
+---
+description: Documentation for the FlowhubApiParser class responsible for parsing API data related to cannabis products.
+globs: ['app/parsers/flowhub_api_parser.rb']
+alwaysApply: false
+---
+
+# FlowhubApiParser Documentation
+
+## Overview
+The `FlowhubApiParser` class is designed to parse and synchronize cannabis product data from the Flowhub API with a local store's inventory. It handles the retrieval, transformation, and validation of product data, ensuring that the information is correctly formatted and stored.
+
+## Key Components
+
+### Class: FlowhubApiParser
+- **Initialization**: The class is initialized with a `store_id`, which is used to fetch the corresponding store data.
+
+- **Methods**:
+  - `store`: Retrieves the store object associated with the given `store_id`.
+  - `parse`: The main method that orchestrates the parsing of product data. It iterates over products, sanitizes data, generates attributes, and creates `StoreSyncItem` objects for valid products. It also collects errors for invalid products.
+  - `generate_cannabis_attributes`: Generates attributes related to THC and CBD from the product's cannabinoid information.
+  - `generate_type_attribute`: Creates a type attribute based on the species name of the product.
+  - `products`: Fetches products from the API and applies any customer type filters.
+  - `filter_prod`: Filters products based on customer type.
+  - `gram_weight`: Calculates the weight of the product in grams based on its unit of measure.
+  - `cannabinoid_gram_weight`: Computes the total weight of cannabinoids in grams.
+  - `sanitize_string`: Cleans up string values by removing extra whitespace.
+  - `translate_category`: Translates product categories to more user-friendly names.
+  - `thca_potency`: Adjusts THC values based on the presence of THCA for specific product categories.
+
+### Error Handling
+The `parse` method collects errors for any invalid `StoreSyncItem` instances and returns them in the result hash, allowing for easy debugging and correction of data issues.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies solely on the `Store`, `StoreSync`, and `StoreSyncItem` classes, which are assumed to be defined elsewhere in the codebase.
+
+## Usage Example
+To use the `FlowhubApiParser`, instantiate it with a valid `store_id` and call the `parse` method:
+```ruby
+parser = FlowhubApiParser.new(store_id: 1)
+result = parser.parse
+if result[:errors].any?
+  puts "Errors occurred: #{result[:errors]}"
+else
+  puts "Sync successful!"
+end
+```
+
+## Best Practices
+- Ensure that the API client is properly configured before calling the `parse` method.
+- Handle any potential errors gracefully, especially when dealing with external API data.
+- Regularly review and update the category translations and other mappings to keep them in sync with the API changes.
+- Use logging to capture any unexpected behavior during parsing for easier troubleshooting.

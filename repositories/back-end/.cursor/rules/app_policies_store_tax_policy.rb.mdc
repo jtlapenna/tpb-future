@@ -1,0 +1,40 @@
+---
+description: Policy class for managing permissions related to StoreTax resources.
+globs: ['app/policies/store_tax_policy.rb']
+alwaysApply: false
+---
+
+# StoreTaxPolicy Documentation
+
+## Overview
+The `StoreTaxPolicy` class is responsible for defining the authorization rules for the `StoreTax` resources in the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application. This policy determines what actions a user can perform on `StoreTax` records based on their role (admin or regular user).
+
+## Key Components
+
+### Classes
+- **StoreTaxPolicy**: The main policy class that defines the authorization rules for `StoreTax` resources.
+  - **Scope**: A nested class that defines the scope of records that a user can access. It includes a `resolve` method that returns different scopes based on whether the user is an admin or a regular user.
+
+### Methods
+- **resolve**: This method checks if the user is an admin. If true, it returns all records in the scope. If false, it restricts the records to those owned by the user.
+- **index?**: Returns true if the user is authenticated, allowing them to view the list of `StoreTax` records.
+- **create?**: Returns true if the user is authenticated, allowing them to create new `StoreTax` records.
+- **update?**: Returns true if the user is authenticated, allowing them to update existing `StoreTax` records.
+- **show?**: Returns true if the user is authenticated, allowing them to view a specific `StoreTax` record.
+- **permitted_attributes**: Returns an array of attributes that are permitted for mass assignment when creating or updating `StoreTax` records. In this case, it includes `:name` and `:value`.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the context of the application, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined in it when checking permissions in your controllers or views. For example:
+```ruby
+if StoreTaxPolicy.new(current_user, store_tax).show?
+  # Allow access to the store tax record
+end
+```
+
+## Best Practices
+- Ensure that the user roles are clearly defined and that the logic in the `resolve` method accurately reflects the intended access control.
+- Regularly review and update the permitted attributes in the `permitted_attributes` method to ensure they align with the application's requirements and security standards.
+- Use this policy in conjunction with other policies to maintain a consistent authorization strategy across the application.

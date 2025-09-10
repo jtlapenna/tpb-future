@@ -1,0 +1,55 @@
+---
+description: Documentation for the AttributeDef model in the application.
+globs: ['app/models/attribute_def.rb']
+alwaysApply: false
+---
+
+# AttributeDef Model Documentation
+
+## Overview
+The `AttributeDef` class represents an attribute definition in the application, inheriting from `ApplicationRecord`. It is designed to manage attributes that can belong to an attribute group and can have multiple associated values. This model includes validations, associations, and a scope for querying.
+
+## Key Components
+
+### Class Definition
+- **`class AttributeDef < ApplicationRecord`**: This line defines the `AttributeDef` model, which is a subclass of `ApplicationRecord`, allowing it to interact with the database.
+
+### Associations
+- **`belongs_to :attribute_group, optional: true`**: This sets up a one-to-many relationship where an `AttributeDef` can optionally belong to an `AttributeGroup`.
+- **`has_many :attribute_values, dependent: :destroy`**: This establishes a one-to-many relationship with `AttributeValue`, ensuring that if an `AttributeDef` is deleted, its associated `AttributeValues` are also removed.
+
+### Validations
+- **`validates :name, presence: true`**: Ensures that the `name` attribute is always present.
+- **`validates :values, presence: true, if: :restricted`**: Validates that `values` must be present if the `restricted` attribute is true.
+
+### Callbacks
+- **`before_save :clean_values, unless: :restricted`**: This callback cleans the `values` attribute before saving the record, but only if it is not restricted.
+
+### Scopes
+- **`scope :by_name, ->(name) { where 'lower(name) = ?', name.to_s.downcase }`**: This scope allows querying `AttributeDef` records by their name in a case-insensitive manner.
+
+### Private Methods
+- **`def clean_values`**: This method sets the `values` attribute to `nil`, effectively cleaning it before saving if the record is not restricted.
+
+## Schema Information
+The model corresponds to the `attribute_defs` table in the database, which includes fields such as `id`, `name`, `restricted`, `values`, `created_at`, `updated_at`, and `attribute_group_id`. The schema also defines indexes for efficient querying and foreign key constraints for data integrity.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it a standalone model. It interacts with the `AttributeGroup` and `AttributeValue` models through its associations.
+
+## Usage Examples
+To create a new `AttributeDef`:
+```ruby
+attribute_def = AttributeDef.new(name: 'Color', restricted: false, values: ['Red', 'Blue'])
+attribute_def.save
+```
+
+To find an `AttributeDef` by name:
+```ruby
+attribute_def = AttributeDef.by_name('Color').first
+```
+
+## Best Practices
+- Ensure that the `name` and `values` attributes are properly validated before saving to maintain data integrity.
+- Use the provided scope for querying by name to avoid case sensitivity issues.
+- Be cautious when modifying the `values` attribute, especially in relation to the `restricted` flag, to prevent unintended data loss.

@@ -1,0 +1,38 @@
+---
+description: Serializer for AttributeGroup model in the application.
+globs: ['app/serializers/attribute_group_serializer.rb']
+alwaysApply: false
+---
+
+# AttributeGroupSerializer
+
+## Overview
+The `AttributeGroupSerializer` is a serializer class that defines how the `AttributeGroup` model is represented in JSON format. It is part of the ActiveModel::Serializer framework, which is used to create a structured JSON response for API endpoints in Ruby on Rails applications.
+
+## Key Components
+- **Class Definition**: The class `AttributeGroupSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method specifies which attributes of the `AttributeGroup` model should be included in the serialized output. In this case, the attributes are `id`, `name`, `group_type`, and `order`.
+- **Associations**: The `has_many :attribute_defs` line indicates that the `AttributeGroup` model has a one-to-many relationship with the `AttributeDef` model. This means that when an `AttributeGroup` is serialized, it will also include an array of its associated `AttributeDef` objects.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `AttributeGroup` model.
+
+## Usage Example
+When an API request is made to retrieve an `AttributeGroup`, the response will be formatted according to this serializer. For example:
+```json
+{
+  "id": 1,
+  "name": "Group A",
+  "group_type": "Type 1",
+  "order": 1,
+  "attribute_defs": [
+    {"id": 1, "name": "Attribute 1"},
+    {"id": 2, "name": "Attribute 2"}
+  ]
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the attributes available in the `AttributeGroup` model.
+- When adding new attributes or associations, update this serializer accordingly to maintain consistency in the API response.
+- Use serializers to encapsulate the logic of how models are represented, keeping controllers clean and focused on handling requests and responses.

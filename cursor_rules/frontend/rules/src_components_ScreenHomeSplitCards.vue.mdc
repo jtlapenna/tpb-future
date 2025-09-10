@@ -1,0 +1,54 @@
+---
+description: Documentation for the ScreenHomeSplitCards component in a Vue.js application.
+globs: ['src/components/ScreenHomeSplitCards.vue']
+alwaysApply: false
+---
+
+# ScreenHomeSplitCards.vue Documentation
+
+## Overview
+The `ScreenHomeSplitCards.vue` file defines a Vue.js component that displays a grid of product cards on the home screen of an application. It supports both a standard and a split-screen layout, dynamically rendering product cards based on their availability and user interactions. The component also integrates animations for transitions and handles scrolling events to enhance user experience.
+
+## Key Components
+- **Template Structure**: The template consists of a main `div` that conditionally renders messages, product cards, and navigation links based on the component's state.
+- **Props**: The component accepts several props:
+  - `isGeneratingIndex`: Indicates if the index of products is being generated.
+  - `products`: An array of product objects to be displayed.
+  - `sharedScreenConfig`: A boolean that determines if the screen is shared.
+  - `isActiveCartFeatureActivated`: A boolean that indicates if the active cart feature is enabled.
+- **Computed Properties**:
+  - `splitScreen`: Always returns true, indicating the component is in split-screen mode.
+  - `center`: Calculates the center index for splitting the product list.
+  - `halfs`: Splits the product list into two halves for rendering in split-screen mode.
+  - `listClass`: Determines the CSS class for the product list based on the number of products and scroll state.
+  - `cardProducts`: Maps the RFID product IDs to their corresponding product objects, handling out-of-stock cases.
+- **Methods**:
+  - `handleScroll`: Handles scroll events to update the component's state regarding scrolling.
+  - `transitionEnter` and `onTransitionLeave`: Manage animations for entering and leaving the screen.
+  - `fetchData`: Fetches product data from an RFID repository and updates the component's state.
+  - `updateRfidProducts`: Updates the product list based on RFID data.
+
+## Dependencies
+This component imports several other components and mixins:
+- **ProductCard**, **ProductCardBlank**, **ProductCardSale**: These components are used to render individual product cards based on their availability.
+- **RedirectEvent**: A mixin that likely handles redirection events within the application.
+- **ActiveCartButton**: A component that displays a button for accessing the active cart feature.
+- **GSAP**: Used for animations, enhancing the visual transitions of the component.
+- **jQuery**: Utilized for DOM manipulation and event handling.
+
+## Usage Example
+To use the `ScreenHomeSplitCards` component, include it in a parent component's template as follows:
+```html
+<ScreenHomeSplitCards
+  :isGeneratingIndex="isGeneratingIndex"
+  :products="products"
+  :sharedScreenConfig="sharedScreenConfig"
+  :isActiveCartFeatureActivated="isActiveCartFeatureActivated"
+/>
+```
+
+## Best Practices
+- Ensure that the `products` prop is always populated with valid product data to avoid rendering issues.
+- Use the `isGeneratingIndex` prop to manage loading states effectively, providing feedback to users during data fetching.
+- When modifying the component, maintain the structure of computed properties and methods to ensure clarity and maintainability.
+- Leverage the animation methods to enhance user experience during transitions between different states of the component.

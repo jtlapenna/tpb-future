@@ -1,0 +1,59 @@
+---
+description: Serializer for Product model in the application, defining how product data is structured for API responses.
+globs: ['app/serializers/product_serializer.rb']
+alwaysApply: false
+---
+
+# ProductSerializer Documentation
+
+## Overview
+The `ProductSerializer` class is responsible for defining how the `Product` model's data is serialized into JSON format for API responses. It utilizes the `ActiveModel::Serializer` framework to specify which attributes and associations should be included in the serialized output.
+
+## Key Components
+- **Class Declaration**: `class ProductSerializer < ActiveModel::Serializer`
+  - This line declares the `ProductSerializer` class, inheriting from `ActiveModel::Serializer`, which provides the necessary functionality for serialization.
+
+- **Attributes**: `attributes :id, :name, :description, :tag_list`
+  - This line specifies the attributes of the `Product` model that will be included in the serialized output. In this case, the `id`, `name`, `description`, and `tag_list` attributes are included.
+
+- **Associations**:
+  - `belongs_to :category`
+    - This indicates that each product is associated with a single category, and the category data will be included in the serialized output.
+  - `has_one :video`
+    - This specifies that each product can have one associated video, which will also be serialized.
+  - `has_many :attribute_values`
+    - This indicates that a product can have multiple attribute values, which will be included in the serialized output.
+  - `has_many :images`
+    - This specifies that a product can have multiple images associated with it.
+  - `has_many :reviews`
+    - This indicates that a product can have multiple reviews, which will be serialized as well.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, focusing solely on the serialization of the `Product` model.
+
+## Usage Examples
+When a request is made to retrieve a product, the `ProductSerializer` will format the response as follows:
+```json
+{
+  "id": 1,
+  "name": "Sample Product",
+  "description": "This is a sample product.",
+  "tag_list": ["tag1", "tag2"],
+  "category": {
+    "id": 1,
+    "name": "Sample Category"
+  },
+  "video": {
+    "id": 1,
+    "url": "http://example.com/video"
+  },
+  "attribute_values": [...],
+  "images": [...],
+  "reviews": [...]
+}
+```
+
+## Best Practices
+- Ensure that the attributes and associations defined in the serializer accurately reflect the data structure of the `Product` model.
+- Keep the serializer focused on the `Product` model to maintain clarity and separation of concerns.
+- Regularly review and update the serializer as the `Product` model evolves to ensure that all necessary data is included in API responses.

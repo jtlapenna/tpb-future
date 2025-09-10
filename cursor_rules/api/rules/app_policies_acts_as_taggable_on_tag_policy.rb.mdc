@@ -1,0 +1,36 @@
+---
+description: Policy class for managing tag-related permissions in the ActsAsTaggableOn module.
+globs: ['app/policies/acts_as_taggable_on/tag_policy.rb']
+alwaysApply: false
+---
+
+# ActsAsTaggableOn::TagPolicy Documentation
+
+## Overview
+The `ActsAsTaggableOn::TagPolicy` class is a policy that defines permissions for actions related to tags in the ActsAsTaggableOn module. It inherits from `ApplicationPolicy`, which provides a base structure for defining authorization rules in the application.
+
+## Key Components
+- **Class**: `ActsAsTaggableOn::TagPolicy`
+  - This class is responsible for determining whether a user has permission to perform actions related to tags.
+
+- **Method**: `index?`
+  - **Signature**: `def index?`
+  - **Functionality**: This method checks if a user is present (i.e., authenticated). If the user exists, it returns true, granting access to the index action for tags. If the user is not present, it returns false, denying access.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in defining the policy for tag-related actions.
+
+## Usage Examples
+To use this policy, you would typically check permissions in your controllers or views. For example:
+```ruby
+if ActsAsTaggableOn::TagPolicy.new(current_user).index?
+  # Allow access to tag index
+else
+  # Deny access
+end
+```
+
+## Best Practices
+- Ensure that the `user` method is properly defined in the `ApplicationPolicy` class to return the current user.
+- Keep the policy methods simple and focused on a single responsibility to maintain clarity and ease of testing.
+- Regularly review and update the policy methods as the application evolves to ensure they reflect the current authorization requirements.

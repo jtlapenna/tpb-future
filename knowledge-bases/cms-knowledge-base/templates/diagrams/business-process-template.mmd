@@ -1,0 +1,91 @@
+---
+title: [Process Name]
+category: business_process
+status: draft
+version: 1.0
+last_updated: YYYY-MM-DD
+---
+
+```mermaid
+flowchart TD
+    %% Styles
+    classDef start fill:#4CAF50,stroke:#45A049,color:white
+    classDef end fill:#f44336,stroke:#d32f2f,color:white
+    classDef process fill:#2196F3,stroke:#1976D2,color:white
+    classDef decision fill:#FFC107,stroke:#FFA000,color:black
+    classDef error fill:#FF5722,stroke:#F4511E,color:white
+
+    %% Start/End Nodes
+    Start([Start]):::start
+    End([End]):::end
+    Error([Error]):::error
+
+    %% Process Nodes
+    Process1[Process Step 1]:::process
+    Process2[Process Step 2]:::process
+    Process3[Process Step 3]:::process
+
+    %% Decision Nodes
+    Decision1{Decision Point 1}:::decision
+    Decision2{Decision Point 2}:::decision
+
+    %% Flow
+    Start --> Process1
+    Process1 --> Decision1
+    Decision1 -->|Yes| Process2
+    Decision1 -->|No| Error
+    Process2 --> Decision2
+    Decision2 -->|Yes| Process3
+    Decision2 -->|No| Process1
+    Process3 --> End
+    Error --> End
+
+    %% Subgraph Example
+    subgraph SubProcess
+        direction TB
+        SubStep1[Sub Step 1]
+        SubStep2[Sub Step 2]
+        SubStep1 --> SubStep2
+    end
+
+    %% Notes
+    %% 1. Replace placeholder names with actual process steps
+    %% 2. Add appropriate decision points
+    %% 3. Include error handling paths
+    %% 4. Group related steps in subgraphs
+    %% 5. Use consistent naming conventions
+```
+
+## Diagram Notes
+
+### Purpose
+Brief description of what this diagram represents.
+
+### Key Components
+- List of main components
+- Decision points
+- Error scenarios
+
+### Usage Context
+- When to use this diagram
+- Related processes
+- Dependencies
+
+### Style Guide
+1. Use consistent node types:
+   - Start/End: Rounded rectangles
+   - Process: Rectangles
+   - Decision: Diamonds
+   - Error: Rounded rectangles (red)
+
+2. Color Scheme:
+   - Start: Green (#4CAF50)
+   - Process: Blue (#2196F3)
+   - Decision: Yellow (#FFC107)
+   - Error: Red (#f44336)
+   - End: Red (#f44336)
+
+3. Naming Conventions:
+   - Use clear, descriptive names
+   - Keep names concise
+   - Use consistent terminology 

@@ -1,0 +1,37 @@
+---
+description: Documentation for the LayoutNavigation model in the application.
+globs: ['app/models/layout_navigation.rb']
+alwaysApply: false
+---
+
+# LayoutNavigation Model Documentation
+
+## Overview
+The `LayoutNavigation` model represents a navigation structure associated with a specific kiosk layout in the application. It is responsible for managing a collection of navigation items that can be dynamically modified through nested attributes.
+
+## Key Components
+- **Class Definition**: `LayoutNavigation` inherits from `ApplicationRecord`, making it a part of the Active Record framework in Rails.
+- **Associations**:
+  - `belongs_to :kiosk_layout`: This establishes a relationship where each `LayoutNavigation` is linked to a single `KioskLayout`.
+  - `has_many :items`: This sets up a one-to-many relationship with `LayoutNavigationItem`, allowing multiple items to be associated with a single navigation layout. The `dependent: :destroy` option ensures that all associated items are deleted if the `LayoutNavigation` is deleted.
+- **Nested Attributes**: The `accepts_nested_attributes_for :items` method allows for the creation and updating of associated `LayoutNavigationItem` records through the `LayoutNavigation` form. The `allow_destroy: true` option permits the deletion of items, while the `reject_if` lambda prevents the creation of empty items.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the context of the application.
+
+## Usage Examples
+To create a new `LayoutNavigation` with associated items, you can use the following code:
+```ruby
+layout_navigation = LayoutNavigation.create(
+  kiosk_layout_id: some_kiosk_layout_id,
+  items_attributes: [
+    { name: 'Home', order: 1 },
+    { name: 'About', order: 2 }
+  ]
+)
+```
+
+## Best Practices
+- Ensure that the `kiosk_layout_id` is valid and corresponds to an existing `KioskLayout` to maintain referential integrity.
+- When using nested attributes, validate the presence of necessary fields in `LayoutNavigationItem` to avoid creating invalid records.
+- Regularly review and clean up unused `LayoutNavigation` and associated `LayoutNavigationItem` records to maintain database performance.

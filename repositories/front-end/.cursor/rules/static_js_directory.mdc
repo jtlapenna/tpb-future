@@ -1,0 +1,37 @@
+---
+description: Documentation for the static/js directory containing JavaScript files for various functionalities.
+globs: ['static/js/*']
+alwaysApply: false
+---
+
+# Overview of the static/js Directory
+
+The `static/js` directory contains JavaScript files that provide various functionalities for the web application. These scripts are primarily responsible for handling client-side logic, including service worker management, user interactions, and configuration settings.
+
+## Key Files and Their Roles
+
+- **firebase-messaging-sw.js**: This file is responsible for managing Firebase Cloud Messaging (FCM) service workers, enabling push notifications for the application.
+- **upload.js**: This script handles file uploads, providing the necessary logic to manage user file submissions and interactions with the server.
+- **config.js**: Contains configuration settings for the application, such as API endpoints and feature flags, allowing for easy adjustments without modifying core logic.
+- **jquery.onScreenKeyboard.js**: Implements an on-screen keyboard feature using jQuery, enhancing user accessibility and interaction.
+- **sw-cache-sync.js**: Manages caching strategies for service workers, ensuring that the application can function offline and load resources efficiently.
+- **jquery.onScreenKeynumber.js**: Similar to the on-screen keyboard, this file provides a numeric keypad interface for user input, particularly useful for forms requiring numeric entries.
+
+## Relation to Other Parts of the Codebase
+
+The scripts in this directory are integral to the client-side functionality of the application. They interact with HTML elements and may communicate with backend services through AJAX calls or WebSocket connections. While this directory does not import from or export to other directories, its files are often referenced in the main HTML files of the application, ensuring that the necessary scripts are loaded for proper functionality.
+
+## Common Patterns and Conventions
+
+- **Modular Structure**: Each file is designed to handle a specific aspect of the application, promoting modularity and ease of maintenance.
+- **jQuery Usage**: Several files utilize jQuery for DOM manipulation and event handling, following common practices for enhancing user experience.
+- **Service Worker Management**: Files related to service workers follow best practices for caching and offline capabilities, ensuring a smooth user experience even in low connectivity scenarios.
+
+## Best Practices
+
+- **Keep Files Modular**: Ensure that each JavaScript file has a single responsibility to make it easier to maintain and test.
+- **Comment Your Code**: Provide clear comments and documentation within the code to explain complex logic or important decisions.
+- **Test Functionality**: Regularly test the scripts in various scenarios to ensure they work as intended, especially after making changes.
+- **Follow Naming Conventions**: Use clear and descriptive names for files and functions to enhance readability and maintainability.
+
+By adhering to these guidelines, developers can effectively manage and enhance the functionality provided by the scripts in the `static/js` directory.

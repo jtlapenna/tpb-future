@@ -1,0 +1,37 @@
+---
+description: Documentation for the ClientsModule in an Angular application.
+globs: ['src/app/clients/clients.module.ts']
+alwaysApply: false
+---
+
+# ClientsModule Documentation
+
+## Overview
+The `ClientsModule` is an Angular module that manages the client-related components and services within the application. It sets up routing for client-related views and provides the necessary services to handle client data.
+
+## Key Components
+- **ClientListComponent**: Displays a list of clients. This component is the default view when navigating to the clients module.
+- **ClientComponent**: Used for creating a new client or editing an existing client. It is displayed when navigating to the `/new` or `/:id/edit` routes.
+- **ClientService**: A service that handles the business logic and data retrieval for client-related operations.
+
+## Routing
+The module defines the following routes:
+- `''`: Displays the `ClientListComponent`.
+- `'/new'`: Displays the `ClientComponent` for creating a new client.
+- `':id/edit'`: Displays the `ClientComponent` for editing an existing client based on the provided ID.
+
+## Dependencies
+This module imports the following:
+- **SharedModule**: Contains shared components, directives, and pipes used across the application.
+- **RouterModule**: Configures the routing for the module using the defined routes.
+
+### Imported By
+The `ClientsModule` is imported by `src/app/layout/layout.routes.ts`, which likely integrates it into the main application routing structure.
+
+## Usage Example
+To use the `ClientsModule`, ensure it is imported in the main application module or a parent module that handles routing. The routes defined will allow navigation to the client list and client creation/editing views.
+
+## Best Practices
+- Keep the components and services organized within their respective directories to maintain clarity.
+- Ensure that the `ClientService` is properly handling API calls and error management to provide a smooth user experience.
+- Use Angular's dependency injection to manage service instances effectively.

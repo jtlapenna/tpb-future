@@ -1,0 +1,45 @@
+---
+description: Documentation for the ScreenCheckoutShopify component in a Vue.js application.
+globs: ['src/components/ScreenCheckoutShopify.vue']
+alwaysApply: false
+---
+
+# ScreenCheckoutShopify Component Documentation
+
+## Overview
+The `ScreenCheckoutShopify` component is a Vue.js component designed to facilitate the checkout process for Shopify-based stores. It generates a QR code that users can scan to proceed with their checkout, displaying relevant order information dynamically based on the user's cart and discount codes.
+
+## Key Components
+- **Template**: The template section contains the HTML structure, including a QR code and a label prompting the user to scan the code.
+- **Script**: The script section defines the component's logic, including data properties, computed properties, lifecycle hooks, and methods.
+  - **Data Properties**:
+    - `orderCode`: A unique code generated for the order.
+    - `unsubscribeFromOrder`: A function to unsubscribe from order updates.
+  - **Props**:
+    - `cart`: The shopping cart items.
+    - `discountCode`: Any applicable discount code.
+  - **Computed Properties**:
+    - `isShopify`: Checks if the current POS type is Shopify.
+    - `attributes`: Constructs query parameters for the order.
+    - `discount`: Adds discount information to the URL if applicable.
+    - `kioskId`: Retrieves the catalog ID from the configuration.
+    - `shopUrl`: Retrieves the store URL from the configuration.
+    - `permaLink`: Constructs the permanent link for the cart, including items and any attributes or discounts.
+  - **Methods**:
+    - `generateCode(length)`: Generates a random order code of specified length.
+    - `listeForOrderUpdate()`: Listens for updates on the order status and emits success messages accordingly.
+
+## Dependencies
+This component imports the `QrcodeVue` library for generating QR codes and a function `getOrderChanges` from the messaging API. It does not import or get imported by any other files in the repository, making it a standalone component.
+
+## Usage Example
+To use this component, include it in a parent component and pass the required props:
+```vue
+<ScreenCheckoutShopify :cart="cartItems" :discountCode="discount" />
+```
+
+## Best Practices
+- Ensure that the `cart` prop is always populated with valid items to avoid errors in QR code generation.
+- Handle the `success` event emitted by this component in the parent component to provide feedback to the user.
+- Keep the `QrcodeVue` library updated to leverage any improvements or bug fixes.
+- Consider adding error handling for the `getOrderChanges` function to manage potential issues with order updates.

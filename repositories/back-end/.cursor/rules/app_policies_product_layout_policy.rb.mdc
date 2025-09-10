@@ -1,0 +1,39 @@
+---
+description: Policy class for managing permissions related to product layout.
+globs: ['app/policies/product_layout_policy.rb']
+alwaysApply: false
+---
+
+# ProductLayoutPolicy Documentation
+
+## Overview
+The `ProductLayoutPolicy` class is a policy that defines the authorization rules for managing product layouts within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the codebase.
+
+## Key Components
+
+### Class: `ProductLayoutPolicy`
+- **Inheritance**: Inherits from `ApplicationPolicy`, which likely contains common authorization logic.
+
+#### Method: `show?`
+- **Purpose**: Determines if a user is authorized to view the product layout.
+- **Implementation**: Returns the `user` object, which implies that if a user is present, they are authorized to view the layout. This method can be expanded to include more complex logic based on user roles or permissions.
+
+#### Method: `permitted_attributes`
+- **Purpose**: Specifies the attributes that are permitted for mass assignment when creating or updating product layouts.
+- **Implementation**: Returns an array of permitted attributes, including nested attributes for elements and tabs. The `elements_attributes` array defines the attributes that can be associated with elements in the layout, ensuring that only safe parameters are allowed.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in defining the policy for product layouts.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined within it when checking permissions in your controllers or views. For example:
+```ruby
+if ProductLayoutPolicy.new(user).show?
+  # Code to display the product layout
+end
+```
+
+## Best Practices
+- Ensure that the `show?` method is updated to include more granular permission checks as needed, especially if user roles become more complex.
+- Regularly review the `permitted_attributes` method to ensure that it aligns with the current requirements of the application and does not expose sensitive data.
+- Consider adding tests for this policy to ensure that authorization rules are enforced correctly.

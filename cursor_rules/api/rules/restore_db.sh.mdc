@@ -1,0 +1,53 @@
+---
+description: Documentation for the restore_db.sh script used to manage database restoration and migrations.
+globs: ['restore_db.sh']
+alwaysApply: false
+---
+
+# restore_db.sh Documentation
+
+## Overview
+The `restore_db.sh` script is designed to facilitate the restoration of a PostgreSQL database from a backup file within a Docker container environment. It automates the process of dropping an existing database, creating a new one, restoring data from a backup, running necessary migrations, and updating user credentials.
+
+## Key Components
+1. **Drop Database**: The script begins by dropping the existing `tpb_api` database if it exists, ensuring a clean slate for restoration.
+   ```bash
+   docker exec -i aim-tpb-be-db-1 psql -U tpb -d postgres -c "DROP DATABASE IF EXISTS tpb_api;"
+   ```
+
+2. **Create Database**: After dropping the database, it creates a new `tpb_api` database to restore the backup into.
+   ```bash
+   docker exec -i aim-tpb-be-db-1 psql -U tpb -d postgres -c "CREATE DATABASE tpb_api;"
+   ```
+
+3. **Copy Backup File**: The backup SQL file is copied from the host machine to the Docker container's temporary directory.
+   ```bash
+   docker cp ../backup-api_prod_rds-1738053001.sql aim-tpb-be-db-1:/tmp/backup.dump
+   ```
+
+4. **Restore Backup**: The script restores the database from the copied backup file using `pg_restore`, ensuring that the restoration is done in a single transaction and without ownership issues.
+   ```bash
+   docker exec -i aim-tpb-be-db-1 pg_restore -U tpb -d tpb_api --single-transaction --no-owner -v /tmp/backup.dump
+   ```
+
+5. **Run Migrations**: It runs Rails migrations to ensure the database schema is up to date with the application requirements.
+   ```bash
+   docker exec -i aim-tpb-be-api-1 rails db:migrate RAILS_ENV=development
+   ```
+
+6. **Update Admin User Password**: Finally, the script updates the password for the admin user in the `public.users` table, ensuring that the admin can log in with the new credentials.
+   ```bash
+   docker exec -i aim-tpb-be-db-1 psql -U tpb -d tpb_api -c "UPDATE public.users SET password_digest='...hashed_password...', active=true WHERE email='admin@admin.org';"
+   ```
+
+## Dependencies
+This script does not import or depend on any other files in the repository, nor is it imported by any other files. It operates independently within the Docker environment.
+
+## Usage Example
+To use this script, simply execute it in a terminal where Docker is running and the necessary containers are available. Ensure that the backup file path is correct and that you have the appropriate permissions to execute Docker commands.
+
+## Best Practices
+- Always ensure that you have a recent backup before running this script, as it will drop the existing database.
+- Review the backup file to confirm it contains the expected data before restoration.
+- Test the script in a development environment before using it in production to avoid accidental data loss.
+- Keep the password hash generation process secure and avoid hardcoding sensitive information in the script.

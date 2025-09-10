@@ -1,0 +1,42 @@
+---
+description: Documentation for the VideoImageBackgroundAsset model in the application.
+globs: ['app/models/video_image_background_asset.rb']
+alwaysApply: false
+---
+
+# VideoImageBackgroundAsset Model Documentation
+
+## Overview
+The `VideoImageBackgroundAsset` class is an ActiveRecord model that represents a video image background asset in the application. It is designed to manage the relationship between video images and their associated assets, as well as their layout positions within a kiosk layout.
+
+## Key Components
+- **Class Definition**: `VideoImageBackgroundAsset` inherits from `ApplicationRecord`, which provides it with all the functionalities of an ActiveRecord model.
+- **Associations**:
+  - `has_one :kiosk_layout`: This establishes a one-to-one relationship with the `KioskLayout` model. The `dependent: :nullify` option ensures that if the associated `KioskLayout` is deleted, the reference in this model is set to `NULL` instead of deleting the record.
+  - `has_one :asset`: This sets up a polymorphic association with the `Asset` model, allowing this model to reference different types of assets. The `inverse_of: :source` option helps ActiveRecord understand the relationship in both directions. The `allow_destroy: true` option permits the associated asset to be destroyed when this model is destroyed, and `reject_if: :all_blank` prevents saving if no attributes are provided.
+  - `belongs_to :asset_position`: This creates an optional association with the `LayoutPosition` model, allowing for the specification of where the asset is positioned within a layout.
+
+## Schema Information
+The database schema for this model includes the following fields:
+- `id`: Primary key for the record.
+- `created_at`: Timestamp for when the record was created.
+- `updated_at`: Timestamp for when the record was last updated.
+- `asset_position_id`: Foreign key that references the `LayoutPosition` model, which is optional.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently, but it is related to the `KioskLayout`, `Asset`, and `LayoutPosition` models through its associations.
+
+## Usage Examples
+To create a new `VideoImageBackgroundAsset`, you might do the following:
+```ruby
+video_image = VideoImageBackgroundAsset.create(
+  asset_position_id: 1,
+  asset_attributes: { name: 'Background Video', url: 'http://example.com/video.mp4' }
+)
+```
+
+## Best Practices
+- Ensure that the associated `KioskLayout` and `Asset` models are properly managed to maintain data integrity.
+- Use nested attributes wisely to avoid unintentional data loss, especially with the `allow_destroy` option.
+- Validate the presence of necessary associations if required by uncommenting the validation line for `kiosk_layout`.
+- Keep the model lean by offloading complex business logic to service objects or concerns.

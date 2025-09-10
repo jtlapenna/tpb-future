@@ -1,0 +1,42 @@
+---
+description: Documentation for the BrandMinimalSerializer in the API V1 namespace.
+globs: ['app/serializers/api/v1/brand_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# BrandMinimalSerializer Documentation
+
+## Overview
+The `BrandMinimalSerializer` is a serializer class used in the API V1 namespace of the application. It is responsible for defining how brand objects are represented in JSON format when sent to clients. This serializer is particularly focused on providing a minimal representation of a brand, including essential attributes and associated data.
+
+## Key Components
+- **Class Definition**: The `BrandMinimalSerializer` class inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The serializer specifies the following attributes to be included in the serialized output:
+  - `id`: The unique identifier for the brand.
+  - `name`: The name of the brand.
+  - `created_at`: The timestamp when the brand was created.
+  - `updated_at`: The timestamp when the brand was last updated.
+- **Associations**: The serializer includes a `has_one` association for `logo`, which uses the `Api::V1::AssetSerializer` to serialize the logo associated with the brand. This allows for a nested representation of the logo within the brand's JSON output.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, focusing solely on the serialization of brand objects.
+
+## Usage Example
+When a brand object is serialized using this serializer, the output might look like this:
+```json
+{
+  "id": 1,
+  "name": "Brand Name",
+  "created_at": "2023-01-01T00:00:00Z",
+  "updated_at": "2023-01-02T00:00:00Z",
+  "logo": {
+    "id": 1,
+    "url": "http://example.com/logo.png"
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant and necessary for the API consumers. Avoid including sensitive information.
+- When adding new attributes or associations, consider the impact on the API response size and performance.
+- Keep the serializer focused on a single responsibility; if more complex logic is needed, consider creating additional serializers or service objects.

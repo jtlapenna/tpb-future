@@ -1,0 +1,51 @@
+---
+description: Documentation for the ShareButton component in a Vue.js application.
+globs: ['src/components/ShareButton.vue']
+alwaysApply: false
+---
+
+# ShareButton Component Documentation
+
+## Overview
+The `ShareButton` component is a Vue.js component that provides a button for users to share product information via email. When clicked, it opens a modal where users can enter their email address to receive details about the product. This component enhances user engagement by allowing easy sharing of product information.
+
+## Key Components
+- **Template**: The template consists of a button that triggers a modal. The modal contains a form for email input and displays success or error messages based on the user's actions.
+- **Props**: The component accepts a `productId` prop, which is used to identify the product being shared.
+- **Data**: The component maintains several data properties:
+  - `shareEmail`: Stores the email address entered by the user.
+  - `shareMessage`: Displays messages related to the sharing process (e.g., validation errors).
+  - `shareSuccess`: Indicates whether the sharing was successful.
+  - `showModal`: Controls the visibility of the modal.
+- **Methods**:
+  - `proceedShare()`: Validates the email and sends a POST request to share the product. It handles success and error responses appropriately.
+  - `toggleShareModal(show)`: Toggles the visibility of the share modal and resets the input fields.
+  - `validEmail(email)`: Validates the email format using a regular expression.
+
+## Dependencies
+This component imports the `ModalTemplate` component and uses `Portal` and `PortalTarget` from the `portal-vue` library to manage modal rendering. It does not import or export any other files in the repository, nor is it imported by any other files.
+
+## Usage Example
+To use the `ShareButton` component, include it in a parent component and pass the `productId` prop:
+```vue
+<template>
+  <ShareButton :productId="product.id" />
+</template>
+<script>
+import ShareButton from '@/components/ShareButton.vue';
+export default {
+  components: { ShareButton },
+  data() {
+    return {
+      product: { id: 123 }
+    };
+  }
+};
+</script>
+```
+
+## Best Practices
+- Ensure that the email validation is robust to prevent invalid submissions.
+- Handle API errors gracefully to improve user experience.
+- Keep the UI responsive and provide feedback to users during the sharing process.
+- Consider accessibility best practices when implementing modals and forms.

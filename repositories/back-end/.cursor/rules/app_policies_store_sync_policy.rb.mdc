@@ -1,0 +1,39 @@
+---
+description: Policy class for managing store synchronization permissions.
+globs: ['app/policies/store_sync_policy.rb']
+alwaysApply: false
+---
+
+# StoreSyncPolicy Documentation
+
+## Overview
+The `StoreSyncPolicy` class is responsible for defining the authorization rules for actions related to store synchronization within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application.
+
+## Key Components
+
+### Classes
+- **StoreSyncPolicy**: This is the main policy class that defines permissions for various actions related to store synchronization.
+  - **Scope**: A nested class that determines the scope of records that the user is allowed to access. It includes a `resolve` method that checks if the user is an admin or an owner of the records.
+
+### Methods
+- **resolve**: This method returns the appropriate scope based on the user's role. If the user is an admin, they have access to all records. Otherwise, it restricts access to only those records owned by the user.
+- **create?**: This method checks if the user is authorized to create a new store synchronization record. It returns true if the user is present (logged in).
+- **sync_item?**: Similar to `create?`, this method checks if the user can synchronize an item. It also returns true if the user is present.
+- **show?**: This method checks if the user can view a store synchronization record. It returns true if the user is present.
+- **finish?**: This method checks if the user can finish a store synchronization process. It returns true if the user is present.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined in it when checking permissions in your controllers or services. For example:
+```ruby
+if StoreSyncPolicy.new(user, store_sync_record).create?
+  # Proceed with creating a store sync record
+end
+```
+
+## Best Practices
+- Ensure that the user object is always passed to the policy methods to avoid unexpected behavior.
+- Keep the policy methods simple and focused on a single responsibility to maintain clarity and ease of testing.
+- Regularly review and update the policy rules as the application evolves to ensure they reflect the current business logic and user roles.

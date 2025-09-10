@@ -1,0 +1,35 @@
+---
+description: Serializer for Store Product Promotions in the application.
+globs: ['app/serializers/store_product_promotion_serializer.rb']
+alwaysApply: false
+---
+
+# StoreProductPromotionSerializer
+
+## Overview
+The `StoreProductPromotionSerializer` is a serializer class that formats the data for store product promotions in the application. It is responsible for defining how the promotion data is structured when it is rendered in JSON format, making it easier for clients to consume the data.
+
+## Key Components
+- **Class Definition**: The class inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+- **Attributes**: The serializer defines the following attributes to be included in the serialized output:
+  - `id`: The unique identifier for the promotion.
+  - `promotion`: The promotion object associated with the store product.
+  - `store_product_id`: The ID of the store product that the promotion applies to.
+  - `promotion_id`: The ID of the promotion itself.
+  - `promotion_name`: The name of the promotion.
+  - `discount_price`: The price after applying the promotion discount.
+- **Associations**: The serializer includes a `belongs_to` association with `store_product`, which uses the `StoreProductWithValuesSerializer` to serialize the associated store product data.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, focusing solely on the serialization of store product promotions.
+
+## Usage Examples
+To use this serializer, you would typically call it within a controller action that responds with JSON. For example:
+```ruby
+render json: @store_product_promotion, serializer: StoreProductPromotionSerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure needed by the client applications.
+- Keep the serializer focused on a single responsibility; avoid adding unnecessary logic that could complicate the serialization process.
+- Regularly review and update the serializer as the underlying data models change to ensure consistency and accuracy in the API responses.

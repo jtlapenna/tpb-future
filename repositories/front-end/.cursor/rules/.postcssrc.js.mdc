@@ -1,0 +1,26 @@
+---
+description: Configuration file for PostCSS plugins used in the project.
+globs: ['.postcssrc.js']
+alwaysApply: false
+---
+
+# .postcssrc.js Documentation
+
+## Overview
+The `.postcssrc.js` file is a configuration file for PostCSS, a tool for transforming CSS with JavaScript plugins. This file specifies the plugins that PostCSS will use when processing CSS files in the project.
+
+## Key Components
+- **postcss-import**: This plugin allows you to use `@import` statements in your CSS files, enabling modular CSS by importing styles from other files.
+- **postcss-url**: This plugin helps to manage URLs in your CSS files, allowing you to inline images or adjust paths.
+- **autoprefixer**: This plugin automatically adds vendor prefixes to CSS rules, ensuring compatibility with different browsers. To customize the target browsers, you can specify the `browserslist` field in your `package.json` file.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file for PostCSS.
+
+## Usage Example
+To use this configuration, ensure that you have the specified PostCSS plugins installed in your project. You can run PostCSS through your build process (e.g., using a task runner like Gulp or a bundler like Webpack) to process your CSS files according to this configuration.
+
+## Best Practices
+- Keep your PostCSS plugins updated to benefit from the latest features and fixes.
+- Regularly review the `browserslist` configuration in your `package.json` to ensure that you are supporting the necessary browsers for your project.
+- Organize your CSS files in a modular way to take full advantage of the `postcss-import` plugin.

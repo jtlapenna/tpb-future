@@ -1,0 +1,38 @@
+---
+description: Documentation for the ActiveCartNotFound component in a Vue.js application.
+globs: ['src/components/ActiveCartNotFound.vue']
+alwaysApply: false
+---
+
+# ActiveCartNotFound.vue Documentation
+
+## Overview
+The `ActiveCartNotFound` component is a Vue.js single-file component that displays a message when a user's active cart cannot be found based on the provided credentials. It encourages users to build a cart by adding items from the catalog and provides a button to initiate this process.
+
+## Key Components
+- **Template**: The template consists of a structured layout with a message indicating that no cart was found, along with a button to create a new cart.
+- **ActiveCartButton**: This is a child component imported from `ActiveCartButton.vue`, which is rendered as a button for users to create a new cart. It is styled to be small and in info mode.
+- **Styles**: The component uses scoped SCSS for styling, ensuring that styles do not leak into other components. The layout is designed to be responsive and visually appealing.
+
+## File Structure
+- **Template Section**: Contains the HTML structure of the component.
+- **Script Section**: Defines the component's name, imports, and lifecycle hooks. Currently, it does not utilize any data, computed properties, or methods, but these can be added as needed.
+- **Style Section**: Contains scoped styles that define the appearance of the component, including margins, font sizes, and layout properties.
+
+## Dependencies
+This component does not import any other files in the repository and is not imported by any other files. It stands alone, making it easy to test and reuse in different parts of the application.
+
+## Usage Example
+To use the `ActiveCartNotFound` component, simply include it in a parent component's template:
+```html
+<template>
+  <div>
+    <active-cart-not-found></active-cart-not-found>
+  </div>
+</template>
+```
+
+## Best Practices
+- **Component Reusability**: Since this component is self-contained, it can be reused in different parts of the application where a cart not found scenario may occur.
+- **Styling**: When modifying styles, ensure to maintain the scoped nature of the styles to prevent unintended side effects on other components.
+- **Future Enhancements**: Consider adding props to customize the messages or button actions based on different scenarios, enhancing the component's flexibility.

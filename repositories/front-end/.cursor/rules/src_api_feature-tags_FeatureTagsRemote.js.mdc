@@ -1,0 +1,48 @@
+---
+description: Documentation for the FeaturesTagsRemote class that handles API interactions for feature tags.
+globs: ['src/api/feature-tags/FeatureTagsRemote.js']
+alwaysApply: false
+---
+
+# FeaturesTagsRemote.js Documentation
+
+## Overview
+The `FeaturesTagsRemote` class is responsible for handling API interactions related to feature tags in the application. It provides methods to fetch tags from the server, which can be used throughout the application to display or manipulate feature tags.
+
+## Key Components
+### FeaturesTagsRemote Class
+- **index(pageconfig)**: This method retrieves a list of tags from the server. It accepts an optional `pageconfig` parameter, which defaults to `{featured_tags: true}`. The method makes a GET request to the `tags` endpoint and processes the response to return a structured object containing the tags.
+
+#### Method Details:
+- **Parameters**:  
+  - `pageconfig` (Object): Configuration options for the API request. The default value is `{featured_tags: true}`.
+
+- **Returns**:  
+  - A promise that resolves to an object containing the tags, where each tag is mapped to an object with its original value and an index.
+
+### Example Usage
+```javascript
+import { FeaturesTagsRemote } from './FeatureTagsRemote';
+
+const featureTagsRemote = new FeaturesTagsRemote();
+
+featureTagsRemote.index().then(response => {
+  console.log(response.data.tags);
+});
+```
+
+## Dependencies
+This file imports the following module:
+- `HTTP` from `../http`: This module is used to make HTTP requests to the API.
+
+### Related Files
+- **Imports**:  
+  - `src/api/http.js`: This file contains the HTTP client used for making API requests.
+
+- **Exports**:  
+  - `src/api/feature-tags/FeatureTagsRepo.js`: This file imports `FeaturesTagsRemote` to utilize its functionality for fetching feature tags.
+
+## Best Practices
+- Ensure that the `pageconfig` parameter is correctly configured based on the requirements of the API.
+- Handle errors from the API call appropriately, possibly by adding a `.catch()` block to the promise chain.
+- When using the tags in the application, consider caching them if they are frequently accessed to reduce API calls.

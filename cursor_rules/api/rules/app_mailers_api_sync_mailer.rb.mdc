@@ -1,0 +1,39 @@
+---
+description: Documentation for the ApiSyncMailer class responsible for sending error notifications related to store synchronization.
+globs: ['app/mailers/api_sync_mailer.rb']
+alwaysApply: false
+---
+
+# ApiSyncMailer Documentation
+
+## Overview
+The `ApiSyncMailer` class is a subclass of `ApplicationMailer` that is responsible for sending email notifications when there are synchronization errors related to stores. It provides a method to handle error reporting by sending an email to a specified recipient with details about the error.
+
+## Key Components
+### Class: ApiSyncMailer
+- **Inheritance**: Inherits from `ApplicationMailer`, which provides the base functionality for sending emails in the application.
+- **Layout**: Uses the 'mailer' layout for formatting the email content.
+
+### Method: sync_error
+- **Parameters**:
+  - `store_id`: The ID of the store that encountered the synchronization error.
+  - `errors`: An optional array of error messages related to the synchronization process (default is an empty array).
+  - `exception`: An optional exception object that provides additional context about the error (default is nil).
+- **Functionality**:
+  - Retrieves the store object using the provided `store_id`.
+  - Assigns the `errors` and `exception` to instance variables for use in the email template.
+  - Sends an email to the address specified in the `API_ERRORS_EMAIL_TO` environment variable, with a subject line that includes the store's name.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the `ApplicationMailer` class and the `Store` model.
+
+## Usage Example
+To use the `sync_error` method, you would typically call it from another part of your application when a synchronization error occurs:
+```ruby
+ApiSyncMailer.sync_error(store_id, errors: ['Error message 1', 'Error message 2'], exception: some_exception).deliver_now
+```
+
+## Best Practices
+- Ensure that the `API_ERRORS_EMAIL_TO` environment variable is set correctly in your application configuration to avoid sending emails to an incorrect address.
+- When calling the `sync_error` method, provide meaningful error messages and exception details to help diagnose issues more effectively.
+- Consider implementing logging alongside email notifications to maintain a record of synchronization errors for further analysis.

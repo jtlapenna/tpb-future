@@ -1,0 +1,33 @@
+---
+description: Documentation for the app/models directory containing various model files for the application.
+globs: ['app/models/*']
+alwaysApply: false
+---
+
+# Overview of the app/models Directory
+
+The `app/models` directory is a crucial part of the application, housing the model classes that represent the core business logic and data structures. Each model corresponds to a specific entity in the application, encapsulating its attributes and behaviors.
+
+## Summary of Key Files and Their Roles
+- **image.rb**: Represents image-related data and behaviors, likely used for product images or assets.
+- **product.rb**: Defines the product model, including attributes like name, price, and relationships to other models such as categories and orders.
+- **customer.rb**: Manages customer-related data, including personal information and order history.
+- **order.rb**: Represents an order placed by a customer, linking products and customers together.
+- **cart.rb**: Handles the shopping cart functionality, managing items that a customer intends to purchase.
+- **layout_navigation.rb**: Defines the navigation structure for the application layout, helping to organize user interface elements.
+- **payment_gateway.rb**: Integrates with payment processing services, managing transactions and payment methods.
+
+## Relationship to Other Parts of the Codebase
+The models in this directory interact closely with controllers and views in the MVC architecture of the application. Controllers utilize these models to fetch and manipulate data, while views present this data to users. Additionally, the models may have relationships with each other, such as a `Product` belonging to a `Category` or an `Order` containing multiple `OrderItems`.
+
+## Common Patterns or Conventions Used
+- **ActiveRecord**: Most models inherit from `ApplicationRecord`, which provides built-in methods for database interactions.
+- **Naming Conventions**: Models are typically named in singular form (e.g., `Product`, `Customer`), while database tables are plural (e.g., `products`, `customers`).
+- **Associations**: Models often define relationships using `has_many`, `belongs_to`, and `has_one` to establish connections between different entities.
+
+## Best Practices When Working with Files in This Directory
+- **Keep Models Focused**: Each model should represent a single entity and its behavior. Avoid adding unrelated methods or attributes to maintain clarity.
+- **Use Validations**: Implement validations within models to ensure data integrity before saving to the database.
+- **Document Relationships**: Clearly document associations and methods within each model to aid understanding and maintenance.
+- **Test Models**: Write unit tests for model methods to ensure they behave as expected, especially for complex business logic.
+- **Follow Naming Conventions**: Adhere to established naming conventions for models and their attributes to maintain consistency across the codebase.

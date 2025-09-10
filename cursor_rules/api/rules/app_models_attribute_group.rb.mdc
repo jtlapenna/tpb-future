@@ -1,0 +1,52 @@
+---
+description: Documentation for the AttributeGroup model in the application.
+globs: ['app/models/attribute_group.rb']
+alwaysApply: false
+---
+
+# AttributeGroup Model Documentation
+
+## Overview
+The `AttributeGroup` model represents a collection of attribute definitions in the application. It is designed to manage different types of attributes that can be associated with various entities, providing a structured way to handle attributes in the system.
+
+## Key Components
+- **Class Declaration**: `class AttributeGroup < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, making it a part of the Active Record framework, which facilitates database interactions.
+
+- **Associations**: `has_many :attribute_defs, dependent: :destroy`
+  - This establishes a one-to-many relationship with the `AttributeDef` model. When an `AttributeGroup` is deleted, all associated `AttributeDef` records will also be removed.
+
+- **Enum Declaration**: `enum group_type: { short_text: 0, long_text: 1 }`
+  - Defines an enumeration for `group_type`, allowing for easy categorization of attribute groups into types such as short text and long text.
+
+- **Validations**: `validates :name, presence: true, uniqueness: true`
+  - Ensures that each `AttributeGroup` has a unique name and that the name is present before saving to the database.
+
+## Schema Information
+The `attribute_groups` table in the database contains the following fields:
+- `id`: Primary key for the record.
+- `group_type`: Integer representing the type of the attribute group (default is `short_text`).
+- `name`: String representing the name of the attribute group.
+- `order`: Integer for ordering the attribute groups.
+- `created_at`: Timestamp for when the record was created.
+- `updated_at`: Timestamp for when the record was last updated.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, but it is related to the `AttributeDef` model through the defined association.
+
+## Usage Examples
+To create a new `AttributeGroup`, you can use the following code:
+```ruby
+attribute_group = AttributeGroup.create(name: 'Example Group', group_type: :short_text)
+```
+
+To retrieve all attribute definitions for a specific group:
+```ruby
+attribute_group = AttributeGroup.find(1)
+attribute_defs = attribute_group.attribute_defs
+```
+
+## Best Practices
+- Always ensure that the `name` attribute is unique when creating new `AttributeGroup` instances to avoid validation errors.
+- Use the enum values for `group_type` to maintain consistency across the application when referencing attribute group types.
+- Consider implementing additional validations or callbacks if the business logic requires more complex rules for managing attribute groups.

@@ -1,0 +1,49 @@
+---
+description: Documentation for the Review model in the application.
+globs: ['app/models/review.rb']
+alwaysApply: false
+---
+
+# Review Model Documentation
+
+## Overview
+The `Review` model represents a review entity in the application. It is designed to be associated with various reviewable entities through polymorphism, allowing it to be flexible in terms of what it can review (e.g., products, services, etc.). The model ensures that each review has a text field that is mandatory.
+
+## Key Components
+- **Class Definition**: `class Review < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the model with Active Record functionalities.
+
+- **Associations**: `belongs_to :reviewable, polymorphic: true`
+  - This line establishes a polymorphic association, meaning that the `Review` can belong to different models (like `Product`, `Service`, etc.) that can be reviewed.
+
+- **Validations**: `validates :text, presence: true`
+  - This validation ensures that the `text` attribute cannot be empty when a review is created or updated.
+
+## Schema Information
+The `reviews` table in the database has the following structure:
+- `id`: Primary key for the review.
+- `rate`: A string representing the rating given in the review.
+- `reviewable_type`: A string indicating the type of the reviewable entity.
+- `text`: The content of the review (mandatory).
+- `user`: A string representing the user who created the review.
+- `created_at`: Timestamp for when the review was created.
+- `updated_at`: Timestamp for when the review was last updated.
+- `reviewable_id`: Foreign key linking to the reviewable entity.
+
+### Indexes
+- An index on `reviewable_type` and `reviewable_id` to optimize queries involving the polymorphic association.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone in its functionality, focusing solely on the review logic.
+
+## Usage Examples
+To create a new review:
+```ruby
+review = Review.new(text: "Great product!", rate: "5", reviewable: product)
+review.save
+```
+
+## Best Practices
+- Always ensure that the `text` field is populated before saving a review to maintain data integrity.
+- When using polymorphic associations, be mindful of the types of objects that can be associated with a review to avoid unexpected behavior.
+- Consider adding additional validations or methods to enhance the functionality of the `Review` model as needed.

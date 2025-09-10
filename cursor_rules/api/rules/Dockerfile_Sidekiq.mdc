@@ -1,0 +1,41 @@
+---
+description: Documentation for the Dockerfile used to set up the Sidekiq service in the TPB-API application.
+globs: ['Dockerfile_Sidekiq']
+alwaysApply: false
+---
+
+# Dockerfile_Sidekiq Documentation
+
+## Overview
+This Dockerfile is used to create a Docker image for the Sidekiq service in the TPB-API application. It sets up the necessary environment, installs dependencies, and configures the entry point for running Sidekiq.
+
+## Key Components
+- **FROM ruby:2.7.0**: This line specifies the base image for the Docker container, which is Ruby version 2.7.0.
+- **RUN apt-get update**: Updates the package lists for the APT package manager to ensure the latest versions of packages are installed.
+- **apt-get install**: Installs Node.js and PostgreSQL client version 11, which are required for the application to function properly.
+- **COPY . /TPB-API**: Copies the current directory's contents into the `/TPB-API` directory in the container.
+- **WORKDIR /TPB-API**: Sets the working directory for subsequent commands to `/TPB-API`.
+- **RUN bundle install**: Installs the Ruby gems specified in the application's Gemfile.
+- **EXPOSE 3000**: Informs Docker that the container listens on port 3000 at runtime.
+- **RUN chmod 777 ./entrypoint_sidekiq.sh**: Changes the permissions of the entrypoint script to make it executable.
+- **ENTRYPOINT ["./entrypoint_sidekiq.sh"]**: Sets the command that will be run when the container starts, which is the Sidekiq entrypoint script.
+
+## Dependencies
+This Dockerfile does not import any other files in the repository, nor is it imported by any other files. It is a standalone file that is essential for building the Sidekiq service's Docker image.
+
+## Usage Examples
+To build the Docker image using this Dockerfile, run the following command in the terminal:
+```bash
+docker build -t tpb-api-sidekiq .
+```
+
+To run the Sidekiq service in a container, use:
+```bash
+docker run -d -p 3000:3000 tpb-api-sidekiq
+```
+
+## Best Practices
+- Ensure that the base image is kept up to date to avoid security vulnerabilities.
+- Regularly review and update the installed packages to their latest versions.
+- Use multi-stage builds if the image size becomes a concern, especially if additional build tools are required.
+- Keep the entrypoint script (`entrypoint_sidekiq.sh`) well-documented to clarify its purpose and usage.

@@ -1,0 +1,33 @@
+---
+description: Documentation for the main HTML file of the tpb-kiosk application.
+globs: ['index.html']
+alwaysApply: false
+---
+
+# index.html Documentation
+
+## Overview
+The `index.html` file serves as the main entry point for the tpb-kiosk web application. It sets up the basic structure of the HTML document and includes essential metadata, styles, and scripts necessary for the application to function properly.
+
+## Key Components
+- **DOCTYPE Declaration**: The file begins with a `<!DOCTYPE html>` declaration, which defines the document type and version of HTML being used.
+- **Head Section**:  
+  - **Meta Tags**: The `<meta>` tags specify the character set as UTF-8 and set the viewport for responsive design.
+  - **Title**: The `<title>` tag sets the title of the web page as "tpb-kiosk".
+  - **Scripts**: A script is included to load configuration settings from `config.js`. There are commented-out script tags for additional functionality that may be included later, such as `upload.js` and the Dexie library for IndexedDB.
+  - **Stylesheet**: A link to a custom CSS file (`custom.css`) is included to style the application.
+
+- **Body Section**:  
+  - The body contains a main `<div>` with an ID of `app`, which houses two child `<div>` elements: `output` and `restart-timer`. These elements are placeholders for dynamic content that will be injected by JavaScript during runtime.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as the primary HTML document for the application.
+
+## Usage Examples
+While this file does not contain any executable code, it is essential for rendering the application in a web browser. Developers should ensure that the linked JavaScript and CSS files are correctly implemented to achieve the desired functionality and styling.
+
+## Best Practices
+- **Maintain Clean Structure**: Keep the HTML structure clean and organized for better readability and maintainability.
+- **Commenting**: Use comments to indicate sections of the code, especially for scripts that are temporarily disabled or under consideration for future use.
+- **Responsive Design**: Always test the application on various devices to ensure that the viewport settings are functioning as intended.
+- **Version Control**: When making changes to this file, consider versioning the linked scripts and styles to avoid caching issues in browsers.

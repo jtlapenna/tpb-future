@@ -1,0 +1,38 @@
+---
+description: Documentation for the ScreenHome.vue component in the Vue.js application.
+globs: ['src/components/ScreenHome.vue']
+alwaysApply: false
+---
+
+# ScreenHome.vue Documentation
+
+## Overview
+The `ScreenHome.vue` component serves as a dynamic home screen for a Vue.js application, allowing for various layouts based on configuration settings. It utilizes Vue's component system to render different home layouts depending on the kiosk mode and home layout settings defined in the application's configuration.
+
+## Key Components
+- **Template**: The template section dynamically binds a component based on the `homeComponent` data property, passing necessary props such as `isGeneratingIndex`, `products`, `brands`, and `isActiveCartFeatureActivated`.
+
+- **Script**: The script section imports various home layout components and manages the state and behavior of the home screen. Key functionalities include:
+  - **Data Properties**: `homeComponent` is initialized to `null` and will be set to the appropriate component based on the configuration.
+  - **Computed Properties**: `isActiveCartFeatureActivated` checks if the continuous cart feature is enabled.
+  - **Lifecycle Hooks**: The `created` hook sets up the initial layout and event listeners, while the `destroyed` hook cleans up event listeners to prevent memory leaks.
+  - **Methods**: Includes methods for creating the layout (`createLayout`), handling transitions (`onTransitionLeave`), and reloading the application (`reloadApp`). The layout is determined based on the `KIOSK_MODE` and `HOME_LAYOUT` configuration values.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It relies solely on the Vue.js framework and Vuex for state management.
+
+## Usage Examples
+To use this component, ensure that it is included in the parent component's template and that the necessary props are passed:
+```html
+<ScreenHome
+  :isGeneratingIndex="true"
+  :products="productsArray"
+  :brands="brandsArray"
+/>
+```
+
+## Best Practices
+- **Configuration Management**: Ensure that the configuration values (`KIOSK_MODE` and `HOME_LAYOUT`) are correctly set in the application to avoid rendering issues.
+- **Event Handling**: Always clean up event listeners in the `destroyed` lifecycle hook to prevent memory leaks.
+- **Dynamic Components**: When using dynamic components, ensure that the components being rendered are properly imported and registered to avoid runtime errors.
+- **Testing**: Test the component in different kiosk modes and layouts to ensure that the correct component is rendered and behaves as expected.

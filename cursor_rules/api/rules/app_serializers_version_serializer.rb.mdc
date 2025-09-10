@@ -1,0 +1,38 @@
+---
+description: Serializer for versioning information in the application.
+globs: ['app/serializers/version_serializer.rb']
+alwaysApply: false
+---
+
+# VersionSerializer
+
+## Overview
+The `VersionSerializer` class is responsible for serializing versioning information related to changes made to items in the application. It utilizes the ActiveModel::Serializer framework to format the output of version data, making it easier to render in JSON format for API responses.
+
+## Key Components
+- **Class Definition**: `VersionSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The serializer defines three attributes to be included in the serialized output:
+  - `created_at`: The timestamp of when the version was created.
+  - `item_type`: The type of the item that was changed (e.g., Post, Comment).
+  - `item_id`: The unique identifier of the item that was changed.
+- **User Attribute**: The `user` attribute is defined using a block that retrieves the name of the user who made the change. It uses the `whodunnit` attribute from the version object to find the corresponding `User` record.
+- **Change Attribute**: The `change` attribute provides the changeset of the version, which contains the details of what was changed.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the ActiveModel::Serializer framework and the `User` model for user lookups.
+
+## Usage Example
+To use the `VersionSerializer`, you would typically instantiate it with a version object and render it in a controller action:
+```ruby
+class VersionsController < ApplicationController
+  def show
+    version = Version.find(params[:id])
+    render json: VersionSerializer.new(version)
+  end
+end
+```
+
+## Best Practices
+- Ensure that the `User` model is properly set up to handle lookups by ID to avoid potential nil errors when a user is not found.
+- When adding new attributes to the serializer, consider the performance implications of any database queries that may be executed (e.g., avoid N+1 query problems).
+- Keep the serializer focused on its purpose; avoid adding business logic that belongs in models or controllers.

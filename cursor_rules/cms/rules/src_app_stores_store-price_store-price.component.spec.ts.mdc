@@ -1,0 +1,34 @@
+---
+description: Documentation for the test specification of the CatalogPriceComponent in the Angular application.
+globs: ['src/app/stores/store-price/store-price.component.spec.ts']
+alwaysApply: false
+---
+
+# CatalogPriceComponent Spec Documentation
+
+## Overview
+This file contains the unit tests for the `CatalogPriceComponent`, which is part of the store price feature in the Angular application. It utilizes Angular's testing utilities to ensure that the component is created successfully and behaves as expected.
+
+## Key Components
+- **Imports**: The file imports necessary testing utilities from Angular, the component under test, and a custom testing module.
+- **describe**: A Jasmine function that groups related tests for the `CatalogPriceComponent`.
+- **beforeEach**: Sets up the testing environment before each test runs. It configures the testing module and creates an instance of the component.
+- **it**: A Jasmine function that defines a single test case, checking if the component is created successfully.
+
+## Dependencies
+- **CatalogPriceComponent**: The main component being tested, located in `src/app/stores/store-price/store-price.component.ts`.
+- **PeakTestingModule**: A custom testing module imported from `src/app/test`, which likely includes shared testing utilities or mock services.
+- **CUSTOM_ELEMENTS_SCHEMA**: Used to ignore unknown elements in the component template, allowing for easier testing without needing to declare every custom element.
+
+## Usage Example
+To run the tests defined in this file, use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this spec file.
+
+## Best Practices
+- Ensure that all components have corresponding spec files to maintain test coverage.
+- Use `beforeEach` to set up common test scenarios to avoid code duplication.
+- Keep tests isolated and focused on a single behavior to make debugging easier.
+- Regularly run tests during development to catch issues early.

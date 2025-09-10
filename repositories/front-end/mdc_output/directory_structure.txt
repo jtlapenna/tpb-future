@@ -1,0 +1,223 @@
+./
+├── .
+│   ├── .firebase
+│   │   └── gscript.js
+│   ├── config
+│   │   ├── index.js
+│   │   └── workbox.js
+│   ├── functions
+│   │   ├── .eslintrc.js
+│   │   ├── config.js
+│   │   └── index.js
+│   ├── mdc_output
+│   │   ├── dependency_graph_subgraphs
+│   │   │   └── index.html
+│   │   ├── dependency_graph.gexf
+│   │   ├── directory_structure.txt
+│   │   └── repo_analysis_report.md
+│   ├── src
+│   │   ├── analytics
+│   │   │   ├── EventsAPI.js
+│   │   │   ├── analytics.js
+│   │   │   ├── db.js
+│   │   │   ├── events.js
+│   │   │   └── example.js
+│   │   ├── api
+│   │   │   ├── articles
+│   │   │   │   ├── ArticlesLocal.js
+│   │   │   │   ├── ArticlesRemote.js
+│   │   │   │   └── ArticlesRepo.js
+│   │   │   ├── brands
+│   │   │   │   ├── BrandsLocal.js
+│   │   │   │   ├── BrandsRemote.js
+│   │   │   │   └── BrandsRepo.js
+│   │   │   ├── categories
+│   │   │   │   ├── CategoriesLocal.js
+│   │   │   │   ├── CategoriesRemote.js
+│   │   │   │   └── CategoriesRepo.js
+│   │   │   ├── feature-tags
+│   │   │   │   ├── FeatureTagsLocal.js
+│   │   │   │   ├── FeatureTagsRemote.js
+│   │   │   │   └── FeatureTagsRepo.js
+│   │   │   ├── messaging
+│   │   │   │   ├── fb.js
+│   │   │   │   └── index.js
+│   │   │   ├── products
+│   │   │   │   ├── ProductsLocal.js
+│   │   │   │   ├── ProductsRemote.js
+│   │   │   │   └── ProductsRepo.js
+│   │   │   ├── rfid
+│   │   │   │   ├── RFIDLocal.js
+│   │   │   │   ├── RFIDRemote.js
+│   │   │   │   ├── RFIDRepo.js
+│   │   │   │   └── test.conf
+│   │   │   ├── LocalRepo.js
+│   │   │   ├── RemoteRepo.js
+│   │   │   ├── api.js
+│   │   │   ├── db.js
+│   │   │   ├── dbconfig.js
+│   │   │   ├── http.js
+│   │   │   ├── repo.js
+│   │   │   └── urls.js
+│   │   ├── assets
+│   │   │   ├── css
+│   │   │   │   ├── normalize.css
+│   │   │   │   ├── onScreenKeyboard.css
+│   │   │   │   └── onScreenKeyboardNumber.css
+│   │   │   ├── fonts
+│   │   │   │   ├── Muli-Bold.ttf
+│   │   │   │   ├── Muli-ExtraBold.ttf
+│   │   │   │   ├── Muli-ExtraLight.ttf
+│   │   │   │   ├── Muli-Light.ttf
+│   │   │   │   ├── Muli-Regular.ttf
+│   │   │   │   ├── Muli-SemiBold.ttf
+│   │   │   │   ├── muli-black-webfont.woff2
+│   │   │   │   ├── muli-bold-webfont.woff2
+│   │   │   │   ├── muli-extrabold-webfont.woff2
+│   │   │   │   ├── muli-extralight-webfont.woff2
+│   │   │   │   ├── muli-light-webfont.woff2
+│   │   │   │   ├── muli-regular-webfont.woff2
+│   │   │   │   └── muli-semibold-webfont.woff2
+│   │   │   ├── img
+│   │   │   ├── js
+│   │   │   │   ├── GSDevTools3.min.js
+│   │   │   │   └── utils.js
+│   │   │   └── scss
+│   │   │       ├── layout
+│   │   │       │   └── _sidebar.scss
+│   │   │       ├── _animations.scss
+│   │   │       ├── _buttons.scss
+│   │   │       ├── _colors.scss
+│   │   │       ├── _fonts.scss
+│   │   │       ├── global.css
+│   │   │       ├── global.css.map
+│   │   │       └── global.scss
+│   │   ├── components
+│   │   │   ├── ActiveCartButton.vue
+│   │   │   ├── ActiveCartCheckoutCompleted.vue
+│   │   │   ├── ActiveCartFinalizeOrderButton.vue
+│   │   │   ├── ActiveCartKeepShopping.vue
+│   │   │   ├── ActiveCartKeepShoppingButton.vue
+│   │   │   ├── ActiveCartKeepShoppingFinalizeOrderFooter.vue
+│   │   │   ├── ActiveCartNotFound.vue
+│   │   │   ├── CloseActiveCart.vue
+│   │   │   ├── LottieContainer.vue
+│   │   │   ├── ModalTemplate.vue
+│   │   │   ├── ProductCard.vue
+│   │   │   ├── ProductCardBlank.vue
+│   │   │   ├── ProductCardMenuBoard.vue
+│   │   │   ├── ProductCardSale.vue
+│   │   │   ├── ProductGraphs.vue
+│   │   │   ├── ProductImage.vue
+│   │   │   ├── ScreenBlank.vue
+│   │   │   ├── ScreenBrands.vue
+│   │   │   ├── ScreenCart.vue
+│   │   │   ├── ScreenCheckout.vue
+│   │   │   ├── ScreenCheckoutActiveCartCreator.vue
+│   │   │   ├── ScreenCheckoutBlaze.vue
+│   │   │   ├── ScreenCheckoutCovasoft.vue
+│   │   │   ├── ScreenCheckoutEmail.vue
+│   │   │   ├── ScreenCheckoutFlowhub.vue
+│   │   │   ├── ScreenCheckoutLeaflogix.vue
+│   │   │   ├── ScreenCheckoutShopify.vue
+│   │   │   ├── ScreenCheckoutTreez.vue
+│   │   │   ├── ScreenDebugCache.vue
+│   │   │   ├── ScreenEffectsUses.vue
+│   │   │   ├── ScreenFeaturedProducts.vue
+│   │   │   ├── ScreenHome.vue
+│   │   │   ├── ScreenHomeCCC.vue
+│   │   │   ├── ScreenHomeCards.vue
+│   │   │   ├── ScreenHomeDefault.vue
+│   │   │   ├── ScreenHomeQuickCheckout.vue
+│   │   │   ├── ScreenHomeRfidNav.vue
+│   │   │   ├── ScreenHomeRfidSwipe.vue
+│   │   │   ├── ScreenHomeSplitCards.vue
+│   │   │   ├── ScreenHomeSpotlight.vue
+│   │   │   ├── ScreenHomeSpotlightCards.vue
+│   │   │   ├── ScreenHomeSwipe.vue
+│   │   │   ├── ScreenHomeSwipeNav.vue
+│   │   │   ├── ScreenHomeVideoImageBackground.vue
+│   │   │   ├── ScreenIframeTest.vue
+│   │   │   ├── ScreenMenuBoard.vue
+│   │   │   ├── ScreenProduct.vue
+│   │   │   ├── ScreenProductImage.vue
+│   │   │   ├── ScreenProductVideo.vue
+│   │   │   ├── ScreenProducts.vue
+│   │   │   ├── ScreenProductsPromotions.vue
+│   │   │   ├── ScreenUploadEvents.vue
+│   │   │   ├── ShareButton.vue
+│   │   │   ├── Slider.vue
+│   │   │   ├── Spinner.vue
+│   │   │   ├── ThankYouOrderCompleted.vue
+│   │   │   ├── TheBrandSlideshow.vue
+│   │   │   ├── TheNav.vue
+│   │   │   └── TheSidebar.vue
+│   │   ├── const
+│   │   │   └── globals.js
+│   │   ├── mixins
+│   │   │   ├── HasProductsPaginated.js
+│   │   │   ├── HasShopify.js
+│   │   │   ├── MergeConfig.js
+│   │   │   ├── aeropayEvent.js
+│   │   │   ├── isCardWithAttributes.js
+│   │   │   ├── keyboardEvents.js
+│   │   │   ├── offlineMixin.js
+│   │   │   └── redirectEvent.js
+│   │   ├── plugins
+│   │   │   └── config.js
+│   │   ├── router
+│   │   │   └── index.js
+│   │   ├── store
+│   │   │   ├── modules
+│   │   │   │   ├── cart.js
+│   │   │   │   └── products.js
+│   │   │   └── store.js
+│   │   ├── App.vue
+│   │   └── main.js
+│   ├── static
+│   │   ├── anim
+│   │   ├── css
+│   │   │   └── custom.example.css
+│   │   ├── img
+│   │   ├── js
+│   │   │   ├── config.js
+│   │   │   ├── firebase-messaging-sw.js
+│   │   │   ├── jquery.onScreenKeyboard.js
+│   │   │   ├── jquery.onScreenKeynumber.js
+│   │   │   ├── sw-cache-sync.js
+│   │   │   └── upload.js
+│   │   └── .gitkeep
+│   ├── .babelrc
+│   ├── .dockerignore
+│   ├── .editorconfig
+│   ├── .eslintignore
+│   ├── .eslintrc.js
+│   ├── .firebaserc
+│   ├── .nvmrc
+│   ├── .postcssrc.js
+│   ├── .prettierrc
+│   ├── .tsconfig
+│   ├── CODE_QUALITY_ANALYSIS.md
+│   ├── INTEGRATION_ANALYSIS.md
+│   ├── MAINTAINABILITY_ANALYSIS.md
+│   ├── PERFORMANCE_ANALYSIS.md
+│   ├── README.md
+│   ├── REPOSITORY_ANALYSIS.md
+│   ├── RULES_ANALYSIS.md
+│   ├── SECURITY_ANALYSIS.md
+│   ├── TEST_COVERAGE_ANALYSIS.md
+│   ├── comparison_analysis.md
+│   ├── dockerfile
+│   ├── favicon.ico
+│   ├── firebase-messaging-sw.js
+│   ├── firestore-debug.log
+│   ├── how-to-make-a-deploy.md
+│   ├── index.html
+│   ├── progress.md
+│   ├── pubsub-debug.log
+│   ├── realese.md
+│   ├── release.md
+│   ├── sesion.js
+│   ├── table.md
+│   ├── ui-debug.log
+│   └── versions.md

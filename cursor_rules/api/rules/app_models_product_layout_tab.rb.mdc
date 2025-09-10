@@ -1,0 +1,44 @@
+---
+description: Documentation for the ProductLayoutTab model in the application.
+globs: ['app/models/product_layout_tab.rb']
+alwaysApply: false
+---
+
+# ProductLayoutTab Model Documentation
+
+## Overview
+The `ProductLayoutTab` class represents a tab within a product layout in the application. It is responsible for managing the relationship between product layouts and their associated elements, providing functionality to create, update, and validate these tabs.
+
+## Key Components
+- **Class Definition**: `ProductLayoutTab < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, making it a part of the Active Record framework, which provides an interface for interacting with the database.
+
+- **Associations**:
+  - `belongs_to :product_layout`: Establishes a one-to-many relationship with the `ProductLayout` model, indicating that each tab belongs to a specific product layout.
+  - `has_many :elements`: Defines a one-to-many relationship with the `ProductLayoutElement` model, allowing each tab to have multiple associated elements. The `class_name`, `as`, and `inverse_of` options are specified to customize the association.
+
+- **Nested Attributes**: `accepts_nested_attributes_for :elements, allow_destroy: true, reject_if: :all_blank`
+  - This allows for nested attributes to be passed for the `elements` association, enabling the creation and destruction of elements through the `ProductLayoutTab` model.
+
+- **Validations**:
+  - `validates :name, presence: true`: Ensures that the `name` attribute is present before saving.
+  - `validates :order, presence: true, numericality: { only_integer: true }`: Validates that the `order` attribute is present and is an integer.
+
+- **Scopes**:
+  - `scope :sorted, -> { order(order: :asc) }`: Provides a way to retrieve tabs sorted by their `order` attribute in ascending order.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the codebase, relying solely on the Active Record framework and its associations.
+
+## Usage Examples
+To create a new `ProductLayoutTab` with associated elements:
+```ruby
+product_layout_tab = ProductLayoutTab.new(name: 'Tab 1', order: 1)
+product_layout_tab.elements.build(name: 'Element 1')
+product_layout_tab.save
+```
+
+## Best Practices
+- Ensure that the `name` and `order` attributes are always provided when creating or updating a `ProductLayoutTab` to avoid validation errors.
+- Use the `sorted` scope when retrieving tabs to maintain a consistent order in the user interface.
+- When working with nested attributes, be cautious with the `allow_destroy` option to prevent accidental deletions of associated elements.

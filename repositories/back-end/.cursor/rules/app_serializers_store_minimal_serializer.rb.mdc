@@ -1,0 +1,37 @@
+---
+description: Documentation for the StoreMinimalSerializer class in the serializers directory.
+globs: ['app/serializers/store_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# StoreMinimalSerializer Documentation
+
+## Overview
+The `StoreMinimalSerializer` class is a serializer that defines how store objects are represented in JSON format when sent to the client. It is part of the ActiveModel::Serializer framework, which is used to create a structured JSON response for API endpoints.
+
+## Key Components
+- **Class Definition**: `StoreMinimalSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies which fields of the store object should be included in the serialized output. In this case, it includes `:id` and `:name`.
+- **Associations**: The `has_many :store_taxes` line indicates that the serializer will also include associated `store_taxes` records in the serialized output, allowing clients to access related data.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the store model.
+
+## Usage Example
+When a store object is serialized using this serializer, the output will look something like this:
+```json
+{
+  "id": 1,
+  "name": "Example Store",
+  "store_taxes": [
+    { "id": 1, "rate": 0.07 },
+    { "id": 2, "rate": 0.05 }
+  ]
+}
+```
+This JSON structure provides a minimal representation of the store along with its associated taxes.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including unnecessary data to keep the response lightweight.
+- When adding new attributes or associations, consider the impact on performance and the size of the JSON response.
+- Keep the serializer focused on a single responsibility; if more complex logic is needed, consider creating additional serializers or using custom methods.

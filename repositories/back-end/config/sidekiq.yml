@@ -1,0 +1,19 @@
+---
+:concurrency: 1
+
+development:
+  :concurrency:  <%= ENV.fetch("SIDEKIQ_CONCURRENCY") { 1 } %>
+
+staging:
+  :concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY") { 1 } %>
+
+production:
+  :concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY") { 1 } %>
+
+:queues:
+  - default
+  - stores_sync
+  - sms
+  - mailers
+  - customer_sync
+  - clean_active_carts

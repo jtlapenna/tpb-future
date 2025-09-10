@@ -1,0 +1,36 @@
+---
+description: Documentation for the KiosksListComponent test suite.
+globs: ['src/app/kiosks/kiosks-list/kiosks-list.component.spec.ts']
+alwaysApply: false
+---
+
+# KiosksListComponent Test Suite
+
+## Overview
+This file contains the unit tests for the `KiosksListComponent`, which is part of the kiosks feature in the application. The tests are designed to ensure that the component is created successfully and behaves as expected within the Angular testing framework.
+
+## Key Components
+- **Imports**: The file imports necessary testing utilities from Angular, including `async`, `ComponentFixture`, and `TestBed`, as well as the component under test, `KiosksListComponent`, and a custom testing module, `PeakTestingModule`.
+- **describe**: The main test suite is defined using `describe`, which groups related tests for the `KiosksListComponent`.
+- **beforeEach**: This function is called before each test to set up the testing environment. It configures the testing module, compiles the components, and initializes the component instance.
+- **it**: The individual test case checks if the component is created successfully by asserting that the component instance is truthy.
+
+## Dependencies
+This test file depends on:
+- `KiosksListComponent`: The component being tested, located at `src/app/kiosks/kiosks-list/kiosks-list.component.ts`.
+- `PeakTestingModule`: A custom testing module that likely provides necessary dependencies and configurations for the tests, located at `src/app/test`.
+
+This file is not imported by any other files in the repository, indicating it is solely used for testing the `KiosksListComponent`.
+
+## Usage Examples
+To run the tests defined in this file, you can use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this file.
+
+## Best Practices
+- Ensure that all components have corresponding test files to maintain code quality and reliability.
+- Use descriptive test names to clarify the purpose of each test case.
+- Keep tests isolated and focused on a single behavior to make debugging easier.
+- Regularly run tests during development to catch issues early.

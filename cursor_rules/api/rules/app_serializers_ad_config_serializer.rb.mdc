@@ -1,0 +1,44 @@
+---
+description: Serializer for AdConfig model, defining how it is represented in JSON format.
+globs: ['app/serializers/ad_config_serializer.rb']
+alwaysApply: false
+---
+
+# AdConfigSerializer Documentation
+
+## Overview
+The `AdConfigSerializer` class is responsible for serializing the `AdConfig` model into JSON format. It utilizes the `ActiveModel::Serializer` framework to define how the attributes of the `AdConfig` object are represented when converted to JSON. This is particularly useful for APIs that need to return structured data to clients.
+
+## Key Components
+- **Attributes**: The serializer defines several attributes that will be included in the serialized output:
+  - `id`: The unique identifier for the ad configuration.
+  - `name`: The name of the ad configuration.
+  - `use_brand_spotlight`: A boolean indicating whether to use brand spotlight.
+  - `kiosk_id`: The identifier for the associated kiosk.
+  - `kiosk_product_id`: The identifier for the associated kiosk product.
+  - `brand_id`: The identifier for the associated brand.
+
+- **Custom Attributes**: The serializer also includes custom attributes that are derived from associated objects:
+  - `kiosk_product_stock`: Retrieves the stock of the associated kiosk product, if it exists.
+  - `kiosk_product_name`: Retrieves the name of the associated kiosk product for catalog purposes, if it exists.
+
+- **Associations**: The serializer defines relationships to other models:
+  - `belongs_to :kiosk`: Indicates that this ad configuration belongs to a kiosk.
+  - `belongs_to :kiosk_product`: Indicates that this ad configuration belongs to a kiosk product.
+  - `belongs_to :brand`: Indicates that this ad configuration belongs to a brand.
+  - `belongs_to :store_product`: Indicates that this ad configuration belongs to a store product.
+  - `has_one :asset`: Indicates that this ad configuration has one associated asset.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the context of the application, relying solely on the `ActiveModel::Serializer` framework.
+
+## Usage Examples
+To use the `AdConfigSerializer`, you would typically instantiate it with an `AdConfig` object and render it in a controller action:
+```ruby
+render json: AdConfigSerializer.new(ad_config).serializable_hash
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the `AdConfig` model.
+- When adding new attributes or associations, consider the performance implications of loading associated records, especially if they involve database queries.
+- Keep the serializer focused on the specific needs of the API response to avoid over-fetching data.

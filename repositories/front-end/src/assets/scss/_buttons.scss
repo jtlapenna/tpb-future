@@ -1,0 +1,13 @@
+.btn {
+	text-transform: uppercase;
+}
+
+.checkout{
+	&__button{
+			&--offline{
+				.checkout__button__background {
+					filter: grayscale(1);
+				}
+			}
+	}
+}

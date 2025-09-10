@@ -1,0 +1,41 @@
+---
+description: Documentation for the CategoriesRemote class in the CategoriesRemote.js file.
+globs: ['src/api/categories/CategoriesRemote.js']
+alwaysApply: false
+---
+
+# CategoriesRemote.js Documentation
+
+## Overview
+The `CategoriesRemote.js` file defines the `CategoriesRemote` class, which extends the `RemoteRepo` class. This class is responsible for handling remote operations related to categories in the application, providing a structured way to interact with category data from a remote source.
+
+## Key Components
+### CategoriesRemote Class
+- **Constructor**: The constructor calls the parent class `RemoteRepo` with the string 'categories', indicating that this instance will manage remote operations specifically for categories.
+
+```javascript
+export class CategoriesRemote extends RemoteRepo {
+  constructor () {
+    super('categories')
+  }
+}
+```
+
+## Dependencies
+- **Imports**: This file imports the `RemoteRepo` class from `src/api/RemoteRepo.js`, which provides the foundational methods for remote data handling.
+- **Exports**: The `CategoriesRemote` class is utilized in `src/api/categories/CategoriesRepo.js`, where it likely serves as a data source for category-related operations.
+
+## Usage Example
+To use the `CategoriesRemote` class, you would typically instantiate it in another module where category data needs to be fetched or manipulated:
+
+```javascript
+import { CategoriesRemote } from './CategoriesRemote';
+
+const categoriesRemote = new CategoriesRemote();
+// Now you can use categoriesRemote to perform operations related to categories.
+```
+
+## Best Practices
+- Ensure that any methods added to the `CategoriesRemote` class adhere to the conventions established in the `RemoteRepo` class to maintain consistency across remote data handling.
+- When extending functionality, consider the implications on existing methods and ensure backward compatibility where necessary.
+- Document any new methods or changes made to this class to keep the codebase maintainable and understandable for future developers.

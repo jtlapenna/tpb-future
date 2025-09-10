@@ -1,0 +1,1210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-03-18">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="dynamic" name="" timeformat="date">
+    <attributes mode="dynamic" class="edge">
+      <attribute id="1" title="imported_items" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="type" type="string" />
+    </attributes>
+    <nodes>
+      <node id="how-to-make-a-deploy.md" label="how-to-make-a-deploy.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".babelrc" label=".babelrc">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="REPOSITORY_ANALYSIS.md" label="REPOSITORY_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="CODE_QUALITY_ANALYSIS.md" label="CODE_QUALITY_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="realese.md" label="realese.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="favicon.ico" label="favicon.ico">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="index.html" label="index.html">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="firebase-messaging-sw.js" label="firebase-messaging-sw.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="dockerfile" label="dockerfile">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".firebaserc" label=".firebaserc">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="progress.md" label="progress.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="ui-debug.log" label="ui-debug.log">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="versions.md" label="versions.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="table.md" label="table.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="SECURITY_ANALYSIS.md" label="SECURITY_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".editorconfig" label=".editorconfig">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="README.md" label="README.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="firestore-debug.log" label="firestore-debug.log">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="release.md" label="release.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="sesion.js" label="sesion.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".dockerignore" label=".dockerignore">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".nvmrc" label=".nvmrc">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".prettierrc" label=".prettierrc">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".eslintrc.js" label=".eslintrc.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="RULES_ANALYSIS.md" label="RULES_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="INTEGRATION_ANALYSIS.md" label="INTEGRATION_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".eslintignore" label=".eslintignore">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="pubsub-debug.log" label="pubsub-debug.log">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="comparison_analysis.md" label="comparison_analysis.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="TEST_COVERAGE_ANALYSIS.md" label="TEST_COVERAGE_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".tsconfig" label=".tsconfig">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".postcssrc.js" label=".postcssrc.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="PERFORMANCE_ANALYSIS.md" label="PERFORMANCE_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="MAINTAINABILITY_ANALYSIS.md" label="MAINTAINABILITY_ANALYSIS.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="config/workbox.js" label="config/workbox.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="config/index.js" label="config/index.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id=".firebase/gscript.js" label=".firebase/gscript.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/.gitkeep" label="static/.gitkeep">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/css/custom.example.css" label="static/css/custom.example.css">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/js/firebase-messaging-sw.js" label="static/js/firebase-messaging-sw.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/js/upload.js" label="static/js/upload.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/js/config.js" label="static/js/config.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/js/jquery.onScreenKeyboard.js" label="static/js/jquery.onScreenKeyboard.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/js/sw-cache-sync.js" label="static/js/sw-cache-sync.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="static/js/jquery.onScreenKeynumber.js" label="static/js/jquery.onScreenKeynumber.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="mdc_output/dependency_graph.gexf" label="mdc_output/dependency_graph.gexf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="mdc_output/repo_analysis_report.md" label="mdc_output/repo_analysis_report.md">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="mdc_output/directory_structure.txt" label="mdc_output/directory_structure.txt">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="mdc_output/dependency_graph_subgraphs/index.html" label="mdc_output/dependency_graph_subgraphs/index.html">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="functions/index.js" label="functions/index.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="functions/config.js" label="functions/config.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="functions/.eslintrc.js" label="functions/.eslintrc.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/App.vue" label="src/App.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/main.js" label="src/main.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/const/globals.js" label="src/const/globals.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/store/store.js" label="src/store/store.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/router" label="src/router">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/analytics/analytics.js" label="src/analytics/analytics.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/store/modules/cart.js" label="src/store/modules/cart.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/aeropayEvent.js" label="src/mixins/aeropayEvent.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/messaging/index.js" label="src/api/messaging/index.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/offlineMixin.js" label="src/mixins/offlineMixin.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/keyboardEvents.js" label="src/mixins/keyboardEvents.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/redirectEvent.js" label="src/mixins/redirectEvent.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/HasProductsPaginated.js" label="src/mixins/HasProductsPaginated.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/HasShopify.js" label="src/mixins/HasShopify.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/isCardWithAttributes.js" label="src/mixins/isCardWithAttributes.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/mixins/MergeConfig.js" label="src/mixins/MergeConfig.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/plugins/config.js" label="src/plugins/config.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ActiveCartKeepShoppingButton.vue" label="src/components/ActiveCartKeepShoppingButton.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeRfidSwipe.vue" label="src/components/ScreenHomeRfidSwipe.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/Slider.vue" label="src/components/Slider.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeSwipe.vue" label="src/components/ScreenHomeSwipe.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutLeaflogix.vue" label="src/components/ScreenCheckoutLeaflogix.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeRfidNav.vue" label="src/components/ScreenHomeRfidNav.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutShopify.vue" label="src/components/ScreenCheckoutShopify.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenEffectsUses.vue" label="src/components/ScreenEffectsUses.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeDefault.vue" label="src/components/ScreenHomeDefault.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCart.vue" label="src/components/ScreenCart.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeSplitCards.vue" label="src/components/ScreenHomeSplitCards.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckout.vue" label="src/components/ScreenCheckout.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenProduct.vue" label="src/components/ScreenProduct.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ProductImage.vue" label="src/components/ProductImage.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenUploadEvents.vue" label="src/components/ScreenUploadEvents.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutBlaze.vue" label="src/components/ScreenCheckoutBlaze.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ProductCard.vue" label="src/components/ProductCard.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHome.vue" label="src/components/ScreenHome.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ActiveCartKeepShopping.vue" label="src/components/ActiveCartKeepShopping.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/LottieContainer.vue" label="src/components/LottieContainer.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ProductCardMenuBoard.vue" label="src/components/ProductCardMenuBoard.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ActiveCartKeepShoppingFinalizeOrderFooter.vue" label="src/components/ActiveCartKeepShoppingFinalizeOrderFooter.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenMenuBoard.vue" label="src/components/ScreenMenuBoard.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeCCC.vue" label="src/components/ScreenHomeCCC.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeSpotlightCards.vue" label="src/components/ScreenHomeSpotlightCards.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenProductVideo.vue" label="src/components/ScreenProductVideo.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ActiveCartCheckoutCompleted.vue" label="src/components/ActiveCartCheckoutCompleted.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ActiveCartFinalizeOrderButton.vue" label="src/components/ActiveCartFinalizeOrderButton.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeSpotlight.vue" label="src/components/ScreenHomeSpotlight.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ModalTemplate.vue" label="src/components/ModalTemplate.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ShareButton.vue" label="src/components/ShareButton.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ActiveCartNotFound.vue" label="src/components/ActiveCartNotFound.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ActiveCartButton.vue" label="src/components/ActiveCartButton.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenBlank.vue" label="src/components/ScreenBlank.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ProductCardBlank.vue" label="src/components/ProductCardBlank.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenIframeTest.vue" label="src/components/ScreenIframeTest.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutCovasoft.vue" label="src/components/ScreenCheckoutCovasoft.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ProductCardSale.vue" label="src/components/ProductCardSale.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenBrands.vue" label="src/components/ScreenBrands.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ThankYouOrderCompleted.vue" label="src/components/ThankYouOrderCompleted.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeCards.vue" label="src/components/ScreenHomeCards.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/TheBrandSlideshow.vue" label="src/components/TheBrandSlideshow.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ProductGraphs.vue" label="src/components/ProductGraphs.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutTreez.vue" label="src/components/ScreenCheckoutTreez.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutFlowhub.vue" label="src/components/ScreenCheckoutFlowhub.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeVideoImageBackground.vue" label="src/components/ScreenHomeVideoImageBackground.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutActiveCartCreator.vue" label="src/components/ScreenCheckoutActiveCartCreator.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenProducts.vue" label="src/components/ScreenProducts.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/Spinner.vue" label="src/components/Spinner.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenProductsPromotions.vue" label="src/components/ScreenProductsPromotions.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeQuickCheckout.vue" label="src/components/ScreenHomeQuickCheckout.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/CloseActiveCart.vue" label="src/components/CloseActiveCart.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenHomeSwipeNav.vue" label="src/components/ScreenHomeSwipeNav.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/TheNav.vue" label="src/components/TheNav.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/TheSidebar.vue" label="src/components/TheSidebar.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenFeaturedProducts.vue" label="src/components/ScreenFeaturedProducts.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenCheckoutEmail.vue" label="src/components/ScreenCheckoutEmail.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenDebugCache.vue" label="src/components/ScreenDebugCache.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/components/ScreenProductImage.vue" label="src/components/ScreenProductImage.vue">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/LocalRepo.js" label="src/api/LocalRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/dbconfig.js" label="src/api/dbconfig.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/db.js" label="src/api/db.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/urls.js" label="src/api/urls.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/RemoteRepo.js" label="src/api/RemoteRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/http.js" label="src/api/http.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/api.js" label="src/api/api.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/repo.js" label="src/api/repo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/feature-tags/FeatureTagsRepo.js" label="src/api/feature-tags/FeatureTagsRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/feature-tags/FeatureTagsLocal.js" label="src/api/feature-tags/FeatureTagsLocal.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/feature-tags/FeatureTagsRemote.js" label="src/api/feature-tags/FeatureTagsRemote.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/products/ProductsRepo.js" label="src/api/products/ProductsRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/products/ProductsLocal.js" label="src/api/products/ProductsLocal.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/products/ProductsRemote.js" label="src/api/products/ProductsRemote.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/brands/BrandsRemote.js" label="src/api/brands/BrandsRemote.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/brands/BrandsLocal.js" label="src/api/brands/BrandsLocal.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/brands/BrandsRepo.js" label="src/api/brands/BrandsRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/articles/ArticlesLocal.js" label="src/api/articles/ArticlesLocal.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/articles/ArticlesRepo.js" label="src/api/articles/ArticlesRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/articles/ArticlesRemote.js" label="src/api/articles/ArticlesRemote.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/messaging/fb.js" label="src/api/messaging/fb.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/categories/CategoriesRemote.js" label="src/api/categories/CategoriesRemote.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/categories/CategoriesLocal.js" label="src/api/categories/CategoriesLocal.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/categories/CategoriesRepo.js" label="src/api/categories/CategoriesRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/rfid/test.conf" label="src/api/rfid/test.conf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/rfid/RFIDRemote.js" label="src/api/rfid/RFIDRemote.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/rfid/RFIDRepo.js" label="src/api/rfid/RFIDRepo.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/api/rfid/RFIDLocal.js" label="src/api/rfid/RFIDLocal.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/css/onScreenKeyboard.css" label="src/assets/css/onScreenKeyboard.css">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/css/onScreenKeyboardNumber.css" label="src/assets/css/onScreenKeyboardNumber.css">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/css/normalize.css" label="src/assets/css/normalize.css">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/js/GSDevTools3.min.js" label="src/assets/js/GSDevTools3.min.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/js/utils.js" label="src/assets/js/utils.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/global.css.map" label="src/assets/scss/global.css.map">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/_fonts.scss" label="src/assets/scss/_fonts.scss">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/_colors.scss" label="src/assets/scss/_colors.scss">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/_animations.scss" label="src/assets/scss/_animations.scss">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/global.css" label="src/assets/scss/global.css">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/global.scss" label="src/assets/scss/global.scss">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/_buttons.scss" label="src/assets/scss/_buttons.scss">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/scss/layout/_sidebar.scss" label="src/assets/scss/layout/_sidebar.scss">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/Muli-ExtraLight.ttf" label="src/assets/fonts/Muli-ExtraLight.ttf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/muli-extrabold-webfont.woff2" label="src/assets/fonts/muli-extrabold-webfont.woff2">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/muli-light-webfont.woff2" label="src/assets/fonts/muli-light-webfont.woff2">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/Muli-ExtraBold.ttf" label="src/assets/fonts/Muli-ExtraBold.ttf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/Muli-Bold.ttf" label="src/assets/fonts/Muli-Bold.ttf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/muli-extralight-webfont.woff2" label="src/assets/fonts/muli-extralight-webfont.woff2">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/muli-semibold-webfont.woff2" label="src/assets/fonts/muli-semibold-webfont.woff2">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/Muli-SemiBold.ttf" label="src/assets/fonts/Muli-SemiBold.ttf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/muli-regular-webfont.woff2" label="src/assets/fonts/muli-regular-webfont.woff2">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/muli-bold-webfont.woff2" label="src/assets/fonts/muli-bold-webfont.woff2">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/muli-black-webfont.woff2" label="src/assets/fonts/muli-black-webfont.woff2">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/Muli-Light.ttf" label="src/assets/fonts/Muli-Light.ttf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/assets/fonts/Muli-Regular.ttf" label="src/assets/fonts/Muli-Regular.ttf">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/analytics/events.js" label="src/analytics/events.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/analytics/db.js" label="src/analytics/db.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/analytics/EventsAPI.js" label="src/analytics/EventsAPI.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/analytics/example.js" label="src/analytics/example.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/store/modules/products.js" label="src/store/modules/products.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+      <node id="src/router/index.js" label="src/router/index.js">
+        <attvalues>
+          <attvalue for="0" value="file" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="src/main.js" target="src/const/globals.js" id="0" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/main.js" target="src/store/store.js" id="1" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/main.js" target="src/App.vue" id="2" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/main.js" target="src/router" id="3" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/main.js" target="src/analytics/analytics.js" id="4" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/main.js" target="src/store/modules/cart.js" id="5" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/store/store.js" target="src/store/modules/products.js" id="6" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/store/store.js" target="src/store/modules/cart.js" id="7" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/analytics/analytics.js" target="src/analytics/events.js" id="8" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/analytics/analytics.js" target="src/analytics/EventsAPI.js" id="9" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/mixins/aeropayEvent.js" target="src/const/globals.js" id="10" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/mixins/aeropayEvent.js" target="src/api/messaging/index.js" id="11" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/messaging/index.js" target="src/const/globals.js" id="12" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/messaging/index.js" target="src/api/messaging/fb.js" id="13" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/plugins/config.js" target="src/const/globals.js" id="14" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/LocalRepo.js" target="src/api/dbconfig.js" id="15" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/RemoteRepo.js" target="src/api/http.js" id="16" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/api.js" target="src/api/urls.js" id="17" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/feature-tags/FeatureTagsRepo.js" target="src/api/repo.js" id="18" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/feature-tags/FeatureTagsRepo.js" target="src/api/feature-tags/FeatureTagsLocal.js" id="19" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/feature-tags/FeatureTagsRepo.js" target="src/api/feature-tags/FeatureTagsRemote.js" id="20" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/feature-tags/FeatureTagsLocal.js" target="src/api/LocalRepo.js" id="21" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/feature-tags/FeatureTagsRemote.js" target="src/api/http.js" id="22" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/products/ProductsRepo.js" target="src/api/repo.js" id="23" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/products/ProductsRepo.js" target="src/api/products/ProductsLocal.js" id="24" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/products/ProductsRepo.js" target="src/api/products/ProductsRemote.js" id="25" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/products/ProductsLocal.js" target="src/api/LocalRepo.js" id="26" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/products/ProductsRemote.js" target="src/api/http.js" id="27" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/brands/BrandsRemote.js" target="src/api/http.js" id="28" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/brands/BrandsLocal.js" target="src/api/LocalRepo.js" id="29" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/brands/BrandsRepo.js" target="src/api/brands/BrandsLocal.js" id="30" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/brands/BrandsRepo.js" target="src/api/brands/BrandsRemote.js" id="31" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/brands/BrandsRepo.js" target="src/api/repo.js" id="32" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/articles/ArticlesLocal.js" target="src/api/LocalRepo.js" id="33" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/articles/ArticlesRepo.js" target="src/api/articles/ArticlesLocal.js" id="34" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/articles/ArticlesRepo.js" target="src/api/articles/ArticlesRemote.js" id="35" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/articles/ArticlesRepo.js" target="src/api/repo.js" id="36" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/articles/ArticlesRemote.js" target="src/api/http.js" id="37" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/messaging/fb.js" target="src/const/globals.js" id="38" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/categories/CategoriesRemote.js" target="src/api/RemoteRepo.js" id="39" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/categories/CategoriesLocal.js" target="src/api/LocalRepo.js" id="40" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/categories/CategoriesRepo.js" target="src/api/categories/CategoriesRemote.js" id="41" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/categories/CategoriesRepo.js" target="src/api/categories/CategoriesLocal.js" id="42" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/categories/CategoriesRepo.js" target="src/api/repo.js" id="43" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/rfid/RFIDRemote.js" target="src/api/http.js" id="44" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/rfid/RFIDRepo.js" target="src/api/repo.js" id="45" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/rfid/RFIDRepo.js" target="src/api/rfid/RFIDLocal.js" id="46" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/rfid/RFIDRepo.js" target="src/api/rfid/RFIDRemote.js" id="47" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/api/rfid/RFIDLocal.js" target="src/api/LocalRepo.js" id="48" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+      <edge source="src/analytics/events.js" target="src/analytics/db.js" id="49" type="js_import">
+        <attvalues>
+          <attvalue for="1" value="name" start="alias" end="type" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

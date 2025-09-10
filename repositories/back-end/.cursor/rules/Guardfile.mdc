@@ -1,0 +1,27 @@
+---
+description: Documentation for the Guardfile used in a Ruby on Rails project to manage file watching and automated testing.
+globs: ['Guardfile']
+alwaysApply: false
+---
+
+# Guardfile Documentation
+
+## Overview
+The `Guardfile` is a configuration file used by the Guard gem in Ruby on Rails applications. It allows developers to automate tasks such as running tests or starting servers when files change. This file is essential for maintaining an efficient development workflow by providing real-time feedback during the coding process.
+
+## Key Components
+- **Guard Configuration**: The file defines multiple guards, including `rails`, `rspec`, and `spring`, each with specific settings and file watch patterns.
+- **File Watching**: The `watch` method is used to specify which files or directories should trigger actions when modified. For example, changes to `Gemfile.lock` or any files in the `config` or `lib` directories will trigger the respective guards.
+- **Guard Options**: Various options can be set for each guard, such as `port`, `environment`, and `timeout`, allowing customization of how the guards operate.
+
+## Usage Examples
+- To start the Rails server with Guard, simply run `guard` in the terminal. It will automatically watch the specified files and restart the server as needed.
+- For running RSpec tests, the command `guard` will also watch for changes in test files and execute them automatically, providing immediate feedback on code changes.
+
+## Best Practices
+- **Directory Structure**: Ensure that the directories specified in the `directories` clause exist to avoid warnings. Uncomment and modify the `directories` line to include only the necessary directories for your project.
+- **Symlinking the Guardfile**: If you choose to watch specific directories and move the `Guardfile`, remember to create a symlink back to the project root to ensure Guard can find it.
+- **Custom Commands**: Customize the command for running tests based on your setup (e.g., using Bundler or Spring) to ensure compatibility with your development environment.
+
+## Dependencies
+This `Guardfile` does not import or depend on any other files in the repository, nor is it imported by any other files. It operates independently to manage file watching and automated tasks within the project.

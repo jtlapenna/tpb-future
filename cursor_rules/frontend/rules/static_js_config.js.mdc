@@ -1,0 +1,37 @@
+---
+description: Configuration settings for the kiosk application, defining various UI and functionality options.
+globs: ['static/js/config.js']
+alwaysApply: false
+---
+
+# Kiosk Configuration File
+
+## Overview
+The `config.js` file contains configuration settings for the kiosk application. It defines various options that control the behavior and appearance of the kiosk interface, including enabling/disabling features, setting API endpoints, and customizing UI elements.
+
+## Key Components
+- **DISABLE_SOCKET**: A boolean flag to disable socket connections.
+- **RFID_ENABLED**: A boolean flag to enable or disable RFID functionality.
+- **API**: An object containing the API configuration, including the base URL, catalog ID, and authentication token.
+- **HEAP_ID** and **HEAP_USER**: Identifiers for tracking user interactions and analytics.
+- **NAV**: An array that defines the main navigation items for the kiosk interface.
+- **SENTRY_DSN** and **SENTRY_ENVIRONMENT**: Configuration for error tracking using Sentry.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It serves as a standalone configuration file for the kiosk application.
+
+## Usage Examples
+To modify the kiosk's behavior, developers can uncomment and adjust the relevant configuration options. For example, to enable shopping functionality, you would change:
+```javascript
+// SHOPPING_ENABLED: true,
+```
+To:
+```javascript
+SHOPPING_ENABLED: true,
+```
+
+## Best Practices
+- **Commenting**: Use comments to explain the purpose of each configuration option, especially for complex settings.
+- **Version Control**: Keep track of changes to this file in version control to manage configuration history.
+- **Environment Variables**: For sensitive information like API tokens, consider using environment variables instead of hardcoding them in the file.
+- **Testing**: After making changes to the configuration, thoroughly test the kiosk application to ensure that all features work as expected.

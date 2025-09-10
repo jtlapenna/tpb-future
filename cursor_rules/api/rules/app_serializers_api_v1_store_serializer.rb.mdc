@@ -1,0 +1,57 @@
+---
+description: Documentation for the StoreSerializer class in the API V1 module.
+globs: ['app/serializers/api/v1/store_serializer.rb']
+alwaysApply: false
+---
+
+# StoreSerializer Documentation
+
+## Overview
+The `StoreSerializer` class is part of the `Api::V1` module and is responsible for serializing the `Store` model into JSON format for API responses. It utilizes the `ActiveModel::Serializer` to define which attributes of the `Store` model should be included in the serialized output.
+
+## Key Components
+- **Attributes**: The serializer defines several attributes that will be included in the JSON response:
+  - `id`: The unique identifier for the store.
+  - `name`: The name of the store.
+  - `created_at`: The timestamp when the store was created.
+  - `updated_at`: The timestamp when the store was last updated.
+  - `block_simultaneous_nfc`: A boolean indicating if simultaneous NFC transactions are blocked.
+  - `checkout_type`: The type of checkout process used by the store.
+  - `direct_checkout`: A boolean indicating if direct checkout is enabled.
+  - `shop_url`: The URL of the store's website.
+  - `use_total_thc`: A boolean indicating if total THC should be used.
+  - `enable_automate_promotions`: A boolean indicating if automated promotions are enabled.
+  - `enabled_continuous_cart`: A boolean indicating if continuous cart functionality is enabled.
+
+- **Associations**:
+  - `has_one :logo`: This indicates that each store can have one logo, which is serialized using the `Api::V1::AssetSerializer`.
+  - `belongs_to :client`: This indicates that each store belongs to a client.
+  - `has_one :settings`: This indicates that each store has one set of settings, serialized using the `Api::V1::StoreSettingSerializer`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It is a standalone serializer that directly interacts with the `Store` model and its associated components.
+
+## Usage Example
+When a request is made to the API to retrieve store information, the `StoreSerializer` will format the response as follows:
+```json
+{
+  "id": 1,
+  "name": "My Store",
+  "created_at": "2023-01-01T00:00:00Z",
+  "updated_at": "2023-01-02T00:00:00Z",
+  "block_simultaneous_nfc": false,
+  "checkout_type": "standard",
+  "direct_checkout": true,
+  "shop_url": "https://mystore.com",
+  "use_total_thc": true,
+  "enable_automate_promotions": false,
+  "enabled_continuous_cart": true,
+  "logo": {...},
+  "settings": {...}
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data model and are necessary for the API consumers.
+- Keep the serializer lean by only including attributes that are essential for the client-side application.
+- Regularly review and update the serializer as the `Store` model evolves to ensure consistency between the model and the serialized output.

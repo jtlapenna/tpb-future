@@ -1,0 +1,38 @@
+---
+description: Configuration file for Babel, specifying presets and plugins for JavaScript transpilation.
+globs: ['.babelrc']
+alwaysApply: false
+---
+
+# .babelrc Documentation
+
+## Overview
+The `.babelrc` file is a configuration file for Babel, a JavaScript compiler that allows developers to use the latest JavaScript features while ensuring compatibility with older browsers. This file specifies the presets and plugins that Babel should use when transpiling JavaScript code.
+
+## Key Components
+
+### Presets
+- **env**: This preset allows you to use the latest JavaScript features by compiling them down to a version that is compatible with the specified browsers. In this configuration:
+  - `modules: false`: This option prevents Babel from transforming ES6 module syntax into another format, which is useful for projects using a module bundler like Webpack.
+  - `targets`: This specifies the target environments for the code. The configuration here targets browsers with more than 1% market share, the last two versions of each browser, and excludes Internet Explorer versions 8 and below.
+
+- **stage-2**: This preset includes proposals that are at stage 2 in the TC39 process, allowing the use of experimental features that are more stable than stage 1.
+
+### Plugins
+- **transform-vue-jsx**: This plugin allows Babel to transform JSX syntax used in Vue.js components into JavaScript function calls.
+- **transform-runtime**: This plugin helps to reduce code duplication by reusing Babel's helper functions across multiple files, which can help to keep the output bundle size smaller.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It serves as a standalone configuration for Babel, directly influencing how JavaScript files are processed during the build process.
+
+## Usage Examples
+To use this configuration, ensure that Babel is installed in your project along with the specified presets and plugins. You can install them using npm:
+```bash
+npm install --save-dev babel-core babel-preset-env babel-preset-stage-2 babel-plugin-transform-vue-jsx babel-plugin-transform-runtime
+```
+
+## Best Practices
+- Keep your Babel configuration updated to leverage the latest features and improvements.
+- Regularly review the target browsers in the `targets` section to ensure compatibility with your user base.
+- Use the `transform-runtime` plugin to avoid code duplication and reduce bundle size, especially in larger projects.
+- Test your application in the specified target browsers to ensure that the transpiled code behaves as expected.

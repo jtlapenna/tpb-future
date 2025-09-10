@@ -1,0 +1,50 @@
+---
+description: Documentation for the deployment process using Firebase.
+globs: ['how-to-make-a-deploy.md']
+alwaysApply: false
+---
+
+# How to Make a Deploy
+
+## Overview
+This document provides a step-by-step guide on how to deploy a project to Firebase Hosting. It outlines the necessary steps to set up a new site in the Firebase console and how to configure your local project for deployment.
+
+## Key Components
+- **Firebase Console**: The web interface where you manage your Firebase projects, including hosting.
+- **.firebaserc**: A configuration file in your project root that defines project aliases for Firebase commands.
+- **firebase.json**: A configuration file that specifies the hosting settings for your Firebase project.
+
+## Steps to Deploy
+1. **Firebase Console Setup**:  
+   - Navigate to the Firebase console and select your project.  
+   - Go to **Hosting** and click on **Add another site**.  
+   - Enter the desired name for your hosting site and click **Add Site**.
+
+2. **Local Project Configuration**:  
+   - Ensure you are logged in with an account that has access to the project.  
+   - Run `firebase use` to confirm you are using the correct project.
+   - Edit the **.firebaserc** file to add a new property under the projects object, using the same value as the default property.
+   - Update the **firebase.json** file to include a new item in the hosting array, copying an existing item and changing the **target** property to match the new hosting site name.
+
+3. **Deploying Changes**:  
+   - Run the command:  
+     ```bash  
+     firebase target:apply hosting <identifier on .firebaserc> <hosting added on firebase>  
+     ```  
+   - Build your project with:  
+     ```bash  
+     npm run build  
+     ```  
+   - **Important**: Avoid committing the build if you are not on the master branch to keep your commit history clean.
+   - Finally, deploy your changes with:  
+     ```bash  
+     firebase deploy --only hosting:<identifier added on .firebaserc>  
+     ```
+
+## Best Practices
+- Always verify that you are on the correct Firebase project before deploying.
+- Avoid committing build artifacts to your version control system unless necessary.
+- Regularly check the Firebase console for any updates or changes to your hosting settings.
+
+## Dependencies
+This file does not import or depend on any other files in the repository, nor is it imported by any other files. It serves as a standalone guide for deploying to Firebase Hosting.

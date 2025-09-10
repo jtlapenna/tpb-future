@@ -1,0 +1,35 @@
+---
+description: Documentation for the Favorite model in the application.
+globs: ['app/models/favorite.rb']
+alwaysApply: false
+---
+
+# Favorite Model Documentation
+
+## Overview
+The `Favorite` model represents a user's favorite products in the application. It inherits from `ApplicationRecord`, which means it is an ActiveRecord model that interacts with the database to manage the favorites data.
+
+## Key Components
+- **Class Definition**: The `Favorite` class is defined as a subclass of `ApplicationRecord`, allowing it to utilize ActiveRecord's features for database interactions.
+- **Schema Information**: The schema information provides details about the database table associated with this model, including the fields and their types:
+  - `id`: A unique identifier for each favorite (primary key).
+  - `created_at`: Timestamp for when the favorite was created.
+  - `updated_at`: Timestamp for when the favorite was last updated.
+  - `product_id`: The ID of the product that is marked as a favorite.
+  - `store_id`: The ID of the store where the product is available.
+  - `user_id`: The ID of the user who marked the product as a favorite.
+
+## Relationships
+The `Favorite` model is likely to have relationships with other models such as `Product`, `Store`, and `User`, although these relationships are not explicitly defined in the current file. It is important to ensure that these associations are properly set up in their respective models to maintain data integrity.
+
+## Usage
+To create a new favorite, you can instantiate the `Favorite` model and save it to the database:
+```ruby
+favorite = Favorite.new(product_id: 1, store_id: 1, user_id: 'user123')
+favorite.save
+```
+
+## Best Practices
+- Ensure that the `product_id`, `store_id`, and `user_id` fields are validated to prevent invalid data from being saved to the database.
+- Consider adding methods to the `Favorite` model to encapsulate common operations related to favorites, such as checking if a product is already favorited by a user.
+- Keep the model lean by delegating complex logic to service objects or other classes as necessary.

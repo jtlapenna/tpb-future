@@ -1,0 +1,30 @@
+---
+description: Serializer for attribute values in the API V1 namespace.
+globs: ['app/serializers/api/v1/attribute_value_serializer.rb']
+alwaysApply: false
+---
+
+# AttributeValueSerializer
+
+## Overview
+The `AttributeValueSerializer` is a serializer class that formats the output of attribute values for the API version 1. It is part of the `Api::V1` namespace and is used to convert the `AttributeValue` objects into a JSON format that can be easily consumed by clients.
+
+## Key Components
+- **Class Definition**: The class `AttributeValueSerializer` inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+- **Attributes**:  
+  - `name`: This attribute retrieves the name of the associated `attribute_def` object. It uses a block to access the `name` method of the `attribute_def` associated with the current object.  
+  - `value`: This attribute directly serializes the `value` of the `AttributeValue` object.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on the serialization of attribute values.
+
+## Usage Example
+To use this serializer, you would typically render an `AttributeValue` object in a controller action like so:
+```ruby
+render json: @attribute_value, serializer: Api::V1::AttributeValueSerializer
+```
+This will output a JSON representation of the `@attribute_value` object, including its `name` and `value` attributes.
+
+## Best Practices
+- Ensure that the `attribute_def` association is always present when using this serializer to avoid nil errors when accessing `object.attribute_def.name`.
+- Keep the serializer focused on its purpose: formatting data for API responses. Avoid adding business logic or complex computations within the serializer.

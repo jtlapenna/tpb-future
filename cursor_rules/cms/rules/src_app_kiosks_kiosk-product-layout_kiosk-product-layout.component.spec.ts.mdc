@@ -1,0 +1,38 @@
+---
+description: Unit tests for the KioskProductLayoutComponent in an Angular application.
+globs: ['src/app/kiosks/kiosk-product-layout/kiosk-product-layout.component.spec.ts']
+alwaysApply: false
+---
+
+# KioskProductLayoutComponent Spec
+
+## Overview
+This file contains unit tests for the `KioskProductLayoutComponent`, which is part of an Angular application. The tests are designed to ensure that the component is created successfully and functions as expected within the application.
+
+## Key Components
+- **KioskProductLayoutComponent**: The main component being tested. It is responsible for rendering the layout of kiosk products.
+- **KioskProductLayoutElementListComponent**: A child component that is declared within the test module, which may be used by the `KioskProductLayoutComponent` to display a list of elements.
+- **KioskService**: A service that provides data to the component. In the tests, it is mocked to provide a simple data structure for testing purposes.
+
+## File Structure
+- **Imports**: The file imports necessary modules and components, including Angular testing utilities, the `EditorModule` for rich text editing, and a custom testing module (`PeakTestingModule`). It also imports the components and services that are essential for the tests.
+- **Test Suite**: The `describe` block defines a test suite for the `KioskProductLayoutComponent`. Inside this suite, the component is set up and tested.
+
+## Dependencies
+This file relies on several other files in the codebase:
+- `src/app/test`: Contains the `PeakTestingModule`, which likely provides shared testing utilities or configurations.
+- `src/app/kiosks/services`: Contains the `KioskService`, which is used to provide data to the component.
+- `src/app/kiosks/kiosk-product-layout/kiosk-product-layout.component.ts`: The actual component being tested.
+- `src/app/kiosks/kiosk-product-layout-element-list/kiosk-product-layout-element-list.component.ts`: A child component that is part of the layout.
+
+## Usage Examples
+To run the tests defined in this file, you can use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this spec file.
+
+## Best Practices
+- Ensure that all dependencies are properly mocked to isolate the component being tested.
+- Keep tests focused on a single aspect of the component's functionality to make debugging easier.
+- Regularly update tests as the component's functionality evolves to ensure they remain relevant and useful.

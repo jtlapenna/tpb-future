@@ -1,0 +1,47 @@
+---
+description: Documentation for the environment configuration file in an Angular application.
+globs: ['src/environments/environment.ts']
+alwaysApply: false
+---
+
+# Environment Configuration File
+
+## Overview
+The `environment.ts` file is a crucial part of an Angular application that defines environment-specific settings. It is primarily used to configure variables that can change between development and production environments, such as API endpoints and feature flags.
+
+## Purpose and Functionality
+This file contains a single exported constant, `environment`, which is an object that holds various configuration settings:
+- `production`: A boolean indicating whether the application is running in production mode.
+- `apiUrl`: The base URL for the API that the application will communicate with during development.
+- `rfidSensorUrl`: The URL for the RFID sensor service.
+- `SENTRY_DSN`: The Data Source Name for Sentry, used for error tracking and monitoring.
+
+The file is designed to be replaced during the build process when the application is compiled for production. The Angular CLI uses the `fileReplacements` array in the `angular.json` configuration file to swap `environment.ts` with `environment.prod.ts` for production builds.
+
+## Key Components
+- **`production`**: Set to `false` in this file, indicating that the application is in development mode. This should be set to `true` in the production file.
+- **`apiUrl`**: The URL for the API, which can be switched to a production URL by uncommenting the appropriate line in the production file.
+- **`rfidSensorUrl`**: The URL for the RFID sensor service, also set for development.
+- **`SENTRY_DSN`**: A unique identifier for Sentry error tracking, which should be kept secure and not exposed in public repositories.
+
+## Dependencies
+This file does not import any other files, but it is imported by several services and modules throughout the application, including:
+- `src/main.ts`
+- Various services in the `src/app/kiosks`, `src/app/products`, and `src/app/core` directories.
+
+These dependencies rely on the configuration settings defined in this file to function correctly, particularly when making API calls or handling errors.
+
+## Usage Examples
+To use the `environment` settings in your services or components, you can import it as follows:
+```typescript
+import { environment } from '../environments/environment';
+
+console.log(environment.apiUrl); // Outputs: http://localhost:3000
+```
+
+## Best Practices
+- **Environment-Specific Configuration**: Always ensure that sensitive information, such as API keys and DSNs, are not hardcoded in the `environment.ts` file. Use environment variables or secure storage solutions for production.
+- **File Replacement**: Make sure to configure the `fileReplacements` in `angular.json` correctly to ensure that the right environment file is used during the build process.
+- **Debugging**: For easier debugging in development mode, consider importing the `zone.js` error handling file, but remember to comment it out in production to avoid performance issues.
+
+By following these guidelines, developers can effectively manage environment configurations and ensure a smooth transition between development and production environments.

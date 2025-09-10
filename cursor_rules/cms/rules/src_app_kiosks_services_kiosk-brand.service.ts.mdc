@@ -1,0 +1,51 @@
+---
+description: Documentation for the KioskBrandService class in the kiosk service module.
+globs: ['src/app/kiosks/services/kiosk-brand.service.ts']
+alwaysApply: false
+---
+
+# KioskBrandService Documentation
+
+## Overview
+The `KioskBrandService` is an Angular service that extends the `CrudService` to manage `Brand` resources specifically for kiosks. It provides methods to create brand instances and generate resource paths for API interactions.
+
+## Key Components
+- **Class**: `KioskBrandService`
+  - Inherits from `CrudService<Brand>` which provides basic CRUD operations for the `Brand` model.
+
+- **Method**: `createResource(params: any): Brand`
+  - Creates a new instance of the `Brand` class using the provided parameters.
+  - **Parameters**:  
+    - `params`: An object containing the properties to initialize the `Brand` instance.
+  - **Returns**: A new `Brand` object.
+
+- **Method**: `resourceName({ plural }: { plural?: boolean; }): string`
+  - Returns the name of the resource, either singular or plural based on the input.
+  - **Parameters**:  
+    - `plural`: A boolean indicating whether to return the plural form of the resource name.
+  - **Returns**: A string representing the resource name ('brand' or 'brands').
+
+- **Method**: `resourcePath({ parentId }: { parentId?: number } = {}): string`
+  - Constructs the API path for accessing brand resources associated with a specific kiosk.
+  - **Parameters**:  
+    - `parentId`: An optional number representing the ID of the parent kiosk.
+  - **Returns**: A string representing the resource path (e.g., `kiosks/1/brands`).
+
+## Dependencies
+This service does not import any other files from the repository, nor is it imported by any other files. It relies solely on the `Brand` model and the `CrudService` from the core services.
+
+## Usage Example
+To use the `KioskBrandService`, you can inject it into a component or another service:
+```typescript
+import { KioskBrandService } from 'src/app/kiosks/services/kiosk-brand.service';
+
+constructor(private kioskBrandService: KioskBrandService) {}
+
+const newBrand = this.kioskBrandService.createResource({ name: 'New Brand' });
+const resourcePath = this.kioskBrandService.resourcePath({ parentId: 1 });
+```
+
+## Best Practices
+- Ensure that the parameters passed to `createResource` match the expected structure of the `Brand` model to avoid runtime errors.
+- Use the `resourceName` and `resourcePath` methods to maintain consistency in API calls throughout the application.
+- Consider adding error handling when interacting with the API to manage potential issues gracefully.

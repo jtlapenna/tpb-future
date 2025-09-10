@@ -1,0 +1,36 @@
+---
+description: Serializer for layout navigation items in the application.
+globs: ['app/serializers/layout_navigation_item_serializer.rb']
+alwaysApply: false
+---
+
+# LayoutNavigationItemSerializer
+
+## Overview
+The `LayoutNavigationItemSerializer` is a serializer class that defines how layout navigation items are represented in JSON format when sent to the client. It is part of the ActiveModel Serializers framework, which is used to create a structured JSON response for API endpoints.
+
+## Key Components
+- **Class Definition**: The class `LayoutNavigationItemSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies the fields that will be included in the serialized output. In this case, the following attributes are included:
+  - `id`: The unique identifier for the navigation item.
+  - `label`: The display label for the navigation item.
+  - `link`: The URL that the navigation item points to.
+  - `title`: The title of the navigation item, often used for tooltips or additional context.
+  - `description`: A brief description of the navigation item.
+  - `order`: The order in which the navigation item should appear in a list.
+- **Associations**: The `has_one :asset` line indicates that each navigation item can be associated with a single asset, which may represent an image or icon related to the navigation item.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for layout navigation items.
+
+## Usage Examples
+To use this serializer, you would typically render a layout navigation item in a controller action like so:
+```ruby
+render json: @layout_navigation_item, serializer: LayoutNavigationItemSerializer
+```
+This would return a JSON representation of the `@layout_navigation_item` object, including the specified attributes and associated asset.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the underlying model.
+- Keep the serializer focused on a single responsibility, which is to format the output for the API. Avoid adding business logic within the serializer.
+- Regularly review and update the serializer as the model changes to ensure consistency in the API responses.

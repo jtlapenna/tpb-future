@@ -1,0 +1,33 @@
+---
+description: Defines the base class for all models in the application, inheriting from ActiveRecord.
+globs: ['app/models/application_record.rb']
+alwaysApply: false
+---
+
+# ApplicationRecord
+
+## Overview
+The `ApplicationRecord` class serves as the base class for all models in the application. It inherits from `ActiveRecord::Base`, which provides the core functionality for interacting with the database using Active Record, a powerful ORM (Object-Relational Mapping) framework in Ruby on Rails. By defining `ApplicationRecord` as an abstract class, it ensures that no instances of this class can be created directly, and it allows shared behavior and functionality to be defined for all models that inherit from it.
+
+## Key Components
+- **Class Declaration**: `class ApplicationRecord < ActiveRecord::Base`
+  - This line declares `ApplicationRecord` as a subclass of `ActiveRecord::Base`, enabling it to utilize all the features of Active Record.
+
+- **Abstract Class**: `self.abstract_class = true`
+  - This line marks `ApplicationRecord` as an abstract class. This means that it cannot be instantiated directly, and is intended solely to be a superclass for other models.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. However, it is a foundational component of the application, as all other models will inherit from it.
+
+## Usage Examples
+To create a new model that inherits from `ApplicationRecord`, you would define it as follows:
+```ruby
+class User < ApplicationRecord
+  # User model code here
+end
+```
+
+## Best Practices
+- **Keep Shared Logic in ApplicationRecord**: Any common functionality that should be shared across all models should be defined in `ApplicationRecord`. This helps to avoid code duplication and keeps your models clean.
+- **Use Active Record Features**: Since `ApplicationRecord` inherits from `ActiveRecord::Base`, make use of Active Record's features such as validations, associations, and callbacks in your models to leverage the full power of Rails.
+- **Avoid Business Logic in Models**: While it's tempting to put business logic in models, try to keep your models focused on data representation and database interactions. Consider using service objects or other patterns for complex business logic.

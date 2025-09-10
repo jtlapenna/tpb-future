@@ -1,0 +1,25 @@
+---
+description: This file serves as an entry point for exporting all models related to product variants.
+globs: ['src/app/product-variants/index.ts']
+alwaysApply: false
+---
+
+# Product Variants Index File
+
+## Overview
+This file acts as an entry point for the product variants module, exporting all the models defined in the `models` directory. It simplifies the import process for other parts of the application by consolidating model exports into a single file.
+
+## Key Components
+- **Export Statement**: The file contains a single export statement that re-exports everything from the `./models` module. This means that any model defined in the `models` directory can be accessed directly through this index file.
+
+## Relationship to Other Files
+- **Dependencies**: This file does not import any other files directly, but it relies on the models defined in the `./models` directory. It is important to ensure that the models are correctly defined and exported from that directory for this index file to function properly.
+- **Usage**: Other files in the codebase can import models from this index file instead of importing them individually from the `models` directory. For example:
+  ```typescript
+  import { ProductVariant } from 'src/app/product-variants';
+  ```
+
+## Best Practices
+- **Maintain Clear Model Definitions**: Ensure that all models in the `models` directory are well-defined and documented. This will help maintain clarity when using the index file.
+- **Keep Exports Organized**: If new models are added, ensure they are exported from the `models` directory and that this index file is updated accordingly to reflect those changes.
+- **Avoid Circular Dependencies**: Be cautious of circular dependencies when adding new models that might reference each other, as this can lead to runtime errors.

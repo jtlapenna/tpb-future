@@ -1,0 +1,32 @@
+---
+description: Documentation for the src/plugins directory, detailing its purpose and contents.
+globs: ['src/plugins/*']
+alwaysApply: false
+---
+
+# Overview of the src/plugins Directory
+
+The `src/plugins` directory is designed to house various plugin configurations and functionalities that enhance the core application. This modular approach allows for easy integration and management of different features within the application.
+
+## Key Files
+
+- **config.js**: This file serves as the primary configuration file for the plugins. It defines settings and options that control the behavior of the plugins within the application. Developers can modify this file to customize plugin functionality according to project requirements.
+
+## Relationship to Other Parts of the Codebase
+
+The `src/plugins` directory interacts primarily with the `src/const/globals.js` file, which provides global constants and configurations that are utilized across various plugins. This relationship ensures that plugins can access shared settings and maintain consistency throughout the application.
+
+No external files import from the `src/plugins` directory, emphasizing its role as a self-contained module that enhances the application without exposing its internal workings to other parts of the codebase.
+
+## Common Patterns and Conventions
+
+- **Modularity**: Each plugin should be designed to be modular, allowing for easy addition or removal without affecting other parts of the application.
+- **Configuration Management**: Use the `config.js` file to manage settings for all plugins, ensuring that changes are centralized and easily manageable.
+
+## Best Practices
+
+- **Keep Configurations Organized**: When adding new plugins, ensure that their configurations are well-documented within `config.js` to avoid confusion.
+- **Maintain Consistency**: Follow naming conventions and coding standards established in the rest of the codebase to ensure that plugins integrate smoothly.
+- **Document Changes**: Any modifications to the plugins or their configurations should be documented to facilitate understanding and maintenance by other developers.
+
+By adhering to these guidelines, developers can effectively manage the `src/plugins` directory and ensure that it contributes positively to the overall architecture of the application.

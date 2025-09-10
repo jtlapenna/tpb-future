@@ -1,0 +1,35 @@
+---
+description: Serializer for minimal kiosk product representation in API V1.
+globs: ['app/serializers/api/v1/kiosk_product_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# KioskProductMinimalSerializer
+
+## Overview
+The `KioskProductMinimalSerializer` is a serializer class used in the API version 1 of the application. It is responsible for defining how a minimal representation of a kiosk product is structured when serialized into JSON format for API responses. This serializer focuses on providing essential attributes of a kiosk product, which are necessary for client applications to display product information efficiently.
+
+## Key Components
+- **Module Structure**: The serializer is nested within the `Api::V1` module, indicating that it is part of the version 1 of the API.
+- **Class Definition**: The class `KioskProductMinimalSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The serializer defines several attributes:
+  - `id`: Maps to `store_product_id` of the object being serialized.
+  - `sku`: Maps to `store_sku` of the object.
+  - `stock`: Maps to `store_stock` of the object.
+  - `updated_at` and `created_at`: Standard timestamps for tracking the object's lifecycle.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on the serialization of kiosk product data.
+
+## Usage Example
+When a request is made to the API for kiosk product data, the `KioskProductMinimalSerializer` will be invoked to format the response. For instance:
+```ruby
+product = KioskProduct.find(params[:id])
+render json: product, serializer: KioskProductMinimalSerializer
+```
+This will return a JSON response containing only the specified attributes of the `product` object.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the client needs. Avoid over-fetching data that is not required.
+- Keep the serializer focused on minimal data representation to enhance performance and reduce payload size.
+- Regularly review and update the serializer as the API evolves to ensure it meets the current requirements of the client applications.

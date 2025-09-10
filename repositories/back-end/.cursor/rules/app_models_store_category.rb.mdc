@@ -1,0 +1,52 @@
+---
+description: Documentation for the StoreCategory model in the application.
+globs: ['app/models/store_category.rb']
+alwaysApply: false
+---
+
+# StoreCategory Model Documentation
+
+## Overview
+The `StoreCategory` model represents a category of products associated with a specific store in the application. It manages relationships with various entities such as products, taxes, and layouts, and includes validations to ensure data integrity.
+
+## Key Components
+- **Class Definition**: `StoreCategory < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, making it a part of the Active Record framework.
+
+- **Associations**:
+  - `belongs_to :store`: Each category is linked to a single store.
+  - `has_many :store_products`: A category can have multiple products, with nullifying behavior on deletion.
+  - `has_many :rfid_products`: Manages RFID products associated with the category, destroying them on deletion.
+  - `has_many :store_category_taxes`: Links to taxes applicable to the category, with nullifying behavior on deletion.
+  - `has_many :kiosk_layouts`: Represents layouts for kiosks associated with the category.
+  - `has_one :banner`: Each category can have one banner asset, which is destroyed if the category is deleted.
+  - `has_and_belongs_to_many :purchase_limits`: Allows many-to-many relationships with purchase limits.
+  - `has_and_belongs_to_many :brand_and_store_categories`: Allows many-to-many relationships with brand and store categories.
+
+- **Validations**:
+  - `valid_name`: Custom validation to ensure the category name is present and unique within the store.
+
+- **Scopes**:
+  - `owner`: Retrieves categories belonging to a specific store owner.
+  - `name_like`: Finds categories with names similar to a given string (case-insensitive).
+  - `name_lower`: Finds categories with names that match a given string (case-sensitive).
+  - `name_equal`: Finds categories with names that exactly match a given string (case-insensitive).
+
+## Dependencies
+This file does not import or get imported by any other files in the repository, making it a standalone model. However, it interacts with the `Store` model and other related models through its associations.
+
+## Usage Examples
+To create a new store category:
+```ruby
+store_category = StoreCategory.create(name: 'Electronics', store: some_store)
+```
+
+To find categories by name:
+```ruby
+categories = StoreCategory.name_like('Electro')
+```
+
+## Best Practices
+- Ensure that the `name` attribute is unique within the context of a store to avoid validation errors.
+- Use the provided scopes for querying categories to maintain clean and efficient database interactions.
+- When modifying associations, be mindful of the `dependent` options to prevent unintended data loss.

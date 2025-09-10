@@ -1,0 +1,46 @@
+---
+description: Documentation for the StoreArticle model in the application.
+globs: ['app/models/store_article.rb']
+alwaysApply: false
+---
+
+# StoreArticle Model Documentation
+
+## Overview
+The `StoreArticle` model represents the relationship between articles and stores in the application. It facilitates the management of articles associated with specific stores, allowing for operations such as retrieving products related to those articles.
+
+## Key Components
+- **Associations**:
+  - `belongs_to :article`: Establishes a relationship with the `Article` model, indicating that each `StoreArticle` is linked to a single article.
+  - `belongs_to :store`: Establishes a relationship with the `Store` model, indicating that each `StoreArticle` is linked to a single store.
+  - `has_and_belongs_to_many :store_products`: Sets up a many-to-many relationship with `StoreProduct`, allowing a `StoreArticle` to be associated with multiple products.
+
+- **Validations**:
+  - `validates :article_id, uniqueness: { scope: [:store_id], message: 'article is already used in store' }`: Ensures that an article can only be associated with a specific store once, preventing duplicate entries.
+
+- **Delegations**:
+  - `delegate :title, :tag, :text, :icon, :excerpt, :category, to: :article`: Allows direct access to certain attributes of the associated `Article` model, simplifying the interface of `StoreArticle`.
+
+- **Scopes**:
+  - `scope :owner`: A lambda function that retrieves `StoreArticle` records associated with a specific store owner, enhancing query capabilities.
+
+- **Instance Methods**:
+  - `def products_for_catalog`: Returns published store products associated with the `StoreArticle`. If no products exist, it falls back to default products based on tags or categories.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on its defined associations and methods.
+
+## Usage Examples
+To create a new `StoreArticle`:
+```ruby
+store_article = StoreArticle.create(article_id: 1, store_id: 1)
+```
+To retrieve products for a catalog:
+```ruby
+products = store_article.products_for_catalog
+```
+
+## Best Practices
+- Ensure that the `article_id` and `store_id` are correctly set to maintain data integrity.
+- Use the `products_for_catalog` method to fetch products instead of directly accessing `store_products` to leverage the built-in logic for default products.
+- Regularly check for uniqueness violations when creating new `StoreArticle` records to avoid validation errors.

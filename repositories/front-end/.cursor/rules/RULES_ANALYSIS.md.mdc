@@ -1,0 +1,41 @@
+---
+description: Documentation for the front-end repository rules analysis in a Vue.js application.
+globs: ['RULES_ANALYSIS.md']
+alwaysApply: false
+---
+
+# Front-end Repository Rules Analysis
+
+## Overview
+This document provides a comprehensive analysis of the rules and conventions defined for the front-end repository of a Vue.js-based web application. It serves as a guide for developers to understand the structure, architectural patterns, component-specific rules, and best practices to follow when contributing to the codebase.
+
+## Key Components
+
+### Repository Structure Rules
+- **Core Directory Organization**: Outlines the purpose of each directory within the repository, such as `.firebase/`, `config/`, `functions/`, and `src/`, detailing their roles in the application.
+- **Architectural Patterns**: Describes the architectural principles followed, including component-based architecture, Vuex for state management, and modular design.
+
+### Component-Specific Rules
+- **Vue Components**: Covers naming conventions, component structure, and best practices for creating reusable components.
+- **API Integration**: Discusses the repository pattern for managing local and remote data, emphasizing consistent interfaces and error handling.
+- **State Management**: Details the organization of the Vuex store, including best practices for state management and error handling.
+- **Routing**: Provides guidelines for router configuration and best practices for managing application navigation.
+- **Styling**: Explains CSS organization, including the use of SCSS and BEM naming conventions, along with best practices for styling.
+
+### Development Workflow Rules
+- **Code Style**: Emphasizes adherence to ESLint rules, consistent formatting, and documentation of complex logic.
+- **Version Control**: Outlines the Git workflow, including the use of feature branches and descriptive commits.
+- **Testing**: Describes the organization of tests, including unit, integration, and E2E tests, along with best practices for maintaining test coverage.
+- **Deployment**: Discusses the build process, including asset optimization and CI/CD implementation.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a reference for developers working on the front-end repository.
+
+## Usage Examples
+While this document does not contain specific code examples, developers are encouraged to refer to the outlined best practices and rules when implementing features or making changes to the codebase.
+
+## Best Practices
+- Always follow the naming conventions and structure outlined in this document to maintain consistency across the codebase.
+- Document any new components, API interactions, or state changes to ensure clarity for future developers.
+- Regularly review and update tests to cover new features and edge cases, maintaining high test coverage.
+- Optimize the build process and monitor performance to ensure a smooth deployment experience.

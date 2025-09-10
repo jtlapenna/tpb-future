@@ -1,0 +1,35 @@
+---
+description: Documentation for the upload.js file responsible for uploading analytics events in chunks.
+globs: ['static/js/upload.js']
+alwaysApply: false
+---
+
+# upload.js Documentation
+
+## Overview
+This file contains the logic for uploading analytics events to a remote server in chunks. It utilizes the Dexie.js library for interacting with IndexedDB to retrieve events and then sends them to a specified API endpoint. The upload process is designed to handle large datasets by breaking them into smaller chunks, ensuring efficient data transfer and error handling.
+
+## Key Components
+
+### Functions
+- **chunk(arr, size)**: This utility function takes an array and splits it into smaller arrays (chunks) of a specified size. It is used to prepare the events for upload in manageable pieces.
+
+- **sleep(ms)**: A helper function that returns a promise that resolves after a specified number of milliseconds. This is used to introduce delays between uploads to avoid overwhelming the server.
+
+- **upload(items)**: This function takes an array of items (events) and sends them to the API endpoint using a POST request. It handles the request options, including headers for authorization and content type.
+
+- **getCommonData()**: This function retrieves common data from local storage and the global `kioskConfig` object, which is merged with each event before uploading.
+
+### Event Listener
+- The `window.addEventListener('load', async () => {...})` block initializes the upload process when the window loads. It dynamically loads the Dexie.js library, opens the IndexedDB, retrieves events, and processes them for upload.
+
+## File Relationships
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the Dexie.js library for database interactions and the Fetch API for network requests.
+
+## Usage Example
+To use this file, ensure that it is included in your HTML file or bundled with your JavaScript application. Upon loading the page, the upload process will automatically begin, uploading any events stored in the IndexedDB.
+
+## Best Practices
+- **Error Handling**: Ensure that the error handling in the upload process is robust. Currently, it logs errors to the console but consider implementing user notifications or retries for failed uploads.
+- **Security**: The authorization token is hardcoded in the file. For production environments, consider using environment variables or secure storage methods to manage sensitive information.
+- **Performance**: Monitor the performance of the upload process, especially with large datasets. Adjust the chunk size and sleep duration as necessary to optimize the upload speed without overwhelming the server.

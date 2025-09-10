@@ -1,0 +1,35 @@
+---
+description: Unit tests for the StoreCategoryComponent in the Angular application.
+globs: ['src/app/stores/store-category/store-category.component.spec.ts']
+alwaysApply: false
+---
+
+# StoreCategoryComponent Spec
+
+## Overview
+This file contains unit tests for the `StoreCategoryComponent` in an Angular application. It uses Angular's testing utilities to create a test suite that verifies the component's creation and basic functionality.
+
+## Key Components
+- **Imports**: The file imports necessary testing utilities from Angular, the component under test, and a custom testing module.
+- **describe**: This function defines a test suite for the `StoreCategoryComponent`.
+- **beforeEach**: This function sets up the testing environment before each test runs. It configures the testing module, compiles components, and initializes the component instance.
+- **it**: This function defines an individual test case that checks if the component is created successfully.
+
+## Dependencies
+- **StoreCategoryComponent**: The component being tested, located at `src/app/stores/store-category/store-category.component.ts`.
+- **PeakTestingModule**: A custom testing module imported from `src/app/test`, which likely contains shared testing utilities or configurations.
+
+This spec file is not imported by any other files in the repository, indicating it is solely for testing the `StoreCategoryComponent`.
+
+## Usage Examples
+To run the tests defined in this file, use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this spec file.
+
+## Best Practices
+- Ensure that all components have corresponding spec files to maintain test coverage.
+- Use descriptive test case names to clarify the purpose of each test.
+- Keep tests isolated and focused on a single aspect of the component's functionality.
+- Regularly run tests during development to catch issues early.

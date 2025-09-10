@@ -1,0 +1,56 @@
+[
+  {
+    "event_datetime": "2021-12-15T21:54:39.933Z",
+    "event_name": "Product view",
+    "event_params": "{\"name\":\"PAX Era Pro\",\"id\":\"pep01\",\"product_id\":17531,\"brand\":\"Pax\",\"category\":\"PAX Era Pro\",\"quantity\":1,\"price\":\"70.0\",\"tag_list\":[],\"stock\":1}",
+    "event_resp": "{}",
+    "session_id": "",
+    "user_id": "",
+    "id": 21
+  },
+  {
+    "event_datetime": "2021-12-15T21:59:40.911Z",
+    "event_name": "Session ended",
+    "event_params": "{\"reason\":\"App soft refresh after delay.\"}",
+    "event_resp": "{}",
+    "session_id": "",
+    "user_id": "",
+    "id": 22
+  },
+  {
+    "event_datetime": "2021-12-15T21:59:43.803Z",
+    "event_name": "Product view",
+    "event_params": "{\"name\":\"PAX Era Pro\",\"id\":\"pep01\",\"product_id\":17531,\"brand\":\"Pax\",\"category\":\"PAX Era Pro\",\"quantity\":1,\"price\":\"70.0\",\"tag_list\":[],\"stock\":1}",
+    "event_resp": "{}",
+    "session_id": "",
+    "user_id": "",
+    "id": 23
+  },
+  {
+    "event_datetime": "2021-12-15T22:04:57.990Z",
+    "event_name": "Session ended",
+    "event_params": "{\"reason\":\"App soft refresh after delay.\"}",
+    "event_resp": "{}",
+    "session_id": "",
+    "user_id": "",
+    "id": 24
+  },
+  {
+    "event_datetime": "2021-12-15T22:05:00.749Z",
+    "event_name": "Product view",
+    "event_params": "{\"name\":\"PAX Era Pro\",\"id\":\"pep01\",\"product_id\":17531,\"brand\":\"Pax\",\"category\":\"PAX Era Pro\",\"quantity\":1,\"price\":\"70.0\",\"tag_list\":[],\"stock\":1}",
+    "event_resp": "{}",
+    "session_id": "",
+    "user_id": "",
+    "id": 25
+  },
+  {
+    "event_datetime": "2021-12-15T22:06:11.111Z",
+    "event_name": "Product view",
+    "event_params": "{\"name\":\"PAX Era Pro\",\"id\":\"pep01\",\"product_id\":17531,\"brand\":\"Pax\",\"category\":\"PAX Era Pro\",\"quantity\":1,\"price\":\"70.0\",\"tag_list\":[],\"stock\":1}",
+    "event_resp": "{}",
+    "session_id": "",
+    "user_id": "",
+    "id": 26
+  }
+]

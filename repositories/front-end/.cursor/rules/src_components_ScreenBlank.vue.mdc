@@ -1,0 +1,46 @@
+---
+description: Documentation for the ScreenBlank component in a Vue.js application.
+globs: ['src/components/ScreenBlank.vue']
+alwaysApply: false
+---
+
+# ScreenBlank Component Documentation
+
+## Overview
+The `ScreenBlank` component is a simple Vue.js component designed to render a blank screen. It is primarily used as a placeholder or loading screen in the application, providing a visual cue that content is being loaded or that the application is in a non-interactive state.
+
+## Key Components
+- **Template**: The template consists of a single `div` element with an ID of `screen-blank` and a class of `screen screen--blank`. The `style` attribute sets the initial opacity to 0, making it invisible until it is displayed.
+- **Script**: The script defines the component's name as `ScreenBlank`. It includes an empty `data` function and a `created` lifecycle hook, which is currently unused but can be utilized for future enhancements or initialization logic.
+- **Style**: The scoped SCSS styles define the `.screen--blank` class, setting `pointer-events` to `none`, which prevents any mouse interactions when this component is displayed.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It stands alone, making it easy to integrate into various parts of the application without additional dependencies.
+
+## Usage Examples
+To use the `ScreenBlank` component, you can include it in your parent component's template as follows:
+```html
+<template>
+  <ScreenBlank v-if="isLoading" />
+</template>
+
+<script>
+import ScreenBlank from './ScreenBlank.vue';
+
+export default {
+  components: {
+    ScreenBlank
+  },
+  data() {
+    return {
+      isLoading: true // Set to false when loading is complete
+    };
+  }
+};
+</script>
+```
+
+## Best Practices
+- **Visibility Control**: Ensure that the `isLoading` state is managed properly in the parent component to control when the `ScreenBlank` component is displayed.
+- **Styling**: Since the component uses scoped styles, any global styles should be carefully considered to avoid conflicts.
+- **Future Enhancements**: Consider adding props to customize the appearance or behavior of the `ScreenBlank` component, such as loading messages or animations.

@@ -1,0 +1,48 @@
+---
+description: Documentation for the ScreenProductsPromotions component in a Vue.js application.
+globs: ['src/components/ScreenProductsPromotions.vue']
+alwaysApply: false
+---
+
+# ScreenProductsPromotions.vue
+
+## Overview
+The `ScreenProductsPromotions.vue` file is a Vue.js component that serves as a product promotions screen in an e-commerce application. It provides functionality for searching, filtering, and sorting products, as well as displaying promotional content based on user interactions. The component is designed to enhance user experience by allowing users to easily navigate through products and promotions.
+
+## Key Components
+
+### Template Structure
+- **Main Container**: The main `<div>` with the ID `screen-products` contains all the elements of the component, including search forms, filters, sorting options, and the product grid.
+- **Search Functionality**: The component includes a search input field that allows users to search for products by brand or name. It supports both condensed and expanded views based on the configuration.
+- **Filters**: The component provides filtering options for categories and tags, allowing users to narrow down their product search. Filters can be toggled to show more or fewer options.
+- **Sorting Options**: Users can sort products by name, price, and THC/CBD percentages. The sorting options are visually represented and can be interacted with.
+- **Product Grid**: The grid displays product cards, which are dynamically generated based on the filtered and sorted product list. It also includes infinite scrolling to load more products as the user scrolls down.
+- **No Results Handling**: If no products match the search or filter criteria, a message is displayed to inform the user.
+
+### Script Logic
+- **Data Properties**: The component maintains various data properties such as `searchValue`, `filterCategory`, `filterTags`, and `sortOption` to manage the state of the UI and user inputs.
+- **Computed Properties**: Several computed properties are defined to derive values based on the current state, such as `filteredProducts`, `orderedCategories`, and `noResultText`, which help in rendering the UI dynamically.
+- **Methods**: The component includes methods for handling user interactions, such as `searchProducts`, `selectCategory`, and `sortBy`. These methods update the component's state and trigger UI updates accordingly.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It relies solely on Vue.js and its ecosystem for functionality.
+
+## Usage Examples
+To use this component, it should be included in a parent Vue component or view. For example:
+```vue
+<template>
+  <ScreenProductsPromotions
+    :categories="categories"
+    :products="products"
+    :tags="tags"
+    :tagsPerCategories="tagsPerCategories"
+    :isGeneratingIndex="isGeneratingIndex"
+  />
+</template>
+```
+
+## Best Practices
+- **State Management**: Ensure that the state properties are properly managed to avoid unexpected behavior. Use Vuex or similar state management solutions if the component needs to share state with other components.
+- **Performance Optimization**: Consider optimizing the rendering of product cards, especially when dealing with a large number of products. Use lazy loading techniques where applicable.
+- **Accessibility**: Ensure that the search and filter inputs are accessible to all users, including those using screen readers. Use appropriate ARIA attributes where necessary.
+- **Testing**: Implement unit tests for the component's methods and integration tests to ensure that it behaves correctly when integrated with other parts of the application.

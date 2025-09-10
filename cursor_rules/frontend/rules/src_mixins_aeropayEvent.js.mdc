@@ -1,0 +1,45 @@
+---
+description: Documentation for the AeropayEvent mixin in the Vue.js application.
+globs: ['src/mixins/aeropayEvent.js']
+alwaysApply: false
+---
+
+# AeropayEvent Mixin Documentation
+
+## Overview
+The `AeropayEvent` mixin is designed to handle the creation of orders through the Aeropay payment gateway in a Vue.js application. It manages the order creation process, including the generation of a dynamic link for payment and handling order status updates.
+
+## Key Components
+- **Data Properties**:
+  - `aeropayPermalink`: Stores the generated permalink for the Aeropay payment.
+  - `creatingOrder`: A boolean flag indicating whether an order is currently being created.
+
+- **Computed Properties**:
+  - `totalCart`: Maps the `totalCart` state from Vuex, providing access to the total cart value.
+
+- **Methods**:
+  - `createOrderAeropay()`: This method orchestrates the order creation process. It gathers cart items, constructs an order object, sends it to the server, and generates a dynamic link for payment. It also listens for order status updates and emits success messages upon completion.
+
+## Dependencies
+This file imports the following modules:
+- `src/const/globals.js`: Contains global configuration constants, including API keys and URLs.
+- `src/api/messaging/index.js`: Provides the `getAeropayOrderChanges` function to monitor order status updates.
+
+The `AeropayEvent` mixin is not imported by any other files in the repository, making it a standalone component for handling Aeropay transactions.
+
+## Usage Example
+To use the `AeropayEvent` mixin in a Vue component, you can include it as follows:
+```javascript
+import AeropayEvent from '@/mixins/aeropayEvent'
+
+export default {
+  mixins: [AeropayEvent],
+  // other component options
+}
+```
+
+## Best Practices
+- Ensure that all required customer information (first name, last name, email) and cart items are available before calling `createOrderAeropay()`. The method will throw an error if any required information is missing.
+- Handle potential errors gracefully, especially when dealing with asynchronous HTTP requests. Consider providing user feedback in case of failures.
+- Keep the configuration in `globals.js` up to date to avoid issues with API keys and URLs.
+- Regularly test the order creation process to ensure that the integration with the Aeropay payment gateway remains functional.

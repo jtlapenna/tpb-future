@@ -1,0 +1,35 @@
+---
+description: Documentation for the BrandSerializer class in the app/serializers directory.
+globs: ['app/serializers/brand_serializer.rb']
+alwaysApply: false
+---
+
+# BrandSerializer Documentation
+
+## Overview
+The `BrandSerializer` class is a part of the ActiveModel Serializers framework, which is used to serialize Ruby objects into JSON format. This specific serializer is designed to handle the serialization of `Brand` objects, providing a structured representation of the brand's attributes when converting to JSON.
+
+## Key Components
+- **Class Definition**: `class BrandSerializer < ActiveModel::Serializer`
+  - This line defines the `BrandSerializer` class, inheriting from `ActiveModel::Serializer`, which provides the necessary functionality for serialization.
+
+- **Attributes**: `attributes :id, :name, :description`
+  - This line specifies the attributes of the `Brand` model that should be included in the serialized output. In this case, it includes the `id`, `name`, and `description` of the brand.
+
+- **Associations**: `has_one :logo`
+  - This line indicates that each `Brand` object can have one associated `logo`. When the `Brand` is serialized, the associated `logo` will also be included in the output if it exists.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `Brand` model.
+
+## Usage Example
+To use the `BrandSerializer`, you would typically call it within a controller action when rendering a `Brand` object. For example:
+```ruby
+render json: @brand, serializer: BrandSerializer
+```
+This will return a JSON representation of the `@brand` object, including its `id`, `name`, `description`, and associated `logo`.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data you want to expose through your API.
+- Be mindful of the associations you include; only include those that are necessary to avoid over-fetching data.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.

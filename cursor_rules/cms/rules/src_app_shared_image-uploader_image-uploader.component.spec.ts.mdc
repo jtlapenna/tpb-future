@@ -1,0 +1,35 @@
+---
+description: Documentation for the ImageUploaderComponent test suite.
+globs: ['src/app/shared/image-uploader/image-uploader.component.spec.ts']
+alwaysApply: false
+---
+
+# ImageUploaderComponent Test Suite
+
+## Overview
+This file contains the unit tests for the `ImageUploaderComponent`, which is responsible for handling image uploads in the application. The tests ensure that the component is created successfully and that its basic functionality is intact.
+
+## Key Components
+- **Imports**: The file imports necessary modules and components, including `FileUploadModule` for handling file uploads and various testing utilities from Angular.
+- **Test Suite**: The `describe` block defines a test suite for the `ImageUploaderComponent`. It contains setup and teardown logic to prepare the testing environment.
+- **Setup**: The `beforeEach` functions are used to configure the testing module and create an instance of the component before each test runs.
+- **Tests**: The `it` block contains a simple test that checks if the component is created successfully.
+
+## Dependencies
+This test file imports the following:
+- `ImageUploaderComponent`: The component being tested, located at `src/app/shared/image-uploader/image-uploader.component.ts`.
+- `COMMON_IMPORTS`, `COMMON_PROVIDERS`, and `FAKE_SERVICES`: These are imported from `src/app/test` and are used to provide common testing utilities and mock services.
+
+This file is not imported by any other files in the repository, indicating it is solely used for testing the `ImageUploaderComponent`.
+
+## Usage Examples
+To run the tests defined in this file, you can use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this file.
+
+## Best Practices
+- Ensure that all dependencies are correctly mocked to avoid side effects during testing.
+- Keep tests focused on specific functionality to make it easier to identify issues.
+- Regularly update tests as the component's functionality evolves to ensure they remain relevant and useful.

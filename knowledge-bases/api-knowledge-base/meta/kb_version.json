@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "last_updated": "2023-07-15",
+  "status": "in_progress",
+  "description": "Initial version of The Peak Beyond Backend Knowledge Base",
+  "changelog": [
+    {
+      "version": "0.1.0",
+      "date": "2023-07-15",
+      "description": "Initial structure and setup",
+      "changes": [
+        "Created directory structure",
+        "Added README files",
+        "Created metadata schema files"
+      ]
+    }
+  ],
+  "planned_updates": [
+    {
+      "version": "0.2.0",
+      "description": "Initial content migration",
+      "planned_changes": [
+        "Migrate system-level documentation",
+        "Migrate functional area documentation",
+        "Begin technical implementation details"
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "description": "Complete content migration",
+      "planned_changes": [
+        "Complete technical implementation details",
+        "Integrate code-level documentation",
+        "Add cross-references"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "description": "AI agent guides",
+      "planned_changes": [
+        "Create specialized guides for different AI agent types",
+        "Define decision trees for common scenarios",
+        "Document knowledge dependencies"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "description": "Initial release",
+      "planned_changes": [
+        "Complete all documentation",
+        "Finalize cross-references",
+        "Establish maintenance procedures"
+      ]
+    }
+  ]
+} 

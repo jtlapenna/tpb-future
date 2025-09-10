@@ -1,0 +1,61 @@
+---
+description: Documentation for the KioskCategoryService class in the kiosk category service file.
+globs: ['src/app/kiosks/services/kiosk-category.service.ts']
+alwaysApply: false
+---
+
+# KioskCategoryService Documentation
+
+## Overview
+The `KioskCategoryService` class is a service that extends the `CrudService` for managing categories related to kiosks in a store. It provides methods to create category resources, retrieve categories from a specific store, and manage the resource paths and names used in API calls.
+
+## Key Components
+
+### Class: KioskCategoryService
+- **Extends:** `CrudService<Category>`  
+  This class inherits from `CrudService`, which provides basic CRUD operations for the `Category` model.
+
+### Methods:
+
+1. **createResource(params: any): Category**  
+   - **Description:** Creates a new instance of the `Category` model using the provided parameters.  
+   - **Parameters:**  
+     - `params`: An object containing the properties to initialize the `Category` instance.  
+   - **Returns:** A new `Category` object.
+
+2. **resourceName({plural}: {plural?: boolean} = {}): string**  
+   - **Description:** Returns the resource name for categories, either singular or plural based on the input parameter.  
+   - **Parameters:**  
+     - `plural`: A boolean indicating whether to return the plural form of the resource name.  
+   - **Returns:** A string representing the resource name (e.g., 'store_category' or 'store_categories').
+
+3. **resourcePath({parentId}: {parentId?: number} = {}): string**  
+   - **Description:** Constructs the API path for accessing store categories, optionally including a parent store ID.  
+   - **Parameters:**  
+     - `parentId`: An optional number representing the ID of the parent store.  
+   - **Returns:** A string representing the resource path (e.g., 'stores/1/store_categories').
+
+4. **getStoreDisplayCategory(storeId?: number, options?: any): Observable<any[]>**  
+   - **Description:** Fetches the display categories for a specific store, returning an observable array of categories.  
+   - **Parameters:**  
+     - `storeId`: An optional number representing the ID of the store.  
+     - `options`: Additional options for the request (not used in the current implementation).  
+   - **Returns:** An observable that emits an array of `Category` objects.
+   - **Usage Example:**  
+     ```typescript
+     this.kioskCategoryService.getStoreDisplayCategory(1).subscribe(categories => {
+         console.log(categories);
+     });
+     ```
+
+## Dependencies
+- **Imports:**  
+  - `Category` from `src/app/categories/models/category.ts`: Represents the category model used in this service.  
+  - `CrudService` from `src/app/core/services`: Base service providing CRUD functionality.  
+  - `HttpParams` and `Observable` from Angular's HTTP and RxJS libraries for making HTTP requests and handling asynchronous data.
+  - `environment` from `src/environments/environment`: Provides the API URL for making requests.
+
+## Best Practices
+- Ensure that the `Category` model is properly defined and validated before creating instances with `createResource()`.  
+- When using `getStoreDisplayCategory()`, handle the observable subscription appropriately to avoid memory leaks (e.g., using `takeUntil` or `async` pipe in templates).  
+- Keep the API URL in the environment configuration updated to reflect the correct backend service endpoint.

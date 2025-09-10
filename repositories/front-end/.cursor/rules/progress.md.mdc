@@ -1,0 +1,39 @@
+---
+description: Documentation for the progress tracking file in the codebase.
+globs: ['progress.md']
+alwaysApply: false
+---
+
+# Progress Tracking Documentation
+
+## Overview
+The `progress.md` file serves as a comprehensive tracking document that outlines completed tasks, current tasks, and next steps in the development process. It is designed to provide clarity on the progress of documentation analysis and comparison within the codebase, specifically focusing on the `.cursor/rules` directory and the output directory.
+
+## Key Components
+### Completed Tasks
+This section lists tasks that have been completed, including:
+1. **Examination of the `.cursor/rules` directory**: This involved identifying the number of `.mdc` files and understanding their metadata structure.
+2. **Examination of the output directory**: This included analyzing the organization of markdown files by functional areas.
+3. **Analysis of key files**: Key files from both directories were reviewed to understand their content and structure.
+4. **Comparison analysis document**: A document was created to highlight structural differences and content discrepancies between the two directories.
+
+### Current Task
+- The current task is the creation of this progress tracking document, which aims to summarize ongoing efforts and findings.
+
+### Next Steps
+The next steps outline future actions to be taken, including:
+1. Further examination of additional files if necessary.
+2. Refinement of the comparison analysis to include more specific examples.
+3. Creation of a summary of recommendations for leveraging strengths and correcting discrepancies.
+4. Consideration of a unified documentation structure to maintain consistency across documentation.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a tracking document that aids in the organization and clarity of the documentation process.
+
+## Usage Examples
+While this file does not contain executable code, it serves as a guide for developers to track progress and plan future documentation efforts. Developers can refer to this document to understand what has been accomplished and what remains to be done.
+
+## Best Practices
+- Regularly update the progress tracking document to reflect the most current status of tasks.
+- Use clear and concise language to ensure that all team members can understand the progress and next steps.
+- Maintain consistency in formatting to enhance readability and usability of the document.

@@ -1,0 +1,46 @@
+---
+description: Documentation for the HeadsetApiParser class responsible for parsing product data from the Headset API.
+globs: ['app/parsers/headset_api_parser.rb']
+alwaysApply: false
+---
+
+# HeadsetApiParser Documentation
+
+## Overview
+The `HeadsetApiParser` class is designed to interact with the Headset API to retrieve and parse product data for a specific store. It handles the initialization of the store, fetching product data, and creating store sync items based on the API response.
+
+## Key Components
+
+### Class: `HeadsetApiParser`
+- **Initialization**: The class is initialized with a `store_id`, which is used to fetch the corresponding store from the database.
+
+#### Methods:
+- **`initialize(store_id:)`**: Sets the store ID for the parser instance.
+- **`store`**: Lazy loads the store object associated with the given store ID.
+- **`parse`**: Main method that orchestrates the parsing of products from the API. It creates `StoreSyncItem` instances for each product and collects any validation errors encountered during the process.
+- **`safe_stock(stock)`**: A private method that ensures stock values are non-negative, returning 0 for any negative stock.
+- **`products`**: Fetches the list of products from the API client.
+- **`api_client`**: Initializes the API client with necessary credentials from environment variables and the store object.
+
+### Error Handling
+The `parse` method collects errors for any invalid `StoreSyncItem` instances and returns them in the result hash along with the successful sync object if applicable.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies solely on the `Store`, `StoreSync`, and `StoreSyncItem` classes, which are assumed to be defined elsewhere in the codebase.
+
+## Usage Example
+To use the `HeadsetApiParser`, you would typically instantiate it with a valid store ID and call the `parse` method:
+```ruby
+parser = HeadsetApiParser.new(store_id: 1)
+result = parser.parse
+if result[:errors].any?
+  puts "Errors encountered: #{result[:errors]}"
+else
+  puts "Sync successful: #{result[:sync]}"
+end
+```
+
+## Best Practices
+- Ensure that the `store_id` provided during initialization corresponds to an existing store in the database to avoid errors.
+- Handle the errors returned from the `parse` method appropriately to maintain data integrity.
+- Consider implementing logging for better traceability of API interactions and error handling.

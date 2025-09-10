@@ -1,0 +1,39 @@
+---
+description: Documentation for the RFIDRemote class that handles RFID-related API requests.
+globs: ['src/api/rfid/RFIDRemote.js']
+alwaysApply: false
+---
+
+# RFIDRemote.js Documentation
+
+## Overview
+The `RFIDRemote` class is responsible for handling API requests related to RFID data. It provides a method to retrieve a list of RFID entries from the server using HTTP GET requests.
+
+## Key Components
+### RFIDRemote Class
+- **index()**: This method sends a GET request to the endpoint `rfids` to fetch all RFID records. It utilizes the `HTTP` module to perform the request.
+
+## Dependencies
+- **src/api/http.js**: This file is imported to handle HTTP requests. It abstracts the details of making HTTP calls, allowing the `RFIDRemote` class to focus on the specific API endpoints.
+
+### Imported By
+- **src/api/rfid/RFIDRepo.js**: This file imports `RFIDRemote` to utilize its methods for fetching RFID data, indicating that `RFIDRepo` likely serves as a repository layer for managing RFID data operations.
+
+## Usage Example
+To use the `RFIDRemote` class, you can create an instance and call the `index` method:
+```javascript
+import { RFIDRemote } from './RFIDRemote';
+
+const rfidRemote = new RFIDRemote();
+
+rfidRemote.index().then(response => {
+  console.log('RFID Data:', response);
+}).catch(error => {
+  console.error('Error fetching RFID data:', error);
+});
+```
+
+## Best Practices
+- Ensure that the `HTTP` module is properly configured to handle errors and responses effectively.
+- Consider implementing additional methods in `RFIDRemote` for other CRUD operations (Create, Read, Update, Delete) related to RFID data.
+- Keep the API endpoints consistent and well-documented to facilitate easier integration and maintenance.

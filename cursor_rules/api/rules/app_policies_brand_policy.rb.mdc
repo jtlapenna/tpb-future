@@ -1,0 +1,50 @@
+---
+description: Policy class for managing brand-related permissions in the application.
+globs: ['app/policies/brand_policy.rb']
+alwaysApply: false
+---
+
+# BrandPolicy Documentation
+
+## Overview
+The `BrandPolicy` class is responsible for defining the authorization rules related to the `Brand` model in the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application. This policy determines whether a user has permission to perform certain actions related to brands.
+
+## Key Components
+
+### Class: `BrandPolicy`
+- **Inheritance**: Inherits from `ApplicationPolicy`, which means it can utilize methods and properties defined in the parent class.
+
+### Method: `index?`
+- **Purpose**: This method checks if a user is allowed to view the list of brands. It returns `true` if a user is present (i.e., logged in), allowing access to the index action.
+- **Usage**: This method is typically called in controllers to determine if the current user can access the brands index view.
+
+### Method: `permitted_attributes`
+- **Purpose**: This method defines the attributes that are permitted for mass assignment when creating or updating a brand. It returns an array of symbols representing the allowed attributes.
+- **Attributes**:  
+  - `:name`: The name of the brand.  
+  - `:description`: A description of the brand.  
+  - `logo_attributes`: A nested hash that includes the logo's `id`, `url`, and `_destroy` flag for handling logo uploads.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To check if a user can access the brands index:
+```ruby
+if BrandPolicy.new(user).index?
+  # Allow access to the brands index
+else
+  # Deny access
+end
+```
+
+To get permitted attributes for a brand:
+```ruby
+permitted_attrs = BrandPolicy.new(user).permitted_attributes
+# Use permitted_attrs for mass assignment in forms
+```
+
+## Best Practices
+- Ensure that the `user` object is always passed to the policy methods to avoid unexpected behavior.
+- Regularly review and update the permitted attributes to align with any changes in the `Brand` model.
+- Use this policy in conjunction with controller actions to enforce authorization consistently across the application.

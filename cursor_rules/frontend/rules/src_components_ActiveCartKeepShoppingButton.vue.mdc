@@ -1,0 +1,37 @@
+---
+description: Documentation for the ActiveCartKeepShoppingButton component in a Vue.js application.
+globs: ['src/components/ActiveCartKeepShoppingButton.vue']
+alwaysApply: false
+---
+
+# ActiveCartKeepShoppingButton.vue
+
+## Overview
+The `ActiveCartKeepShoppingButton` component is a Vue.js component designed to provide users with a button that allows them to continue shopping while items are being processed in the cart. It visually indicates loading states and handles click events to enhance user experience.
+
+## Key Components
+- **Template**: The template consists of a container that holds an icon and a button labeled "KEEP SHOPPING". The button's appearance changes based on the loading state.
+- **Props**:  
+  - `size`: A prop that can be used to adjust the size of the button (not utilized in the current implementation).  
+  - `onClick`: A callback function that is emitted when the button is clicked.
+- **Data**:  
+  - `clicked`: A boolean that tracks whether the button has been clicked, affecting the loading state.
+- **Computed Properties**:  
+  - `isLoading`: A computed property that maps to the Vuex store's cart state, indicating whether the cart is currently loading.
+- **Methods**:  
+  - `handleClick`: This method sets the `clicked` state to true and emits a click event to notify parent components.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on Vuex for state management related to the cart.
+
+## Usage Example
+To use the `ActiveCartKeepShoppingButton`, include it in a parent component's template as follows:
+```html
+<ActiveCartKeepShoppingButton @click="handleKeepShoppingClick" />
+```
+
+## Best Practices
+- Ensure that the `onClick` prop is properly handled in the parent component to manage the user's interaction with the button.
+- Consider implementing additional styles or animations to enhance the user experience during loading states.
+- Keep the component's props and data minimal to maintain clarity and ease of use.
+- Regularly check the Vuex store's state to ensure that the loading state is accurately reflected in the button's appearance.

@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "staging": "tpb-kiosk-fe-vue"
+  },
+  "targets": {
+    "tpb-kiosk-fe-vue": {
+      "hosting": {
+        "purchase-limit": [
+          "purchase-limit"
+        ],
+        "tpb-product-limit": [
+          "tpb-product-limit"
+        ],
+        "jarupa": [
+          "tpb-kiosk-jarupa"
+        ],
+        "treez": [
+          "tpb-kiosk-treez"
+        ],
+        "heacock": [
+          "tpb-kiosk-heacock"
+        ],
+        "empireconnect": [
+          "tpb-kiosk-empireconnect"
+        ],
+        "test-shopify": [
+          "tpb-kiosk-testing-shopify"
+        ]
+      }
+    }
+  }
+}

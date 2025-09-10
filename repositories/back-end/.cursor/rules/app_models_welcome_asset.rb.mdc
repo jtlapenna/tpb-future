@@ -1,0 +1,58 @@
+---
+description: Documentation for the WelcomeAsset model in the application.
+globs: ['app/models/welcome_asset.rb']
+alwaysApply: false
+---
+
+# WelcomeAsset Model Documentation
+
+## Overview
+The `WelcomeAsset` model represents an asset that is associated with a kiosk layout in the application. It is designed to manage the relationship between a kiosk layout and its corresponding asset, allowing for nested attributes and validations.
+
+## Key Components
+- **Class Definition**: `class WelcomeAsset < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, making it a part of the Active Record framework.
+
+- **Associations**:
+  - `has_one :kiosk_layout, dependent: :nullify`
+    - Establishes a one-to-one relationship with the `KioskLayout` model. If the associated `KioskLayout` is deleted, the reference in `WelcomeAsset` is set to `null`.
+  - `has_one :asset, as: :source, inverse_of: :source, dependent: :nullify`
+    - Defines a polymorphic association with the `Asset` model, allowing `WelcomeAsset` to be a source for different types of assets. The `inverse_of` option helps maintain the integrity of the association.
+  - `belongs_to :asset_position, class_name: 'LayoutPosition', optional: true`
+    - Indicates that `WelcomeAsset` can optionally belong to a `LayoutPosition`, which is a separate model that defines the position of the asset within a layout.
+
+- **Nested Attributes**:
+  - `accepts_nested_attributes_for :asset, allow_destroy: true, reject_if: :all_blank`
+    - This allows for nested attributes to be passed for the `asset` association, enabling the creation and destruction of associated assets through the `WelcomeAsset` model.
+
+- **Validations**:
+  - `validates :kiosk_layout, presence: true`
+    - Ensures that a `WelcomeAsset` must always be associated with a `KioskLayout`, enforcing data integrity.
+
+## Schema Information
+The `welcome_assets` table in the database includes the following fields:
+- `id`: Primary key for the record.
+- `created_at`: Timestamp for when the record was created.
+- `updated_at`: Timestamp for when the record was last updated.
+- `asset_position_id`: Foreign key linking to the `LayoutPosition` model, which is optional.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the codebase, focusing solely on the `WelcomeAsset` model and its relationships.
+
+## Usage Examples
+To create a new `WelcomeAsset` with an associated `Asset` and `KioskLayout`:
+```ruby
+welcome_asset = WelcomeAsset.new(
+  kiosk_layout: some_kiosk_layout,
+  asset_attributes: {
+    name: 'New Asset',
+    description: 'An example asset'
+  }
+)
+welcome_asset.save
+```
+
+## Best Practices
+- Ensure that the `KioskLayout` is always present when creating or updating a `WelcomeAsset` to avoid validation errors.
+- When using nested attributes for `asset`, be mindful of the `allow_destroy` option to prevent accidental deletions.
+- Regularly review the associations and validations to ensure they align with the evolving requirements of the application.

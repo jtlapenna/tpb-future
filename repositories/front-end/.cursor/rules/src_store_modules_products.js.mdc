@@ -1,0 +1,49 @@
+---
+description: Vuex store module for managing product-related state and logic.
+globs: ['src/store/modules/products.js']
+alwaysApply: false
+---
+
+# Products Store Module
+
+## Overview
+This file defines a Vuex store module for managing the state and logic related to products in the application. It is namespaced, meaning that its state, mutations, and getters are encapsulated and can be used independently of other modules.
+
+## Key Components
+
+### State
+- **currentPage**: Tracks the current page of products being viewed.
+- **products**: Holds the list of products.
+- **isFullScreenProduct**: A boolean indicating whether a product is displayed in full-screen mode.
+
+### Getters
+- **getFrozenPrices**: Accepts a product object and returns an object containing the frozen price, applicable tax, discount price, and sorted prices. It handles sorting product values, calculating tax, and determining if a discount is applicable.
+- **getIsFullScreenProduct**: Returns the current state of `isFullScreenProduct`.
+- **products**: Returns the list of products from the state.
+- **isImage**: Checks if a given URL points to an image based on its file extension.
+- **isVideo**: Checks if a given URL points to a video based on its file extension.
+
+### Mutations
+- **SET_CURRENT_PAGE**: Updates the `currentPage` state.
+- **setProducts**: Updates the `products` state with a new value.
+- **setIsFullScreenProduct**: Updates the `isFullScreenProduct` state.
+
+## Dependencies
+This module does not import any other files but is imported by `src/store/store.js`. This means it is part of the main Vuex store setup and can be accessed throughout the application.
+
+## Usage Examples
+To access the products state or any of the getters, you can use the Vuex store in your components as follows:
+```javascript
+computed: {
+  ...mapGetters('products', ['products', 'getIsFullScreenProduct']),
+},
+
+methods: {
+  ...mapMutations('products', ['SET_CURRENT_PAGE', 'setProducts']),
+}
+```
+
+## Best Practices
+- Ensure that the product data structure is consistent with the expected format, especially for properties like `product_values`, `category_taxes`, and `store_product_promotions`.
+- When using the `getFrozenPrices` getter, handle cases where the product might not have the expected properties to avoid runtime errors.
+- Use the `isImage` and `isVideo` getters to validate URLs before rendering media elements in your components.

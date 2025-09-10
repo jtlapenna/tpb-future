@@ -1,0 +1,33 @@
+---
+description: Serializer for product layout tab data in the application.
+globs: ['app/serializers/product_layout_tab_serializer.rb']
+alwaysApply: false
+---
+
+# ProductLayoutTabSerializer
+
+## Overview
+The `ProductLayoutTabSerializer` is a serializer class that formats the data for product layout tabs in the application. It is part of the ActiveModel Serializers framework, which is used to create JSON representations of Ruby objects.
+
+## Key Components
+- **Class Definition**: `ProductLayoutTabSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the object.
+- **Attributes**: The serializer defines three attributes to be included in the serialized output:
+  - `id`: The unique identifier for the product layout tab.
+  - `name`: The name of the product layout tab.
+  - `order`: The order in which the product layout tab appears.
+- **Associations**: The `has_many :elements` line indicates that each product layout tab can have multiple associated elements, which will also be serialized when the product layout tab is serialized.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the product layout tab data.
+
+## Usage Example
+To use this serializer, you would typically call it within a controller action that responds with JSON. For example:
+```ruby
+render json: @product_layout_tab, serializer: ProductLayoutTabSerializer
+```
+This would return a JSON representation of the `@product_layout_tab` object, including its `id`, `name`, `order`, and associated `elements`.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the underlying model.
+- Keep the serializer focused on a single responsibility, which is to format the output for the product layout tab. Avoid adding unnecessary logic that could complicate the serialization process.
+- When adding new attributes or associations, consider the impact on performance, especially if the associated data is large or complex.

@@ -1,0 +1,39 @@
+---
+description: Documentation for the Price model in the kiosks module.
+globs: ['src/app/kiosks/models/price.ts']
+alwaysApply: false
+---
+
+# Price Model Documentation
+
+## Overview
+The `Price` class represents a pricing model used within the kiosks module of the application. It encapsulates the properties related to a price, including an identifier, a name, and a numerical value. This model is essential for managing pricing information associated with products in the kiosks.
+
+## Key Components
+- **Class: Price**  
+  The `Price` class contains the following properties and methods:
+  - **Properties:**  
+    - `id`: A number representing the unique identifier for the price.  
+    - `name`: A string representing the name of the price (e.g., "Regular Price").  
+    - `value`: A number representing the actual price value, parsed from the input JSON.
+  
+  - **Constructor:**  
+    - `constructor(json: any)`: Initializes a new instance of the `Price` class using a JSON object. It assigns the `id`, `name`, and `value` properties based on the provided JSON. The `value` is parsed to ensure it is a floating-point number.
+
+## Dependencies
+This file does not import any other files in the repository. However, it is imported by the following file:
+- `src/app/stores/models/store-product.ts`: This indicates that the `Price` model is likely used to define pricing for products within the store context.
+
+## Usage Example
+To create a new instance of the `Price` class, you can use the following code:
+```typescript
+const priceData = { id: 1, name: 'Regular Price', value: '19.99' };
+const price = new Price(priceData);
+console.log(price);
+// Output: Price { id: 1, name: 'Regular Price', value: 19.99 }
+```
+
+## Best Practices
+- Ensure that the JSON object passed to the constructor contains valid properties (`id`, `name`, and `value`).
+- Always validate the `value` to ensure it can be parsed as a float to avoid runtime errors.
+- Consider extending the `Price` class with additional methods for operations related to pricing, such as formatting the price for display or applying discounts.

@@ -1,0 +1,51 @@
+---
+description: Documentation for the SCSS font definitions used in the project.
+globs: ['src/assets/scss/_fonts.scss']
+alwaysApply: false
+---
+
+# _fonts.scss Documentation
+
+## Overview
+The `_fonts.scss` file is responsible for defining custom font styles used throughout the application. It utilizes CSS variables for easy reference and management of font weights, and it includes `@font-face` declarations to load the Muli font family from local assets.
+
+## Key Components
+- **CSS Variables**: The file defines several CSS variables under the `:root` selector, which represent different font weights of the Muli font family. These variables can be used throughout the SCSS files to maintain consistency in font usage.
+  - `--font-extralight`
+  - `--font-light`
+  - `--font-regular`
+  - `--font-semibold`
+  - `--font-bold`
+  - `--font-extrabold`
+  - `--font-black`
+
+- **@font-face Declarations**: Each font weight is defined using the `@font-face` rule, specifying the font family name, the source URL for the font file, and the font weight and style. This allows the browser to load the appropriate font files when needed.
+  - Example:
+    ```scss
+    @font-face {
+      font-family: 'muliextralight';
+      src: url('~@/assets/fonts/muli-extralight-webfont.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+    ```
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a font definition file, making it easy to manage and update font styles without affecting other parts of the codebase.
+
+## Usage Examples
+To use the defined font styles in your SCSS files, you can reference the CSS variables like so:
+```scss
+body {
+  font-family: var(--font-regular);
+}
+
+h1 {
+  font-family: var(--font-bold);
+}
+```
+
+## Best Practices
+- **Consistency**: Always use the defined CSS variables for font weights to ensure consistency across the application.
+- **Performance**: Ensure that the font files are optimized for web use to improve loading times.
+- **Accessibility**: Consider the readability of the fonts used, especially for body text, to enhance user experience.

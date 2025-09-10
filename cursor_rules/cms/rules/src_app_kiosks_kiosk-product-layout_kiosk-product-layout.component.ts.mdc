@@ -1,0 +1,63 @@
+---
+description: Documentation for the KioskProductLayoutComponent in the kiosks module.
+globs: ['src/app/kiosks/kiosk-product-layout/kiosk-product-layout.component.ts']
+alwaysApply: false
+---
+
+# KioskProductLayoutComponent Documentation
+
+## Overview
+The `KioskProductLayoutComponent` is an Angular component responsible for managing the layout of products within a kiosk. It handles the retrieval and display of product layout definitions, manages form interactions for editing layouts, and integrates with various services to provide a seamless user experience.
+
+## Key Components
+
+### Class: KioskProductLayoutComponent
+- **Imports**: The component imports necessary Angular modules, RxJS operators, and services for handling forms, notifications, and authentication.
+- **Properties**:
+  - `destroyed$`: A Subject used to manage the lifecycle of subscriptions.
+  - `productId`: Stores the ID of the current product.
+  - `parentId`: Stores the ID of the parent kiosk.
+  - `product`: Holds the current product data.
+  - `definition`: Represents the product layout definition.
+  - `tabs`: An array of layout tabs for the product.
+  - `resourceForm`: A FormGroup for managing the product layout form.
+  - `working`: A boolean indicating if a save operation is in progress.
+  - `loading`: A boolean indicating if data is currently being loaded.
+  - `admin$`: An Observable that indicates if the current user has admin privileges.
+
+### Lifecycle Hooks
+- **ngOnInit()**: Initializes the component by retrieving the parent kiosk ID and product ID from the route parameters. It fetches the layout definition and product data, and sets up the form for editing.
+- **ngOnDestroy()**: Cleans up subscriptions to prevent memory leaks.
+
+### Methods
+- **saveResource()**: Handles the saving of the product layout. It processes the form data, filters out empty values, and sends the data to the server. It also manages notifications for success or error responses.
+- **createForm()**: Constructs the reactive form based on the product layout definition and existing values.
+- **createValueControl()**: Creates a FormGroup for each value in the layout.
+- **createAssetControl()**: Creates a FormGroup for asset data associated with layout values.
+- **field()**: A helper method to retrieve form controls by name.
+
+## Dependencies
+This component relies on several services and models:
+- **Services**:
+  - `KioskService`: For fetching kiosk data.
+  - `KioskProductService`: For managing product data.
+  - `ProductLayoutService`: For handling product layout definitions.
+  - `NotificationsService`: For displaying notifications to the user.
+  - `JwtAuthService`: For managing user authentication and roles.
+
+- **Models**:
+  - `KioskProduct`: Represents a product in the kiosk.
+  - `ProductLayout`: Represents the layout structure for products.
+  - `ProductLayoutTab`: Represents tabs within a product layout.
+  - `ProductLayoutElement`: Represents elements within a layout tab.
+  - `Asset`: Represents media assets associated with layout values.
+  - `User`: Represents user data for authentication.
+
+## Usage Examples
+To use this component, ensure it is declared in the appropriate module and routed correctly. The component will automatically handle fetching and displaying the product layout based on the kiosk and product IDs provided in the route.
+
+## Best Practices
+- Ensure that the services used are properly mocked in unit tests to isolate component behavior.
+- Use the `ngOnDestroy` lifecycle hook to clean up subscriptions to avoid memory leaks.
+- When modifying the form structure, ensure that the `createForm` method is updated accordingly to reflect any changes in the layout definition.
+- Handle errors gracefully in the `saveResource` method to provide feedback to the user.

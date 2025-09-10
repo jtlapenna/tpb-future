@@ -1,0 +1,46 @@
+---
+description: Documentation for the BrandSerializer class in the API V1 namespace.
+globs: ['app/serializers/api/v1/brand_serializer.rb']
+alwaysApply: false
+---
+
+# BrandSerializer Documentation
+
+## Overview
+The `BrandSerializer` class is responsible for serializing the `Brand` model in the context of the API V1 namespace. It defines how the `Brand` object is represented in JSON format when sent to clients. This serializer includes various attributes of the `Brand` and also establishes a relationship with the `logo` associated with the brand.
+
+## Key Components
+- **Class Definition**: `BrandSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The serializer specifies the following attributes to be included in the serialized output:
+  - `id`: The unique identifier for the brand.
+  - `name`: The name of the brand.
+  - `total_products`: A custom method that returns the count of products associated with the brand.
+  - `description`: A brief description of the brand.
+  - `created_at`: Timestamp of when the brand was created.
+  - `updated_at`: Timestamp of the last update to the brand.
+- **Relationships**: The `has_one :logo` line indicates that each brand can have one associated logo, which will also be serialized.
+- **Custom Method**: The `total_products` method retrieves the count of kiosk products associated with the brand, providing a dynamic value in the serialized output.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the API V1 namespace, focusing solely on the serialization of the `Brand` model.
+
+## Usage Example
+When a request is made to the API to retrieve brand information, the `BrandSerializer` will format the response as follows:
+```json
+{
+  "id": 1,
+  "name": "Brand Name",
+  "total_products": 10,
+  "description": "A description of the brand.",
+  "created_at": "2023-01-01T00:00:00Z",
+  "updated_at": "2023-01-02T00:00:00Z",
+  "logo": {
+    // logo attributes here
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data model and are necessary for the API response.
+- Use custom methods like `total_products` judiciously to avoid performance issues, especially if they involve complex calculations or database queries.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.

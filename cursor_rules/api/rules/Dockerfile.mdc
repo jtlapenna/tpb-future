@@ -1,0 +1,40 @@
+---
+description: Documentation for the Dockerfile used to set up the TPB-API application environment.
+globs: ['Dockerfile']
+alwaysApply: false
+---
+
+# Dockerfile Documentation
+
+## Overview
+This Dockerfile is used to create a Docker image for the TPB-API application, which is built using Ruby on Rails. It sets up the necessary environment, installs dependencies, and prepares the application for running in a containerized environment.
+
+## Key Components
+- **FROM ruby:2.7.0**: This line specifies the base image for the Docker container, which is Ruby version 2.7.0.
+- **RUN apt-get update**: Updates the package lists for the APT package manager to ensure the latest versions of packages are installed.
+- **apt-get install**: Installs necessary packages including Node.js and PostgreSQL client, which are required for the application to function properly.
+- **COPY . /TPB-API**: Copies the current directory's contents into the `/TPB-API` directory in the container.
+- **WORKDIR /TPB-API**: Sets the working directory for subsequent commands to `/TPB-API`.
+- **RUN bundle install**: Installs Ruby gems specified in the application's Gemfile.
+- **EXPOSE 3000**: Informs Docker that the container listens on port 3000 at runtime.
+- **RUN chmod 777 ./entrypoint.sh**: Changes the permissions of the `entrypoint.sh` script to make it executable.
+- **CMD ["./entrypoint.sh"]**: Specifies the command to run when the container starts, which is the `entrypoint.sh` script.
+
+## Dependencies
+This Dockerfile does not import any other files in the repository, nor is it imported by any other files. It is a standalone file that defines the environment for the TPB-API application.
+
+## Usage Examples
+To build the Docker image, run the following command in the terminal:
+```bash
+docker build -t tpb-api .
+```
+To run the container, use:
+```bash
+docker run -p 3000:3000 tpb-api
+```
+
+## Best Practices
+- Ensure that the base image is kept up to date to avoid security vulnerabilities.
+- Regularly review and update the installed packages to their latest versions.
+- Use multi-stage builds if the application grows in complexity to keep the final image size small.
+- Avoid using `chmod 777` in production environments; instead, set the minimum necessary permissions for security.

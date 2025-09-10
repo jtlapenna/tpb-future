@@ -1,0 +1,40 @@
+---
+description: Provides a union scope functionality for ActiveRecord models.
+globs: ['app/models/concerns/union_scope.rb']
+alwaysApply: false
+---
+
+# UnionScope Module
+
+## Overview
+The `UnionScope` module is a concern designed for ActiveRecord models in a Ruby on Rails application. It provides a class method `union_scope` that allows developers to combine multiple ActiveRecord scopes into a single query using SQL UNION. This can be particularly useful when you want to retrieve records from different scopes without creating complex queries manually.
+
+## Key Components
+
+### `union_scope(*scopes)`
+- **Parameters**: Accepts a variable number of ActiveRecord scopes.
+- **Functionality**: Constructs a SQL UNION query from the provided scopes. It retrieves the primary key of the model and generates a subquery for each scope, combining them into a single query that returns records matching any of the provided scopes.
+- **Return Value**: Returns an ActiveRecord relation containing the results of the union query.
+
+### Example Usage
+To use the `union_scope` method, include the `UnionScope` module in your ActiveRecord model:
+```ruby
+class Post < ApplicationRecord
+  include UnionScope
+
+  scope :published, -> { where(published: true) }
+  scope :featured, -> { where(featured: true) }
+end
+
+# Using the union_scope method
+Post.union_scope(Post.published, Post.featured)
+```
+This example retrieves all posts that are either published or featured by combining the two scopes using a SQL UNION.
+
+## Dependencies
+This module does not depend on any other files in the repository, nor is it imported by any other files. It is a standalone concern that can be included in any ActiveRecord model that requires union functionality.
+
+## Best Practices
+- Ensure that the scopes passed to `union_scope` are well-defined and return the same type of records to avoid unexpected results.
+- Use this module judiciously, as excessive use of UNION queries can lead to performance issues, especially with large datasets.
+- Consider caching results if the union query is used frequently to improve performance.

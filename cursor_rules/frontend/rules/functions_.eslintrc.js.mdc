@@ -1,0 +1,33 @@
+---
+description: Configuration file for ESLint in the functions directory, enforcing coding standards and style guidelines.
+globs: ['functions/.eslintrc.js']
+alwaysApply: false
+---
+
+# ESLint Configuration for Functions Directory
+
+## Overview
+This file is the ESLint configuration for the functions directory of the codebase. It sets up the environment and rules for linting JavaScript code, ensuring that the code adheres to specified coding standards and style guidelines.
+
+## Key Components
+- **root**: Set to `true`, indicating that this is the root configuration file for ESLint. No parent configurations will be considered.
+- **env**: Specifies the environments that the code is designed to run in. Here, `es6` and `node` are enabled, allowing the use of ES6 features and Node.js global variables.
+- **extends**: This property allows the configuration to inherit rules from other configurations. In this case, it extends from `eslint:recommended` (a set of core rules) and `google` (Google's JavaScript style guide).
+- **parserOptions**: Configures the parser options for ESLint. The `ecmaVersion` is set to 11, allowing the use of modern JavaScript features, and `sourceType` is set to `module`, enabling the use of ES6 modules.
+- **rules**: This section defines specific linting rules. In this configuration:
+  - `quotes`: Enforces the use of double quotes for strings, throwing an error if single quotes are used.
+  - `lineBreak`: This rule is set to `auto`, which allows ESLint to determine the appropriate line break style based on the operating system.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It serves as a standalone configuration for linting JavaScript files within the functions directory.
+
+## Usage Examples
+To use this ESLint configuration, ensure that ESLint is installed in your project. You can run ESLint on your JavaScript files in the functions directory using the following command:
+```bash
+npx eslint functions/**/*.js
+```
+
+## Best Practices
+- Always adhere to the rules defined in this configuration to maintain code quality and consistency across the codebase.
+- Regularly update the ESLint and its plugins to benefit from the latest features and improvements.
+- Consider customizing the rules further based on team preferences or project requirements, but ensure that any changes are documented for team awareness.

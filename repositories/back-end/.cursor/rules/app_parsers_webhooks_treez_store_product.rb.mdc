@@ -1,0 +1,43 @@
+---
+description: Documentation for the StoreProduct parser in the Treez webhooks module.
+globs: ['app/parsers/webhooks/treez/store_product.rb']
+alwaysApply: false
+---
+
+# StoreProduct Parser Documentation
+
+## Overview
+The `StoreProduct` class is part of the `Webhooks::Treez` module and is responsible for parsing product data received from Treez webhooks. It extracts relevant information from the payload and formats it into a structured hash that can be used for further processing or storage.
+
+## Key Components
+- **Class Definition**: `Webhooks::Treez::StoreProduct` inherits from `Webhooks::Treez::Base`, indicating it is part of a hierarchy of webhook parsers.
+- **Method: `parse`**: This is the main method that processes the incoming payload. It checks for specific conditions (like inventory type) and constructs a hash with product details such as `store_category_id`, `brand_id`, `sku`, `weight`, and more.
+- **Private Methods**: Several private methods are defined to encapsulate functionality:
+  - `e_commerce`: Retrieves the e-commerce related data from the payload.
+  - `primary_image_url`: Gets the primary image URL for the product.
+  - `own_images`: Compiles a list of images associated with the product.
+  - `product_configurable_fields`: Accesses configurable fields related to the product.
+  - `weight`: Calculates the weight of the product in milligrams.
+  - `product_status`: Determines if the product is active or deactivated.
+  - `brand_id`: Finds or creates a brand based on the product's brand name.
+  - `store_category_id`: Finds or creates a store category based on the product's category type.
+  - `stock_value`: Determines the stock level based on conditions.
+  - `get_thc` and `get_cbd`: Extract THC and CBD values from lab results in the payload.
+  - `attribute_values`: Compiles a list of attributes for the product, including THC, CBD, classification, and size.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the payload structure provided by the webhook.
+
+## Usage Example
+To use the `StoreProduct` parser, instantiate the class with the appropriate payload and call the `parse` method:
+```ruby
+payload = { ... } # The incoming webhook payload
+parser = Webhooks::Treez::StoreProduct.new(payload)
+parsed_data = parser.parse
+```
+
+## Best Practices
+- Ensure that the payload structure matches the expected format to avoid errors during parsing.
+- When modifying the parsing logic, maintain the integrity of the data being extracted to prevent data loss or corruption.
+- Consider adding error handling to manage unexpected payload formats gracefully.
+- Keep the private methods focused on single responsibilities to enhance readability and maintainability.

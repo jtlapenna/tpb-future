@@ -1,0 +1,51 @@
+---
+description: Serializer for Kiosk Asset objects in the application.
+globs: ['app/serializers/kiosk_asset_serializer.rb']
+alwaysApply: false
+---
+
+# KioskAssetSerializer
+
+## Overview
+The `KioskAssetSerializer` is a serializer class that defines how `KioskAsset` objects are represented in JSON format when sent to the client. It is part of the ActiveModel Serializers framework, which helps in creating a structured JSON response for API endpoints.
+
+## Key Components
+- **Class Definition**: The class `KioskAssetSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method specifies which fields of the `KioskAsset` model should be included in the serialized output. In this case, the following attributes are included:
+  - `id`
+  - `text`
+  - `secondary_text`
+  - `text_position_id`
+  - `asset_position_id`
+  - `section_position_id`
+  - `code`
+- **Associations**: The serializer defines relationships with other models:
+  - `has_many :asset_elements`: This indicates that a `KioskAsset` can have multiple associated `AssetElement` objects.
+  - `has_one :asset`: This indicates that a `KioskAsset` is associated with a single `Asset` object.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, relying solely on the ActiveModel Serializers framework.
+
+## Usage Examples
+When a request is made to an API endpoint that returns `KioskAsset` data, the serializer will format the response as follows:
+```json
+{
+  "id": 1,
+  "text": "Sample Text",
+  "secondary_text": "Additional Info",
+  "text_position_id": 2,
+  "asset_position_id": 3,
+  "section_position_id": 4,
+  "code": "KIOSK123",
+  "asset_elements": [
+    {...},
+    {...}
+  ],
+  "asset": {...}
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the fields available in the `KioskAsset` model to avoid serialization errors.
+- When adding new attributes or associations, update the serializer accordingly to maintain consistency in the API response.
+- Use this serializer in conjunction with controller actions that handle the retrieval of `KioskAsset` objects to ensure proper data formatting.

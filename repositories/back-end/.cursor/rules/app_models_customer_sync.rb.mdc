@@ -1,0 +1,49 @@
+---
+description: Documentation for the CustomerSync model in the application.
+globs: ['app/models/customer_sync.rb']
+alwaysApply: false
+---
+
+# CustomerSync Model Documentation
+
+## Overview
+The `CustomerSync` class is an ActiveRecord model that handles the synchronization of customer data between an external API and the local database. It manages the state of the synchronization process through an enumerated `status` field and provides methods to fetch, parse, and save customer data.
+
+## Key Components
+
+### Class Definition
+- **`CustomerSync < ApplicationRecord`**: Inherits from `ApplicationRecord`, making it a part of the Rails model layer.
+
+### Enum
+- **`enum status: { pending: 0, in_progress: 1, failed: 2, finished: 3 }`**: Defines the possible states of a customer synchronization process, allowing for easy tracking of the current status.
+
+### Associations
+- **`belongs_to :store`**: Establishes a relationship with the `Store` model, indicating that each `CustomerSync` instance is associated with a specific store.
+
+### Methods
+- **`from_last_modified_date`**: Retrieves the `created_at` timestamp of the last finished synchronization for the associated store, which is used to determine the starting point for fetching new customer data.
+
+- **`do_process`**: The main method that orchestrates the synchronization process. It:
+  - Sets the status to `in_progress`.
+  - Fetches customers from the API based on the last modified date.
+  - Parses the customer data and saves it to the database, handling errors and notifying via Airbrake if any occur.
+  - Updates the status to `failed` or `finished` based on the outcome of the process.
+
+- **`parse_customers(customers)`**: Takes an array of customer data from the API and transforms it into a format suitable for saving in the database, extracting relevant fields and handling names.
+
+- **`api_client`**: Lazy loads an instance of `Leaflogix::ApiClient` configured with the store's API settings, allowing for interaction with the external customer API.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the Rails framework and the `Leaflogix::ApiClient` for API interactions.
+
+## Usage Examples
+To initiate a customer synchronization process, you would typically create an instance of `CustomerSync` and call the `do_process` method:
+```ruby
+customer_sync = CustomerSync.new(store: some_store)
+customer_sync.do_process
+```
+
+## Best Practices
+- Ensure that the `store` association is properly set before calling `do_process` to avoid errors during API calls.
+- Handle exceptions gracefully and consider logging or notifying about failures to maintain visibility into synchronization issues.
+- Regularly monitor the status of `CustomerSync` instances to ensure that customer data is up-to-date and that any failures are addressed promptly.

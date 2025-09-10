@@ -1,0 +1,37 @@
+---
+description: Serializer for AttributeValue model in the application.
+globs: ['app/serializers/attribute_value_serializer.rb']
+alwaysApply: false
+---
+
+# AttributeValueSerializer
+
+## Overview
+The `AttributeValueSerializer` class is responsible for serializing the `AttributeValue` model into a format suitable for API responses. It leverages the `ActiveModel::Serializer` framework to define how the model's attributes should be represented in JSON format.
+
+## Key Components
+- **Class Definition**: `AttributeValueSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to convert the model into a JSON representation.
+- **Attributes**: The serializer specifies two attributes to be included in the serialized output: `id` and `value`. These attributes represent the unique identifier and the actual value of the attribute, respectively.
+- **Associations**: The `belongs_to :attribute_def` line indicates that each `AttributeValue` is associated with an `AttributeDef` model. This relationship will be included in the serialized output, allowing clients to access related data easily.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `AttributeValue` model.
+
+## Usage Examples
+When an API request is made to retrieve an `AttributeValue`, the serializer will format the response as follows:
+```json
+{
+  "id": 1,
+  "value": "Sample Value",
+  "attribute_def": {
+    "id": 2,
+    "name": "Sample Attribute"
+  }
+}
+```
+This output includes the `id` and `value` of the `AttributeValue`, as well as the associated `AttributeDef` data.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data needed by the API consumers.
+- Keep the serializer lightweight by only including necessary attributes and associations to optimize performance.
+- Regularly review and update the serializer as the underlying model changes to maintain consistency in API responses.

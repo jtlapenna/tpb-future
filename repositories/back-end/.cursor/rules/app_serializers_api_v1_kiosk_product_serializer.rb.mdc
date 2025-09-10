@@ -1,0 +1,32 @@
+---
+description: Documentation for the KioskProductSerializer in the API V1 module.
+globs: ['app/serializers/api/v1/kiosk_product_serializer.rb']
+alwaysApply: false
+---
+
+# KioskProductSerializer Documentation
+
+## Overview
+The `KioskProductSerializer` is a serializer class that formats the `KioskProduct` model for JSON output in the API V1 namespace. It is responsible for defining how the product data is structured when sent to the client, including relationships to other models and specific attributes.
+
+## Key Components
+- **Module Structure**: The serializer is nested within the `Api::V1` module, indicating it is part of the version 1 of the API.
+- **Relationships**: The serializer defines several relationships using `belongs_to` and `has_many` methods, which specify how the `KioskProduct` relates to other models such as `Brand`, `StoreCategory`, and `ProductValues`.
+- **Attributes**: It includes various attributes that are serialized, such as `id`, `video_url`, `is_medical_only`, and timestamps (`created_at`, `updated_at`). Some attributes are conditionally included based on instance options.
+- **Custom Methods**: The serializer contains custom methods like `include_attribute_values?` and `layout`, which determine whether certain attributes should be included in the serialized output based on the context in which the serializer is used.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ActiveModel::Serializer` framework for serialization.
+
+## Usage Examples
+To use the `KioskProductSerializer`, you would typically instantiate it with a `KioskProduct` object and render it in a controller action:
+```ruby
+render json: KioskProductSerializer.new(kiosk_product, include_attribute_values: true)
+```
+This example shows how to include additional attribute values in the serialized output.
+
+## Best Practices
+- **Keep Attributes Relevant**: Ensure that only necessary attributes are included in the serialized output to optimize performance and reduce payload size.
+- **Use Conditional Logic Wisely**: Leverage the conditional methods to include or exclude attributes based on the context, which can help in managing different API responses effectively.
+- **Maintain Consistency**: Follow the same structure and naming conventions as other serializers in the codebase to maintain consistency and readability.
+- **Test Serializers**: Write tests for the serializer to ensure that it behaves as expected and that the output is correct for various scenarios.

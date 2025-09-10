@@ -1,0 +1,38 @@
+---
+description: Documentation for the BrandsRepo class in the Brands API module.
+globs: ['src/api/brands/BrandsRepo.js']
+alwaysApply: false
+---
+
+# BrandsRepo.js Documentation
+
+## Overview
+The `BrandsRepo` class serves as a repository for managing brand data within the application. It acts as an intermediary between the local and remote data sources, facilitating data retrieval and storage operations.
+
+## Key Components
+- **BrandsRepo Class**: Inherits from the `Repo` class, encapsulating the logic for interacting with both local and remote brand data sources.
+  - **Constructor**: Initializes the `BrandsRepo` with instances of `BrandsRemote` and `BrandsLocal`, and sets the resource name to 'brands'.
+
+## Dependencies
+This file imports the following modules:
+- `BrandsLocal`: Handles local storage and retrieval of brand data.
+- `BrandsRemote`: Manages remote API calls for brand data.
+- `Repo`: A base class that provides common repository functionalities.
+
+The `BrandsRepo` class does not have any external dependencies, meaning it is not imported by any other files in the repository.
+
+## Usage Example
+To use the `BrandsRepo`, you can simply import it and call its methods to interact with brand data:
+```javascript
+import BrandsRepo from './BrandsRepo';
+
+// Example usage
+BrandsRepo.getAllBrands().then(brands => {
+  console.log(brands);
+});
+```
+
+## Best Practices
+- Ensure that both `BrandsLocal` and `BrandsRemote` are properly implemented to handle data consistency and error management.
+- When extending the `BrandsRepo`, maintain the separation of concerns by keeping local and remote logic distinct.
+- Regularly test the integration between local and remote data sources to ensure reliability in data handling.

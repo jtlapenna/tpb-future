@@ -1,0 +1,31 @@
+---
+description: Serializer for layout position objects in the application.
+globs: ['app/serializers/layout_position_serializer.rb']
+alwaysApply: false
+---
+
+# LayoutPositionSerializer
+
+## Overview
+The `LayoutPositionSerializer` is a serializer class that is part of the ActiveModel::Serializer framework. It is responsible for defining how layout position objects are represented in JSON format when they are serialized. This is particularly useful in APIs where you need to send structured data to clients.
+
+## Key Components
+- **Class Definition**: The class `LayoutPositionSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies which attributes of the layout position object should be included in the serialized output. In this case, it includes `:id` and `:label`.
+
+## Dependencies
+This file does not have any external dependencies, nor is it imported by any other files in the repository. It stands alone as a serializer for layout position objects.
+
+## Usage Example
+When a layout position object is serialized, it will output a JSON representation that includes the specified attributes. For example:
+```json
+{
+  "id": 1,
+  "label": "Header"
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data you want to expose through your API. Avoid including sensitive information.
+- Keep the serializer simple and focused on a single responsibility. If you find that you need to include complex logic, consider using a service object or a decorator instead.
+- Regularly review and update the serializer as the underlying data model changes to ensure consistency in the API responses.

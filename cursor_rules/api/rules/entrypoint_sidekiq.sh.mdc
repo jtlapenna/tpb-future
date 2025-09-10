@@ -1,0 +1,30 @@
+---
+description: Documentation for the entrypoint_sidekiq.sh script used to start Sidekiq and Rails server.
+globs: ['entrypoint_sidekiq.sh']
+alwaysApply: false
+---
+
+# entrypoint_sidekiq.sh Documentation
+
+## Overview
+The `entrypoint_sidekiq.sh` script is designed to initialize and run a Sidekiq background job processor alongside a Rails application. It ensures that the necessary database migrations are applied before starting the Rails server, allowing for a seamless deployment process.
+
+## Key Components
+- `sidekiq &`: This command starts the Sidekiq process in the background, allowing it to handle background jobs concurrently with the main application.
+- `sleep 10`: This introduces a delay of 10 seconds to give Sidekiq time to start up properly before proceeding with the next commands.
+- `bundle exec rake db:migrate`: This command runs any pending database migrations, ensuring that the database schema is up to date with the application's requirements.
+- `bundle exec rails s -p 3000 -b '0.0.0.0'`: This starts the Rails server, binding it to all interfaces on port 3000, making it accessible from outside the container or host.
+
+## Dependencies
+This script does not import or depend on any other files within the repository, nor is it imported by any other files. It operates independently to set up the environment for the application.
+
+## Usage Example
+To use this script, simply execute it in a terminal or as part of a Docker container entrypoint:
+```sh
+sh entrypoint_sidekiq.sh
+```
+
+## Best Practices
+- Ensure that Sidekiq is properly configured in your Rails application before using this script.
+- Adjust the sleep duration if necessary, depending on the startup time of your Sidekiq process.
+- Monitor the logs of both Sidekiq and the Rails server to troubleshoot any issues that may arise during startup.

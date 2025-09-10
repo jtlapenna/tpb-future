@@ -1,0 +1,76 @@
+/*
+
+Rename this file to custom.css to override CSS rules locally.
+
+Add screen id before selectors to give custom rules more importance:
+#screen-home-swipe .catcher { ... }
+
+*/
+
+body {
+  /* Available CSS vars */
+
+  /*
+  --font-extralight: 'muliextralight';
+  --font-light: 'mulilight';
+  --font-regular: 'muliregular';
+  --font-semibold: 'mulisemibold';
+  --font-bold: 'mulibold';
+  --font-extrabold: 'muliextrabold';
+  --font-black: 'muliblack';
+
+  --main-color: #00C796;
+  --secondary-color: #E12291;
+  */
+}
+
+
+/*
+Load your custom fonts using @font-face.
+Fonts can be hosted in /static/fonts/ folder
+*/
+
+/*
+@font-face {
+  font-family: 'muliextralight';
+  src: url('../fonts/fonts/muli-extralight-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mulilight';
+  src: url('../fonts/fonts/muli-light-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'muliregular';
+  src: url('../fonts/fonts/muli-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mulisemibold';
+  src: url('../fonts/fonts/muli-semibold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mulibold';
+  src: url('../fonts/fonts/muli-bold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'muliextrabold';
+  src: url('../fonts/fonts/muli-extrabold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'muliblack';
+  src: url('../fonts/fonts/muli-black-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+*/

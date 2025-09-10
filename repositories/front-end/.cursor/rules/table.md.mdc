@@ -1,0 +1,43 @@
+---
+description: Documentation for the table.md file which contains structured logging data for user sessions and interactions.
+globs: ['table.md']
+alwaysApply: false
+---
+
+# Overview
+The `table.md` file serves as a structured log of user interactions within a web application. It captures various attributes related to user sessions, including timestamps, actions performed, and additional metadata. This file is crucial for analyzing user behavior and debugging issues related to user sessions.
+
+## Key Components
+- **Columns**: The table consists of multiple columns, each representing a specific attribute of the logged data:
+  - `id`: Unique identifier for each log entry.
+  - `account`: The account associated with the session.
+  - `session_id`: Identifier for the user session.
+  - `user_id`: Identifier for the user (if applicable).
+  - `datetime`: Timestamp of the logged action.
+  - `fn`: Function or action performed by the user (e.g., "Product view", "Session ended").
+  - `deleted_at`: Timestamp indicating when the entry was deleted (if applicable).
+  - `created_at`: Timestamp of when the log entry was created.
+  - `updated_at`: Timestamp of the last update to the log entry.
+  - `additional_info`: JSON object containing additional context about the action (e.g., store details, layout).
+  - `client`: Information about the client making the request (e.g., browser details).
+  - `env`: Environment details (e.g., user agent).
+  - `req`: Request details in JSON format.
+  - `req_data`: Additional request data (if any).
+  - `req_timestamp`: Timestamp of the request.
+  - `resp`: Response details in JSON format.
+  - `resp_data`: Additional response data (if any).
+  - `resp_timestamp`: Timestamp of the response.
+  - `version`: Version of the log entry format.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a log file for user interactions.
+
+## Usage Examples
+- **Analyzing User Behavior**: Developers can query this log to understand how users interact with the application, which features are most used, and where users drop off.
+- **Debugging**: In case of issues, developers can refer to the logs to trace back user actions leading to errors or unexpected behavior.
+
+## Best Practices
+- **Data Privacy**: Ensure that any sensitive user information is handled according to privacy regulations. Avoid logging personally identifiable information (PII) unless necessary.
+- **Log Rotation**: Implement log rotation strategies to manage the size of the log file and ensure performance is not impacted.
+- **Structured Logging**: Maintain the structure of the log entries to facilitate easier parsing and analysis. Use consistent formats for timestamps and JSON objects.
+- **Documentation**: Keep this documentation updated as the structure of the log entries evolves or as new features are added to the application.

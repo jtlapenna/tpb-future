@@ -1,0 +1,54 @@
+---
+description: Policy class for managing access control to KioskProduct resources.
+globs: ['app/policies/kiosk_product_policy.rb']
+alwaysApply: false
+---
+
+# KioskProductPolicy Documentation
+
+## Overview
+The `KioskProductPolicy` class is responsible for defining the authorization rules for accessing and managing `KioskProduct` resources within the application. It extends the `ApplicationPolicy`, which provides a base structure for all policy classes in the application.
+
+## Key Components
+
+### Classes
+- **KioskProductPolicy**: This is the main policy class that contains various methods to determine user permissions for different actions related to `KioskProduct` resources.
+
+### Methods
+- **Scope**: A nested class that defines the scope of records that a user can access. The `resolve` method checks if the user is an admin; if so, it returns all records. Otherwise, it filters the records to only those associated with kiosks owned by the user.
+
+- **index?**: Returns true if the user is authenticated, allowing them to view the list of `KioskProduct` resources.
+
+- **create?**: Similar to `index?`, this method allows authenticated users to create new `KioskProduct` resources.
+
+- **show?**: Determines if a user can view a specific `KioskProduct`. It allows access if the user is an admin or if the user is associated with the same client as the product's store.
+
+- **search?**: This method is an alias for `index?`, allowing users to search for `KioskProduct` resources if they are authenticated.
+
+- **new_categories?**: Allows users to create new categories, leveraging the `new?` method from the parent class.
+
+- **compact?**: Another alias for `index?`, indicating that compact views of `KioskProduct` resources are available to authenticated users.
+
+- **update?**: Similar to `show?`, this method checks if a user can update a `KioskProduct`, allowing access for admins or users associated with the same client as the product's store.
+
+- **destroy?**: Determines if a user can delete a `KioskProduct`, following the same rules as `update?`.
+
+- **permitted_attributes**: Specifies the attributes that are permitted for mass assignment when creating or updating `KioskProduct` resources. In this case, it allows `store_product_id` and `featured` attributes.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined in it when checking permissions in your controllers or views. For example:
+```ruby
+if KioskProductPolicy.new(current_user, @kiosk_product).show?
+  # Allow access to the product
+else
+  # Deny access
+end
+```
+
+## Best Practices
+- Ensure that all user roles are properly defined and that the `admin?` method accurately reflects the user's permissions.
+- Regularly review and update the policy methods to align with any changes in business logic or user roles.
+- Use descriptive method names to clarify the purpose of each permission check, making it easier for other developers to understand the policy's intent.

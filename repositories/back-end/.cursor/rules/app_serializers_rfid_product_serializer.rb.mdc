@@ -1,0 +1,41 @@
+---
+description: Serializer for RFID product data in the application.
+globs: ['app/serializers/rfid_product_serializer.rb']
+alwaysApply: false
+---
+
+# RfidProductSerializer
+
+## Overview
+The `RfidProductSerializer` is a serializer class that formats RFID product data for JSON output in the application. It inherits from `ActiveModel::Serializer`, which provides a way to customize the JSON representation of the model objects.
+
+## Key Components
+- **Attributes**: The serializer defines several attributes that will be included in the serialized output:
+  - `id`: The unique identifier for the RFID product.
+  - `rfid`: The RFID code associated with the product.
+  - `rfid_entity_id`: The ID of the associated RFID entity.
+  - `rfid_entity_type`: The type of the RFID entity (e.g., KioskProduct).
+  - `order`: The order associated with the RFID product.
+  - `rfid_sub_entity_id`: Conditionally included if the object has this attribute.
+  - `name`: Conditionally included based on the presence of `rfid_sub_entity_id`.
+  - `stock`: A computed attribute that retrieves the stock of the associated RFID entity if it is of type `KioskProduct`.
+
+- **Methods**:
+  - `rfid_sub_entity_id`: Returns the `rfid_sub_entity_id` if the object responds to it.
+  - `has_rfid_sub_entity_id?`: Checks if the object has the `rfid_sub_entity_id` method.
+  - `rfid_name`: Returns the name of the object if it responds to the `name` method.
+  - `has_name?`: Checks if the object has the `name` method.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the `ActiveModel::Serializer` framework for serialization.
+
+## Usage Examples
+To use this serializer, you would typically call it when rendering a JSON response for an RFID product object. For example:
+```ruby
+render json: @rfid_product, serializer: RfidProductSerializer
+```
+
+## Best Practices
+- Ensure that the model objects passed to this serializer respond to the expected methods to avoid runtime errors.
+- Keep the serializer focused on formatting data rather than including business logic. Any complex logic should be handled in the model or service objects.
+- Use conditional attributes judiciously to keep the serialized output clean and relevant to the client needs.

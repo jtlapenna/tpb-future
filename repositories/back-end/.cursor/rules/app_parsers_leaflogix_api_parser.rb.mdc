@@ -1,0 +1,49 @@
+---
+description: Documentation for the LeaflogixApiParser class responsible for parsing and syncing product data from the Leaflogix API.
+globs: ['app/parsers/leaflogix_api_parser.rb']
+alwaysApply: false
+---
+
+# LeaflogixApiParser Documentation
+
+## Overview
+The `LeaflogixApiParser` class is designed to interact with the Leaflogix API to parse and sync product data for a specific store. It handles the retrieval of product details, promotions, and inventory, and manages the synchronization of this data with the local database. The class also includes functionality for handling duplicate SKUs and applying promotions based on specific criteria.
+
+## Key Components
+
+### Class: LeaflogixApiParser
+- **Initialization**: The class is initialized with a `store_id`, which is used to fetch store-specific data.
+
+- **Methods**:
+  - `store`: Retrieves the store object associated with the given `store_id`.
+  - `parse`: The main method that orchestrates the parsing of product data, handling promotions, and syncing with the database. It includes logic for:
+    - Fetching products and inventory from the Leaflogix API.
+    - Grouping products by SKU and removing duplicates.
+    - Applying promotions based on inventory and product attributes.
+    - Creating or updating `StoreSyncItem` records for each product.
+  - `products`, `inventory`, `product_detail`: Helper methods to fetch product and inventory data from the API.
+  - `product_promotions`, `location`: Methods to retrieve promotions and store location data from the API.
+  - `sanitize_string`, `sanitize_html`: Utility methods for cleaning up strings and HTML content.
+  - `save_promotions`, `remove_promotions`: Methods for managing promotions in the local database.
+  - `get_active_promotion`: Determines the most applicable promotion for a product based on various criteria.
+  - `valid_promotion?`, `calculate_discount`: Helper methods for validating and calculating discounts for promotions.
+
+### Error Handling
+The class includes error handling using Sentry for logging exceptions that occur during the execution of various methods, ensuring that issues can be tracked and resolved.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the Leaflogix API for data retrieval.
+
+## Usage Examples
+To use the `LeaflogixApiParser`, instantiate the class with a valid `store_id` and call the `parse` method:
+```ruby
+parser = LeaflogixApiParser.new(store_id: 1)
+result = parser.parse
+puts result
+```
+
+## Best Practices
+- Ensure that the `store_id` provided during initialization corresponds to a valid store in the database.
+- Handle exceptions gracefully, especially when dealing with external API calls, to avoid application crashes.
+- Regularly review and update the logic for promotions and inventory handling to align with any changes in the Leaflogix API.
+- Use logging effectively to monitor the behavior of the parser and troubleshoot issues as they arise.

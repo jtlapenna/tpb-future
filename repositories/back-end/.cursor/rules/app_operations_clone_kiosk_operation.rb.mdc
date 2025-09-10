@@ -1,0 +1,55 @@
+---
+description: Documentation for the CloneKioskOperation class, which handles the cloning of kiosk operations in the application.
+globs: ['app/operations/clone_kiosk_operation.rb']
+alwaysApply: false
+---
+
+# CloneKioskOperation Documentation
+
+## Overview
+The `CloneKioskOperation` class is responsible for creating a copy of an existing kiosk, including its attributes and layout. It utilizes the Dry Monads library to handle success and failure states in a functional programming style. This class is designed to facilitate the duplication of kiosk configurations within the application, ensuring that all necessary attributes and assets are correctly replicated.
+
+## Key Components
+
+### Class: CloneKioskOperation
+- **Methods:**
+  - `call(source_kiosk, source_store, kiosk_new_name = nil)`  
+    This is the main entry point for cloning a kiosk. It takes the source kiosk, the source store, and an optional new name for the cloned kiosk. It orchestrates the copying of base attributes and layout, and returns a success or failure result.
+  - `copy_base_attributes(source_kiosk, source_store, kiosk_new_name = nil)`  
+    Duplicates the base attributes of the source kiosk, including its name and store association. If no new name is provided, it defaults to "Copy of [original name]".
+  - `copy_layout(source_kiosk)`  
+    Duplicates the layout of the source kiosk, including welcome assets, navigation, and kiosk assets.
+  - `generate_asset(new_asset, old_asset)`  
+    Generates a new asset by cloning the URL of the old asset.
+  - `generate_assets(old_asset)`  
+    Duplicates an asset and its associated elements.
+  - `generate_kiosk_asset(old_asset)`  
+    Duplicates a kiosk asset and its elements.
+  - `clone_url(prev_asset)`  
+    Clones the URL of an asset to a new location in S3, ensuring the new asset points to the correct URL.
+  - `bucket_name` and `bucket_region`  
+    Retrieve the S3 bucket name and region from environment variables, raising an error if they are not defined.
+  - `generate_new_key(url)`  
+    Generates a new key for the asset in S3 by modifying the original URL.
+  - `key_from_url(url)`  
+    Extracts the key from the asset URL for S3 operations.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying on the Dry Monads library and AWS SDK for Ruby to manage asset duplication.
+
+## Usage Example
+To clone a kiosk, you would instantiate the `CloneKioskOperation` class and call the `call` method with the appropriate parameters:
+```ruby
+operation = CloneKioskOperation.new
+result = operation.call(source_kiosk, source_store, "New Kiosk Name")
+if result.success?
+  puts "Kiosk cloned successfully: #{result.value!}"
+else
+  puts "Failed to clone kiosk: #{result.failure}"  
+end
+```
+
+## Best Practices
+- Ensure that the environment variables `BUCKET_NAME` and `BUCKET_REGION` are set before using this class to avoid runtime errors.
+- When cloning kiosks, provide meaningful names to avoid confusion with existing kiosks.
+- Be cautious with asset duplication, especially regarding S3 operations, to prevent unnecessary data duplication and storage costs.

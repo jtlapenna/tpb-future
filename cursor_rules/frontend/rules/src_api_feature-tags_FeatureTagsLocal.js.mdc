@@ -1,0 +1,37 @@
+---
+description: Documentation for the FeatureTagsLocal class in the FeatureTagsLocal.js file.
+globs: ['src/api/feature-tags/FeatureTagsLocal.js']
+alwaysApply: false
+---
+
+# FeatureTagsLocal.js Documentation
+
+## Overview
+The `FeatureTagsLocal` class is a specialized implementation of the `LocalRepo` class, designed to manage local storage and retrieval of feature tags within the application. It serves as a data repository that interacts with the local data layer, specifically targeting the 'tags' entity identified by 'id'.
+
+## Key Components
+- **Class: `FeatureTagsLocal`**  
+  This class extends the `LocalRepo` class, inheriting its methods and properties. The constructor initializes the repository with specific parameters:
+  - **Entity Name:** 'tags'  
+  - **Identifier:** 'id'  
+
+## Dependencies
+- **Imports:**  
+  - `LocalRepo` from `../LocalRepo`: This is the base class that provides the foundational functionality for local data management.
+
+- **Exports:**  
+  - This file is imported by `src/api/feature-tags/FeatureTagsRepo.js`, which likely utilizes the `FeatureTagsLocal` class to handle feature tags in a more complex manner.
+
+## Usage Example
+To use the `FeatureTagsLocal` class, you would typically instantiate it and call its methods to interact with the local storage of feature tags. Here’s a simple example:
+```javascript
+import { FeatureTagsLocal } from './FeatureTagsLocal';
+
+const featureTagsRepo = new FeatureTagsLocal();
+// Now you can use featureTagsRepo to manage feature tags locally.
+```
+
+## Best Practices
+- Ensure that you understand the structure and methods provided by the `LocalRepo` class, as `FeatureTagsLocal` relies heavily on its functionality.
+- When extending or modifying this class, maintain the integrity of the entity name and identifier to avoid breaking changes in the data management logic.
+- Consider implementing error handling when interacting with local storage to manage potential issues gracefully.

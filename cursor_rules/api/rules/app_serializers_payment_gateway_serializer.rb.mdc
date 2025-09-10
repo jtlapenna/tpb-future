@@ -1,0 +1,34 @@
+---
+description: Documentation for the PaymentGatewaySerializer class in the serializers directory.
+globs: ['app/serializers/payment_gateway_serializer.rb']
+alwaysApply: false
+---
+
+# PaymentGatewaySerializer Documentation
+
+## Overview
+The `PaymentGatewaySerializer` class is a serializer that formats the output of payment gateway data for API responses. It is part of the ActiveModel::Serializer framework, which is used to create JSON representations of Ruby objects.
+
+## Key Components
+- **Class**: `PaymentGatewaySerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+  - **Attributes**: The serializer defines the following attributes to be included in the serialized output:
+    - `id`: The unique identifier for the payment gateway.
+    - `api_settings`: Configuration settings specific to the payment gateway's API.
+    - `projects`: A collection of projects associated with the payment gateway.
+  - **Associations**: The serializer also includes a relationship to another model:
+    - `has_one :payment_gateway_provider`: This indicates that each payment gateway is associated with a single payment gateway provider.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a serializer for the payment gateway model.
+
+## Usage Examples
+To use the `PaymentGatewaySerializer`, you would typically render it in a controller action when responding to API requests. For example:
+```ruby
+render json: @payment_gateway, serializer: PaymentGatewaySerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the associated model.
+- Keep the serializer focused on formatting the output without including business logic. Business logic should reside in the model or service objects.
+- Regularly review and update the serializer as the underlying model changes to ensure consistency in API responses.

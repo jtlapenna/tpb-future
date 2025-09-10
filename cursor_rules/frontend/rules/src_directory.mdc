@@ -1,0 +1,34 @@
+---
+description: Documentation for the src directory containing the main application files.
+globs: ['src/*']
+alwaysApply: false
+---
+
+# Overview of the `src` Directory
+
+The `src` directory serves as the main entry point for the application, containing the core Vue components and the main JavaScript file that initializes the application. This directory is essential for the overall structure and functionality of the application.
+
+## Key Files
+
+- **App.vue**: This is the root Vue component of the application. It serves as the main layout and structure for the application, housing other components and managing the overall application state.
+- **main.js**: This file is responsible for bootstrapping the Vue application. It initializes the Vue instance, mounts the App component, and integrates any necessary plugins or global configurations.
+
+## Relationship to Other Parts of the Codebase
+
+The `src` directory imports several external dependencies that are crucial for the application's functionality:
+- **src/const/globals.js**: This file likely contains global constants used throughout the application, ensuring consistency and ease of maintenance.
+- **src/store/store.js**: This is the main Vuex store file, managing the application's state and providing a centralized store for all components.
+- **src/store/modules/cart.js**: This module handles the cart functionality, managing the state related to the shopping cart, such as items added, total price, etc.
+- **src/analytics/analytics.js**: This file is responsible for tracking user interactions and sending analytics data, which is important for understanding user behavior and improving the application.
+
+## Common Patterns and Conventions
+
+- **Component Structure**: Vue components are typically organized in a way that promotes reusability and separation of concerns. Each component should ideally manage its own state and props.
+- **Vuex Store Usage**: When using Vuex, it is common to structure the store into modules, each handling a specific part of the application state, such as user authentication, cart management, etc.
+
+## Best Practices
+
+- **Keep Components Small**: Aim to keep components small and focused on a single responsibility. This makes them easier to test and maintain.
+- **Use Vuex for State Management**: Utilize Vuex for managing shared state across components to avoid prop drilling and ensure a predictable state management flow.
+- **Document Dependencies**: Clearly document any external dependencies and their purpose to help other developers understand the context and usage within the application.
+- **Consistent Naming Conventions**: Follow consistent naming conventions for files and components to enhance readability and maintainability of the codebase.

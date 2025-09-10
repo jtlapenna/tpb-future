@@ -1,0 +1,50 @@
+---
+description: Database configuration and connection management for the kiosk application.
+globs: ['src/api/dbconfig.js']
+alwaysApply: false
+---
+
+# Database Configuration (dbconfig.js)
+
+## Overview
+This file manages the configuration and connection to the IndexedDB database used in the kiosk application. It defines the database name, version, and the structure of the object stores that will be used to store application data.
+
+## Key Components
+
+### Constants
+- **DB_NAME**: The name of the database, set to 'kioskDB'.
+- **DB_VERSION**: The version of the database, initialized to 1.
+
+### `getDb` Function
+This is an asynchronous function that returns a promise. It ensures that only one instance of the database connection is created and reused throughout the application. The function performs the following tasks:
+- Checks if an instance of the database already exists. If it does, it resolves the promise with the existing instance.
+- If no instance exists, it opens a new connection to the database and handles the following events:
+  - **onerror**: Logs an error message and rejects the promise if the database fails to open.
+  - **onsuccess**: Resolves the promise with the database instance once it is successfully opened.
+  - **onupgradeneeded**: This event is triggered when the database version is upgraded. It creates the necessary object stores for the application, including 'products', 'brands', 'articles', 'rfids', and 'tags'. Each store is configured with an auto-incrementing key.
+
+### Export
+The `getDb` function is exported as the default export of the module, allowing other files to import and use it to access the database.
+
+## Dependencies
+This file does not import any other files in the repository. However, it is imported by `src/api/LocalRepo.js`, which likely utilizes the database connection to perform data operations.
+
+## Usage Example
+To use the database connection in another file, you can import the `getDb` function and call it as follows:
+```javascript
+import getDb from './dbconfig';
+
+async function fetchData() {
+  try {
+    const db = await getDb();
+    // Perform database operations with the db instance
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+  }
+}
+```
+
+## Best Practices
+- Always handle errors when working with the database to ensure that your application can gracefully manage issues such as connection failures.
+- Avoid creating multiple instances of the database connection; use the provided `getDb` function to manage the connection lifecycle.
+- When adding new object stores or modifying existing ones, remember to increment the `DB_VERSION` to trigger the `onupgradeneeded` event.

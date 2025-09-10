@@ -1,0 +1,73 @@
+---
+description: Documentation for the StoreProduct model in the application.
+globs: ['app/models/store_product.rb']
+alwaysApply: false
+---
+
+# StoreProduct Model Documentation
+
+## Overview
+The `StoreProduct` class represents a product in a store's inventory system. It extends `ApplicationRecord` and includes various modules to enhance its functionality, such as Algolia search capabilities and tagging. This model manages product attributes, relationships with other models, and provides methods for product management and querying.
+
+## Key Components
+
+### Attributes
+- **thumb_image_url**: URL for the thumbnail image of the product.
+- **primary_image_url**: URL for the primary image of the product.
+- **status**: Enum for product status, can be `unpublished` or `published`.
+- **stock**: Integer representing the available stock for the product.
+- **sku**: Unique identifier for the product.
+
+### Relationships
+- **belongs_to**:
+  - `store_category`: The category to which the product belongs.
+  - `product_variant`: The variant of the product.
+  - `primary_image` and `thumb_image`: Images associated with the product.
+  - `brand`: The brand of the product.
+
+- **has_many**:
+  - `attribute_values`: Values associated with product attributes.
+  - `product_values`: Values related to the product's pricing.
+  - `kiosk_products`: Products available in kiosks.
+
+- **has_one**:
+  - `video`: Video associated with the product.
+
+### Methods
+- **algoliasearch**: Configures Algolia search indexing for the product.
+- **broadcast_changes_update**: Handles broadcasting updates to the product via Pusher.
+- **update_existing_product**: Updates product attributes based on external response data.
+- **similar_to**: Finds similar products based on various criteria.
+
+### Scopes
+- **by_tag_relevance**: Retrieves products based on tag relevance.
+- **name_like**: Searches for products by name.
+- **by_brand**: Filters products by brand ID.
+- **price_in**: Filters products within a specified price range.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the application, relying on ActiveRecord for database interactions and other included modules for additional functionality.
+
+## Usage Examples
+To create a new product:
+```ruby
+product = StoreProduct.new(
+  name: 'Sample Product',
+  sku: 'SP-001',
+  stock: 10,
+  store_category_id: 1,
+  brand_id: 1
+)
+product.save
+```
+
+To find products by name:
+```ruby
+StoreProduct.name_like('Sample')
+```
+
+## Best Practices
+- Ensure that all required fields are populated before saving a product to avoid validation errors.
+- Use the provided scopes for querying products to maintain clean and efficient database interactions.
+- When updating products, consider using the `update_existing_product` method to handle external data updates properly.
+- Always validate the ownership of images before assigning them to a product to maintain data integrity.

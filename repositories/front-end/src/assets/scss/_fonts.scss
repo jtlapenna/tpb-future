@@ -1,0 +1,52 @@
+:root {
+  --font-extralight: 'muliextralight';
+  --font-light: 'mulilight';
+  --font-regular: 'muliregular';
+  --font-semibold: 'mulisemibold';
+  --font-bold: 'mulibold';
+  --font-extrabold: 'muliextrabold';
+  --font-black: 'muliblack';
+}
+
+@font-face {
+  font-family: 'muliextralight';
+  src: url('~@/assets/fonts/muli-extralight-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mulilight';
+  src: url('~@/assets/fonts/muli-light-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'muliregular';
+  src: url('~@/assets/fonts/muli-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mulisemibold';
+  src: url('~@/assets/fonts/muli-semibold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mulibold';
+  src: url('~@/assets/fonts/muli-bold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'muliextrabold';
+  src: url('~@/assets/fonts/muli-extrabold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'muliblack';
+  src: url('~@/assets/fonts/muli-black-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,29 @@
+---
+description: Documentation for the ClientSerializer class in the app/serializers directory.
+globs: ['app/serializers/client_serializer.rb']
+alwaysApply: false
+---
+
+# ClientSerializer Documentation
+
+## Overview
+The `ClientSerializer` class is a part of the ActiveModel Serializers framework, which is used to customize the JSON output of models in a Ruby on Rails application. This specific serializer is responsible for defining how a `Client` object is represented in JSON format when it is serialized.
+
+## Key Components
+- **Class Definition**: `ClientSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies which attributes of the `Client` model should be included in the serialized output. In this case, it includes `:id` and `:name`.
+
+## Dependencies
+This file does not have any external dependencies, nor is it imported by any other files in the repository. It stands alone as a serializer for the `Client` model.
+
+## Usage Example
+To use the `ClientSerializer`, you would typically render a `Client` object in a controller action like so:
+```ruby
+render json: @client, serializer: ClientSerializer
+```
+This will output a JSON representation of the `@client` object, including only the `id` and `name` attributes.
+
+## Best Practices
+- **Keep it Simple**: Only include attributes that are necessary for the client-side application to function. Avoid overloading the JSON response with unnecessary data.
+- **Consistency**: Ensure that all serializers in the application follow a consistent structure and naming convention to maintain readability and ease of use.
+- **Testing**: Write tests for your serializers to ensure that they produce the expected output, especially when the underlying model changes.

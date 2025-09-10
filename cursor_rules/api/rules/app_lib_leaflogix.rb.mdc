@@ -1,0 +1,24 @@
+---
+description: Documentation for the Leaflogix module in the Leaflogix library.
+globs: ['app/lib/leaflogix.rb']
+alwaysApply: false
+---
+
+# Leaflogix Module Documentation
+
+## Overview
+The `leaflogix.rb` file defines the `Leaflogix` module, which serves as a namespace for the Leaflogix library. This module is intended to encapsulate functionality related to Leaflogix, providing a structured way to organize code and prevent naming conflicts.
+
+## Key Components
+- **Module Leaflogix**: The primary component of this file is the `Leaflogix` module itself. It currently does not contain any methods or classes, but serves as a foundation for future development.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It is a standalone module that can be expanded upon as needed.
+
+## Usage Examples
+While this file does not currently contain any functionality, it is designed to be a starting point for adding methods and classes related to Leaflogix. Future implementations can be added within the `Leaflogix` module.
+
+## Best Practices
+- **Namespace Usage**: Always encapsulate new functionality within the `Leaflogix` module to maintain organization and avoid conflicts with other parts of the codebase.
+- **Documentation**: As new methods and classes are added, ensure to document them thoroughly to maintain clarity for future developers.
+- **Testing**: Implement tests for any new functionality added to the `Leaflogix` module to ensure reliability and maintainability.

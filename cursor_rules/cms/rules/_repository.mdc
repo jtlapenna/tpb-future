@@ -1,0 +1,46 @@
+---
+description: Documentation for the repository providing an overview, structure, and best practices.
+globs: ['*']
+alwaysApply: true
+---
+
+# Repository Overview
+
+This repository is designed to provide a comprehensive application framework that supports various functionalities including article management, client interactions, product layouts, and kiosk operations. It is structured to facilitate modular development, making it easy to extend and maintain.
+
+## Key Directories and Their Roles
+- **e2e/src**: Contains end-to-end testing specifications to ensure the application functions as intended in a production-like environment.
+- **src**: The main source directory where the application code resides.
+  - **app**: Contains the core application modules, organized by feature.
+    - **articles**: Manages article-related functionalities including listing and individual article views.
+    - **clients**: Handles client-related features such as client profiles and lists.
+    - **kiosks**: Manages kiosk functionalities, including layouts and product listings.
+    - **stores**: Contains store management features, including product listings and categories.
+    - **shared**: Contains reusable components, directives, and services used across the application.
+- **scss**: Contains stylesheets for the application, enabling a consistent look and feel.
+- **assets**: Stores static assets like fonts and PDFs.
+- **environments**: Configuration files for different environments (development, production, etc.).
+
+## Architectural Patterns and Organization
+The repository follows a modular architecture, where each feature is encapsulated within its own directory. This promotes separation of concerns and enhances maintainability. The use of services for business logic and components for UI elements allows for a clear distinction between presentation and functionality.
+
+## Core Modules and Their Significance
+- **src/app/core/services**: Provides essential services that are widely used across the application, such as asset management and user authentication. These services are imported by multiple components, indicating their foundational role in the application.
+- **src/app/test**: Contains testing utilities and common dependencies that facilitate unit testing across various modules.
+- **src/app/core/models**: Defines the data models used throughout the application, ensuring a consistent data structure.
+
+## Entry Points and Navigation
+The main entry points for the application include:
+- **src/main.ts**: The main entry file that bootstraps the Angular application.
+- **src/app/app.component.spec.ts**: Contains specifications for the root application component, serving as a reference for component testing.
+
+To navigate the codebase, developers can start from the `src` directory and explore the various feature modules. Each module is self-contained, making it easy to understand its functionality.
+
+## Best Practices for Working with This Repository
+1. **Modular Development**: Keep related functionalities within their respective directories to maintain organization.
+2. **Consistent Naming Conventions**: Follow naming conventions for components, services, and models to enhance readability.
+3. **Documentation**: Document components and services thoroughly to assist future developers in understanding the codebase.
+4. **Testing**: Write unit tests for components and services to ensure reliability and facilitate easier refactoring.
+5. **Version Control**: Use meaningful commit messages and branch names to track changes effectively.
+
+By adhering to these practices, developers can ensure a smooth development process and maintain a high-quality codebase.

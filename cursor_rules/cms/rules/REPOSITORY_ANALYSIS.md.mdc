@@ -1,0 +1,59 @@
+---
+description: Documentation for the CMS Angular Repository Analysis file, providing insights into the project's structure, dependencies, and development workflow.
+globs: ['REPOSITORY_ANALYSIS.md']
+alwaysApply: false
+---
+
+# CMS Angular Repository Analysis Documentation
+
+## Overview
+The `REPOSITORY_ANALYSIS.md` file serves as a comprehensive guide to the Angular-based Content Management System (CMS) that is part of The Peak Beyond system. It outlines the project's technical stack, key dependencies, project structure, features, integration points, development workflow, and areas for analysis. This documentation is crucial for understanding the architecture and functionality of the CMS, facilitating better collaboration and development practices among team members.
+
+## Key Components
+### Project Overview
+- **Purpose**: Provides a high-level description of the CMS and its role within The Peak Beyond system.
+
+### Technical Stack
+- **Core Framework**: Details the primary technologies used, including Angular, TypeScript, and RxJS.
+- **Build Tools**: Lists tools like Angular CLI and Node.js that are essential for building and managing the project.
+- **Styling**: Describes the styling methodologies employed, such as SCSS and Angular Material.
+- **Development Tools**: Highlights tools that enhance the development experience, including ESLint and Prettier.
+
+### Key Dependencies
+- **UI Components**: Discusses libraries like Angular Material and form validation tools that enhance the user interface.
+- **State Management**: Mentions NgRx and Angular services for managing application state.
+- **Data Management**: Covers the HTTP Client and data validation mechanisms.
+- **Authentication**: Outlines the authentication strategies employed, including JWT handling.
+
+### Project Structure
+- **Core Modules**: Lists the main functional modules of the application, such as authentication and content management.
+- **Shared Components**: Describes reusable UI components and services that promote code reusability.
+
+### Features
+- **Content Management**: Details functionalities related to managing articles and media.
+- **Product Management**: Discusses CRUD operations and inventory tracking for products.
+- **Store Management**: Covers store configuration and payment gateway setup.
+- **User Management**: Outlines user roles, permissions, and activity logging.
+
+### Integration Points
+- **Back-end API**: Describes how the CMS communicates with the back-end via RESTful APIs.
+- **File Storage**: Discusses media upload and asset optimization strategies.
+
+### Development Workflow
+- **Local Development**: Outlines the local development setup using Angular CLI.
+- **Building**: Describes the production build process and optimizations.
+- **Deployment**: Covers deployment strategies and environment configurations.
+
+### Areas for Analysis
+- **Code Quality**: Discusses aspects of code organization and type safety.
+- **Performance**: Highlights performance metrics to monitor, such as bundle size and loading times.
+- **Security**: Outlines security practices to prevent vulnerabilities.
+- **Maintainability**: Discusses the importance of documentation and testing coverage.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a reference document for developers working on the CMS project.
+
+## Best Practices
+- Regularly update this documentation to reflect changes in the project.
+- Use this file as a reference for onboarding new developers to the project.
+- Ensure that all team members are familiar with the key components and workflows outlined in this document.

@@ -1,0 +1,46 @@
+---
+description: Documentation for the ScreenHomeRfidNav component in a Vue.js application.
+globs: ['src/components/ScreenHomeRfidNav.vue']
+alwaysApply: false
+---
+
+# ScreenHomeRfidNav Component Documentation
+
+## Overview
+The `ScreenHomeRfidNav` component is a Vue.js component designed for the home screen of an RFID navigation system. It provides a visual interface that includes a store logo, instructional animations, and navigation elements. The component is structured to handle transitions and animations effectively, enhancing user experience.
+
+## Key Components
+- **Template Structure**: The component's template includes an image for the store logo, a text catcher for instructions, an illustration using Lottie animations, and a navigation component.
+- **Data Properties**:
+  - `navLayout`: Defines the layout of the navigation (default is 'large').
+  - `reloadTimeout`: Used for managing reload timing (not actively utilized in the current implementation).
+  - `storeLogo`: Holds the URL of the store logo.
+  - `storeLogoRatio`: Determines the aspect ratio of the store logo based on its dimensions.
+  - `transitionReady`: A counter to manage transition readiness.
+- **Props**:
+  - `isActiveCartFeatureActivated`: A boolean prop that controls the visibility of the active cart button.
+- **Methods**:
+  - `transitionEnter()`: Handles the entrance animation of the component, utilizing GSAP for smooth transitions.
+  - `onTransitionLeave()`: Manages the exit animation when the component is removed from the DOM.
+  - `logoHold()` and `logoRelease()`: Emit events to manage hard refresh actions when the logo is held or released.
+  - `setStoreLogoRatio()`: Calculates and sets the logo's aspect ratio based on its natural dimensions.
+
+## Dependencies
+This component imports the following child components:
+- `LottieContainer`: Used for displaying Lottie animations.
+- `TheNav`: A navigation component that provides navigation functionality.
+- `ActiveCartButton`: A button that represents the active cart feature.
+
+This file does not import or export any other files in the repository, nor is it imported by any other files.
+
+## Usage Examples
+To use the `ScreenHomeRfidNav` component, include it in a parent component's template as follows:
+```html
+<screen-home-rfid-nav :is-active-cart-feature-activated="true"></screen-home-rfid-nav>
+```
+
+## Best Practices
+- Ensure that the store logo URL is correctly set in the configuration to avoid broken images.
+- When modifying animations, maintain the timing and easing functions to ensure a smooth user experience.
+- Keep the component's data properties and methods organized to facilitate future enhancements and maintenance.
+- Test the component across different devices to ensure that the layout and animations perform as expected.

@@ -1,0 +1,57 @@
+---
+description: Documentation for the spec/policies directory containing policy specifications.
+globs: ['spec/policies/*']
+alwaysApply: false
+---
+
+# Overview of the spec/policies Directory
+
+The `spec/policies` directory contains RSpec test files that define and validate the behavior of various policy classes in the application. These policy classes are responsible for encapsulating the authorization logic, ensuring that users have the appropriate permissions to perform actions on different resources.
+
+## Key Files and Their Roles
+
+- **layout_position_policy_spec.rb**: Tests the authorization logic related to layout positions.
+- **attribute_def_policy_spec.rb**: Validates permissions for attribute definitions.
+- **store_sync_policy_spec.rb**: Ensures that store synchronization actions are properly authorized.
+- **tag_info_policy_spec.rb**: Tests the policy governing access to tag information.
+- **image_policy_spec.rb**: Validates permissions for image-related actions.
+- **store_tax_policy_spec.rb**: Ensures that tax-related actions for stores are authorized.
+- **store_policy_spec.rb**: General policy tests for store-related actions.
+- **kiosk_product_policy_spec.rb**: Validates kiosk product access permissions.
+- **brand_policy_spec.rb**: Tests authorization for brand-related actions.
+- **catalog_price_policy_spec.rb**: Ensures that catalog pricing actions are properly authorized.
+- **store_category_tax_policy_spec.rb**: Validates permissions for store category tax actions.
+- **kiosk_product_layout_policy_spec.rb**: Tests the policy for kiosk product layouts.
+- **client_policy_spec.rb**: Ensures that client-related actions are authorized.
+- **product_policy_spec.rb**: Validates permissions for product actions.
+- **article_policy_spec.rb**: Tests authorization for article-related actions.
+- **attribute_group_policy_spec.rb**: Ensures that attribute group actions are properly authorized.
+- **kiosk_layout_policy_spec.rb**: Validates permissions for kiosk layouts.
+- **product_variant_policy_spec.rb**: Tests authorization for product variants.
+- **store_category_policy_spec.rb**: Ensures that store category actions are authorized.
+- **user_policy_spec.rb**: Validates permissions for user-related actions.
+- **product_layout_policy_spec.rb**: Tests authorization for product layouts.
+- **asset_policy_spec.rb**: Ensures that asset-related actions are properly authorized.
+- **catalog_article_policy_spec.rb**: Validates permissions for catalog articles.
+- **review_policy_spec.rb**: Tests authorization for review-related actions.
+- **kiosk_policy_spec.rb**: Ensures that kiosk actions are properly authorized.
+- **store_product_policy_spec.rb**: Validates permissions for store products.
+- **rfid_product_policy_spec.rb**: Tests authorization for RFID product actions.
+- **category_policy_spec.rb**: Ensures that category-related actions are authorized.
+
+## Relationship to Other Parts of the Codebase
+
+The policies defined in this directory are typically used in conjunction with controllers and models throughout the application. They help enforce security and authorization rules, ensuring that only users with the appropriate permissions can access or modify resources. This directory is crucial for maintaining the integrity of the application's authorization logic.
+
+## Common Patterns and Conventions
+
+- Each policy spec file corresponds to a specific policy class, following a naming convention that includes the word "policy" to indicate its purpose.
+- Tests are organized to cover various scenarios, including positive and negative cases, ensuring comprehensive coverage of the authorization logic.
+- Use of shared examples or contexts may be employed to reduce duplication across similar policy tests.
+
+## Best Practices
+
+- Keep policy specs focused on a single policy class to maintain clarity and ease of understanding.
+- Regularly update tests to reflect changes in authorization logic or business requirements.
+- Utilize RSpec's built-in matchers and helpers to write clear and expressive tests.
+- Ensure that all new policies are accompanied by corresponding tests in this directory to maintain a high level of code quality.

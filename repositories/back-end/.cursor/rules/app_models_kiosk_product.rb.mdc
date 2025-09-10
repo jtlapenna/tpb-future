@@ -1,0 +1,60 @@
+---
+description: This file defines the KioskProduct model, which represents products available in kiosks and manages their interactions with store products and related entities.
+globs: ['app/models/kiosk_product.rb']
+alwaysApply: false
+---
+
+# KioskProduct Model Documentation
+
+## Overview
+The `KioskProduct` model is an ActiveRecord model that represents products available in kiosks. It includes functionality for Algolia search integration, associations with other models, and various methods to manage product data and notifications related to store products.
+
+## Key Components
+
+### Class Definition
+- **KioskProduct < ApplicationRecord**: Inherits from `ApplicationRecord`, making it a part of the Rails model layer.
+
+### Algolia Search Integration
+- **algoliasearch**: Configures Algolia search settings, including attributes to index and conditions for indexing.
+  - **Attributes**: Defines which attributes of the product are searchable and how they should be indexed.
+
+### Associations
+- **belongs_to**: Defines relationships with `kiosk` and `store_product`.
+- **has_many**: Establishes relationships with various related models such as `product_values`, `images`, and `tags`.
+- **has_one**: Sets up one-to-one relationships with models like `store`, `brand`, and `video`.
+
+### Delegated Methods
+- **delegate**: Allows direct access to methods from the associated `store_product`, simplifying calls to frequently used attributes.
+
+### Scopes
+- **scope :name_like**: Provides a way to query `KioskProduct` records based on a name search, leveraging the associated `StoreProduct` model.
+
+### Callbacks
+- **after_update_commit**, **after_create_commit**, **after_destroy_commit**: These callbacks notify the associated `store_product` of changes, ensuring that the product's last updated timestamp is current.
+
+### Instance Methods
+- **is_full_screen**: Checks if the associated `store_product` is set to full screen.
+- **featured_product?**: Determines if the product is featured based on various conditions related to the store's settings.
+- **rfids**: Returns a sorted list of RFID tags associated with the product.
+
+### Class Methods
+- **self.minimal**: Returns a minimal set of fields for the `KioskProduct`, useful for performance optimization.
+- **self.find_by_id**: A custom query method that retrieves detailed information about a product by its ID, including associated data from multiple tables.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it self-contained. However, it relies on the existence of related models such as `StoreProduct`, `Kiosk`, and `Brand` for its associations and functionality.
+
+## Usage Examples
+To create a new `KioskProduct`, you can use:
+```ruby
+kiosk_product = KioskProduct.create(kiosk_id: 1, store_product_id: 2)
+```
+To search for products by name:
+```ruby
+KioskProduct.name_like('example name')
+```
+
+## Best Practices
+- Ensure that the associated models (`StoreProduct`, `Kiosk`, etc.) are properly set up to avoid issues with associations.
+- Use the provided scopes and methods to interact with `KioskProduct` instances to maintain clean and efficient code.
+- Regularly review Algolia search settings to ensure they meet the application's needs as it evolves.

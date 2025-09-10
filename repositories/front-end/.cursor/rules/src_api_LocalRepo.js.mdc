@@ -1,0 +1,71 @@
+---
+description: Documentation for the LocalRepo class which manages local database interactions.
+globs: ['src/api/LocalRepo.js']
+alwaysApply: false
+---
+
+# LocalRepo.js Documentation
+
+## Overview
+The `LocalRepo` class provides an interface for managing local database operations using IndexedDB. It allows for CRUD (Create, Read, Update, Delete) operations on a specified table within the local database, facilitating data persistence in web applications.
+
+## Key Components
+
+### Class: LocalRepo
+- **Variables:**  
+  - `tableName`: A string representing the name of the table in the database.  
+  - `id`: A string representing the base identifier used to search for items in the table.
+
+### Constructor
+- **`constructor(tableName, id)`**: Initializes a new instance of the `LocalRepo` class with the specified table name and identifier.
+
+### Methods
+- **`getReadTransaction()`**:  
+  - Returns a promise that resolves to a read-write transaction for the specified table. This is used internally to ensure that all database operations are performed within a transaction context.
+
+- **`delete(item)`**:  
+  - Deletes an item from the local repository based on the provided item object. Returns a promise that resolves when the deletion is complete.
+
+- **`index()`**:  
+  - Returns a promise that resolves to a list of items in the specified table. It uses a cursor to iterate through the items in the object store.
+
+- **`save(item)`**:  
+  - Saves or updates an item in the local repository. Returns a promise that resolves when the operation is complete. If an item with the same key already exists, it will be updated.
+
+- **`show(id)`**:  
+  - Retrieves a single item from the local repository based on the provided identifier. Returns a promise that resolves to the item if found.
+
+## Dependencies
+This file imports the following module:
+- `dbconfig.js`: This module is responsible for configuring and establishing the connection to the IndexedDB.
+
+The `LocalRepo` class is utilized by several other files in the codebase, including:
+- `FeatureTagsLocal.js`
+- `ProductsLocal.js`
+- `BrandsLocal.js`
+- `ArticlesLocal.js`
+- `CategoriesLocal.js`
+- `RFIDLocal.js`
+
+These files leverage the `LocalRepo` class to perform local data operations relevant to their specific functionalities.
+
+## Usage Example
+```javascript
+import LocalRepo from './LocalRepo';
+
+// Example of saving an item
+const item = { id: 1, name: 'Sample Item' };
+LocalRepo.save(item).then(() => {
+  console.log('Item saved successfully!');
+});
+
+// Example of retrieving an item
+LocalRepo.show(1).then(item => {
+  console.log('Retrieved item:', item);
+});
+```
+
+## Best Practices
+- Always handle promises returned by the methods to ensure proper error handling and to avoid unhandled promise rejections.
+- When deleting or updating items, ensure that the item exists to prevent errors during the operation.
+- Use transactions appropriately to maintain data integrity, especially when performing multiple operations in sequence.

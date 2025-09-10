@@ -1,0 +1,39 @@
+---
+description: Documentation for the ProductsLocal class which extends LocalRepo for managing product data.
+globs: ['src/api/products/ProductsLocal.js']
+alwaysApply: false
+---
+
+# ProductsLocal.js Documentation
+
+## Overview
+The `ProductsLocal` class is a part of the local data management layer for products in the application. It extends the `LocalRepo` class, providing a specific implementation for handling product data stored locally.
+
+## Key Components
+- **ProductsLocal Class**: This class inherits from `LocalRepo`, which is a generic repository class designed to manage local data storage. The constructor of `ProductsLocal` initializes the repository with the name 'products' and the identifier 'id'.
+
+### Constructor
+```javascript
+constructor () {
+    super('products', 'id')
+}
+```
+The constructor calls the parent class's constructor with specific parameters that define the context of this repository.
+
+## Dependencies
+- **LocalRepo**: This file imports the `LocalRepo` class from `../LocalRepo`. The `LocalRepo` class provides the foundational methods and properties for local data management, which `ProductsLocal` builds upon.
+
+### Related Files
+- **ProductsRepo.js**: This file imports `ProductsLocal`, indicating that it likely uses this class to interact with product data in a local context.
+
+## Usage Example
+To use the `ProductsLocal` class, you would typically instantiate it and call its methods to manage product data. For example:
+```javascript
+const productsLocal = new ProductsLocal();
+// Use productsLocal to perform operations like add, remove, or fetch products.
+```
+
+## Best Practices
+- Ensure that any modifications to the product data are done through the `ProductsLocal` class to maintain data integrity.
+- When extending or modifying the `LocalRepo`, be cautious of how changes may affect the `ProductsLocal` class and its functionality.
+- Keep the naming conventions consistent to avoid confusion with other repository classes.

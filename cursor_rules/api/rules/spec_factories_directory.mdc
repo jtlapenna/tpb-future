@@ -1,0 +1,42 @@
+---
+description: Documentation for the spec/factories directory containing factory definitions for testing.
+globs: ['spec/factories/*']
+alwaysApply: false
+---
+
+# Overview of the `spec/factories` Directory
+
+The `spec/factories` directory is dedicated to defining factory objects used in tests throughout the codebase. These factories are essential for creating test data that mimics the structure and behavior of the application's models, allowing for effective unit and integration testing.
+
+## Summary of Key Files and Their Roles
+- **customer_order_store_products.rb**: Defines a factory for creating customer order store product instances, facilitating tests related to customer orders and their associated products.
+- **customer_syncs.rb**: Provides a factory for customer sync objects, which are used to test synchronization processes between customers and external systems.
+- **payment_gateway_providers.rb**: Contains a factory for payment gateway provider instances, essential for testing payment processing functionalities.
+- **order_customers.rb**: Defines a factory for order customer objects, helping to simulate customer-related data in order tests.
+- **customers.rb**: A factory for customer objects, which is fundamental for tests involving user interactions and customer management.
+- **expired_kiosk_products.rb**: Creates instances of expired kiosk products for testing scenarios related to product availability and expiration.
+- **store_category_kiosk_layouts.rb**: Defines layouts for store categories in kiosks, aiding in tests for UI and layout rendering.
+- **brand_and_store_categories.rb**: Provides factories for brand and store category objects, useful in tests that involve categorization and branding.
+- **payment_gateways.rb**: A factory for payment gateway objects, crucial for testing payment-related features.
+- **store_taxes.rb**: Defines store tax objects, which are important for testing tax calculations and compliance.
+- **carts.rb**: A factory for cart objects, essential for testing shopping cart functionalities.
+- **factories.rb**: A central file that may include shared configurations or methods for the factories defined in this directory.
+- **store_category_taxes.rb**: Provides factories for store category tax objects, useful in tax-related tests.
+- **ad_configs.rb**: Defines configurations for advertisements, aiding in tests related to marketing and promotions.
+- **store_product_promotions.rb**: A factory for store product promotions, essential for testing promotional features.
+- **duplicated_sku_deleted_logs.rb**: Creates instances for logging deleted duplicated SKUs, useful for testing data integrity and logging mechanisms.
+- **users.rb**: A factory for user objects, which is critical for tests involving user authentication and authorization.
+- **cart_items.rb**: Defines cart item objects, essential for testing the contents and behaviors of shopping carts.
+
+## Relationship to Other Parts of the Codebase
+The factories defined in this directory are utilized across various test files in the `spec` directory, allowing for consistent and efficient test data generation. They play a crucial role in ensuring that tests are reliable and maintainable by providing a clear structure for creating complex objects.
+
+## Common Patterns or Conventions Used
+- Each factory file typically follows a naming convention that reflects the model it represents, making it easy to identify the purpose of each factory.
+- Factories often include traits or sequences to handle variations in data, ensuring that tests can cover a wide range of scenarios without duplicating code.
+
+## Best Practices When Working with Files in This Directory
+- Keep factory definitions simple and focused on a single model to enhance readability and maintainability.
+- Use traits to encapsulate variations in factory data, allowing for flexible test scenarios without cluttering the main factory definition.
+- Regularly review and refactor factories to ensure they remain relevant and efficient as the application evolves.
+- Document any complex logic within factories to aid future developers in understanding their purpose and usage.

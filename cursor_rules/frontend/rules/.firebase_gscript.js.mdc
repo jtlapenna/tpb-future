@@ -1,0 +1,63 @@
+---
+description: Documentation for the GsClient class in .firebase/gscript.js
+globs: ['.firebase/gscript.js']
+alwaysApply: false
+---
+
+# GsClient Documentation
+
+## Overview
+The `GsClient` class is designed to facilitate communication with a remote server for event tracking and data management. It handles user authentication, data storage, and periodic uploads of event data to a specified server endpoint. This class utilizes the IndexedDB API for local data storage and manages access tokens for secure API interactions.
+
+## Key Components
+
+### 1. Constructor: `GsClient(options)`
+- **Parameters:**  
+  - `options`: An object containing configuration options such as `accountId`, `licenceKey`, `source`, and `uploadFrequency`.
+- **Functionality:** Initializes the client with default options and sets up the database for storing events.
+
+### 2. `openDb()`
+- **Purpose:** Opens a connection to the IndexedDB database and creates an object store for events if it does not already exist.
+
+### 3. `getToken(accountId, licenceKey, source)`
+- **Purpose:** Asynchronously retrieves an access token from the server using the provided account ID and license key. It also handles token refresh logic.
+
+### 4. `setIdentity(accountId, licenceKey, source)`
+- **Purpose:** Sets the identity of the client by storing the account details and obtaining an access token. It also manages local storage for various client states.
+
+### 5. `track(eventName, eventParams, userId, sessionId)`
+- **Purpose:** Tracks an event by storing its details in the local database. It prepares the data for eventual upload.
+
+### 6. `prepareUpload()`
+- **Purpose:** Prepares and initiates the upload of stored events to the server if there are any events available.
+
+### 7. `uploadEvents(storedData)`
+- **Purpose:** Uploads the events stored in the local database to the server and handles responses, including token expiration scenarios.
+
+### 8. `refreshAccessToken()`
+- **Purpose:** Refreshes the access token when it expires, ensuring continued access to the server.
+
+### 9. `resetUploadInProgressFlag(uploadFrequency)`
+- **Purpose:** Resets the upload in progress flag based on the last upload time and the specified upload frequency.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the browser's IndexedDB API and the Fetch API for network requests.
+
+## Usage Example
+To use the `GsClient`, instantiate it with the required options:
+```javascript
+const client = new GsClient({
+    accountId: 123,
+    licenceKey: 'your-licence-key',
+    source: 'your-source',
+    uploadFrequency: 5
+});
+
+client.track('event_name', { param1: 'value1' }, 'user_id', 'session_id');
+```
+
+## Best Practices
+- Ensure that the `accountId` and `licenceKey` are kept secure and not exposed in client-side code.
+- Regularly monitor the upload frequency to avoid overwhelming the server with requests.
+- Handle errors gracefully, especially in network requests, to improve user experience.
+- Consider implementing additional logging for debugging purposes, especially in production environments.

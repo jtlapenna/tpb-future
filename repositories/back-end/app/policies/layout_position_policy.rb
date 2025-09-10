@@ -1,0 +1,2 @@
+class LayoutPositionPolicy < ApplicationPolicy
+end

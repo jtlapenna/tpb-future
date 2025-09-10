@@ -1,0 +1,48 @@
+---
+description: Documentation for the ProductsRemote class that handles API interactions for products.
+globs: ['src/api/products/ProductsRemote.js']
+alwaysApply: false
+---
+
+# ProductsRemote.js Documentation
+
+## Overview
+The `ProductsRemote` class is responsible for handling API requests related to products in the application. It provides methods to retrieve a list of products and to fetch details of a specific product by its ID.
+
+## Key Components
+
+### ProductsRemote Class
+- **index(pageconfig)**: This method retrieves a list of products based on the provided pagination and sorting configuration. It defaults to fetching the first page with a maximum of 9999 products sorted by name.
+  - **Parameters**: 
+    - `pageconfig` (Object): An object containing pagination and sorting options. Default is `{ page: 1, per_page: 9999, sort_by: 'name' }`.
+  - **Returns**: A promise that resolves to the response from the HTTP GET request.
+
+- **show(productId)**: This method fetches the details of a specific product using its ID.
+  - **Parameters**: 
+    - `productId` (String): The ID of the product to retrieve.
+  - **Returns**: A promise that resolves to the response from the HTTP GET request for the specific product.
+
+## Dependencies
+This file imports the `HTTP` module from `src/api/http.js`, which is used to make HTTP requests. The `ProductsRemote` class is also utilized by `src/api/products/ProductsRepo.js`, indicating that it plays a role in the data layer of the application.
+
+## Usage Examples
+```javascript
+import { ProductsRemote } from './ProductsRemote';
+
+const productsRemote = new ProductsRemote();
+
+// Fetching a list of products
+productsRemote.index().then(response => {
+  console.log(response.data);
+});
+
+// Fetching a specific product by ID
+productsRemote.show('12345').then(response => {
+  console.log(response.data);
+});
+```
+
+## Best Practices
+- Always handle the promises returned by the `index` and `show` methods to manage success and error responses appropriately.
+- Consider implementing error handling within the methods to provide more robust API interaction.
+- Keep the `pageconfig` object flexible to allow for different pagination and sorting needs as the application evolves.

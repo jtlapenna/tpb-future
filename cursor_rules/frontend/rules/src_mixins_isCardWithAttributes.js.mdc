@@ -1,0 +1,51 @@
+---
+description: This file contains a mixin for handling product attributes in a card component, specifically for managing THC and CBD values with appropriate units.
+globs: ['src/mixins/isCardWithAttributes.js']
+alwaysApply: false
+---
+
+# Overview
+
+The `isCardWithAttributes.js` file is a Vue.js mixin that provides computed properties and methods for managing product attributes, specifically focusing on THC and CBD values. It ensures that these values are displayed with the correct units (mg or %) and provides functionality for redirecting to product details.
+
+## Key Components
+
+### Functions
+- **addPercentage(string)**: This function takes a string input and appends 'mg' if neither 'mg' nor '%' is present. If both are present, it removes the '%' character. It currently does not handle edge cases where both 'mg' and '%' are present in an invalid format (e.g., '10mg mg' or '10% %').
+
+- **doesIncludeMG(string)**: A helper function that checks if the input string contains 'mg'.
+
+- **doesIncludePercentage(string)**: A helper function that checks if the input string contains '%'.
+
+### Computed Properties
+- **groupedAttributeValues**: Returns ungrouped attribute values from the product.
+- **showAttributesInCard**: A boolean indicating whether to show product attributes based on configuration.
+- **thc**: Retrieves the THC attribute from grouped attribute values.
+- **thcValue**: Computes the THC value using the `addPercentage` function.
+- **cbd**: Retrieves the CBD attribute from grouped attribute values.
+- **cbdValue**: Computes the CBD value using the `addPercentage` function.
+- **attributesColor**: Retrieves attribute colors from configuration.
+- **showAttributes**: A boolean indicating whether to show attributes based on configuration.
+
+### Methods
+- **redirectToProduct()**: Redirects the user to the product detail page using Vue Router.
+- **isZeroValue(valueString)**: Checks if the first character of the value string is '0'.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the Vue instance's properties and methods.
+
+## Usage Examples
+To use this mixin in a Vue component, you can include it as follows:
+```javascript
+import isCardWithAttributes from '@/mixins/isCardWithAttributes';
+
+export default {
+  mixins: [isCardWithAttributes],
+  // other component options
+};
+```
+
+## Best Practices
+- Ensure that the product data is clean and does not contain invalid formats for THC and CBD values to avoid unexpected behavior in the `addPercentage` function.
+- Consider refactoring the `addPercentage` function to handle edge cases more robustly in the future.
+- Keep the configuration values (like `SHOW_PRODUCT_ATTRIBUTES` and `ATTRIBUTE_COLORS`) consistent across the application to maintain uniformity in how attributes are displayed.

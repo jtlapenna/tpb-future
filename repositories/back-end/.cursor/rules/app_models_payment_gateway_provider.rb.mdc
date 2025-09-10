@@ -1,0 +1,38 @@
+---
+description: Documentation for the PaymentGatewayProvider model in the application.
+globs: ['app/models/payment_gateway_provider.rb']
+alwaysApply: false
+---
+
+# PaymentGatewayProvider Model Documentation
+
+## Overview
+The `PaymentGatewayProvider` class is an ActiveRecord model that represents a payment gateway provider in the application. It is responsible for managing the data related to payment gateways, including their names and associated fields.
+
+## Key Components
+- **Class Definition**: The class `PaymentGatewayProvider` inherits from `ApplicationRecord`, which means it has access to all the functionalities provided by ActiveRecord, including database interactions.
+- **Schema Information**: The model is backed by a database table named `payment_gateway_providers`, which contains the following fields:
+  - `id`: A unique identifier for each payment gateway provider (primary key).
+  - `fields`: An array of strings that can hold various attributes related to the payment gateway, initialized as an empty array by default.
+  - `name`: A string representing the name of the payment gateway provider.
+  - `created_at`: A timestamp indicating when the record was created.
+  - `updated_at`: A timestamp indicating when the record was last updated.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, relying solely on ActiveRecord for database interactions.
+
+## Usage Examples
+To create a new payment gateway provider, you can use the following code:
+```ruby
+provider = PaymentGatewayProvider.create(name: 'Stripe', fields: ['api_key', 'secret_key'])
+```
+
+To retrieve all payment gateway providers:
+```ruby
+providers = PaymentGatewayProvider.all
+```
+
+## Best Practices
+- Ensure that the `fields` array is used appropriately to store relevant attributes for each payment gateway provider. Avoid storing unrelated data in this array.
+- When creating or updating records, validate the presence of the `name` field to ensure that each provider has a unique identifier.
+- Consider adding validations or methods to handle specific business logic related to payment gateways, such as checking if a provider is active or supported.

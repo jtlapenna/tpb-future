@@ -1,0 +1,36 @@
+---
+description: Documentation for the back-end repository analysis, outlining the structure, strengths, weaknesses, and next steps for improvement.
+globs: ['REPOSITORY_ANALYSIS.md']
+alwaysApply: false
+---
+
+# Back-end Repository Analysis Documentation
+
+## Overview
+This document provides a comprehensive analysis of the back-end repository's structure, including its core components, dependencies, API endpoints, test coverage, strengths, areas for improvement, and next steps. It serves as a guide for developers to understand the current state of the codebase and identify opportunities for enhancement.
+
+## Key Components
+### 1. Current Structure
+- **Core Components**: Lists the main areas of functionality, including API controllers, models, and testing frameworks.
+- **Dependencies**: Details the core and development/test gems that the project relies on, such as Rails, PostgreSQL, and RSpec.
+- **API Endpoints**: Describes the various API endpoints available for e-commerce, store management, user management, and more.
+- **Test Coverage**: Outlines the testing strategy, including coverage requirements and the tools used for testing.
+- **Documentation**: Explains how API documentation is generated and where it can be found.
+
+### 2. Current State Analysis
+- **Strengths**: Highlights the positive aspects of the codebase, such as well-structured API versioning and comprehensive test setups.
+- **Areas for Improvement**: Identifies weaknesses, including missing documentation and potential refactoring opportunities.
+
+### 3. Next Steps
+- Provides actionable items for developers to enhance the codebase, such as documenting the API versioning strategy and implementing rate limiting.
+
+## Dependencies
+This file does not import or get imported by any other files in the repository, making it a standalone document that summarizes the repository's analysis.
+
+## Usage Examples
+While this document does not contain specific code examples, it serves as a reference for understanding the overall architecture and areas for improvement in the codebase. Developers can use this analysis to prioritize tasks and focus on enhancing the repository's functionality.
+
+## Best Practices
+- Regularly update the analysis document to reflect changes in the codebase.
+- Ensure that all new features and improvements are documented in the context of this analysis.
+- Use the strengths identified in this document to guide future development efforts and maintain high standards in code quality and documentation.

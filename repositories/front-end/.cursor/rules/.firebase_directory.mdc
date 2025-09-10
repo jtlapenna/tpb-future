@@ -1,0 +1,25 @@
+---
+description: Documentation for the .firebase directory containing Firebase-related scripts.
+globs: ['.firebase/*']
+alwaysApply: false
+---
+
+# .firebase Directory Documentation
+
+## Overview
+The `.firebase` directory is dedicated to managing Firebase-related scripts and configurations within the codebase. It serves as a central location for all Firebase functionalities that the application utilizes.
+
+## Key Files
+- **gscript.js**: This is the primary script file in the `.firebase` directory. It contains the logic for interacting with Firebase services, such as authentication, database operations, and cloud functions. Developers should refer to this file for implementing or modifying Firebase-related features.
+
+## Relation to Other Parts of the Codebase
+The `.firebase` directory is integral to the application as it encapsulates all Firebase interactions. Other parts of the codebase may call functions defined in `gscript.js` to perform operations like user authentication or data retrieval. Understanding the contents of this directory is crucial for developers working on features that rely on Firebase.
+
+## Common Patterns and Conventions
+- **Modular Functions**: Functions in `gscript.js` should be modular and reusable to promote code efficiency and maintainability.
+- **Error Handling**: Implement robust error handling within Firebase interactions to ensure that the application can gracefully handle issues such as network failures or permission errors.
+
+## Best Practices
+- **Keep Dependencies Local**: Since this directory does not import from any external files, ensure that all necessary Firebase SDKs are included within the `gscript.js` file or are initialized properly in the project.
+- **Documentation**: Comment your code thoroughly within `gscript.js` to explain the purpose of each function and any complex logic. This will aid future developers in understanding the codebase.
+- **Testing**: Regularly test the functionalities implemented in this directory to ensure they work as expected, especially after making changes to the Firebase configuration or the script itself.

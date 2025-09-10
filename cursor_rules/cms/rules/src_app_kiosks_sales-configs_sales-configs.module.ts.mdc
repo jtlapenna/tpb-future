@@ -1,0 +1,46 @@
+---
+description: Module for managing sales configurations in the kiosks feature of the application.
+globs: ['src/app/kiosks/sales-configs/sales-configs.module.ts']
+alwaysApply: false
+---
+
+# SalesConfigsModule Documentation
+
+## Overview
+The `SalesConfigsModule` is an Angular module that encapsulates the functionality related to managing sales configurations within the kiosks feature of the application. It sets up routing for sales configuration views and provides necessary services to handle business logic.
+
+## Key Components
+- **SalesConfigsListComponent**: A component that displays a list of sales configurations.
+- **SalesConfigsComponent**: A component for creating or editing a specific sales configuration.
+- **SalesConfigService**: A service that provides methods to interact with sales configuration data.
+- **AttributeService, AttributeGroupService, BrandService, ProductService**: Services that provide additional data and functionality related to attributes, brands, and products.
+
+## Routing
+The module defines the following routes:
+- `''`: Displays the `SalesConfigsListComponent`.
+- `'new'`: Displays the `SalesConfigsComponent` for creating a new sales configuration.
+- `':configId'`: Displays the `SalesConfigsComponent` for editing an existing sales configuration based on the provided `configId`.
+
+## Dependencies
+This module imports several services and components:
+- **Components**:  
+  - `SalesConfigsListComponent`  
+  - `SalesConfigsComponent`  
+
+- **Services**:  
+  - `SalesConfigService`  
+  - `AttributeService`  
+  - `AttributeGroupService`  
+  - `BrandService`  
+  - `ProductService`  
+
+It is imported by the `KiosksModule`, which likely aggregates various kiosk-related functionalities.
+
+## Usage Example
+To use the `SalesConfigsModule`, ensure it is imported in the parent module (e.g., `KiosksModule`). The routes defined in this module will be available for navigation within the application.
+
+## Best Practices
+- Ensure that services are provided at the module level to avoid multiple instances across components.
+- Keep components focused on a single responsibility to enhance maintainability.
+- Use Angular's dependency injection to manage service instances effectively.
+- Follow naming conventions for components and services to maintain clarity in the codebase.

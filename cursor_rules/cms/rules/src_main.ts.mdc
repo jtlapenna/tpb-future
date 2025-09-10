@@ -1,0 +1,37 @@
+---
+description: Main entry point for the Angular application, responsible for bootstrapping the AppModule and initializing Sentry for error tracking.
+globs: ['src/main.ts']
+alwaysApply: false
+---
+
+# Overview
+
+The `src/main.ts` file serves as the main entry point for the Angular application. It is responsible for bootstrapping the root module (`AppModule`) and initializing Sentry for error tracking and performance monitoring.
+
+# Key Components
+
+- **Sentry Initialization**: The file imports Sentry and configures it with the DSN from the environment settings. It also sets up browser tracing to monitor performance and routing instrumentation.
+- **Production Mode**: The application checks if it is running in production mode and enables Angular's production optimizations if true.
+- **Bootstrap Module**: The `platformBrowserDynamic().bootstrapModule(AppModule)` function is called to start the application by bootstrapping the `AppModule`.
+
+# Dependencies
+
+This file imports the following modules:
+- `src/app/app.module.ts`: This is the root module of the Angular application, which declares and provides the components, services, and other modules used in the application.
+- `src/environments/environment.ts`: This file contains environment-specific settings, including the Sentry DSN and a flag indicating whether the application is in production mode.
+
+This file is not imported by any other files in the repository, making it a standalone entry point for the application.
+
+# Usage Examples
+
+To run the application, simply execute the Angular CLI command:
+```bash
+ng serve
+```
+This will compile the application and serve it locally, using the configurations defined in `environment.ts`.
+
+# Best Practices
+
+- **Environment Configuration**: Ensure that the `environment.ts` file is properly configured for different environments (development, production) to avoid exposing sensitive information.
+- **Error Tracking**: Regularly monitor Sentry for any reported errors and performance issues to maintain application health.
+- **Production Mode**: Always test the application in production mode to catch any issues that may not appear in development mode.

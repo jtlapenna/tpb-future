@@ -1,0 +1,55 @@
+---
+description: Documentation for the GsClient session management functionality.
+globs: ['sesion.js']
+alwaysApply: false
+---
+
+# GsClient Documentation
+
+## Overview
+The `sesion.js` file defines the `GsClient` function, which is responsible for managing user sessions, tracking events, and handling data uploads to a remote server. It utilizes the IndexedDB API for local data storage and provides methods for setting user identity, tracking events, and uploading collected data.
+
+## Key Components
+
+### GsClient(options)
+- **Purpose**: Initializes the GsClient with default options and sets up the necessary database and event tracking functionalities.
+- **Parameters**: 
+  - `options`: An object that can include `accountId`, `licenceKey`, `source`, and `uploadFrequency`.
+
+### Functions
+- **openDb**: Opens a connection to the IndexedDB and creates an object store for events if it doesn't exist.
+- **getObjectStore**: Retrieves the object store for performing read/write operations.
+- **deleteData**: Deletes specified records from the IndexedDB.
+- **getToken**: Asynchronously fetches an access token from the server using the provided account ID and licence key.
+- **setIdentity**: Sets the user's identity and stores relevant information in local storage.
+- **track**: Tracks an event by storing its details in local storage and the IndexedDB.
+- **setDataIntoLocalStorage**: Adds event data to the IndexedDB.
+- **getGsLocalData**: Retrieves stored data from the IndexedDB.
+- **prepareUpload**: Prepares and initiates the upload of events to the server.
+- **uploadEvents**: Handles the actual upload of events to the server and manages responses.
+- **refreshAccessToken**: Refreshes the access token when it expires.
+- **getCommonData**: Collects common data from local storage for uploads.
+- **resetUploadInProgressFlag**: Resets the upload status based on the last upload time and frequency.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the browser's IndexedDB and Fetch API.
+
+## Usage Example
+To use the `GsClient`, instantiate it with the required options:
+```javascript
+const client = new GsClient({
+    accountId: 12345,
+    licenceKey: 'your-licence-key',
+    source: 'your-source',
+    uploadFrequency: 5
+});
+
+client.setIdentity(12345, 'your-licence-key', 'your-source');
+client.track('event_name', { param1: 'value1' }, { response: 'response_data' }, 'session_id', 'user_id');
+```
+
+## Best Practices
+- Ensure that the `accountId` and `licenceKey` are valid before calling `setIdentity` to avoid invalid session errors.
+- Regularly check and handle the upload status to prevent data loss or duplication.
+- Use the `uploadFrequency` wisely to balance between data freshness and server load.
+- Handle errors gracefully, especially in asynchronous operations, to improve user experience.

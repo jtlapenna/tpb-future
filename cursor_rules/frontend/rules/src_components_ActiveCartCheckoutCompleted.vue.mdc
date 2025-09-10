@@ -1,0 +1,51 @@
+---
+description: Documentation for the ActiveCartCheckoutCompleted component in a Vue.js application.
+globs: ['src/components/ActiveCartCheckoutCompleted.vue']
+alwaysApply: false
+---
+
+# ActiveCartCheckoutCompleted.vue Documentation
+
+## Overview
+The `ActiveCartCheckoutCompleted.vue` component is responsible for displaying a message to the user after they have completed a checkout process. It provides visual feedback about the items added to the cart and offers options to continue shopping or finalize the order.
+
+## Key Components
+- **Template Structure**: The template consists of a main container that displays messages based on whether it is the user's first checkout or a subsequent one. It includes:
+  - A message indicating that items have been added to the cart.
+  - Conditional rendering based on the `isFirstCheckout` data property.
+  - An `active-cart-button` component that allows users to interact with their cart.
+  - A footer component for keeping shopping or finalizing the order.
+
+- **Data Properties**:
+  - `isFirstCheckout`: A boolean that determines if this is the user's first checkout.
+  - `timeout`: Used for managing timeouts in the component.
+
+- **Computed Properties**:
+  - `isNotFirstCheckout`: A computed property that returns the opposite of `isFirstCheckout`.
+
+- **Methods**:
+  - `keepShopping()`: Resets the active cart session and navigates the user to the shopping page after a short delay.
+  - `transitionEnter(el, done)`: Handles the entrance animation for the component using GSAP.
+  - `onTransitionLeave(el, done)`: Handles the exit animation for the component using GSAP.
+
+## Dependencies
+This component imports several other components:
+- `ActiveCartKeepShoppingButton`
+- `ActiveCartFinalizeOrderButton`
+- `ActiveCartButton`
+- `ActiveCartKeepShoppingFinalizeOrderFooter`
+
+These components are used to build the functionality of the checkout completion interface. Notably, this file does not import or export any other files in the repository, nor is it imported by any other files.
+
+## Usage Example
+To use this component, simply include it in your Vue template as follows:
+```html
+<active-cart-checkout-completed></active-cart-checkout-completed>
+```
+
+## Best Practices
+- Ensure that the `isFirstCheckout` property is correctly set based on the user's checkout status to provide accurate messaging.
+- When modifying the animations, be cautious with the GSAP timeline to avoid performance issues.
+- Keep the component's data properties and methods organized to maintain readability and ease of maintenance.
+
+By following these guidelines, developers can effectively utilize the `ActiveCartCheckoutCompleted` component within the application.

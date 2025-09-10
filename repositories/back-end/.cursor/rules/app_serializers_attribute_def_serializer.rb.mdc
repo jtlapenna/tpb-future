@@ -1,0 +1,38 @@
+---
+description: Serializer for AttributeDef model in the application.
+globs: ['app/serializers/attribute_def_serializer.rb']
+alwaysApply: false
+---
+
+# AttributeDefSerializer
+
+## Overview
+The `AttributeDefSerializer` class is responsible for serializing the `AttributeDef` model into a JSON format that can be easily consumed by clients. It leverages the `ActiveModel::Serializer` framework to define how the model's attributes and associations are represented in the serialized output.
+
+## Key Components
+- **Class Definition**: `AttributeDefSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to convert the model into a JSON representation.
+- **Attributes**: The `attributes` method specifies which fields of the `AttributeDef` model should be included in the serialized output. In this case, the fields are `id`, `name`, `restricted`, and `values`.
+- **Associations**: The `belongs_to` method indicates that the `AttributeDef` model is associated with an `AttributeGroup`. The `fields` option specifies that only the `id` and `name` fields of the associated `AttributeGroup` should be included in the serialized output.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, focusing solely on the serialization of the `AttributeDef` model.
+
+## Usage Example
+When an instance of `AttributeDef` is serialized, the output will include the specified attributes and the associated `AttributeGroup` fields. For example:
+```json
+{
+  "id": 1,
+  "name": "Sample Attribute",
+  "restricted": false,
+  "values": ["Value1", "Value2"],
+  "attribute_group": {
+    "id": 10,
+    "name": "Sample Group"
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data needed by the client. Avoid including unnecessary fields to keep the payload lightweight.
+- When adding new attributes or associations, consider the impact on performance and the size of the serialized output.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.

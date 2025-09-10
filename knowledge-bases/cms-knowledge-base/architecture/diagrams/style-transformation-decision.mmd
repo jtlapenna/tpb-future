@@ -1,0 +1,50 @@
+graph TB
+    %% Style Transformation Decision Tree
+    %% This diagram guides the transformation of different style patterns
+    
+    %% Define styles
+    classDef input fill:#00C796,stroke:#333,stroke-width:2px,color:white
+    classDef decision fill:#7168DF,stroke:#333,stroke-width:2px,color:white
+    classDef output fill:#EE991B,stroke:#333,stroke-width:2px,color:white
+    classDef export fill:#5dc4bf,stroke:#333,stroke-width:2px,color:white
+    
+    %% Initial Pattern Classification
+    A[Style Pattern]:::input --> B{Pattern Type?}:::decision
+    
+    %% Theme Branch
+    B -->|Theme| C{Variable Type?}:::decision
+    B -->|Component| D{Style Type?}:::decision
+    B -->|Layout| E{Layout Type?}:::decision
+    B -->|Utility| F{Utility Type?}:::decision
+    
+    %% Theme Transformations
+    C -->|Color| G[Theme Color]:::output
+    C -->|Typography| H[Theme Typography]:::output
+    C -->|Spacing| I[Theme Spacing]:::output
+    
+    %% Component Transformations
+    D -->|Static| J[Styled Component]:::output
+    D -->|Dynamic| K[Dynamic Styles]:::output
+    D -->|Conditional| L[Style Props]:::output
+    
+    %% Layout Transformations
+    E -->|Grid| M[Grid System]:::output
+    E -->|Flexbox| N[Flex Layout]:::output
+    E -->|Position| O[Position Utils]:::output
+    
+    %% Utility Transformations
+    F -->|Mixin| P[Style Function]:::output
+    F -->|Helper| Q[Utility Function]:::output
+    F -->|Class| R[Style Object]:::output
+    
+    %% Export Grouping
+    G & H & I --> S[Theme Provider]:::export
+    J & K & L --> T[Component Export]:::export
+    M & N & O --> U[Layout Export]:::export
+    P & Q & R --> V[Utility Export]:::export
+    
+    %% Add notes
+    %% Note: Each pattern type follows a specific transformation path
+    %% Note: Transformations are grouped by related functionality
+    %% Note: Exports are organized by their usage context
+    %% Note: All transformations maintain consistent styling patterns 

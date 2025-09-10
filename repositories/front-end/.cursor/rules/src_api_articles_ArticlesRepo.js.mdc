@@ -1,0 +1,37 @@
+---
+description: Documentation for the ArticlesRepo class in the Articles API module.
+globs: ['src/api/articles/ArticlesRepo.js']
+alwaysApply: false
+---
+
+# ArticlesRepo.js Documentation
+
+## Overview
+The `ArticlesRepo` class serves as a repository for managing articles in the application. It acts as an intermediary between the local and remote data sources, allowing for seamless data retrieval and storage.
+
+## Key Components
+- **ArticlesRepo Class**: Inherits from the `Repo` class and is initialized with instances of `ArticlesRemote` and `ArticlesLocal`. This setup allows the `ArticlesRepo` to fetch articles from both remote and local sources.
+
+### Constructor
+- **constructor()**: Calls the parent constructor with the remote and local article sources and a string identifier for the articles. This establishes the necessary connections to the data sources.
+
+## Dependencies
+- **ArticlesLocal**: This module handles local storage and retrieval of articles.
+- **ArticlesRemote**: This module manages the fetching of articles from a remote server.
+- **Repo**: The base class that provides common repository functionalities, which `ArticlesRepo` extends.
+
+## Usage Example
+To use the `ArticlesRepo`, you can import it in your application as follows:
+```javascript
+import articlesRepo from './ArticlesRepo';
+
+// Example usage
+articlesRepo.fetchAll().then(articles => {
+  console.log(articles);
+});
+```
+
+## Best Practices
+- Ensure that both `ArticlesLocal` and `ArticlesRemote` are properly implemented to avoid issues with data retrieval.
+- When extending the `Repo` class, make sure to adhere to the expected interface and functionality to maintain consistency across different repositories.
+- Consider implementing error handling when fetching data from remote sources to enhance the robustness of your application.

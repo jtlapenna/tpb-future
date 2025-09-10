@@ -1,0 +1,59 @@
+---
+description: Documentation for the spec/requests directory containing request specs for various models and features.
+globs: ['spec/requests/*']
+alwaysApply: false
+---
+
+# Overview of the `spec/requests` Directory
+
+The `spec/requests` directory contains request specs that are used to test the behavior of various endpoints in the application. These specs ensure that the application responds correctly to HTTP requests and that the expected data is returned.
+
+## Summary of Key Files and Their Roles
+- **attribute_groups_spec.rb**: Tests related to attribute groups, ensuring that the API handles them correctly.
+- **customer_order_spec.rb**: Validates the functionality of customer order endpoints, including creation, retrieval, and updates.
+- **brands_spec.rb**: Ensures that brand-related requests are processed correctly by the API.
+- **kiosk_product_layouts_spec.rb**: Tests the layout of products in kiosks, ensuring proper display and data integrity.
+- **assets_spec.rb**: Validates the handling of asset-related requests, such as images and files.
+- **store_articles_spec.rb**: Tests the interaction with articles related to stores, ensuring correct data retrieval and manipulation.
+- **store_syncs_spec.rb**: Validates synchronization processes for store data.
+- **articles_spec.rb**: Tests the article endpoints, ensuring that CRUD operations work as expected.
+- **payment_gateways_spec.rb**: Ensures that payment gateway integrations are functioning correctly.
+- **kiosk_products_spec.rb**: Tests the product-related requests specific to kiosks.
+- **store_categories_spec.rb**: Validates the handling of store categories through the API.
+- **user_tokens_spec.rb**: Tests the generation and validation of user tokens for authentication.
+- **carts_request_spec.rb**: Ensures that cart-related requests are processed correctly.
+- **store_product_promotions_request_spec.rb**: Validates the handling of promotions for store products.
+- **reviews_spec.rb**: Tests the functionality of product reviews through the API.
+- **kiosk_layouts_spec.rb**: Ensures that kiosk layouts are correctly managed and displayed.
+- **store_prices_spec.rb**: Validates the handling of pricing information for stores.
+- **rfid_products_spec.rb**: Tests the handling of RFID-enabled products.
+- **products_spec.rb**: Ensures that product-related requests are functioning as expected.
+- **kiosk_brands_request_spec.rb**: Validates the handling of brands specific to kiosks.
+- **tags_spec.rb**: Tests the functionality of tags within the application.
+- **tag_infos_spec.rb**: Validates the retrieval and management of tag information.
+- **store_category_taxes_spec.rb**: Ensures that tax calculations for store categories are handled correctly.
+- **categories_spec.rb**: Tests the handling of general categories through the API.
+- **store_products_spec.rb**: Validates the management of products within stores.
+- **store_taxes_spec.rb**: Ensures that tax-related requests for stores are processed correctly.
+- **stores_spec.rb**: Tests the functionality of store-related requests.
+- **product_layouts_spec.rb**: Validates the layout of products in the application.
+- **ad_config_request_spec.rb**: Tests the configuration of advertisements through the API.
+- **product_variants_spec.rb**: Ensures that product variants are handled correctly.
+- **attribute_defs_spec.rb**: Validates the handling of attribute definitions.
+- **users_spec.rb**: Tests user-related requests, including registration and authentication.
+- **payment_gateway_providers_spec.rb**: Ensures that payment gateway providers are managed correctly.
+- **kiosks_spec.rb**: Validates the handling of kiosk-related requests.
+- **clients_spec.rb**: Tests the functionality of client-related requests.
+
+## Relationship to Other Parts of the Codebase
+The `spec/requests` directory is integral to the testing framework of the application, ensuring that the API behaves as expected. It interacts closely with the models and controllers defined in the application, providing a layer of validation for the endpoints exposed to clients.
+
+## Common Patterns or Conventions Used
+- Each spec file typically corresponds to a specific model or feature, following a naming convention that reflects its purpose.
+- Request specs often utilize RSpec's `describe` and `it` blocks to structure tests clearly, making it easy to understand the expected behavior of each endpoint.
+
+## Best Practices When Working with Files in This Directory
+- Keep tests focused and concise, ensuring that each spec file tests a single aspect of the API.
+- Use `let` and `before` blocks to set up common data and states, reducing duplication across tests.
+- Regularly run the test suite to ensure that changes in the application do not break existing functionality.
+- Write clear and descriptive test cases that explain the purpose of each test, making it easier for others to understand the intent behind the tests.

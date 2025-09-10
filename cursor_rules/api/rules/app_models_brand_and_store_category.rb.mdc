@@ -1,0 +1,62 @@
+---
+description: Documentation for the BrandAndStoreCategory model in the application.
+globs: ['app/models/brand_and_store_category.rb']
+alwaysApply: false
+---
+
+# BrandAndStoreCategory Model Documentation
+
+## Overview
+The `BrandAndStoreCategory` model represents the relationship between brands and store categories in the application. It is responsible for managing the associations and validations related to these entities, ensuring that each combination of brand and store category is unique.
+
+## Key Components
+- **Class Definition**: `BrandAndStoreCategory < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the model with ActiveRecord functionalities.
+
+- **Associations**:
+  - `belongs_to :brand`: Establishes a one-to-many relationship with the `Brand` model.
+  - `belongs_to :store_category`: Establishes a one-to-many relationship with the `StoreCategory` model.
+  - `has_many :rfid_products`: Defines a one-to-many relationship with the `RfidProduct` model, specifying `rfid_entity_id` as the foreign key and enabling cascading deletes with `dependent: :destroy`.
+
+- **Validations**:
+  - `validates :brand_id, uniqueness: { scope: :store_category_id }`: Ensures that each brand can only be associated with a specific store category once, enforcing data integrity.
+
+- **Instance Method**:
+  - `def name`: Returns the name of the associated brand, providing a convenient way to access the brand's name directly from the `BrandAndStoreCategory` instance.
+
+## Schema Information
+The model corresponds to the `brand_and_store_categories` table in the database, which includes the following fields:
+- `id`: Primary key
+- `created_at`: Timestamp for record creation
+- `updated_at`: Timestamp for record updates
+- `brand_id`: Foreign key referencing the `brands` table
+- `kiosk_id`: Foreign key referencing the `kiosks` table
+- `store_category_id`: Foreign key referencing the `store_categories` table
+
+### Indexes
+- Unique index on `(brand_id, store_category_id)` to enforce uniqueness.
+- Additional indexes on `brand_id`, `kiosk_id`, and `store_category_id` for performance optimization.
+
+### Foreign Keys
+- `brand_id` references `brands.id`
+- `kiosk_id` references `kiosks.id`
+- `store_category_id` references `store_categories.id`
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on its defined associations and validations.
+
+## Usage Examples
+To create a new `BrandAndStoreCategory` instance:
+```ruby
+brand_and_store_category = BrandAndStoreCategory.create(brand_id: 1, store_category_id: 2)
+```
+To retrieve the name of the brand associated with a `BrandAndStoreCategory`:
+```ruby
+brand_and_store_category = BrandAndStoreCategory.find(1)
+puts brand_and_store_category.name
+```
+
+## Best Practices
+- Ensure that the `brand_id` and `store_category_id` are valid and exist in their respective tables before creating a `BrandAndStoreCategory` instance.
+- Use the `dependent: :destroy` option cautiously to avoid unintentional data loss when deleting associated records.
+- Regularly review the uniqueness validation to ensure it meets the evolving requirements of the application.

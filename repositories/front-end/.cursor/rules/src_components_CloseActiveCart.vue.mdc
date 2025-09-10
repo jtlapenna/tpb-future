@@ -1,0 +1,29 @@
+---
+description: Documentation for the CloseActiveCart component in a Vue.js application.
+globs: ['src/components/CloseActiveCart.vue']
+alwaysApply: false
+---
+
+# CloseActiveCart Component
+
+## Overview
+The `CloseActiveCart` component is a Vue.js component designed to provide a user interface element that allows users to close an active shopping cart. It encapsulates the functionality of displaying a button that, when clicked, will trigger the action to close the cart.
+
+## Key Components
+- **Template**: The template consists of a main container that includes a button for closing the active cart. The button is represented by the `ActiveCartButton` component, which is imported and used within this component.
+- **Script**: The script section imports the `ActiveCartButton` component and sets up the component's structure, including its name and lifecycle hooks. Currently, the data, computed properties, watch, filters, and methods sections are defined but not utilized, indicating potential areas for future development.
+- **Styles**: The styles are scoped to this component and define the layout and appearance of the container and button elements, ensuring that they are visually distinct and appropriately positioned.
+
+## Dependencies
+This component does not import any other files from the repository, nor is it imported by any other files. It stands alone, relying solely on the `ActiveCartButton` component for its functionality.
+
+## Usage Example
+To use the `CloseActiveCart` component, simply include it in a parent component's template as follows:
+```html
+<close-active-cart></close-active-cart>
+```
+
+## Best Practices
+- **Component Reusability**: Since this component is designed to be reusable, ensure that any props or events that may be needed for interaction with parent components are clearly defined and documented.
+- **Lifecycle Hooks**: Consider implementing logic within the lifecycle hooks (e.g., `created`, `mounted`) to handle any necessary setup or cleanup tasks.
+- **Styling**: Maintain the scoped styles to prevent conflicts with other components in the application. Adjust styles as necessary to fit the overall design of the application.

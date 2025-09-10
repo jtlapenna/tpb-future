@@ -1,0 +1,29 @@
+---
+description: Documentation for the GEXF file representing the dependency graph of the codebase.
+globs: ['mdc_output/dependency_graph.gexf']
+alwaysApply: false
+---
+
+# Dependency Graph GEXF File
+
+## Overview
+The `dependency_graph.gexf` file is an XML-based representation of the dependency graph for the codebase. It is generated using the NetworkX library and provides a visual and structured way to understand the relationships between various files in the project. This file is particularly useful for analyzing how different components of the codebase interact with each other.
+
+## Key Components
+- **XML Structure**: The file adheres to the GEXF (Graph Exchange XML Format) standard, which allows for the representation of graphs in a structured format.
+- **Meta Information**: Contains metadata such as the last modified date and the creator of the file (NetworkX version 3.4.2).
+- **Graph Definition**: The `<graph>` element defines the type of graph (directed, dynamic) and includes nodes and edges that represent files and their dependencies, respectively.
+- **Nodes**: Each `<node>` element represents a file in the codebase, identified by its `id` and `label`. Attributes can be associated with nodes to provide additional context (e.g., file type).
+- **Edges**: Each `<edge>` element represents a dependency between two files, indicating which file imports which other file. The `source` and `target` attributes define the direction of the dependency.
+
+## Dependencies
+- **No Imports**: This file does not import any other files in the repository.
+- **Not Imported**: This file is not imported by any other files in the repository.
+
+## Usage Examples
+While this file is primarily used for visualization and analysis, it can be utilized in various tools that support GEXF format to generate graphical representations of the dependency graph. For example, you can use tools like Gephi to visualize the relationships between files.
+
+## Best Practices
+- **Regular Updates**: Ensure that the dependency graph is updated regularly to reflect changes in the codebase. This can be automated as part of the build process.
+- **Validation**: Validate the GEXF file against the GEXF schema to ensure it adheres to the expected format and structure.
+- **Documentation**: Keep this documentation updated alongside the codebase to help new developers understand the structure and purpose of the dependency graph.

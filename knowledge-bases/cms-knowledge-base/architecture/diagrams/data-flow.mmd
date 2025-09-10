@@ -1,0 +1,48 @@
+graph LR
+    %% Data Flow Diagram
+    %% This diagram illustrates the flow of style data through the system
+    
+    %% Define styles
+    classDef input fill:#00C796,stroke:#333,stroke-width:2px,color:white
+    classDef process fill:#7168DF,stroke:#333,stroke-width:2px,color:white
+    classDef output fill:#EE991B,stroke:#333,stroke-width:2px,color:white
+    
+    %% Main Flow
+    A[Angular Source]:::input --> B[Style Extractor]
+    B --> C[Pattern Analyzer]
+    C --> D[Transformer]
+    D --> E[Validator]
+    E --> F[React Output]:::output
+    
+    %% Input Processing Components
+    subgraph Input Processing
+        B --> G[Theme Variables]:::input
+        B --> H[Component Styles]:::input
+        B --> I[Global Styles]:::input
+    end
+    
+    %% Analysis Components
+    subgraph Analysis
+        C --> J[Pattern Detection]:::process
+        C --> K[Dependency Analysis]:::process
+        C --> L[Usage Analysis]:::process
+    end
+    
+    %% Transformation Components
+    subgraph Transformation
+        D --> M[styled-components]:::process
+        D --> N[Theme Provider]:::process
+        D --> O[Global Styles]:::process
+    end
+    
+    %% Validation Components
+    subgraph Validation
+        E --> P[Visual Tests]:::output
+        E --> Q[Performance]:::output
+        E --> R[Accessibility]:::output
+    end
+    
+    %% Add notes
+    %% Note: Each subgraph represents a distinct phase in the data flow process
+    %% Note: The main flow shows the sequential transformation of styles
+    %% Note: Validation ensures the quality of the transformed styles 

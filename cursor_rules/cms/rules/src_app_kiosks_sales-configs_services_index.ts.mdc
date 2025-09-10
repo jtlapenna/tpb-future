@@ -1,0 +1,41 @@
+---
+description: Documentation for the sales-configs service index file in the kiosks module.
+globs: ['src/app/kiosks/sales-configs/services/index.ts']
+alwaysApply: false
+---
+
+# Overview
+
+The `index.ts` file in the `src/app/kiosks/sales-configs/services/` directory serves as a re-exporting module for the `sales-config.service`. This allows for a cleaner import structure in other parts of the application, enabling developers to import all necessary services from a single entry point.
+
+# Purpose and Functionality
+
+This file consolidates exports from the `sales-config.service.ts` file, making it easier to manage and utilize the sales configuration services throughout the application. By re-exporting, it simplifies the import statements in other modules, promoting better organization and maintainability.
+
+# Key Components
+
+- **Export Statement**: The file contains a single export statement that re-exports everything from `sales-config.service.ts`. This means that any functions, classes, or constants defined in `sales-config.service.ts` can be accessed directly from this index file.
+
+  ```typescript
+  export * from './sales-config.service';
+  ```
+
+# Dependencies
+
+This file does not import any other files, nor is it imported by any other files in the repository. It acts as a standalone entry point for the services defined in `sales-config.service.ts`.
+
+# Usage Examples
+
+To use the services defined in `sales-config.service.ts`, you can import them directly from this index file:
+
+```typescript
+import { SalesConfigService } from 'src/app/kiosks/sales-configs/services';
+```
+
+This approach keeps your import statements clean and concise, especially when multiple services are needed from the same directory.
+
+# Best Practices
+
+- **Keep Exports Organized**: Ensure that all relevant services are exported from `sales-config.service.ts` so that they can be easily accessed through this index file.
+- **Maintain Clarity**: If additional services are added in the future, consider updating this index file accordingly to reflect those changes.
+- **Avoid Circular Dependencies**: Since this file does not import anything, it helps prevent circular dependency issues, which can lead to runtime errors. Always be cautious when adding new imports to maintain this integrity.

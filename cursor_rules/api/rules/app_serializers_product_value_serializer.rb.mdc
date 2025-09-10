@@ -1,0 +1,37 @@
+---
+description: Serializer for product values in the application.
+globs: ['app/serializers/product_value_serializer.rb']
+alwaysApply: false
+---
+
+# ProductValueSerializer
+
+## Overview
+The `ProductValueSerializer` is a serializer class that is part of the ActiveModel::Serializer framework. It is responsible for defining how product value objects are represented in JSON format when they are serialized for API responses. This is particularly useful in applications that expose a RESTful API, allowing for a clean and structured output of product data.
+
+## Key Components
+- **Class**: `ProductValueSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+  - **Attributes**: The serializer specifies three attributes to be included in the serialized output:
+    - `id`: The unique identifier for the product value.
+    - `name`: The name of the product value.
+    - `value`: The actual value associated with the product.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for product values, meaning it does not rely on or affect other components directly.
+
+## Usage Example
+When a product value object is serialized, it will output a JSON representation that looks like this:
+```json
+{
+  "id": 1,
+  "name": "Sample Product",
+  "value": 100.0
+}
+```
+This output can be used in API responses to provide clients with structured data about product values.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data model and are relevant to the API consumers.
+- Keep the serializer focused on a single responsibility; avoid adding unnecessary logic or methods that do not pertain to serialization.
+- Regularly review and update the serializer as the underlying data model changes to ensure consistency in API responses.

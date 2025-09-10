@@ -1,0 +1,40 @@
+---
+description: Policy class for managing access control to RFID products.
+globs: ['app/policies/rfid_product_policy.rb']
+alwaysApply: false
+---
+
+# RfidProductPolicy Documentation
+
+## Overview
+The `RfidProductPolicy` class is responsible for defining the authorization rules for accessing and managing RFID products within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application.
+
+## Key Components
+
+### Classes
+- **RfidProductPolicy**: This is the main policy class that defines the rules for various actions related to RFID products.
+  - **Scope**: A nested class that determines the set of records that the user is allowed to access. It overrides the `resolve` method to filter records based on the user's role.
+
+### Methods
+- **resolve**: This method checks if the user is an admin. If so, it returns the entire scope of RFID products. Otherwise, it restricts the scope to only those products owned by the user.
+- **index?**: This method returns true if a user is present, allowing them to view the list of RFID products.
+- **create?**: Similar to `index?`, this method allows a user to create a new RFID product if they are authenticated.
+- **permitted_attributes**: This method defines the attributes that are permitted for mass assignment when creating or updating RFID products. It includes `rfid`, `rfid_entity_id`, `rfid_entity_type`, and `order`.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined within it when checking permissions in your controllers or views. For example:
+```ruby
+if RfidProductPolicy.new(user, rfid_product).create?
+  # Allow creation of RFID product
+else
+  # Deny access
+end
+```
+
+## Best Practices
+- Ensure that the user object is always passed to the policy methods to avoid unexpected behavior.
+- Regularly review and update the permitted attributes in the `permitted_attributes` method to align with any changes in the database schema or business requirements.
+- Use the `Scope` class to manage access to collections of records effectively, ensuring that users only see what they are authorized to access.

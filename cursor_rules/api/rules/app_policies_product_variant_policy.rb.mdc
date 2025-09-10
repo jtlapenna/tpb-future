@@ -1,0 +1,35 @@
+---
+description: Documentation for the ProductVariantPolicy class in the application policies.
+globs: ['app/policies/product_variant_policy.rb']
+alwaysApply: false
+---
+
+# ProductVariantPolicy Documentation
+
+## Overview
+The `ProductVariantPolicy` class is responsible for defining the authorization rules for the `ProductVariant` model within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application. This policy determines what actions a user can perform on product variants, such as viewing and searching.
+
+## Key Components
+- **Class Definition**: `ProductVariantPolicy` inherits from `ApplicationPolicy`, allowing it to utilize shared authorization logic.
+- **Authorization Methods**:  
+  - `index?`: Returns true if a user is present, allowing access to the index of product variants.  
+  - `show?`: Returns true if a user is present, allowing access to view a specific product variant.  
+  - `search?`: Returns true if a user is present, allowing the user to search for product variants.  
+  - `tags?`: Returns true if a user is present, allowing access to the tags associated with product variants.
+- **Permitted Attributes**:  
+  The `permitted_attributes` method defines a list of attributes that can be mass-assigned when creating or updating product variants. This includes attributes like `name`, `product_id`, `brand_id`, and nested attributes for `attribute_values`, `video`, `reviews`, and `image_ids`.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying on the base functionality provided by `ApplicationPolicy`.
+
+## Usage Examples
+To check if a user can view a product variant:
+```ruby
+policy = ProductVariantPolicy.new(user, product_variant)
+policy.show?  # returns true if user is present
+```
+
+## Best Practices
+- Ensure that the `user` object is always defined before calling any authorization methods to avoid unexpected errors.
+- Regularly review the `permitted_attributes` to ensure that only the necessary attributes are exposed for mass assignment, maintaining security and data integrity.
+- Consider adding more granular permissions if the application grows in complexity, such as roles or specific user permissions.

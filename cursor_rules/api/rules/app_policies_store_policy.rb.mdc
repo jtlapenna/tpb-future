@@ -1,0 +1,46 @@
+---
+description: Policy class for managing access control to store resources.
+globs: ['app/policies/store_policy.rb']
+alwaysApply: false
+---
+
+# StorePolicy Documentation
+
+## Overview
+The `StorePolicy` class is responsible for defining the authorization rules for accessing store resources within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes. This policy determines what actions a user can perform based on their role (admin or regular user).
+
+## Key Components
+
+### Classes
+- **StorePolicy**: Main class that defines the authorization rules for store-related actions.
+  - **Scope**: A nested class that defines the scope of records that a user can access. It checks if the user is an admin to return all records or restricts access to only those owned by the user.
+
+### Methods
+- **resolve**: Determines which records are accessible based on the user's role. Admins can access all records, while regular users can only access their own.
+- **index?**: Returns true if the user is logged in, allowing them to view the list of stores.
+- **show?**: Returns true if the user is logged in, allowing them to view a specific store.
+- **update?**: Returns true if the user is logged in, allowing them to update store information.
+- **generate_token?**: Returns true if the user is an admin, allowing them to generate tokens for stores.
+- **tax_customer_types?**: Returns true if the user is an admin, allowing them to manage tax customer types.
+- **get_inventory_types?**: Returns true if the user is an admin, allowing them to retrieve inventory types.
+- **permitted_attributes**: Returns an array of attributes that are permitted for mass assignment based on the user's role. Admins have access to additional attributes.
+- **permitted_settings_attributes**: Similar to `permitted_attributes`, but specifically for settings-related attributes, with additional attributes available for admins.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use the `StorePolicy`, you would typically instantiate it in a controller action to check if a user has permission to perform a specific action:
+```ruby
+class StoresController < ApplicationController
+  def show
+    @store = Store.find(params[:id])
+    authorize @store  # This will invoke StorePolicy#show?
+  end
+end
+```
+
+## Best Practices
+- Always ensure that the `permitted_attributes` and `permitted_settings_attributes` methods are updated when new attributes are added to the store model to maintain security and integrity.
+- Use the `authorize` method in controllers to enforce policy checks before performing actions on store resources.
+- Keep the policy logic simple and focused on authorization; avoid including business logic that belongs in models or services.

@@ -1,0 +1,38 @@
+---
+description: Serializer for product variant data in a minimal format.
+globs: ['app/serializers/product_variant_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# ProductVariantMinimalSerializer
+
+## Overview
+The `ProductVariantMinimalSerializer` is a serializer class that formats the output of product variant data in a minimalistic way. It is part of the ActiveModel Serializers framework, which is used to create JSON representations of Ruby objects. This serializer is specifically designed to include only essential attributes of a product variant, making it suitable for lightweight API responses.
+
+## Key Components
+- **Class Declaration**: `ProductVariantMinimalSerializer < ActiveModel::Serializer`
+  - This line defines the `ProductVariantMinimalSerializer` class, inheriting from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+
+- **Attributes**: `attributes :id, :name, :product_id`
+  - This line specifies the attributes that will be included in the serialized output. In this case, it includes the `id`, `name`, and `product_id` of the product variant.
+
+- **Associations**: `belongs_to :brand, serializer: BrandMinimalSerializer`
+  - This line indicates that each product variant is associated with a brand. The brand will be serialized using the `BrandMinimalSerializer`, allowing for a nested representation of the brand data within the product variant response.
+
+- **Custom Method**: `def name`
+  - This method overrides the default behavior for the `name` attribute. It returns the `name` of the product variant if it exists; otherwise, it falls back to the name of the associated product. This ensures that the response always contains a meaningful name.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently, relying solely on the ActiveModel Serializers framework and the defined associations.
+
+## Usage Examples
+To use this serializer, you would typically render a product variant in a controller action like so:
+```ruby
+render json: @product_variant, serializer: ProductVariantMinimalSerializer
+```
+This will return a JSON response containing the `id`, `name`, and `product_id` of the product variant, along with the associated brand information.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers to avoid over-fetching data.
+- Use custom methods judiciously to provide fallback values or computed attributes, as seen with the `name` method.
+- Keep the serializer focused on minimal data representation to enhance performance, especially in API responses.

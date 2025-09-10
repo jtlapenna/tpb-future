@@ -1,0 +1,51 @@
+---
+description: Documentation for the RfidProduct model in the application.
+globs: ['app/models/rfid_product.rb']
+alwaysApply: false
+---
+
+# RfidProduct Model Documentation
+
+## Overview
+The `RfidProduct` model represents a product associated with RFID technology in the application. It manages relationships with kiosks and store products, and includes functionality for data denormalization and notifications upon changes to the product's state.
+
+## Key Components
+- **Associations**:
+  - `belongs_to :kiosk_product`: Links to the `KioskProduct` model, allowing for optional association.
+  - `has_one :store_product`: Establishes a relationship through `kiosk_product`.
+  - `belongs_to :kiosk`: Optional association with a kiosk.
+  - `belongs_to :rfid_entity`: A polymorphic association that allows for flexibility in the type of entity associated with the RFID product.
+  - `belongs_to :brand_and_store_category`: Links to a brand and store category, also optional.
+
+- **Validations**:
+  - Ensures that `order` is present and is an integer.
+  - Validates the uniqueness of `rfid` scoped to `kiosk_id`.
+
+- **Callbacks**:
+  - `before_validation`: Triggers methods to denormalize the kiosk ID and convert RFID to uppercase before validation.
+  - `after_update_commit`, `after_create_commit`, `after_destroy_commit`: Notifies the associated store product of changes to the RFID product.
+
+- **Scopes**:
+  - `owner`: Filters RFID products by their associated kiosk owner.
+  - `sorted`: Orders RFID products by their ID in ascending order.
+  - `sorted_by_availability`: Orders products based on their availability in stock.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently but relies on the existence of associated models such as `KioskProduct` and `StoreProduct`.
+
+## Usage Examples
+To create a new RFID product:
+```ruby
+rfid_product = RfidProduct.new(rfid: '123456', order: 1)
+rfid_product.save
+```
+
+To find all RFID products for a specific kiosk owner:
+```ruby
+owner_products = RfidProduct.owner(owner_id)
+```
+
+## Best Practices
+- Ensure that the `rfid` values are unique and properly formatted before saving to avoid validation errors.
+- When modifying the `rfid_entity`, be aware of the implications on associated store products and ensure that notifications are correctly triggered.
+- Use scopes to efficiently query RFID products based on specific criteria, improving performance and readability of the code.

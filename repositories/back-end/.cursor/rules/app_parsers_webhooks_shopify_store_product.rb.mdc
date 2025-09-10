@@ -1,0 +1,43 @@
+---
+description: Documentation for the StoreProduct parser in the Shopify webhooks integration.
+globs: ['app/parsers/webhooks/shopify/store_product.rb']
+alwaysApply: false
+---
+
+# StoreProduct Parser Documentation
+
+## Overview
+The `StoreProduct` class is part of the Shopify webhooks integration, specifically designed to parse product data received from Shopify. It extends the base functionality provided by `Webhooks::Shopify::Base` and processes product information, including categorization, tagging, and inventory management.
+
+## Key Components
+- **Class Definition**: `Webhooks::Shopify::StoreProduct`
+  - Inherits from `Webhooks::Shopify::Base`.
+
+- **Method: `parse`**  
+  This is the main method responsible for parsing the incoming product data from Shopify. It performs the following tasks:
+  - Initializes collections and product hashes.
+  - Retrieves and processes collection IDs and titles from Shopify.
+  - Maps product variants to their respective collections and categories.
+  - Creates or finds the corresponding `StoreCategory` and `Brand` records in the database.
+  - Constructs a detailed hash for each product variant, including attributes like stock, SKU, weight, and images.
+
+- **Private Methods**:
+  - `status_active?`: Checks if the product status is active.
+  - `weight_to_miligram(weight_val, weight_unit)`: Converts weight from various units to milligrams for consistent storage.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the context of the Shopify webhook processing.
+
+## Usage Example
+To use the `StoreProduct` parser, you would typically instantiate it with the relevant payload data from a Shopify webhook and call the `parse` method:
+```ruby
+payload = { ... } # Shopify webhook payload
+store_product_parser = Webhooks::Shopify::StoreProduct.new(payload)
+parsed_data = store_product_parser.parse
+```
+
+## Best Practices
+- Ensure that the payload structure from Shopify matches the expected format to avoid parsing errors.
+- Handle exceptions gracefully, especially when dealing with external API calls (e.g., `ShopifyAPI::Collect.all`).
+- Regularly review and update the logic for handling product variants and collections as Shopify's API evolves.
+- Consider adding logging for debugging purposes, especially in production environments, to track the parsing process and any potential issues.

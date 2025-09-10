@@ -1,0 +1,61 @@
+---
+description: Documentation for the Image model in the application, detailing its purpose and functionality.
+globs: ['app/models/image.rb']
+alwaysApply: false
+---
+
+# Image Model Documentation
+
+## Overview
+The `Image` model represents images associated with various entities in the application. It is designed to handle image uploads and maintain relationships with other models, particularly `StoreProduct` and `ProductVariant`. This model ensures that images are validated and that relevant updates are made to associated products when images are created, updated, or destroyed.
+
+## Key Components
+
+### Validations
+- **Presence Validation**: The model validates that the `url` attribute is present, ensuring that every image has a valid URL.
+
+### Associations
+- **Polymorphic Association**: The `Image` model belongs to a polymorphic `imageable` entity, allowing it to be associated with different models (e.g., `StoreProduct`). This is defined with `belongs_to :imageable, polymorphic: true`.
+- **Primary and Thumbnail Products**: The model has two `has_many` associations with `StoreProduct`, one for primary images and another for thumbnail images. These associations are set to nullify the foreign key if the image is deleted.
+- **Product Variants**: The model also has a `has_and_belongs_to_many` relationship with `ProductVariant`, allowing multiple variants to be associated with an image.
+
+### Callbacks
+- **After Create**: The `notify_store_product_create` method updates the `last_updated_websocket` timestamp of the associated `StoreProduct` when a new image is created.
+- **After Update**: The `notify_store_product_update` method checks for changes in relevant fields and updates the associated `StoreProduct` accordingly.
+- **After Destroy**: The `notify_store_product_destroy` method updates the `last_updated_websocket` timestamp when an image is destroyed, ensuring that the associated product reflects the latest changes.
+
+### Schema Information
+The model is backed by a database table named `images`, which includes the following fields:
+- `id`: Primary key
+- `imageable_type`: Type of the associated entity
+- `url`: URL of the image (required)
+- `created_at`: Timestamp for creation
+- `updated_at`: Timestamp for last update
+- `imageable_id`: ID of the associated entity
+
+### Indexes
+An index is created on the combination of `imageable_type` and `imageable_id` to optimize queries involving polymorphic associations.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it self-contained. It relies on the `ApplicationRecord` as its base class, which is part of the Rails framework.
+
+## Usage Examples
+To create a new image associated with a `StoreProduct`:
+```ruby
+image = Image.create(url: 'http://example.com/image.jpg', imageable: store_product)
+```
+
+To update an existing image:
+```ruby
+image.update(url: 'http://example.com/new_image.jpg')
+```
+
+To delete an image:
+```ruby
+image.destroy
+```
+
+## Best Practices
+- Ensure that the `url` attribute is always provided when creating or updating an image.
+- Be cautious when deleting images, as this will nullify the associated foreign keys in `StoreProduct`.
+- Use the model's callbacks to maintain consistency in the associated `StoreProduct` records, especially when dealing with real-time updates.

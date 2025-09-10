@@ -1,0 +1,64 @@
+---
+description: Vuex store module for managing cart state and actions in a shopping application.
+globs: ['src/store/modules/cart.js']
+alwaysApply: false
+---
+
+# Cart Module Documentation
+
+## Overview
+This file defines a Vuex store module for managing the cart state in a shopping application. It provides state management for cart-related data, including the cart items, loading states, and user interactions with the cart.
+
+## Key Components
+
+### State
+- **isFromActiveCartActivation**: Boolean indicating if the cart is activated from an existing active cart.
+- **cart**: The current cart object, which holds the items in the cart.
+- **globalCart**: A workaround to access the cart from the main application component.
+- **phoneNumber**: The user's phone number associated with the cart.
+- **isActiveCartNotFound**: Boolean indicating if an active cart was not found during operations.
+- **isCartActivated**: Boolean indicating if the cart is currently activated.
+- **isLoading**: Boolean indicating if a cart operation is in progress.
+- **wasCartCreated**: Boolean indicating if a new cart was created during the last operation.
+- **isFromSaveCart**: Boolean indicating if the cart is being retrieved from a saved state.
+- **isFromCheckout**: Boolean indicating if the cart is being used for checkout.
+- **isAddingItemsFromRetrievedCart**: Boolean indicating if items are being added from a retrieved cart.
+
+### Getters
+Getters provide access to the state properties, allowing components to retrieve cart-related data easily.
+
+### Mutations
+Mutations are synchronous functions that modify the state. Key mutations include:
+- **resetActiveCartSession**: Resets the cart state to its initial values.
+- **setCart**: Sets the current cart object.
+- **setIsLoading**: Updates the loading state.
+- **setIsCartActivated**: Activates or deactivates the cart.
+
+### Actions
+Actions are asynchronous functions that commit mutations based on API calls. Key actions include:
+- **fetchActiveCart**: Fetches the active cart from the server based on the user's phone number.
+- **createOrMergeActiveCart**: Creates a new cart or merges it with an existing one.
+- **addProductToActiveCart**: Adds a product to the active cart.
+- **updateProductInActiveCart**: Updates the quantity of a product in the active cart.
+- **cartExists**: Checks if a cart exists for the given phone number.
+
+## Dependencies
+This module does not import any other files but is imported by:
+- **src/main.js**: Initializes the Vuex store with this module.
+- **src/store/store.js**: Integrates this module into the main store configuration.
+
+## Usage Examples
+To fetch the active cart for a user, you can dispatch the action as follows:
+```javascript
+store.dispatch('cart/fetchActiveCart', phoneNumber);
+```
+
+To add a product to the active cart:
+```javascript
+store.dispatch('cart/addProductToActiveCart', { product, qty });
+```
+
+## Best Practices
+- Ensure that the cart state is reset appropriately when a user logs out or switches accounts to avoid data leakage.
+- Handle loading states effectively to provide feedback to users during cart operations.
+- Use the Vuex devtools for debugging state changes and actions during development.

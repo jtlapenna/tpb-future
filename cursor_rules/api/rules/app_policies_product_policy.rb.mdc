@@ -1,0 +1,41 @@
+---
+description: Documentation for the ProductPolicy class in the application policies.
+globs: ['app/policies/product_policy.rb']
+alwaysApply: false
+---
+
+# ProductPolicy Documentation
+
+## Overview
+The `ProductPolicy` class is responsible for defining authorization rules for the `Product` model within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application. This policy determines what actions a user can perform on products, such as viewing and searching.
+
+## Key Components
+- **Class Definition**: `ProductPolicy < ApplicationPolicy`
+  - This class extends the `ApplicationPolicy`, allowing it to leverage shared authorization logic.
+
+- **Methods**:
+  - `index?`: Returns true if the user is present, allowing access to the index of products.
+  - `show?`: Returns true if the user is present, allowing access to view a specific product.
+  - `search?`: Returns true if the user is present, allowing the user to search for products.
+  - `tags?`: Returns true if the user is present, allowing access to product tags.
+  - `permitted_attributes`: Returns an array of attributes that are permitted for mass assignment when creating or updating products. This includes nested attributes for related models such as `attribute_values`, `video`, `images`, and `reviews`.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying on the base functionality provided by `ApplicationPolicy`.
+
+## Usage Examples
+To check if a user can view the product index:
+```ruby
+policy = ProductPolicy.new(user, product)
+policy.index? # => true or false
+```
+
+To get the permitted attributes for a product:
+```ruby
+policy.permitted_attributes # => [:name, :category_id, :description, ...]
+```
+
+## Best Practices
+- Ensure that the user object is always passed to the policy methods to avoid unexpected behavior.
+- Regularly review the permitted attributes to ensure they align with the current requirements of the application and do not expose sensitive data.
+- Use descriptive method names to clarify the purpose of each authorization check, making the code more readable and maintainable.

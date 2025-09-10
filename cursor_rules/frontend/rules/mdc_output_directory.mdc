@@ -1,0 +1,27 @@
+---
+description: Documentation for the mdc_output directory, detailing its contents and purpose.
+globs: ['mdc_output/*']
+alwaysApply: false
+---
+
+# mdc_output Directory Documentation
+
+## Overview
+The `mdc_output` directory serves as a centralized location for storing various output files generated during the analysis of the codebase. It provides insights into the structure and dependencies of the project, facilitating better understanding and management of the code.
+
+## Key Files
+- **dependency_graph.gexf**: This file contains a graphical representation of the project's dependencies in GEXF format. It can be used with visualization tools to analyze the relationships between different components of the codebase.
+- **repo_analysis_report.md**: A markdown report summarizing the findings from the repository analysis. This document includes metrics, insights, and recommendations based on the analysis performed on the codebase.
+- **directory_structure.txt**: A plain text file that outlines the structure of the project directory. It provides a quick reference for developers to understand the organization of files and folders within the repository.
+
+## Relation to Other Parts of the Codebase
+The `mdc_output` directory is primarily used for output generated from analysis tools and scripts. While it does not import from or export to other directories, the information contained within these files can be crucial for developers working on different parts of the codebase. For instance, insights from the `repo_analysis_report.md` can inform decisions on refactoring or optimizing code.
+
+## Common Patterns and Conventions
+- Files in this directory are typically generated as part of automated analysis processes. It is recommended to keep the naming conventions consistent to ensure clarity and ease of access.
+- The use of markdown for reports allows for easy readability and sharing among team members.
+
+## Best Practices
+- Regularly update the files in this directory to reflect the latest analysis results, especially after significant changes to the codebase.
+- Use version control to track changes to the `repo_analysis_report.md` to maintain a history of insights and decisions made based on the analysis.
+- Ensure that the `dependency_graph.gexf` is generated using the latest dependencies to provide accurate visualizations.

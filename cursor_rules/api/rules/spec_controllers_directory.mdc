@@ -1,0 +1,34 @@
+---
+description: Documentation for the spec/controllers directory containing RSpec tests for various controllers.
+globs: ['spec/controllers/*']
+alwaysApply: false
+---
+
+# Overview of the `spec/controllers` Directory
+
+The `spec/controllers` directory contains RSpec test files that are specifically designed to test the behavior of the application's controllers. Each file corresponds to a controller in the application, ensuring that the controller actions behave as expected and adhere to the defined business logic.
+
+## Summary of Key Files and Their Roles
+- **assets_controller_spec.rb**: Tests for the `AssetsController`, which manages asset-related actions.
+- **users_controller_spec.rb**: Tests for the `UsersController`, handling user-related operations such as registration and authentication.
+- **products_controller_spec.rb**: Tests for the `ProductsController`, which manages product listings and details.
+- **store_syncs_controller_spec.rb**: Tests for the `StoreSyncsController`, responsible for synchronizing store data.
+- **reviews_controller_spec.rb**: Tests for the `ReviewsController`, which manages product reviews and ratings.
+
+Each of these files contains various test cases that validate the functionality of the respective controller actions, ensuring they return the correct responses and handle edge cases appropriately.
+
+## Relationship to Other Parts of the Codebase
+The tests in this directory are integral to the overall testing strategy of the application. They interact closely with the models and views, ensuring that the controllers correctly mediate between the two. The results of these tests can influence changes in the controllers, models, or routes, promoting a cohesive development process.
+
+## Common Patterns or Conventions Used
+- **RSpec Syntax**: The tests utilize RSpec's syntax for defining examples and expectations, making it easy to read and understand.
+- **Context Blocks**: Tests are organized into context blocks that group related tests, improving clarity and maintainability.
+- **Let and Before Hooks**: Common setup code is often encapsulated in `let` and `before` hooks to reduce duplication and enhance readability.
+
+## Best Practices When Working with Files in This Directory
+- **Keep Tests Focused**: Each test should focus on a single aspect of the controller's behavior to ensure clarity and ease of debugging.
+- **Use Descriptive Names**: Test cases should have descriptive names that clearly indicate what behavior is being tested.
+- **Maintain Test Independence**: Ensure that tests do not rely on the state left by other tests to avoid flaky tests.
+- **Regularly Update Tests**: As controllers evolve, corresponding tests should be updated to reflect any changes in functionality or business logic.
+
+By adhering to these practices, developers can maintain a robust suite of tests that provide confidence in the application's controller logic.

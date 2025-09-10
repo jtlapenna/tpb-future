@@ -1,0 +1,39 @@
+---
+description: Configuration file for RFID API settings and advertisement sales.
+globs: ['src/api/rfid/test.conf']
+alwaysApply: false
+---
+
+# Overview
+This configuration file is used to set up various parameters for the RFID API, including customer information, API endpoints, and advertisement sales settings. It is essential for the proper functioning of the kiosk application that interacts with the RFID system.
+
+# Key Components
+- **CUSTOMER_NAME**: A string that specifies the name of the customer, which is used for naming the kiosk.
+- **FE_BRANCH**: Indicates the front-end branch or tag to install, ensuring the correct version of the application is deployed.
+- **API_URL**: The endpoint for the CMS API, which the application will use to fetch data.
+- **API_CATALOG_ID**: An identifier for the catalog used in API requests.
+- **API_TOKEN**: A token for authenticating API requests, ensuring secure access to the API.
+- **USE_BRAND**: A boolean flag indicating whether to use brand-specific settings in the application.
+- **P_ID** and **B_ID**: Identifiers for the product and brand, respectively, used in advertisement settings.
+- **IMAGE_URL** and **VIDEO_URL**: URLs for the advertisement media, which can be displayed in the kiosk.
+- **ADS_SALE_SETTINGS**: A string that consolidates various advertisement settings into a single configuration string for easier management.
+
+# Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file, meaning it is not dependent on or affecting other parts of the codebase directly.
+
+# Usage Examples
+To modify the customer name for a new kiosk, simply change the value of `CUSTOMER_NAME`:
+```python
+CUSTOMER_NAME='New Customer Name'
+```
+
+To update the API token for security reasons, replace the existing token with a new one:
+```python
+API_TOKEN='new_secure_token_here'
+```
+
+# Best Practices
+- **Keep Sensitive Information Secure**: Ensure that sensitive information such as `API_TOKEN` is not hard-coded in the repository. Consider using environment variables or a secure vault.
+- **Version Control**: When changing the `FE_BRANCH`, ensure that the branch is stable and tested to avoid deploying broken features.
+- **Documentation**: Always document any changes made to this configuration file to maintain clarity for future developers.
+- **Testing**: After making changes, test the kiosk application thoroughly to ensure that all configurations are working as expected.

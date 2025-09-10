@@ -1,0 +1,40 @@
+---
+description: Policy class for managing store price permissions in the application.
+globs: ['app/policies/store_price_policy.rb']
+alwaysApply: false
+---
+
+# StorePricePolicy Documentation
+
+## Overview
+The `StorePricePolicy` class is responsible for defining the authorization rules for actions related to store prices within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application.
+
+## Key Components
+
+### Classes
+- **StorePricePolicy**: This is the main policy class that defines the permissions for various actions related to store prices.
+  - **Scope**: A nested class that determines the scope of records that the user is allowed to access. It overrides the `resolve` method to return different scopes based on the user's role.
+
+### Methods
+- **resolve**: This method checks if the user is an admin. If so, it returns the entire scope of store prices. If not, it restricts the scope to only those store prices owned by the user.
+- **index?**: Returns true if the user is authenticated, allowing them to view the list of store prices.
+- **create?**: Returns true if the user is authenticated, allowing them to create new store prices.
+- **update?**: Returns true if the user is authenticated, allowing them to update existing store prices.
+- **show?**: Returns true if the user is authenticated, allowing them to view a specific store price.
+- **permitted_attributes**: Defines the attributes that are permitted for mass assignment when creating or updating store prices. In this case, it only permits the `:name` attribute.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the `ApplicationPolicy` class for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined in it when checking permissions in your controllers or views. For example:
+```ruby
+if StorePricePolicy.new(user, store_price).show?
+  # Allow access to the store price
+end
+```
+
+## Best Practices
+- Ensure that the user object passed to the policy methods is always the current user to maintain security.
+- Regularly review the permitted attributes to ensure they align with the application's requirements and security standards.
+- Consider extending the policy with additional methods if new actions related to store prices are introduced in the application.

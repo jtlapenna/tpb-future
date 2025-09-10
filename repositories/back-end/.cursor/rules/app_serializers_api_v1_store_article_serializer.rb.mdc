@@ -1,0 +1,36 @@
+---
+description: Serializer for StoreArticle in the API V1 namespace, handling serialization of article data for the store.
+globs: ['app/serializers/api/v1/store_article_serializer.rb']
+alwaysApply: false
+---
+
+# StoreArticleSerializer Documentation
+
+## Overview
+The `StoreArticleSerializer` class is responsible for serializing the `StoreArticle` model in the API V1 namespace. It formats the data returned in API responses, ensuring that the necessary attributes and relationships are included in the JSON output.
+
+## Key Components
+- **Class Definition**: `StoreArticleSerializer` inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+- **Type Declaration**: The serializer specifies the type as 'article', which helps in identifying the resource type in API responses.
+- **Attributes**: The serializer includes several attributes such as `id`, `store_id`, `article_id`, `text`, `tag`, `title`, `icon`, `excerpt`, `created_at`, and `updated_at`. These attributes are included in the serialized output.
+- **Relationships**: The serializer defines a `belongs_to` relationship with the `Category` model, using the `Api::V1::CategorySerializer` for nested serialization.
+- **Custom Products Attribute**: The `products` attribute is defined with custom logic to either return a minimal set of product IDs or a detailed serialized representation of the products associated with the article, depending on the `minimal?` method.
+
+## Methods
+- **store_product_includes**: This private method returns an array of associations to be included in the product serialization, optimizing the loading of related data.
+- **store_product_preloads**: This private method specifies additional associations to preload, reducing the number of database queries and improving performance.
+- **minimal?**: This method checks if the `minimal` option is set in the instance options, allowing for conditional serialization based on the request context.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it a standalone component within the codebase. It relies on the `ActiveModel::Serializer` for its functionality and the `Api::V1::CategorySerializer` for nested serialization of categories.
+
+## Usage Example
+To use this serializer, you would typically call it within a controller action that responds to API requests. For example:
+```ruby
+render json: @store_article, serializer: Api::V1::StoreArticleSerializer
+```
+
+## Best Practices
+- Ensure that the attributes included in the serializer are relevant to the API consumers to avoid over-fetching data.
+- Use the `minimal?` method wisely to optimize performance by returning only necessary data when required.
+- Keep the serializer focused on a single responsibility, which is to format the `StoreArticle` data, and avoid adding business logic within the serializer.

@@ -1,0 +1,37 @@
+---
+description: Documentation for the ScreenProductImage component in a Vue.js application.
+globs: ['src/components/ScreenProductImage.vue']
+alwaysApply: false
+---
+
+# ScreenProductImage.vue Documentation
+
+## Overview
+The `ScreenProductImage` component is a Vue.js single-file component designed to display a full-screen image. It utilizes Vue's reactivity to manage the image source and provides a fade-out animation effect when triggered. This component is particularly useful for showcasing product images in a visually appealing manner.
+
+## Key Components
+- **Template**: The template consists of a `div` containing an `img` element that displays the image if the `imageSrc` prop is provided.
+- **Props**:  
+  - `imageSrc`: A required string prop that specifies the source URL of the image to be displayed.
+- **Methods**:  
+  - `startAnimatingOut()`: This method adds a `fade-out` class to the image, triggering a CSS transition that fades the image out.
+- **Lifecycle Hooks**:  
+  - `created()`: Registers an event listener for `animate-full-screen-background` to trigger the fade-out animation.
+  - `beforeDestroy()`: Cleans up the event listener to prevent memory leaks.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on its props and internal methods.
+
+## Usage Example
+To use the `ScreenProductImage` component, you can include it in a parent component as follows:
+```vue
+<template>
+  <ScreenProductImage imageSrc="path/to/image.jpg" />
+</template>
+```
+
+## Best Practices
+- Ensure that the `imageSrc` prop is always provided to avoid rendering issues.
+- Use the component in contexts where a full-screen image display is appropriate, such as product showcases or galleries.
+- Clean up any event listeners in the `beforeDestroy` lifecycle hook to maintain performance and prevent memory leaks.
+- Consider adding additional props for customization, such as animation duration or image alt text for accessibility.

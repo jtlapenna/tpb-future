@@ -1,0 +1,50 @@
+---
+description: Documentation for the PurchaseLimit model in the application.
+globs: ['app/models/purchase_limit.rb']
+alwaysApply: false
+---
+
+# PurchaseLimit Model Documentation
+
+## Overview
+The `PurchaseLimit` model represents the purchase limits associated with a store setting in the application. It establishes relationships with store categories and validates the presence and numericality of the purchase limit.
+
+## Key Components
+- **Class Definition**: `class PurchaseLimit < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, making it a part of the Active Record framework.
+
+- **Associations**:
+  - `belongs_to :store_setting`: This sets up a one-to-many relationship with the `StoreSetting` model, indicating that each purchase limit is associated with a specific store setting.
+  - `has_and_belongs_to_many :store_categories`: This establishes a many-to-many relationship with the `StoreCategory` model. Note that this line is disabled for RuboCop checks due to specific project requirements.
+
+- **Validations**:
+  - `validates :limit, presence: true, numericality: { greater_than: 0, only_integer: true, allow_blank: true }`: Ensures that the `limit` attribute is present, is a positive integer, and can be blank.
+  - `validates :store_categories, presence: true`: Ensures that at least one store category is associated with the purchase limit.
+
+## Schema Information
+The `purchase_limits` table includes the following fields:
+- `id`: Primary key for the record.
+- `limit`: The maximum purchase limit, which cannot be null.
+- `name`: An optional string for naming the purchase limit.
+- `created_at` and `updated_at`: Timestamps for record creation and updates.
+- `store_setting_id`: Foreign key linking to the `store_settings` table.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the context of the application.
+
+## Usage Examples
+To create a new purchase limit, you can use the following code:
+```ruby
+purchase_limit = PurchaseLimit.new(limit: 100, store_setting_id: 1)
+purchase_limit.store_categories << StoreCategory.find(1)
+if purchase_limit.save
+  puts 'Purchase limit created successfully!'
+else
+  puts 'Error creating purchase limit: #{purchase_limit.errors.full_messages}'
+end
+```
+
+## Best Practices
+- Ensure that the `limit` is always a positive integer when creating or updating a `PurchaseLimit` record.
+- Always associate at least one `StoreCategory` with a `PurchaseLimit` to maintain data integrity.
+- Use Rails console or unit tests to validate the behavior of the model and its associations.

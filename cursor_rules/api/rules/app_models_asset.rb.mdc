@@ -1,0 +1,43 @@
+---
+description: Documentation for the Asset model in the application.
+globs: ['app/models/asset.rb']
+alwaysApply: false
+---
+
+# Asset Model Documentation
+
+## Overview
+The `Asset` model represents an asset in the application, which is associated with a polymorphic source. It validates the presence of a URL and manages notifications to the associated source upon creation, update, or destruction of the asset.
+
+## Key Components
+- **Validations**: Ensures that the `url` attribute is present when an asset is created or updated.
+- **Associations**: The model belongs to a polymorphic `source`, which allows it to be associated with different types of models (e.g., `StoreProduct`). The `touch: true` option updates the `updated_at` timestamp of the associated source whenever the asset is modified.
+- **Callbacks**: The model includes three callbacks that trigger after the asset is created, updated, or destroyed:
+  - `notify_source_create`: Updates the `last_updated_websocket` timestamp of the associated `StoreProduct` when a new asset is created.
+  - `notify_source_update`: Updates the `last_updated_websocket` timestamp of the associated `StoreProduct` if relevant fields change during an update.
+  - `notify_source_destroy`: Updates the `last_updated_websocket` timestamp of the associated `StoreProduct` when the asset is destroyed.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently but relies on the `StoreProduct` model for its notifications.
+
+## Usage Examples
+To create a new asset:
+```ruby
+asset = Asset.create(url: 'http://example.com', source: some_source)
+```
+
+To update an existing asset:
+```ruby
+asset.update(url: 'http://new-url.com')
+```
+
+To destroy an asset:
+```ruby
+destroyed_asset = asset.destroy
+```
+
+## Best Practices
+- Ensure that the `url` is always provided when creating or updating an asset to avoid validation errors.
+- Be cautious when modifying the `source` of an asset, as it may affect the associated `StoreProduct` notifications.
+- Consider the implications of the `touch: true` option on performance, especially if the associated source is frequently updated.
+- Use the model's callbacks judiciously to avoid unintended side effects, particularly in a high-traffic application.

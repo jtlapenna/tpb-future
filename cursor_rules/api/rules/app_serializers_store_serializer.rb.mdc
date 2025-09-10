@@ -1,0 +1,30 @@
+---
+description: Serializer for Store model in the application, defining how Store objects are represented in JSON format for API responses.
+globs: ['app/serializers/store_serializer.rb']
+alwaysApply: false
+---
+
+# StoreSerializer Documentation
+
+## Overview
+The `StoreSerializer` class is responsible for defining how `Store` objects are serialized into JSON format for API responses. It utilizes the `ActiveModel::Serializer` framework to specify which attributes and associations should be included in the serialized output, as well as conditional attributes based on the user's admin status.
+
+## Key Components
+- **Attributes**: The serializer includes a variety of attributes that represent the `Store` model's data, such as `id`, `name`, and `current_sync_id`. Additionally, it includes several attributes that are conditionally included based on the user's admin status, such as `api_key`, `sync_frequency`, and `webhook_url`.
+- **Associations**: The serializer defines relationships with other models, including `has_one :logo`, `belongs_to :client`, and `has_many :store_taxes`. These associations allow for nested serialization of related objects.
+- **Custom Methods**: The `current_sync_id` method is defined to return the ID of the current sync if it exists and is not finished, providing additional context in the serialized output.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the context of the application.
+
+## Usage Examples
+To use the `StoreSerializer`, you would typically render a `Store` object in a controller action like so:
+```ruby
+render json: @store, serializer: StoreSerializer
+```
+This will return a JSON representation of the `@store` object, including all specified attributes and associations.
+
+## Best Practices
+- **Conditional Attributes**: Be mindful of the conditional attributes that are only available to admin users. Ensure that the logic for determining the user's role is correctly implemented in the controller or wherever the serializer is invoked.
+- **Performance Considerations**: When dealing with large datasets, consider the performance implications of serializing many associated records. You may want to limit the number of associated records or paginate results to improve response times.
+- **Maintainability**: Keep the serializer updated as the `Store` model evolves. If new attributes are added to the model, ensure they are reflected in the serializer to maintain consistency in API responses.

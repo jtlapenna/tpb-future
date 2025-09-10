@@ -1,0 +1,34 @@
+---
+description: Documentation for the acceptance tests in the spec/acceptance directory.
+globs: ['spec/acceptance/*']
+alwaysApply: false
+---
+
+# Acceptance Tests Directory
+
+## Overview
+The `spec/acceptance` directory contains acceptance tests for the application. These tests are designed to verify that the application behaves as expected from the user's perspective, ensuring that all features work correctly in a real-world scenario.
+
+## Key Files and Their Roles
+- **catalog_articles_spec.rb**: Tests related to the catalog articles feature, ensuring that articles are displayed and managed correctly.
+- **catalogs_spec.rb**: Contains tests for the overall catalogs functionality, validating that catalogs can be created, updated, and deleted as expected.
+- **brands_spec.rb**: Focuses on the brand management features, ensuring that brands can be added, modified, and removed.
+- **customers_spec.rb**: Tests the customer-related functionalities, including customer creation, updates, and retrieval.
+- **carts_spec.rb**: Validates the shopping cart functionalities, ensuring that items can be added, removed, and checked out correctly.
+- **products_spec.rb**: Contains tests for product management, ensuring that products can be created, updated, and displayed properly.
+- **categories_spec.rb**: Tests the category management features, ensuring that categories can be created and associated with products.
+- **stores_spec.rb**: Focuses on the store management functionalities, ensuring that stores can be created and managed effectively.
+- **orders_spec.rb**: Validates the order processing features, ensuring that orders can be placed, updated, and tracked.
+
+## Relation to Other Parts of the Codebase
+This directory is a crucial part of the testing framework, specifically focusing on acceptance testing. It complements unit tests and integration tests found in other directories, providing a comprehensive testing strategy that covers both individual components and the overall user experience. 
+
+## Common Patterns and Conventions
+- Each test file typically corresponds to a specific feature or model in the application, following a naming convention that reflects its purpose.
+- Tests are written using RSpec, a popular testing framework in Ruby, which allows for clear and expressive test definitions.
+
+## Best Practices
+- Ensure that each test is independent and does not rely on the state left by other tests. This helps maintain test reliability and clarity.
+- Keep tests focused on a single feature or functionality to make it easier to identify issues when tests fail.
+- Regularly review and refactor tests to keep them up-to-date with the application's features and to improve readability.
+- Use descriptive test names to clearly convey the purpose of each test, making it easier for others to understand the intent behind them.

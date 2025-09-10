@@ -1,0 +1,36 @@
+---
+description: Documentation for the CategoriesLocal class which extends LocalRepo for managing category data.
+globs: ['src/api/categories/CategoriesLocal.js']
+alwaysApply: false
+---
+
+# CategoriesLocal.js Documentation
+
+## Overview
+The `CategoriesLocal` class is a part of the local data management layer for categories in the application. It extends the `LocalRepo` class, providing a structured way to interact with category data stored locally.
+
+## Purpose and Functionality
+The primary purpose of the `CategoriesLocal` class is to facilitate CRUD operations on category data. By extending `LocalRepo`, it inherits methods for data manipulation while specifying the context for categories, identified by the `id` field.
+
+## Key Components
+- **CategoriesLocal Class**: This class is defined to manage category data. It calls the constructor of `LocalRepo` with specific parameters:
+  - `categories`: This is the name of the data type being managed.
+  - `id`: This is the unique identifier for each category.
+
+## Dependencies
+- **Imports**: This file imports the `LocalRepo` class from `src/api/LocalRepo.js`, which provides the foundational methods for data handling.
+- **Exports**: The `CategoriesLocal` class is utilized in `src/api/categories/CategoriesRepo.js`, indicating that it plays a role in the broader category management system.
+
+## Usage Example
+To use the `CategoriesLocal` class, you would typically instantiate it and call its methods to perform operations on category data:
+```javascript
+import { CategoriesLocal } from './CategoriesLocal';
+
+const categoriesRepo = new CategoriesLocal();
+// Now you can use categoriesRepo to manage category data.
+```
+
+## Best Practices
+- Ensure that the `id` field is unique for each category to prevent data conflicts.
+- When extending functionality, consider the implications on the inherited methods from `LocalRepo` to maintain data integrity.
+- Keep the data structure consistent with the expected format in other parts of the application to avoid runtime errors.

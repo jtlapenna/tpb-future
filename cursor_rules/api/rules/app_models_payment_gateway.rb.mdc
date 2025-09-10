@@ -1,0 +1,57 @@
+---
+description: Documentation for the PaymentGateway model in the application.
+globs: ['app/models/payment_gateway.rb']
+alwaysApply: false
+---
+
+# PaymentGateway Model Documentation
+
+## Overview
+The `PaymentGateway` model represents a payment gateway associated with a store in the application. It manages the relationship between stores and their respective payment gateway providers, ensuring that the projects associated with a payment gateway are valid.
+
+## Key Components
+- **Class Definition**: `PaymentGateway` inherits from `ApplicationRecord`, making it a part of the Active Record framework in Rails.
+- **Associations**:
+  - `belongs_to :store`: This establishes a relationship where each payment gateway is linked to a specific store.
+  - `belongs_to :payment_gateway_provider`: This links the payment gateway to a specific provider that processes payments.
+- **Validations**:
+  - `validate :check_allowed_projects`: This custom validation method ensures that the projects associated with the payment gateway are valid and not empty.
+
+### check_allowed_projects Method
+This method checks the `projects` attribute of the `PaymentGateway` model:
+- If `projects` is blank, it adds an error indicating that at least one project must be specified.
+- If any project in the `projects` array is not one of the allowed values (`ECOMMERCE`, `DISPLAYS`), it adds an error indicating that one of the projects is invalid.
+
+## Schema Information
+The `payment_gateways` table includes the following fields:
+- `id`: Primary key for the payment gateway record.
+- `api_settings`: JSON field for storing API configuration settings.
+- `projects`: An array of strings representing the projects associated with the payment gateway, defaulting to an empty array.
+- `created_at` and `updated_at`: Timestamps for record creation and updates.
+- `payment_gateway_provider_id`: Foreign key linking to the `payment_gateway_providers` table.
+- `store_id`: Foreign key linking to the `stores` table.
+
+### Indexes
+- Indexes on `payment_gateway_provider_id` and `store_id` for efficient querying.
+
+### Foreign Keys
+- Ensures referential integrity with foreign keys linking to the respective providers and stores.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the context of the application.
+
+## Usage Examples
+To create a new payment gateway, you might use:
+```ruby
+PaymentGateway.create(
+  api_settings: { key: 'value' },
+  projects: ['ECOMMERCE'],
+  store_id: 1,
+  payment_gateway_provider_id: 1
+)
+```
+
+## Best Practices
+- Always ensure that the `projects` array is populated with valid project types before saving a `PaymentGateway` instance.
+- Utilize the built-in validations to maintain data integrity and provide meaningful error messages to users.
+- Keep the `api_settings` JSON structure well-documented to facilitate future updates and integrations.

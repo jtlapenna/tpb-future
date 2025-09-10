@@ -1,0 +1,24 @@
+---
+description: Documentation for the ui-debug.log file in the codebase.
+globs: ['ui-debug.log']
+alwaysApply: false
+---
+
+# ui-debug.log Documentation
+
+## Overview
+The `ui-debug.log` file serves as a log output for the web/API server, indicating that the server has successfully started and is listening for requests on a specified port. This log is crucial for debugging and monitoring the server's status during development and testing phases.
+
+## Key Components
+- **Log Message**: The primary content of this file is a simple log message: `Web / API server started at localhost:4000`. This message confirms that the server is operational and provides the address where it can be accessed.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It functions independently as a log output, which means it does not have any direct dependencies on other components of the codebase.
+
+## Usage Examples
+While this file does not contain functions or classes, it is important to monitor its content during development. For example, when starting the server, developers should check this log to ensure that the server has started correctly and is accessible at the specified address.
+
+## Best Practices
+- **Log Monitoring**: Regularly check the `ui-debug.log` file when starting the server to confirm that it is running as expected.
+- **Log Management**: Consider implementing log rotation or cleanup strategies if this log file is expected to grow large over time, especially in a production environment.
+- **Error Handling**: If the server fails to start, ensure that error messages are logged appropriately to aid in troubleshooting.

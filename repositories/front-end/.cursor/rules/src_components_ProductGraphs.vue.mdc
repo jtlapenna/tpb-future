@@ -1,0 +1,44 @@
+---
+description: Documentation for the ProductGraphs component in a Vue.js application.
+globs: ['src/components/ProductGraphs.vue']
+alwaysApply: false
+---
+
+# ProductGraphs.vue Documentation
+
+## Overview
+The `ProductGraphs.vue` file defines a Vue.js component that visually represents product attributes using various graph types, such as circles and gauges. This component is designed to display data related to THC and CBD percentages, along with other potential attributes in a visually appealing manner.
+
+## Key Components
+- **Template Structure**: The component's template uses Vue's directives to dynamically render graphs based on the provided data. It supports three types of graphs: `circle`, `text-percent`, and `gauge`.
+- **Props**: The component accepts several props:
+  - `attributes`: An object containing product attributes.
+  - `copyright`: A string for copyright information.
+  - `layout`: A string for layout configuration.
+  - `useBrand`: A number indicating brand usage.
+  - `size`: A string that determines the size of the graphs, defaulting to 'small'.
+- **Methods**: The component includes several methods:
+  - `addPercentage`: Formats the value based on the context (e.g., appending 'mg' or '%' based on conditions).
+  - `isPOSTypeEqualToTreez`, `isTHCorCBD`, `doesIncludeMG`, `doesIncludePercentage`: Helper methods for data validation and formatting.
+- **Computed Properties**: The `graphs` computed property processes the `attributes` prop to generate an array of graph objects based on the attribute values.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the props passed to it.
+
+## Usage Example
+To use the `ProductGraphs` component, you can include it in a parent component as follows:
+```vue
+<ProductGraphs
+  :attributes="productAttributes"
+  copyright="Powered by Wikileaf"
+  layout="default"
+  :useBrand="1"
+  size="medium"
+/>
+```
+
+## Best Practices
+- Ensure that the `attributes` prop is always provided with valid data to avoid rendering issues.
+- When adding new graph types, maintain consistency in the data structure to ensure the component remains flexible and easy to maintain.
+- Use scoped styles to prevent CSS conflicts with other components in the application.
+- Regularly review and update the component to accommodate new product attributes or changes in design requirements.

@@ -1,0 +1,37 @@
+---
+description: Documentation for the UserSerializer class in the app/serializers directory.
+globs: ['app/serializers/user_serializer.rb']
+alwaysApply: false
+---
+
+# UserSerializer Documentation
+
+## Overview
+The `UserSerializer` class is responsible for serializing user objects in the application. It defines how user data is structured when converted to JSON format, which is essential for API responses.
+
+## Key Components
+- **Class Definition**: `UserSerializer` inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies which fields of the user object should be included in the serialized output. In this case, it includes `id`, `name`, and `email`.
+- **Associations**: The `belongs_to :client` line indicates that each user is associated with a client, allowing the serializer to include client information when serializing a user.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, relying on the `ActiveModel::Serializer` framework for serialization.
+
+## Usage Example
+When a user object is serialized, the output will look something like this:
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "client": {
+    "id": 2,
+    "name": "Client Name"
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant and necessary for the API consumers to avoid over-fetching data.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- Regularly review and update the serializer as the user model evolves to ensure it accurately reflects the current data structure.

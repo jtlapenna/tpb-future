@@ -1,0 +1,61 @@
+---
+description: Router configuration for the Vue.js application, defining routes and their associated components.
+globs: ['src/router/index.js']
+alwaysApply: false
+---
+
+# Router Configuration
+
+## Overview
+This file serves as the main router configuration for the Vue.js application. It utilizes the `vue-router` library to define various routes that map to different components of the application. Each route corresponds to a specific path in the application, allowing users to navigate between different views seamlessly.
+
+## Key Components
+- **Vue**: The core library for building the user interface.
+- **Router**: The `vue-router` library that enables routing capabilities in the Vue application.
+- **Routes**: An array of route objects, each defining a path, a name, and the component to render when that path is accessed.
+
+### Route Definitions
+- **Home Route**:  
+  - **Path**: `/`  
+  - **Component**: `ScreenHome`  
+  - **Description**: The landing page of the application.
+
+- **Products Route**:  
+  - **Path**: `/products/:categoryId`  
+  - **Component**: `ScreenProducts`  
+  - **Description**: Displays products based on the selected category.
+
+- **Product Detail Route**:  
+  - **Path**: `/product/:id`  
+  - **Component**: `ScreenProduct`  
+  - **Description**: Shows detailed information about a specific product.
+
+- **Cart Route**:  
+  - **Path**: `/cart`  
+  - **Component**: `ScreenCart`  
+  - **Description**: Displays the user's shopping cart.
+
+- **Checkout Route**:  
+  - **Path**: `/checkout`  
+  - **Component**: `ScreenCheckout`  
+  - **Description**: The checkout process for completing a purchase.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It is self-contained and directly defines the routing logic for the application.
+
+## Usage Examples
+To navigate to the home page, you can use:
+```javascript
+this.$router.push({ name: 'home' });
+```
+
+To navigate to a specific product:
+```javascript
+this.$router.push({ name: 'product', params: { id: productId } });
+```
+
+## Best Practices
+- Ensure that all components referenced in the routes are properly imported and exist in the specified paths.
+- Use meaningful names for routes to enhance readability and maintainability.
+- Keep the routing logic organized and consider grouping related routes together for better structure.
+- Regularly review and update routes as the application evolves to avoid broken links or outdated paths.

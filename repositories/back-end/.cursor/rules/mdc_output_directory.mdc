@@ -1,0 +1,27 @@
+---
+description: Documentation for the mdc_output directory, detailing its contents and purpose.
+globs: ['mdc_output/*']
+alwaysApply: false
+---
+
+# mdc_output Directory Documentation
+
+## Overview
+The `mdc_output` directory serves as a centralized location for storing various output files generated during the analysis of the codebase. It provides insights into the structure and dependencies of the project, facilitating better understanding and management of the code.
+
+## Key Files
+- **dependency_graph.gexf**: This file contains a graphical representation of the project's dependencies in GEXF format. It can be used with visualization tools to analyze the relationships between different components of the codebase.
+- **repo_analysis_report.md**: A markdown report summarizing the findings from the repository analysis. This document includes metrics, insights, and recommendations based on the analysis performed on the codebase.
+- **directory_structure.txt**: A plain text file that outlines the structure of the project directory. It provides a quick reference for developers to understand the organization of files and folders within the codebase.
+
+## Relation to Other Parts of the Codebase
+The `mdc_output` directory is primarily used for output generated from various analysis tools and scripts within the codebase. While it does not import from or export to other directories, the information contained within these files can be crucial for developers when making decisions about code organization, refactoring, or understanding dependencies.
+
+## Common Patterns and Conventions
+- Files in this directory are typically generated as part of automated analysis processes. It is recommended to keep the naming conventions consistent to ensure clarity and ease of access.
+- Markdown files should follow standard markdown formatting for readability, while text files should be kept simple and straightforward.
+
+## Best Practices
+- Regularly update the contents of the `repo_analysis_report.md` to reflect the latest analysis results, especially after significant changes to the codebase.
+- Use the `dependency_graph.gexf` file with visualization tools to gain insights into the project's dependencies, which can help in identifying potential issues or areas for improvement.
+- Maintain the `directory_structure.txt` file to ensure it accurately reflects the current state of the project, especially after adding or removing files and directories.

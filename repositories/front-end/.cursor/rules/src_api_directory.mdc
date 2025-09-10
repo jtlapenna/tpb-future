@@ -1,0 +1,37 @@
+---
+description: Documentation for the src/api directory, detailing its structure and purpose.
+globs: ['src/api/*']
+alwaysApply: false
+---
+
+# Overview of the src/api Directory
+
+The `src/api` directory serves as the central hub for managing API interactions within the codebase. It contains various modules that handle local and remote data repositories, database configurations, and HTTP request management. This structure allows for a clean separation of concerns, making it easier to maintain and extend the API functionalities.
+
+## Key Files and Their Roles
+- **LocalRepo.js**: Manages local data storage and retrieval, providing an interface for accessing local resources.
+- **db.js**: Contains functions for database operations, including connection management and query execution.
+- **dbconfig.js**: Holds configuration settings for database connections, such as credentials and connection strings.
+- **urls.js**: Defines the API endpoint URLs used throughout the application, ensuring consistency in API calls.
+- **RemoteRepo.js**: Handles interactions with remote data sources, facilitating data fetching and synchronization.
+- **api.js**: Acts as the main entry point for API-related functionalities, orchestrating calls to various repositories.
+- **http.js**: Provides utility functions for making HTTP requests, including error handling and response parsing.
+- **repo.js**: A general repository module that may contain shared logic for both local and remote data handling.
+
+## Relationship to Other Parts of the Codebase
+Files in the `src/api` directory are extensively used by various components across the application, including:
+- **Brands**: Local and remote brand data management is handled through `BrandsLocal.js` and `BrandsRemote.js`.
+- **Categories**: Similar to brands, categories are managed through `CategoriesLocal.js` and `CategoriesRemote.js`.
+- **Products**: The product-related files utilize both local and remote repositories for data management.
+- **Articles and RFID**: These modules also leverage the API functionalities provided in this directory for their respective data operations.
+
+## Common Patterns and Conventions
+- **Modular Structure**: Each file is designed to handle a specific aspect of API interaction, promoting modularity and reusability.
+- **Consistent Naming**: Files are named to reflect their purpose, making it easier for developers to navigate and understand the codebase.
+- **Centralized Configuration**: Database configurations are centralized in `dbconfig.js`, allowing for easy updates and management.
+
+## Best Practices
+- **Keep API Logic Separate**: Ensure that business logic is kept out of the API modules to maintain a clear separation of concerns.
+- **Use Consistent Error Handling**: Implement consistent error handling strategies across all API calls to improve reliability and debugging.
+- **Document Changes**: When modifying any of the API files, document the changes clearly to help other developers understand the impact on the overall system.
+- **Test Thoroughly**: Regularly test the API interactions to ensure that both local and remote data handling works as expected, especially after changes to the codebase.

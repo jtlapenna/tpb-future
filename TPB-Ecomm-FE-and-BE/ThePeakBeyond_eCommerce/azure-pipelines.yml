@@ -1,0 +1,56 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- production
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build:prod
+  displayName: 'npm install and build'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/build'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDiretory)'
+
+- task: CopyFilesOverSSH@0
+  displayName: 'Copy Build Files'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDiretory)'
+    sshEndpoint: 'thepb_ec2'
+    cleanTargetFolder: true
+    contents: '**'
+    targetFolder: '/var/app/client'
+    readyTimeout: '20000'
+
+#- task: AWSCLI@1
+#  displayName: 'Clear S3'
+#  inputs:
+#    awsCredentials: 'AWS tpb'
+#    regionName: 'us-west-1'
+#    awsCommand: 's3'
+#    awsSubCommand: 'rm'
+#    awsArguments: 's3://tpb-ecomm-fe/ --recursive'
+#
+#- task: S3Upload@1
+#  inputs:
+#    awsCredentials: 'AWS tpb'
+#    regionName: 'us-west-1'
+#    bucketName: 'tpb-ecomm-fe'
+#    sourceFolder: '$(Build.ArtifactStagingDiretory)'
+#    globalExpresions: '**'
+#    filesAcl: 'public-read'
+

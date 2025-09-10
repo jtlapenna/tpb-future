@@ -1,0 +1,50 @@
+---
+description: Documentation for the LayoutNavigationItem model in the application.
+globs: ['app/models/layout_navigation_item.rb']
+alwaysApply: false
+---
+
+# LayoutNavigationItem Model Documentation
+
+## Overview
+The `LayoutNavigationItem` class represents an item in a layout navigation structure within the application. It is an ActiveRecord model that interacts with the `layout_navigation_items` table in the database, allowing for the management of navigation items associated with a specific layout navigation.
+
+## Key Components
+- **Class Definition**: `LayoutNavigationItem < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the model with all the necessary ActiveRecord functionalities.
+
+- **Associations**:
+  - `belongs_to :layout_navigation`: This establishes a one-to-many relationship where each `LayoutNavigationItem` belongs to a single `LayoutNavigation`.
+  - `has_one :asset, as: :source, inverse_of: :source, dependent: :nullify`: This sets up a polymorphic association with an `Asset`, allowing each navigation item to have one associated asset. If the asset is deleted, the reference in this model is set to null.
+
+- **Nested Attributes**: `accepts_nested_attributes_for :asset, allow_destroy: true, reject_if: :all_blank`
+  - This allows for nested attributes to be passed for the asset, enabling the creation and destruction of associated assets through the `LayoutNavigationItem` form.
+
+## Schema Information
+The `layout_navigation_items` table includes the following fields:
+- `id`: Primary key for the table.
+- `description`: A string field for a brief description of the navigation item.
+- `label`: A string field that represents the label displayed in the navigation.
+- `link`: A string field that contains the URL or path the navigation item links to.
+- `order`: An integer that determines the order of the navigation items, defaulting to 0.
+- `title`: A string field for the title of the navigation item.
+- `created_at` and `updated_at`: Timestamps for record creation and updates.
+- `layout_navigation_id`: Foreign key linking to the `layout_navigations` table.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently but is related to the `LayoutNavigation` and `Asset` models through its associations.
+
+## Usage Examples
+To create a new `LayoutNavigationItem` with an associated asset:
+```ruby
+layout_navigation_item = LayoutNavigationItem.create(
+  label: 'Home',
+  link: '/home',
+  asset_attributes: { name: 'Home Icon' }
+)
+```
+
+## Best Practices
+- Ensure that the `link` field is validated to prevent broken links in the navigation.
+- Use the `order` field to manage the display order of navigation items effectively.
+- When using nested attributes for assets, ensure that the form handles the creation and destruction of assets properly to avoid orphaned records.

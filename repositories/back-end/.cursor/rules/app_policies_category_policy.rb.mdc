@@ -1,0 +1,31 @@
+---
+description: Documentation for the CategoryPolicy class in the app/policies directory.
+globs: ['app/policies/category_policy.rb']
+alwaysApply: false
+---
+
+# CategoryPolicy Documentation
+
+## Overview
+The `CategoryPolicy` class is responsible for defining the authorization rules for the `Category` resource within the application. It inherits from `ApplicationPolicy`, which provides a base set of authorization methods that can be extended for specific resources.
+
+## Key Components
+- **Class Definition**: `CategoryPolicy` inherits from `ApplicationPolicy`, allowing it to utilize shared authorization logic.
+- **Method: `index?`**: This method checks if a user is authorized to view the list of categories. It returns `true` if a user is present, indicating that any logged-in user can access the index of categories.
+- **Method: `permitted_attributes`**: This method defines the attributes that are permitted for mass assignment when creating or updating a category. In this case, it allows only the `:name` attribute.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone in defining the policy for category management.
+
+## Usage Examples
+To use the `CategoryPolicy`, you would typically instantiate it within a controller action to check if a user has permission to perform certain actions. For example:
+```ruby
+def index
+  @categories = Category.all if CategoryPolicy.new(current_user).index?
+end
+```
+
+## Best Practices
+- Ensure that the `permitted_attributes` method is updated if new attributes are added to the `Category` model to maintain security and integrity.
+- Always check user permissions using the policy methods before performing actions that require authorization.
+- Keep the policy methods simple and focused on a single responsibility to enhance readability and maintainability.

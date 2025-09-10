@@ -1,0 +1,28 @@
+---
+description: Documentation for the routing specifications in the spec/routing directory.
+globs: ['spec/routing/*']
+alwaysApply: false
+---
+
+# Routing Specifications Directory
+
+## Overview
+The `spec/routing` directory contains RSpec tests that validate the routing configurations of various components within the application. These tests ensure that the routing logic behaves as expected, providing a crucial layer of verification for the application's navigation and API endpoints.
+
+## Key Files
+- **store_taxes_routing_spec.rb**: This file contains tests for the routing related to store taxes, ensuring that the correct routes are defined and accessible for tax-related operations.
+- **store_category_taxes_routing_spec.rb**: This file focuses on the routing for category-specific taxes, validating that the routes for managing taxes at the category level are correctly set up.
+- **payment_gateway_providers_routing_spec.rb**: This file tests the routing for payment gateway providers, ensuring that the application can correctly route requests related to different payment providers.
+- **payment_gateways_routing_spec.rb**: This file contains tests for the general payment gateways routing, ensuring that all necessary routes for payment processing are correctly defined.
+
+## Relation to Other Parts of the Codebase
+The routing specifications in this directory are integral to the overall functionality of the application, as they directly impact how users and services interact with the system. These tests are typically invoked during the test suite execution, ensuring that any changes to routing logic in the application are validated against the expected behavior.
+
+## Common Patterns and Conventions
+- Each routing spec file is named to reflect the specific functionality it tests, following the convention of `<feature>_routing_spec.rb`.
+- Tests within these files generally follow the structure of describing the expected routes and their corresponding actions, using RSpec's `describe` and `it` blocks for clarity.
+
+## Best Practices
+- Ensure that each routing spec is comprehensive, covering all possible routes and edge cases.
+- Keep the tests organized and focused on a single aspect of routing to maintain clarity and ease of maintenance.
+- Regularly review and update the routing specs in conjunction with any changes made to the routing logic in the application to ensure ongoing accuracy.

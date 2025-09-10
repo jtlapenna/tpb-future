@@ -1,0 +1,37 @@
+---
+description: Documentation for the Procfile used in a Ruby application to define process types for deployment.
+globs: ['Procfile']
+alwaysApply: false
+---
+
+# Procfile Documentation
+
+## Overview
+The `Procfile` is a configuration file used by applications that are deployed on platforms like Heroku. It defines the various process types that the application will run, allowing the platform to manage these processes effectively. In this case, the `Procfile` specifies three types of processes: `web`, `release`, and `worker`.
+
+## Key Components
+- **web**: This process type runs the web server using Puma, a concurrent web server for Ruby/Rack applications. The command `bundle exec puma -C config/puma.rb` starts the server with the configuration specified in `config/puma.rb`.
+- **release**: This process type is responsible for running database migrations. The command `bundle exec rake db:migrate` ensures that the database schema is up to date with the latest migrations before the application starts.
+- **worker**: This process type runs Sidekiq, a background job processor for Ruby. The command `bundle exec sidekiq` starts the Sidekiq worker, which processes jobs from the queue asynchronously.
+
+## Dependencies
+This `Procfile` does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file that is essential for the deployment and operation of the application.
+
+## Usage Examples
+To start the web server, you would typically run:
+```
+bundle exec puma -C config/puma.rb
+```
+To run database migrations, you would execute:
+```
+bundle exec rake db:migrate
+```
+To start the Sidekiq worker, you would use:
+```
+bundle exec sidekiq
+```
+
+## Best Practices
+- Ensure that the commands specified in the `Procfile` are tested locally before deploying to production.
+- Keep the `Procfile` updated with any new process types that may be added to the application.
+- Use environment variables to manage configuration settings for different environments (development, staging, production) to avoid hardcoding sensitive information in the `Procfile`.

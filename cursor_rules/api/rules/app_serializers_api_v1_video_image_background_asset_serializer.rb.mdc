@@ -1,0 +1,30 @@
+---
+description: Serializer for VideoImageBackgroundAsset in the API V1 namespace.
+globs: ['app/serializers/api/v1/video_image_background_asset_serializer.rb']
+alwaysApply: false
+---
+
+# VideoImageBackgroundAssetSerializer
+
+## Overview
+The `VideoImageBackgroundAssetSerializer` is a serializer class that formats the `VideoImageBackgroundAsset` model for JSON representation in the API V1 namespace. It is part of the ActiveModel::Serializer framework, which provides a way to customize the JSON output of models in a Rails application.
+
+## Key Components
+- **Class Definition**: The class is defined within the `Api::V1` module, indicating that it is part of the version 1 of the API.
+- **Attributes**: The serializer specifies the attributes to be included in the JSON output: `id`, `asset_position`, `created_at`, and `updated_at`.
+- **Custom Method**: The `asset_position` method retrieves the label of the associated asset position, ensuring that the output is user-friendly by providing a meaningful label instead of a raw value.
+- **Associations**: The `has_one` association indicates that this serializer is linked to an `Asset` serializer, which will handle the serialization of the associated asset object.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on the serialization of the `VideoImageBackgroundAsset` model.
+
+## Usage Example
+To use this serializer, you would typically render a `VideoImageBackgroundAsset` object in a controller action like so:
+```ruby
+render json: @video_image_background_asset, serializer: Api::V1::VideoImageBackgroundAssetSerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data needed by the client. Avoid over-fetching data by only including necessary fields.
+- When adding new attributes or methods, consider how they will impact the performance of the API, especially if they involve complex calculations or database queries.
+- Keep the serializer focused on its purpose; avoid adding business logic that belongs in the model or service objects.

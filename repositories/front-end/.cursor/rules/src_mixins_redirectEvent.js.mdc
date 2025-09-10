@@ -1,0 +1,41 @@
+---
+description: Documentation for the RedirectEvent mixin used for handling redirection and event tracking.
+globs: ['src/mixins/redirectEvent.js']
+alwaysApply: false
+---
+
+# RedirectEvent Mixin
+
+## Overview
+The `RedirectEvent` mixin provides a method for redirecting users to a specified path while simultaneously tracking the event using a client-side analytics service. This is particularly useful in applications where user navigation needs to be monitored for analytics purposes.
+
+## Key Components
+### Methods
+- **redirect(name, patch)**: This method takes two parameters:
+  - `name`: A string representing the name of the event to be tracked.
+  - `patch`: A string representing the path to which the user will be redirected.
+
+  The method first checks if the `$gsClient` (presumably a global analytics client) is available. If it is, it calls the `track` method on the client, passing the event name and an object containing the event details. After tracking the event, it uses the `$router` to push the new path, effectively redirecting the user.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a mixin that can be integrated into Vue components that require redirection and event tracking functionality.
+
+## Usage Example
+To use the `RedirectEvent` mixin in a Vue component, you can include it as follows:
+```javascript
+import RedirectEvent from '@/mixins/redirectEvent';
+
+export default {
+  mixins: [RedirectEvent],
+  methods: {
+    navigate() {
+      this.redirect('UserNavigated', '/new-path');
+    }
+  }
+};
+```
+
+## Best Practices
+- Ensure that the `$gsClient` is properly initialized before calling the `redirect` method to avoid errors.
+- Use meaningful event names that accurately describe the user action being tracked.
+- Keep the paths used in the `redirect` method consistent with the routing structure of your application to prevent navigation issues.

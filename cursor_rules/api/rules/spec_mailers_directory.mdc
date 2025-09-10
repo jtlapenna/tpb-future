@@ -1,0 +1,28 @@
+---
+description: Documentation for the spec/mailers directory containing RSpec tests for mailers.
+globs: ['spec/mailers/*']
+alwaysApply: false
+---
+
+# Overview of the spec/mailers Directory
+
+The `spec/mailers` directory contains RSpec test files specifically designed to test the mailer classes in the application. Mailers are responsible for sending emails, and this directory ensures that the functionality of these mailers is thoroughly tested.
+
+## Key Files and Their Roles
+- **products_spec.rb**: This file contains tests for the `ProductsMailer`, which handles email notifications related to product updates, promotions, or other product-related communications.
+- **api_sync_spec.rb**: This file tests the `ApiSyncMailer`, which is responsible for sending emails related to API synchronization events, such as success or failure notifications.
+- **orders_spec.rb**: This file includes tests for the `OrdersMailer`, which manages email communications regarding order confirmations, shipping updates, and other order-related notifications.
+
+## Relation to Other Parts of the Codebase
+The `spec/mailers` directory is closely related to the `app/mailers` directory, where the actual mailer classes are defined. Each test file in `spec/mailers` corresponds to a mailer class in `app/mailers`, ensuring that the functionality of each mailer is validated through automated tests. This relationship helps maintain the integrity of email functionalities as the application evolves.
+
+## Common Patterns and Conventions
+- Each test file should follow the naming convention of `<mailer_name>_spec.rb`, making it easy to identify which mailer is being tested.
+- Tests should be organized into `describe` blocks that correspond to the methods being tested within the mailer classes.
+- Use `let` and `before` hooks to set up any necessary data or state before running tests, ensuring that tests are clean and focused.
+
+## Best Practices
+- Ensure that all mailer methods are covered by tests, including edge cases and error handling.
+- Use factories (e.g., FactoryBot) to create test data for emails, which helps keep tests readable and maintainable.
+- Regularly run the test suite to catch any issues with mailer functionality early in the development process.
+- Keep tests isolated and avoid dependencies on external services or APIs to ensure that tests run quickly and reliably.

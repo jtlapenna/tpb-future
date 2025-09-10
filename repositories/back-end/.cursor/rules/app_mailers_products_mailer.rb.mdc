@@ -1,0 +1,35 @@
+---
+description: Documentation for the ProductsMailer class responsible for sending product share emails.
+globs: ['app/mailers/products_mailer.rb']
+alwaysApply: false
+---
+
+# ProductsMailer Documentation
+
+## Overview
+The `ProductsMailer` class is a subclass of `ApplicationMailer` that handles the functionality of sending share emails for products. It is specifically designed to facilitate the sharing of product information via email, ensuring that the necessary conditions are met before sending the email.
+
+## Key Components
+### Class: ProductsMailer
+- **Method: share(product, email)**  
+  This method is responsible for sending a share email for a given product to a specified email address. It performs several checks to ensure that the email can be sent:
+  - It returns early if the `email` parameter is blank.
+  - It checks if the `product` has a valid share email template.
+  - It verifies that the store associated with the product has enabled sharing for the product.
+  - It ensures that the product has a valid brand for the catalog.
+
+  If all conditions are met, it constructs the email with a subject line that includes the product's brand name and sends the email using the `mail` method with HTML content.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the mailer context of the application.
+
+## Usage Example
+To use the `share` method, you would typically call it from a controller or a service object, passing in the product object and the recipient's email address:
+```ruby
+ProductsMailer.share(product, 'recipient@example.com').deliver_now
+```
+
+## Best Practices
+- Ensure that the product and email parameters are validated before calling the `share` method to avoid unnecessary processing.
+- Use the `html_safe` method cautiously to prevent XSS vulnerabilities. Ensure that the content of `product.share_email_template` is sanitized if it comes from user input.
+- Consider implementing logging or error handling to capture any issues that arise during the email sending process.

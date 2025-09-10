@@ -1,0 +1,36 @@
+---
+description: Documentation for the AssetSerializer class in the serializers directory.
+globs: ['app/serializers/asset_serializer.rb']
+alwaysApply: false
+---
+
+# AssetSerializer Documentation
+
+## Overview
+The `AssetSerializer` class is a part of the ActiveModel Serializers framework, which is used to serialize Ruby objects into JSON format. This specific serializer is designed to handle the serialization of asset objects, providing a structured representation of their attributes.
+
+## Key Components
+- **Class**: `AssetSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to convert Ruby objects into JSON.
+  - **Attributes**: The serializer defines two attributes that will be included in the serialized output:
+    - `id`: The unique identifier for the asset.
+    - `url`: The URL pointing to the asset's location.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a simple serializer for asset objects.
+
+## Usage Example
+To use the `AssetSerializer`, you would typically instantiate it with an asset object and render it in a controller action. For example:
+```ruby
+class AssetsController < ApplicationController
+  def show
+    asset = Asset.find(params[:id])
+    render json: AssetSerializer.new(asset)
+  end
+end
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data you want to expose through the API.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- Regularly review and update the serializer as the underlying model changes to ensure consistency in the API response.

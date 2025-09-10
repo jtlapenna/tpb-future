@@ -1,0 +1,36 @@
+---
+description: Serializer for product values in the API V1 namespace.
+globs: ['app/serializers/api/v1/product_value_serializer.rb']
+alwaysApply: false
+---
+
+# ProductValueSerializer
+
+## Overview
+The `ProductValueSerializer` is a serializer class that formats the output of product value objects for the API version 1. It is part of the `Api::V1` namespace and inherits from `ActiveModel::Serializer`, which provides a way to customize the JSON representation of the product value objects.
+
+## Key Components
+- **Class**: `ProductValueSerializer`
+  - **Inherits from**: `ActiveModel::Serializer`
+  - **Attributes**: The serializer defines the following attributes to be included in the JSON response:
+    - `id`: The unique identifier for the product value.
+    - `name`: The name of the product value.
+    - `value`: The actual value associated with the product.
+    - `created_at`: Timestamp of when the product value was created.
+    - `updated_at`: Timestamp of when the product value was last updated.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for product values in the API.
+
+## Usage Example
+When a request is made to the API to retrieve product values, the `ProductValueSerializer` will be used to format the response. For example:
+```ruby
+product_value = ProductValue.find(1)
+render json: product_value, serializer: Api::V1::ProductValueSerializer
+```
+This will return a JSON response with the specified attributes of the `product_value` object.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant and necessary for the API response to avoid over-fetching data.
+- Keep the serializer focused on a single responsibility, which is to format the product value data. If additional logic is needed, consider using service objects or decorators instead.
+- Regularly review and update the serializer as the product value model evolves to ensure that the API remains consistent and accurate.

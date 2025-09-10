@@ -1,0 +1,36 @@
+---
+description: Documentation for the end-to-end test specification of the peak-beyond-web application.
+globs: ['e2e/src/app.e2e-spec.ts']
+alwaysApply: false
+---
+
+# End-to-End Test Specification for peak-beyond-web
+
+## Overview
+This file contains end-to-end tests for the `peak-beyond-web` application using Protractor. It verifies that the application behaves as expected by checking the welcome message displayed on the main page.
+
+## Key Components
+- **AppPage**: This is a page object that encapsulates the interactions with the application’s UI. It is imported from `app.po.ts` and is used to navigate to the application and retrieve text from the UI.
+- **describe**: This function groups related tests. In this case, it describes the test suite for the `peak-beyond-web` application.
+- **beforeEach**: This function is executed before each test, ensuring that a new instance of `AppPage` is created for each test case.
+- **it**: This function defines an individual test case. The test checks if the welcome message is displayed correctly.
+- **afterEach**: This function runs after each test to check for any severe errors in the browser logs, ensuring that the application does not emit any critical errors during the tests.
+
+## Dependencies
+This file imports the following:
+- `app.po.ts`: Contains the `AppPage` class which provides methods to interact with the application’s UI.
+
+This file is not imported by any other files in the repository, indicating it is a standalone test file specifically for end-to-end testing.
+
+## Usage Example
+To run the tests defined in this file, you can use the Protractor command:
+```bash
+protractor conf.js
+```
+Make sure that the Protractor configuration file (`conf.js`) is set up correctly to point to the test files.
+
+## Best Practices
+- Ensure that the application is running before executing the tests to avoid connection errors.
+- Regularly update the tests to reflect any changes in the application’s UI or functionality.
+- Use descriptive test names to make it clear what each test is verifying.
+- Keep the tests isolated and independent to ensure that they can run in any order without affecting each other.

@@ -1,0 +1,46 @@
+---
+description: Documentation for the CovasoftApiParser class responsible for parsing and syncing product data from the Covasoft API.
+globs: ['app/parsers/covasoft_api_parser.rb']
+alwaysApply: false
+---
+
+# CovasoftApiParser Documentation
+
+## Overview
+The `CovasoftApiParser` class is designed to handle the parsing and synchronization of product data from the Covasoft API for a specific store. It manages the retrieval of product promotions, inventory data, and ensures that the store's product listings are updated accordingly. This class is crucial for maintaining accurate product information and promotions in the application.
+
+## Key Components
+
+### Class: CovasoftApiParser
+- **Initialization**: The class is initialized with a `store_id`, which is used to fetch the relevant store data.
+
+### Methods:
+- **`initialize(store_id:)`**: Sets up the instance with the provided store ID.
+- **`store`**: Lazy loads the store object associated with the given store ID.
+- **`parse`**: The main method that orchestrates the parsing of product data and promotions from the API. It handles initial syncs, manages promotions, and updates the store's product inventory.
+- **`product_promotions`**: Fetches promotions for the store from the API.
+- **`get_products(store_products)`**: Retrieves product data from the API based on the store's products.
+
+### Private Methods:
+- **`inventory_products`**: Fetches the inventory products from the API.
+- **`get_product_promotion(product, promotions)`**: Retrieves the promotion details for a specific product.
+- **`save_promotions(promotion, product, store_products, discount_price = 0)`**: Saves or updates promotions for products in the store.
+- **`remove_promotion(...)`**: Removes a specific promotion from a product.
+- **`sanitize_html(value)`**: Sanitizes HTML content to prevent XSS attacks.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the Covasoft API for data retrieval.
+
+## Usage Examples
+To use the `CovasoftApiParser`, instantiate it with a valid store ID and call the `parse` method:
+```ruby
+parser = CovasoftApiParser.new(store_id: 123)
+result = parser.parse
+puts result
+```
+
+## Best Practices
+- Ensure that the store ID provided during initialization is valid and corresponds to an existing store in the database.
+- Handle exceptions gracefully, especially when dealing with external API calls, to avoid application crashes.
+- Regularly review and update the logic for promotions to align with any changes in the API or business rules.
+- Use logging effectively to track the flow of data and any issues that arise during parsing and syncing operations.

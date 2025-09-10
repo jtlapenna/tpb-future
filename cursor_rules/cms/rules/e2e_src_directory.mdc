@@ -1,0 +1,27 @@
+---
+description: Documentation for the e2e/src directory containing end-to-end tests and page objects.
+globs: ['e2e/src/*']
+alwaysApply: false
+---
+
+# e2e/src Directory Documentation
+
+## Overview
+The `e2e/src` directory is dedicated to end-to-end (E2E) testing for the application. It contains specifications and page object models that facilitate automated testing of the application's user interface and workflows.
+
+## Key Files
+- **app.e2e-spec.ts**: This file contains the end-to-end test specifications for the application. It defines various test cases that simulate user interactions and validate the application's behavior.
+- **app.po.ts**: This file serves as a page object model for the application. It encapsulates the elements and actions related to the application's UI, providing a structured way to interact with the UI components during tests.
+
+## Relation to Other Parts of the Codebase
+The `e2e/src` directory is integral to the testing framework of the application. While it does not import from or export to other directories, it plays a crucial role in ensuring the quality and reliability of the application by providing automated tests that can be run against the application in various environments.
+
+## Common Patterns and Conventions
+- **Test Structure**: Each test case in `app.e2e-spec.ts` should follow a clear structure, typically including setup, execution, and verification phases.
+- **Page Object Model**: The `app.po.ts` file should define methods that represent user actions and properties that represent UI elements, promoting reusability and maintainability of test code.
+
+## Best Practices
+- **Keep Tests Isolated**: Ensure that each test case in `app.e2e-spec.ts` is independent to avoid side effects that can lead to flaky tests.
+- **Use Descriptive Names**: Name your test cases and page object methods descriptively to make it clear what functionality they are testing or representing.
+- **Regularly Update Tests**: As the application evolves, keep the tests in sync with the latest features and UI changes to maintain their relevance and effectiveness.
+- **Run Tests Frequently**: Integrate E2E tests into the CI/CD pipeline to catch issues early in the development process.

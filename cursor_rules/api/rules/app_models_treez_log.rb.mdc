@@ -1,0 +1,37 @@
+---
+description: Documentation for the TreezLog class responsible for logging webhook and store sync events.
+globs: ['app/models/treez_log.rb']
+alwaysApply: false
+---
+
+# TreezLog Class Documentation
+
+## Overview
+The `TreezLog` class is designed to handle logging for webhook and store synchronization events within the application. It provides a simple interface for logging debug messages to separate log files, allowing developers to track the behavior of webhooks and store synchronization processes.
+
+## Key Components
+
+### Class: TreezLog
+- **Methods:**
+  - `self.debug_webhooks(message=nil)`  
+    This method initializes a logger for webhook events and logs a debug message if provided. The log file is located at `log/webhooks_treez_log.log`.
+  - `self.debug_storesync(message=nil)`  
+    Similar to `debug_webhooks`, this method initializes a logger for store synchronization events and logs a debug message if provided. The log file is located at `log/storesync_treez_log.log`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently, relying solely on the Ruby standard library's `Logger` class and the Rails framework for file path resolution.
+
+## Usage Examples
+To log a webhook event:
+```ruby
+TreezLog.debug_webhooks("Webhook received with payload: {...}")
+```
+To log a store synchronization event:
+```ruby
+TreezLog.debug_storesync("Store sync completed successfully.")
+```
+
+## Best Practices
+- Ensure that the log messages are informative and provide enough context for debugging.
+- Avoid logging sensitive information in the logs to maintain security and privacy.
+- Regularly monitor the log files to identify any issues with webhooks or store synchronization processes.

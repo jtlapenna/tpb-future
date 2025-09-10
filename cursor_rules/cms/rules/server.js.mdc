@@ -1,0 +1,98 @@
+---
+description: Documentation for the server.js file in the codebase.
+globs: ['server.js']
+alwaysApply: false
+---
+
+# server.js Documentation
+
+## Overview
+The `server.js` file is the main entry point for the Express application. It sets up the server, handles SSL redirection, implements basic authentication, and serves static files from the `dist` directory. This file is crucial for managing incoming HTTP requests and ensuring secure access to the application.
+
+## Key Components
+
+### 1. Express Initialization
+```javascript
+var express = require('express');
+var app = express();
+```
+This initializes the Express framework, allowing us to create a web server and define routes.
+
+### 2. SSL Redirection Middleware
+```javascript
+var forceSsl = function (req, res, next) {
+  if (process.env.FORCE_HTTPS === 'true' && process.env.CONFIG_ENV == 'production' && req.headers['x-forwarded-proto'] !== 'https' && (!process.env.LE_URL || req.path !== process.env.LE_URL)) {
+    return res.redirect(['https://', req.get('Host'), req.url].join(''));
+  }
+  return next();
+};
+```
+This middleware checks if HTTPS is enforced in production and redirects HTTP requests to HTTPS, ensuring secure communication.
+
+### 3. Basic Authentication Middleware
+```javascript
+var auth = function (req, res, next) {
+  function unauthorized(res) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    return res.send(401);
+  };
+
+  var user = basicAuth(req);
+
+  if (!user || !user.name || !user.pass) {
+    return unauthorized(res);
+  };
+
+  if (user.name === 'desing2dev-team' && user.pass === 'desing2dev2017!') {
+    return next();
+  } else {
+    return unauthorized(res);
+  };
+};
+```
+This middleware checks for valid basic authentication credentials. If the credentials are missing or incorrect, it responds with a 401 Unauthorized status.
+
+### 4. Let's Encrypt Challenge Handling
+```javascript
+if (process.env.LE_URL && process.env.LE_CONTENT) {
+  app.get(process.env.LE_URL, function(req, res) {
+    return res.send(process.env.LE_CONTENT)
+  });
+}
+```
+This section handles the Let's Encrypt challenge by responding to a specific URL with predefined content, which is necessary for SSL certificate validation.
+
+### 5. Static File Serving
+```javascript
+app.use('/', express.static(__dirname + '/dist'));
+```
+This line serves static files from the `dist` directory, making them accessible to clients.
+
+### 6. Fallback Route
+```javascript
+app.get('/*', function (req, res) {
+  res.sendFile(__dirname + '/dist/index.html');
+});
+```
+This route serves the `index.html` file for any unmatched routes, allowing for client-side routing in single-page applications.
+
+### 7. Server Listening
+```javascript
+app.listen(process.env.PORT || 3008);
+```
+This line starts the server, listening on the specified port or defaulting to 3008.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies solely on the Express framework and the `basic-auth` module for its functionality.
+
+## Usage Examples
+To run the server, ensure that the necessary environment variables are set, such as `FORCE_HTTPS`, `BASIC_AUTH_ENABLED`, and `PORT`. You can start the server using Node.js:
+```bash
+node server.js
+```
+
+## Best Practices
+- **Environment Variables**: Always use environment variables for sensitive information like authentication credentials and configuration settings.
+- **SSL Enforcement**: Ensure that `FORCE_HTTPS` is set to `true` in production to enforce secure connections.
+- **Authentication**: Regularly update the credentials used in the basic authentication middleware to enhance security.
+- **Static Files**: Keep the `dist` directory updated with the latest build of your application to ensure users receive the most recent version.

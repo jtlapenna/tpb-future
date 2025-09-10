@@ -1,0 +1,25 @@
+---
+description: Documentation for the dependency graph subgraphs output directory.
+globs: ['mdc_output/dependency_graph_subgraphs/*']
+alwaysApply: false
+---
+
+# Dependency Graph Subgraphs
+
+## Overview
+The `dependency_graph_subgraphs` directory contains generated HTML files that represent subgraphs of dependencies within the codebase. This visualization aids developers in understanding the relationships and hierarchies between different components of the project.
+
+## Key Files
+- **index.html**: This is the main entry point for viewing the dependency subgraphs. It provides an interactive visualization of the dependencies, allowing users to explore the structure and connections between various modules.
+
+## Relation to Other Parts of the Codebase
+This directory is a part of the broader dependency analysis tools within the codebase. It does not import from or export to any other files, making it a standalone output directory. The data visualized in this directory is typically generated from analysis scripts that parse the codebase to identify dependencies.
+
+## Common Patterns and Conventions
+- The files in this directory are generated automatically and should not be manually edited. Any changes to the visualizations should be made in the scripts that generate these files.
+- The naming convention for files is straightforward, with `index.html` serving as the primary file for access.
+
+## Best Practices
+- Always regenerate the files in this directory after making changes to the dependency analysis scripts to ensure that the visualizations are up to date.
+- Use version control to track changes in the scripts that generate these files, as this will help maintain consistency in the visualizations.
+- When sharing the visualizations with others, ensure that they have access to the necessary context about the dependencies represented in the graphs.

@@ -1,0 +1,36 @@
+---
+description: Serializer for product layout elements in the application.
+globs: ['app/serializers/product_layout_element_serializer.rb']
+alwaysApply: false
+---
+
+# ProductLayoutElementSerializer
+
+## Overview
+The `ProductLayoutElementSerializer` is a serializer class that is part of the ActiveModel::Serializer framework. It is responsible for defining how product layout elements are represented in JSON format when they are serialized. This is particularly useful in APIs where a clean and structured response is required.
+
+## Key Components
+- **Class Definition**: The class `ProductLayoutElementSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies which attributes of the product layout element should be included in the serialized output. In this case, the following attributes are included:
+  - `id`: The unique identifier for the product layout element.
+  - `element_type`: The type of the layout element (e.g., image, text).
+  - `coord_x`: The x-coordinate of the element's position in the layout.
+  - `coord_y`: The y-coordinate of the element's position in the layout.
+  - `hint`: A hint or description for the element.
+  - `width`: The width of the element in the layout.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for product layout elements, meaning it does not rely on or affect other parts of the codebase directly.
+
+## Usage Examples
+When a product layout element is requested via an API endpoint, the `ProductLayoutElementSerializer` will be used to format the response. For example:
+```ruby
+product_layout_element = ProductLayoutElement.find(1)
+render json: product_layout_element, serializer: ProductLayoutElementSerializer
+```
+This will return a JSON response containing the specified attributes of the `product_layout_element`.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data model and are necessary for the API consumers.
+- Keep the serializer focused on a single responsibility: formatting the output for the product layout element. Avoid adding business logic or data manipulation within the serializer.
+- Regularly review and update the serializer as the data model evolves to ensure it remains aligned with the current application requirements.

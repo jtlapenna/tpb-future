@@ -1,0 +1,46 @@
+---
+description: Documentation for analyzing maintainability characteristics of the front-end repository.
+globs: ['MAINTAINABILITY_ANALYSIS.md']
+alwaysApply: false
+---
+
+# Front-end Maintainability Analysis Documentation
+
+## Overview
+This document provides a comprehensive analysis of the maintainability characteristics of the front-end repository, specifically focusing on the Vue.js codebase. It covers various aspects such as code organization, documentation quality, dependency management, testing maintainability, build processes, and monitoring setups. The goal is to identify patterns and practices that enhance or hinder long-term maintainability.
+
+## Key Components
+
+### Code Organization Analysis
+- **Directory Structure**: Evaluates how the project is organized, including component hierarchy and asset management.
+- **Code Structure**: Analyzes the complexity of components, stores, services, and utilities.
+
+### Documentation Analysis
+- **Code Documentation**: Reviews the completeness and clarity of documentation for components and APIs.
+- **Documentation Tools**: Discusses tools used for generating and maintaining documentation.
+
+### Dependency Management
+- **External Dependencies**: Looks at how external packages are managed, including version control and security updates.
+- **Internal Dependencies**: Examines the relationships between components and stores, focusing on coupling and cohesion.
+
+### Testing Maintainability
+- **Test Organization**: Analyzes the structure and quality of tests across components, stores, and services.
+- **Test Maintenance**: Discusses the processes for updating tests and the tools used.
+
+### Build Process Analysis
+- **Build Configuration**: Reviews the setup and optimization of the build process using tools like Webpack and Babel.
+- **Deployment Process**: Analyzes the deployment setup and automation processes.
+
+### Monitoring Analysis
+- **Monitoring Setup**: Evaluates the configuration for error tracking and performance monitoring.
+- **Maintenance Monitoring**: Discusses how maintenance issues are tracked and resolved.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It serves as a standalone document that provides insights into the maintainability of the codebase.
+
+## Best Practices
+- Regularly review and update documentation to ensure accuracy and clarity.
+- Maintain a clear directory structure to facilitate easy navigation and understanding of the codebase.
+- Keep dependencies up to date to avoid security vulnerabilities and compatibility issues.
+- Implement comprehensive testing strategies to ensure code quality and maintainability.
+- Monitor application performance and issues proactively to address them before they escalate.

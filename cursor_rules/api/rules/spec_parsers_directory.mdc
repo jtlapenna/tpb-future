@@ -1,0 +1,31 @@
+---
+description: Documentation for the spec/parsers directory containing parser specifications.
+globs: ['spec/parsers/*']
+alwaysApply: false
+---
+
+# Overview of the spec/parsers Directory
+
+The `spec/parsers` directory contains RSpec test files that are specifically designed to validate the functionality of various parsers used within the application. Each file corresponds to a specific API or data format parser, ensuring that the parsing logic behaves as expected under different scenarios.
+
+## Key Files and Their Roles
+- **headset_api_parser_spec.rb**: Tests the functionality of the Headset API parser, ensuring it correctly processes data from the Headset API.
+- **treez_api_parser_spec.rb**: Contains tests for the Treez API parser, validating its ability to parse and handle data from the Treez API.
+- **leaflogix_api_parser_spec.rb**: Focuses on the LeafLogix API parser, ensuring that it accurately interprets the data structure provided by LeafLogix.
+- **product_csv_parser_spec.rb**: Tests the CSV parser for product data, ensuring that it can correctly parse and convert CSV formatted product information into usable objects.
+- **covasoft_api_parser_spec.rb**: Validates the Covasoft API parser, ensuring it handles the specific data format returned by the Covasoft API.
+- **flowhub_api_parser_spec.rb**: Contains tests for the Flowhub API parser, ensuring it accurately processes data from the Flowhub API.
+
+## Relationship to Other Parts of the Codebase
+The parsers in this directory are integral to the data processing layer of the application. They are typically invoked by service objects or controllers that require data from external APIs or CSV files. The tests in this directory ensure that any changes to the parsing logic do not introduce regressions, thereby maintaining the integrity of data handling throughout the application.
+
+## Common Patterns and Conventions
+- Each parser specification file follows a naming convention that reflects the parser it is testing, making it easy to identify the purpose of each test file.
+- Tests are organized using RSpec's `describe` and `it` blocks to clearly outline the behavior being tested and the expected outcomes.
+- Mocking and stubbing are commonly used to simulate API responses and isolate the parser logic during testing.
+
+## Best Practices
+- Ensure that each parser spec is comprehensive, covering various edge cases and potential error scenarios.
+- Keep the tests up to date with any changes in the parser logic or the data formats being processed.
+- Use descriptive test names to clarify the purpose of each test case, making it easier for other developers to understand the intent behind the tests.
+- Regularly run the test suite to catch any issues early in the development process, especially after making changes to the parsers or related components.

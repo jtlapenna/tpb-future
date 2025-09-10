@@ -1,0 +1,33 @@
+---
+description: Serializer for StoreCategory model, defining its attributes and relationships.
+globs: ['app/serializers/store_category_serializer.rb']
+alwaysApply: false
+---
+
+# StoreCategorySerializer
+
+## Overview
+The `StoreCategorySerializer` is a serializer class that defines how the `StoreCategory` model is represented in JSON format. It is part of the ActiveModel Serializers framework, which is used to create a structured JSON response for API endpoints.
+
+## Key Components
+- **Class Declaration**: The class inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method specifies which fields of the `StoreCategory` model should be included in the serialized output. In this case, the fields are `id`, `name`, `order`, and `store_id`.
+- **Relationships**:
+  - `belongs_to :store`: This indicates that each `StoreCategory` is associated with a single `Store`, and it uses the `StoreMinimalSerializer` to serialize the associated store object.
+  - `has_one :banner`: This indicates that each `StoreCategory` can have one associated `banner`.
+  - `has_many :store_category_taxes`: This indicates that each `StoreCategory` can have multiple associated `store_category_taxes`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the context of the serializers used in the application.
+
+## Usage Examples
+To use this serializer, you would typically call it within a controller action that responds to API requests. For example:
+```ruby
+render json: @store_category, serializer: StoreCategorySerializer
+```
+This would return a JSON representation of the `@store_category` object, including its attributes and associated objects as defined in the serializer.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the requirements of the API consumers. Only include necessary fields to minimize payload size.
+- When defining relationships, consider the performance implications of eager loading associated records to avoid N+1 query problems.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.

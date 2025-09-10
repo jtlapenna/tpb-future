@@ -1,0 +1,41 @@
+---
+description: Policy for managing store product promotions in the application.
+globs: ['app/policies/store_product_promotion_policy.rb']
+alwaysApply: false
+---
+
+# StoreProductPromotionPolicy
+
+## Overview
+The `StoreProductPromotionPolicy` class defines authorization rules for managing promotions associated with store products. It inherits from `ApplicationPolicy`, which provides a base structure for defining policies in the application. This policy ensures that only authorized users can perform actions related to promotions.
+
+## Key Components
+
+### Classes
+- **StoreProductPromotionPolicy**: The main policy class that defines the authorization rules for various actions related to store product promotions.
+  - **Scope**: A nested class that defines the scope of records that the user is allowed to access. It checks if the user is an admin or if they are the owner of the store product.
+
+### Methods
+- **resolve**: This method determines which records the user can access based on their role. If the user is an admin, they can access all records. Otherwise, it restricts access to only those store products owned by the user.
+- **index?**: Returns true if the user is authenticated, allowing them to view the list of promotions.
+- **create?**: Returns true if the user is authenticated, allowing them to create new promotions.
+- **update?**: Returns true if the user is authenticated, allowing them to update existing promotions.
+- **show?**: Returns true if the user is authenticated, allowing them to view a specific promotion.
+- **destroy?**: Returns true if the user is authenticated, allowing them to delete a promotion.
+- **permitted_attributes**: Returns an array of attributes that are permitted for mass assignment, specifically allowing the `:promotion` attribute.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the context of the application.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined in it when checking permissions for a user. For example:
+```ruby
+if StoreProductPromotionPolicy.new(user, promotion).update?
+  # Allow the user to update the promotion
+end
+```
+
+## Best Practices
+- Ensure that the user object passed to the policy is always authenticated to avoid unauthorized access.
+- Keep the `permitted_attributes` method updated with any changes to the attributes that should be allowed for mass assignment.
+- Regularly review the authorization rules to ensure they align with the application's security requirements.

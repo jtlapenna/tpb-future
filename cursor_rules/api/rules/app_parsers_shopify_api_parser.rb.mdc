@@ -1,0 +1,45 @@
+---
+description: Documentation for the ShopifyApiParser class responsible for parsing Shopify API data and syncing it with the store.
+globs: ['app/parsers/shopify_api_parser.rb']
+alwaysApply: false
+---
+
+# ShopifyApiParser Documentation
+
+## Overview
+The `ShopifyApiParser` class is designed to interact with the Shopify API, retrieve product data, and synchronize it with the local store database. It handles the parsing of product information, including variants, images, and categories, and manages the synchronization process to ensure that the store's product data is up-to-date.
+
+## Key Components
+
+### Class: ShopifyApiParser
+- **Attributes:**
+  - `store`: An instance of the `Store` class, representing the store associated with the parser.
+
+### Methods:
+- **initialize(store_id:)**: Initializes the parser with a specific store ID, fetching the corresponding store and setting its Shopify base URL.
+
+- **parse**: The main method that performs the following tasks:
+  - Fetches products from the Shopify API, handling pagination to retrieve all active products.
+  - Collects product variants and images, ensuring that only active products are processed.
+  - Updates the local store's product stock and status based on the retrieved data.
+  - Creates `StoreSyncItem` instances for each product variant, validating them before adding to the synchronization process.
+  - Logs errors if any `StoreSyncItem` fails validation.
+
+- **weight_to_miligram(weight_val, weight_unit)**: Converts weight values from various units (pounds, ounces, kilograms) to milligrams for consistent storage in the database.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the Shopify API for data retrieval and the local `Store` and `StoreSync` models for data management.
+
+## Usage Example
+To use the `ShopifyApiParser`, instantiate it with a valid store ID and call the `parse` method:
+```ruby
+parser = ShopifyApiParser.new(store_id: 1)
+result = parser.parse
+puts result[:errors] # Check for any errors during parsing
+```
+
+## Best Practices
+- Ensure that the store ID provided to the parser is valid and corresponds to an existing store in the database.
+- Handle exceptions gracefully, especially when dealing with external API calls, to avoid crashes in the application.
+- Regularly monitor the logs for any errors related to SKU processing to maintain data integrity in the store.
+- Consider implementing caching mechanisms for API responses to reduce the number of requests made to Shopify, especially for large datasets.

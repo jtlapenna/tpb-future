@@ -1,0 +1,36 @@
+---
+description: Documentation for the app/controllers directory in the codebase.
+globs: ['app/controllers/*']
+alwaysApply: false
+---
+
+# Overview of the app/controllers Directory
+
+The `app/controllers` directory is a crucial part of the MVC (Model-View-Controller) architecture in this codebase. It contains various controller files that handle incoming requests, process user input, and return responses, typically in the form of rendered views or JSON data.
+
+## Summary of Key Files and Their Roles
+
+- **application_controller.rb**: The base controller from which all other controllers inherit. It contains shared functionality and filters that apply to all controllers.
+- **tag_infos_controller.rb**: Manages operations related to tag information, including CRUD actions for tags.
+- **store_categories_controller.rb**: Handles requests related to store categories, allowing for the management of category data.
+- **payment_gateway_providers_controller.rb**: Manages payment gateway providers, facilitating payment processing functionalities.
+- **users_controller.rb**: Responsible for user management, including registration, authentication, and profile updates.
+- **products_controller.rb**: Manages product-related actions, including listing, creating, and updating products.
+
+## Relationship to Other Parts of the Codebase
+
+Controllers in this directory interact closely with models (located in `app/models`) to retrieve and manipulate data. They also render views (located in `app/views`) to present data to users. The controllers serve as the intermediary between the user interface and the data layer, ensuring that user actions are appropriately handled and responses are generated.
+
+## Common Patterns and Conventions Used
+
+- **RESTful Routing**: Most controllers follow RESTful conventions, providing standard actions such as `index`, `show`, `create`, `update`, and `destroy`.
+- **Strong Parameters**: Controllers typically use strong parameters to ensure that only permitted attributes are allowed through to the model layer, enhancing security.
+- **Before Filters**: Commonly used to set up shared logic, such as authentication checks or loading resources before executing controller actions.
+
+## Best Practices When Working with Files in This Directory
+
+1. **Follow RESTful conventions**: Ensure that your controller actions align with REST principles for consistency and predictability.
+2. **Keep controllers thin**: Aim to keep business logic out of controllers by delegating it to models or service objects. Controllers should primarily handle request/response cycles.
+3. **Use strong parameters**: Always use strong parameters to whitelist attributes and prevent mass assignment vulnerabilities.
+4. **Document your actions**: Provide clear comments and documentation for each action to help other developers understand the purpose and functionality.
+5. **Organize related actions**: If a controller becomes too large, consider breaking it into smaller, more focused controllers or using concerns to share common functionality.

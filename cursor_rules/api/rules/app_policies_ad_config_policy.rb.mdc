@@ -1,0 +1,38 @@
+---
+description: Policy class for managing access to AdConfig resources.
+globs: ['app/policies/ad_config_policy.rb']
+alwaysApply: false
+---
+
+# AdConfigPolicy Documentation
+
+## Overview
+The `AdConfigPolicy` class is responsible for defining the authorization rules for the `AdConfig` resources in the application. It extends the `ApplicationPolicy`, which provides a base structure for all policy classes in the application. This policy determines who can perform various actions on `AdConfig` objects based on the user's role.
+
+## Key Components
+
+### 1. Class Structure
+- **AdConfigPolicy**: The main class that defines the authorization rules for `AdConfig` resources.
+- **Scope**: A nested class that defines the scope of records that the user is allowed to access.
+
+### 2. Methods
+- **resolve**: This method is part of the `Scope` class. It determines which records the user can access. If the user is an admin, they can access all records. Otherwise, they can only access records they own.
+- **index?**: This method checks if the user is allowed to view the list of `AdConfig` resources. It returns true if the user is authenticated.
+- **create?**: Similar to `index?`, this method checks if the user can create a new `AdConfig` resource, returning true if the user is authenticated.
+- **permitted_attributes**: This method returns an array of attributes that are permitted for mass assignment when creating or updating `AdConfig` resources. It includes attributes like `name`, `kiosk_id`, and nested attributes for assets.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It relies solely on the `ApplicationPolicy` class for its base functionality.
+
+## Usage Examples
+To use this policy, you would typically call the methods defined in it when checking permissions in your controllers or views. For example:
+```ruby
+if AdConfigPolicy.new(current_user, ad_config).show?
+  # Allow access to the ad_config
+end
+```
+
+## Best Practices
+- Ensure that the `user` object is always passed to the policy methods to maintain security and proper access control.
+- Regularly review the `permitted_attributes` method to ensure that only the necessary attributes are exposed for mass assignment, preventing potential security vulnerabilities.
+- Use descriptive method names for clarity and maintainability, especially when defining additional rules in the future.

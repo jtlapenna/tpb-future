@@ -1,0 +1,36 @@
+---
+description: Documentation for the Gemfile in a Ruby on Rails application.
+globs: ['Gemfile']
+alwaysApply: false
+---
+
+# Gemfile Documentation
+
+## Overview
+The `Gemfile` is a crucial file in Ruby applications that specifies the gems (libraries) required for the application to run. It defines the source from which gems can be retrieved, the Ruby version, and organizes gems into groups based on their environment (development, test, production, etc.). This file is essential for managing dependencies in a Ruby on Rails application.
+
+## Key Components
+- **Source Declaration**: The file starts by declaring the source for gems, which is `https://rubygems.org`. This is where the application will look for the specified gems.
+- **Ruby Version**: The line `ruby '~> 3.0.0'` specifies that the application is compatible with Ruby version 3.0.x.
+- **Gem Declarations**: Each `gem` line specifies a library that the application depends on. For example, `gem 'rails', '~> 6.1.0'` indicates that the application uses Rails version 6.1.x.
+- **Groups**: Gems are organized into groups to separate dependencies based on the environment:
+  - **Development and Test**: Includes gems like `byebug`, `rspec-rails`, and `factory_bot_rails` that are useful during development and testing.
+  - **Production and Staging**: Contains gems like `rack-timeout` and `rails_12factor` that are necessary for production environments.
+
+## Dependencies
+This `Gemfile` does not import or export any other files in the repository, making it a standalone declaration of dependencies. It is not imported by any other files, but it is essential for the application to function correctly as it defines all the required libraries.
+
+## Usage Examples
+To install the gems specified in the `Gemfile`, run the following command in the terminal:
+```bash
+bundle install
+```
+This command will fetch and install all the gems listed, ensuring that the application has all the necessary dependencies.
+
+## Best Practices
+- **Keep Dependencies Updated**: Regularly check for updates to the gems and update the versions in the `Gemfile` to benefit from improvements and security patches.
+- **Use Groups Wisely**: Organize gems into appropriate groups to avoid loading unnecessary gems in production, which can slow down the application.
+- **Lock Versions**: Consider using a `Gemfile.lock` file to lock the versions of the gems to ensure consistent environments across different setups.
+- **Commenting**: Use comments to explain why certain gems are included, especially if they are not commonly known or have specific configurations.
+
+By following these guidelines, developers can effectively manage dependencies in their Ruby on Rails applications, ensuring a smooth development and deployment process.

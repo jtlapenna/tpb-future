@@ -1,0 +1,33 @@
+---
+description: Documentation for the app/mailers directory containing mailer classes.
+globs: ['app/mailers/*']
+alwaysApply: false
+---
+
+# Overview of the app/mailers Directory
+
+The `app/mailers` directory is responsible for handling email communications within the application. It contains various mailer classes that define how emails are structured and sent to users or other systems.
+
+## Key Files and Their Roles
+
+- **application_mailer.rb**: This is the base class for all mailers in the application. It sets up common configurations and methods that can be shared across all mailers.
+- **orders_mailer.rb**: This mailer is specifically designed to handle emails related to orders, such as order confirmations, shipping notifications, and other order-related communications.
+- **products_mailer.rb**: This mailer manages emails concerning product updates, promotions, and notifications related to products in the application.
+- **api_sync_mailer.rb**: This mailer is used for sending notifications related to API synchronization processes, such as success or failure alerts when syncing data with external services.
+
+## Relation to Other Parts of the Codebase
+
+The mailers in this directory are typically invoked by controllers or background jobs when there is a need to send an email. They may also interact with models to retrieve necessary data for the email content. Understanding how these mailers fit into the overall flow of the application is crucial for maintaining effective communication with users.
+
+## Common Patterns and Conventions
+
+- **Naming Convention**: Each mailer class is named after the entity it serves (e.g., `OrdersMailer` for order-related emails), following the Rails convention for mailers.
+- **Method Naming**: Mailer methods are usually named after the type of email they send (e.g., `confirmation_email`, `notification_email`), making it clear what each method does.
+- **Templates**: Each mailer typically has corresponding view templates located in `app/views/mailers`, which define the HTML and text content of the emails.
+
+## Best Practices
+
+- **Keep Mailers Focused**: Each mailer should have a single responsibility, focusing on a specific type of email to avoid bloating the class with unrelated methods.
+- **Use Background Jobs**: For sending emails, consider using background jobs to prevent delays in user interactions, especially for emails that are not time-sensitive.
+- **Test Mailers**: Ensure that mailers are thoroughly tested, including both the logic in the mailer classes and the rendering of the email templates.
+- **Environment Configuration**: Be mindful of the environment settings for sending emails (development, test, production) to avoid sending real emails during development or testing phases.

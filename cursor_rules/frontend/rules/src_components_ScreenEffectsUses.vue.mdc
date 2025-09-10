@@ -1,0 +1,43 @@
+---
+description: Documentation for the ScreenEffectsUses.vue component in the codebase.
+globs: ['src/components/ScreenEffectsUses.vue']
+alwaysApply: false
+---
+
+# ScreenEffectsUses.vue Documentation
+
+## Overview
+The `ScreenEffectsUses.vue` component is responsible for displaying educational topics and related products based on their uses. It provides a user interface that allows users to explore various topics, view detailed information in modals, and navigate through products categorized by their uses.
+
+## Key Components
+- **Template Structure**: The component is structured with a main template that includes sections for education topics and product categories. It utilizes Vue's directives such as `v-for`, `v-if`, and `v-bind` to dynamically render content based on the component's data.
+- **Data Properties**: The component maintains several data properties:
+  - `activeTab`: Tracks the currently selected tab for product categories.
+  - `showModal`: Controls the visibility of the topic modal.
+  - `topics`: An array that holds the educational topics fetched from the articles.
+  - `usesTags` and `featuredTags`: Arrays that manage the tags for product categorization.
+- **Methods**: The component includes various methods for functionality:
+  - `fetchData()`: Fetches articles and products, populating the `topics` and `usesTags` arrays.
+  - `toggleTopicModal(index, topic)`: Toggles the visibility of the modal for a specific topic.
+  - `selectTab(tag)`: Changes the active tab and triggers the transition animations.
+  - `filteredProducts(tag)`: Returns products filtered by a specific tag.
+- **Transitions**: The component uses GSAP for animations during transitions when entering and leaving sections, enhancing the user experience.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It relies on Vue's core functionality and the GSAP library for animations.
+
+## Usage Examples
+To use this component, it can be included in a parent component as follows:
+```html
+<template>
+  <ScreenEffectsUses :products="products" :articles="articles" :isGeneratingIndex="isGeneratingIndex" />
+</template>
+```
+
+## Best Practices
+- **Data Management**: Ensure that the data passed to the component (like `products` and `articles`) is properly structured to avoid runtime errors.
+- **Performance**: Be cautious with the number of topics and products rendered at once to maintain performance, especially on mobile devices.
+- **Accessibility**: Consider adding ARIA roles and properties to improve accessibility for users relying on assistive technologies.
+- **Animation Timing**: Adjust the timing of animations to ensure they are smooth and do not hinder user interaction.
+
+By following these guidelines, developers can effectively utilize the `ScreenEffectsUses.vue` component within their applications.

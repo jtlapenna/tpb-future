@@ -1,0 +1,51 @@
+---
+description: Documentation for the ActiveCartButton component in a Vue.js application.
+globs: ['src/components/ActiveCartButton.vue']
+alwaysApply: false
+---
+
+# ActiveCartButton.vue Documentation
+
+## Overview
+The `ActiveCartButton` component is a Vue.js button designed to represent an active cart state in an e-commerce application. It provides visual feedback to users and allows them to navigate to the checkout page when clicked. The button can adapt its size and style based on the props passed to it, enhancing its usability in different contexts.
+
+## Key Components
+- **Template**: The button is structured with a text label and an icon. The text is split into two lines: "ACTIVE" and "CART". The button's class is dynamically assigned based on the `infoMode` and `size` props.
+- **Props**:
+  - `size`: Determines the size of the button (small, tiny, large).
+  - `onClick`: A function that can be passed to handle click events.
+  - `infoMode`: A boolean that alters the button's appearance and behavior.
+- **Computed Properties**:
+  - `className`: Computes the class string for the button based on the `infoMode` and `size` props.
+- **Methods**:
+  - `closeActiveCart()`: This method is triggered on button click. It checks if the button is in button mode and, if so, sets a Vuex state mutation and navigates to the checkout route.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It relies solely on Vue.js and Vuex for state management and routing.
+
+## Usage Example
+To use the `ActiveCartButton` component, you can include it in your parent component as follows:
+```vue
+<template>
+  <ActiveCartButton :size="'large'" :infoMode="false" @click="handleClick" />
+</template>
+
+<script>
+import ActiveCartButton from './ActiveCartButton.vue';
+
+export default {
+  components: { ActiveCartButton },
+  methods: {
+    handleClick() {
+      // Handle button click
+    }
+  }
+}
+</script>
+```
+
+## Best Practices
+- Ensure that the `size` prop is passed correctly to maintain consistent styling across different instances of the button.
+- Use the `infoMode` prop to toggle between standard and informational button styles, providing clear visual cues to users.
+- Avoid modifying the Vuex state directly within the component; instead, consider using actions for better state management practices.
+- Keep the button's click handler logic simple and delegate complex operations to parent components or Vuex actions.

@@ -1,0 +1,54 @@
+---
+description: Documentation for the ProductImage component in a Vue.js application.
+globs: ['src/components/ProductImage.vue']
+alwaysApply: false
+---
+
+# ProductImage.vue Documentation
+
+## Overview
+The `ProductImage.vue` file defines a Vue.js component that displays a product image along with promotional badges and medical-only indicators. It is designed to handle various layouts and conditions based on the product's attributes, such as whether it is on sale or if it is a medical product.
+
+## Key Components
+
+### Template Structure
+- **Main Container**: The outer `<div>` uses dynamic classes to indicate whether the image has loaded.
+- **Promotion Badge**: Displays promotional text if the product is on sale. The styling adjusts based on the layout size.
+- **Medical Indicator**: Shows a "MED ONLY" label if the product is classified as medical. The appearance varies based on the layout.
+- **Image Display**: An `<img>` tag for the product image, which loads dynamically. If no image is available, a placeholder is shown based on the product category.
+- **Featured Indicator**: Displays animated waves if the product is marked as featured.
+
+### Script Section
+- **Props**: Accepts several props including `category`, `promo`, `image`, `isFeatured`, `size`, `isMedicalOnly`, and `isProductDetail`.
+- **Data**: Contains `isLoaded` to track image loading status and `lazyImg` for lazy loading functionality.
+- **Computed Properties**: Includes logic to determine the icon class based on the product category and to format the promotional text.
+- **Lifecycle Hooks**: The `created` hook initializes the loading check for the image.
+- **Methods**: 
+  - `checkLoading()`: Recursively checks if the image has loaded and updates the `isLoaded` state.
+  - `isImageLoaded()`: Verifies if the image is fully loaded and sets the `lazyImg` accordingly.
+
+### Styles
+- The component uses scoped SCSS for styling, ensuring that styles do not leak into other components. It includes styles for the main image container, promotional badges, and medical indicators, with responsive adjustments based on layout size.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It is a standalone component that can be used wherever product images are required.
+
+## Usage Example
+To use the `ProductImage` component, you can include it in a parent component as follows:
+```vue
+<ProductImage
+  :category="product.category"
+  :promo="product.promo"
+  :image="product.image"
+  :isFeatured="product.isFeatured"
+  :size="product.size"
+  :isMedicalOnly="product.isMedicalOnly"
+  :isProductDetail="product.isProductDetail"
+/>
+```
+
+## Best Practices
+- Ensure that the `image` prop is always provided to avoid rendering issues.
+- Use the `promo` prop to display promotional information effectively, keeping the text concise.
+- When using the component in different layouts, test the appearance to ensure it meets design requirements.
+- Keep the styles scoped to avoid conflicts with other components in the application.

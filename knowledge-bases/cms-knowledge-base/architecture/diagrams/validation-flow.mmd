@@ -1,0 +1,47 @@
+graph TB
+    %% Validation Flow Diagram
+    %% This diagram shows the validation process for style changes
+    
+    %% Define styles
+    classDef input fill:#00C796,stroke:#333,stroke-width:2px,color:white
+    classDef process fill:#7168DF,stroke:#333,stroke-width:2px,color:white
+    classDef output fill:#EE991B,stroke:#333,stroke-width:2px,color:white
+    classDef decision fill:#dd5826,stroke:#333,stroke-width:2px,color:white
+    
+    %% Main Flow
+    A[Transformed Styles]:::input --> B{Pattern Detection}:::decision
+    A --> C[Performance Validation]:::process
+    A --> D[Accessibility Validation]:::process
+    
+    %% Visual Testing Components
+    subgraph Visual Tests
+        B --> E[Component Tests]:::process
+        B --> F[Layout Tests]:::process
+        B --> G[Responsive Tests]:::process
+    end
+    
+    %% Performance Testing Components
+    subgraph Performance Tests
+        C --> H[Bundle Size]:::process
+        C --> I[Render Time]:::process
+        C --> J[Memory Usage]:::process
+    end
+    
+    %% Accessibility Testing Components
+    subgraph Accessibility Tests
+        D --> K[Color Contrast]:::process
+        D --> L[Screen Reader]:::process
+        D --> M[Keyboard Nav]:::process
+    end
+    
+    %% Results Flow
+    E & F & G --> N[Visual Report]:::output
+    H & I & J --> O[Performance Report]:::output
+    K & L & M --> P[A11y Report]:::output
+    
+    N & O & P --> Q[Validation Summary]:::output
+    
+    %% Add notes
+    %% Note: Each test category runs in parallel for efficiency
+    %% Note: Reports are generated for each test category
+    %% Note: Final summary combines all test results 

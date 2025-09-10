@@ -1,0 +1,30 @@
+---
+description: Documentation for the app/contracts directory, which contains contract definitions for the application.
+globs: ['app/contracts/*']
+alwaysApply: false
+---
+
+# Overview of app/contracts Directory
+
+The `app/contracts` directory is dedicated to defining contracts that govern the interactions and data structures used within the application. Contracts serve as a formal agreement on the expected behavior and structure of data, ensuring consistency and reliability across different components of the application.
+
+## Key Files
+
+- **cart_contract.rb**: This file contains the contract definition for the cart functionality within the application. It outlines the expected attributes and behaviors of the cart, ensuring that any implementation adheres to these specifications.
+
+## Relation to Other Parts of the Codebase
+
+The contracts defined in this directory are utilized by various components of the application, particularly those that handle cart operations. By centralizing contract definitions, the application promotes a clear understanding of data expectations, which aids in maintaining and extending functionality without introducing inconsistencies.
+
+## Common Patterns and Conventions
+
+- **Naming Conventions**: Each contract file should be named after the feature it represents, using snake_case. This makes it easy to identify the purpose of each contract at a glance.
+- **Structure**: Contracts typically define attributes, validations, and any methods that are necessary for enforcing the contract's rules.
+
+## Best Practices
+
+- **Keep Contracts Focused**: Each contract should focus on a single aspect of the application to avoid complexity and ensure clarity.
+- **Document Changes**: When modifying a contract, ensure that any changes are well-documented to maintain clarity for other developers.
+- **Test Contracts**: Implement tests to verify that the contracts behave as expected, especially when changes are made to related components.
+
+By following these guidelines, developers can effectively manage and utilize the contracts defined in the `app/contracts` directory, leading to a more robust and maintainable codebase.

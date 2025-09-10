@@ -1,0 +1,39 @@
+---
+description: Documentation for the index file in the core models directory of the application.
+globs: ['src/app/core/models/index.ts']
+alwaysApply: false
+---
+
+# Overview
+
+The `index.ts` file in the `src/app/core/models` directory serves as a central export hub for various model components used throughout the application. By re-exporting modules, it simplifies the import process for other parts of the application, allowing developers to import multiple models from a single location.
+
+# Key Components
+
+This file exports the following modules:
+
+- **pagination**: Contains functionality related to pagination, likely providing classes or functions to manage paginated data.
+- **user**: Manages user-related data and operations, such as user profiles, authentication, and permissions.
+- **store-sync**: Handles synchronization of data between the application state and a backend store, ensuring data consistency.
+- **asset**: Manages assets within the application, which could include images, files, or other resources.
+- **layout-position**: Provides utilities for managing layout positions, possibly for UI components or elements.
+
+# Relationship to Other Files
+
+This `index.ts` file does not import any other files, nor is it imported by any other files in the repository. It acts as a standalone module that aggregates exports from other model files within the same directory. This design pattern promotes modularity and reusability of code components.
+
+# Usage Examples
+
+To use the exported components in another part of the application, you can import them as follows:
+
+```javascript
+import { User, Pagination } from 'src/app/core/models';
+```
+
+This allows you to access the `User` and `Pagination` classes or functions directly without needing to specify their individual file paths.
+
+# Best Practices
+
+- **Keep Exports Organized**: Ensure that the components being exported are well-organized and relevant to the core models. This helps maintain clarity and ease of use.
+- **Document Individual Modules**: Each module (e.g., `pagination`, `user`, etc.) should have its own documentation to explain its purpose and usage, which can be referenced when using this index file.
+- **Avoid Circular Dependencies**: Be cautious of creating circular dependencies between modules, as this can lead to unexpected behavior and bugs in the application.

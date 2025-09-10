@@ -1,0 +1,27 @@
+---
+description: Documentation for the Procfile used to define process types for a web application.
+globs: ['Procfile']
+alwaysApply: false
+---
+
+# Procfile Documentation
+
+## Overview
+The `Procfile` is a configuration file used by platforms like Heroku to determine how to run your application. It specifies the commands that are executed by the application’s dynos. In this case, it defines a web process that runs a Node.js server.
+
+## Key Components
+- **web**: This is the process type that Heroku will use to start the web server. The command associated with this process type is `node server.js`, which starts the Node.js application.
+
+## File Purpose and Functionality
+The primary purpose of the `Procfile` is to declare the types of processes that are run by the application. In this instance, it indicates that the application has a web server that listens for incoming requests. The command `node server.js` tells the system to execute the `server.js` file using Node.js, which is typically where the main application logic resides.
+
+## Dependencies
+This `Procfile` does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file that is essential for deployment but does not directly interact with the codebase's logic.
+
+## Usage Example
+To use this `Procfile`, ensure that you have a `server.js` file in the root of your project that contains the necessary code to start your web server. When deploying to a platform like Heroku, the platform will read this file and execute the specified command to start your application.
+
+## Best Practices
+- Ensure that the command specified in the `Procfile` is correct and points to the main entry point of your application.
+- Keep the `Procfile` in the root directory of your project for easy access and recognition by deployment platforms.
+- Regularly test your application locally to ensure that the command works as expected before deploying to production.

@@ -1,0 +1,40 @@
+---
+description: Documentation for the AdBannerSerializer class in the API V1 module.
+globs: ['app/serializers/api/v1/ad_banner_serializer.rb']
+alwaysApply: false
+---
+
+# AdBannerSerializer Documentation
+
+## Overview
+The `AdBannerSerializer` class is part of the API version 1 (V1) module and is responsible for serializing the `AdBanner` model into a JSON format that can be easily consumed by clients. This serializer defines which attributes of the `AdBanner` model should be included in the JSON response.
+
+## Key Components
+- **Class**: `AdBannerSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+  - **Attributes**: The following attributes are defined for serialization:
+    - `id`: The unique identifier for the ad banner.
+    - `ad_banner_location`: The location where the ad banner is displayed.
+    - `ad_banner_location_id`: The identifier for the ad banner's location.
+    - `text`: The text content of the ad banner.
+    - `images`: The images associated with the ad banner.
+    - `callback_url`: A URL for callbacks related to the ad banner.
+    - `disabled`: A boolean indicating if the ad banner is disabled.
+    - `advertisable`: The associated advertisable object.
+    - `advertisable_id`: The ID of the associated advertisable object.
+    - `advertisable_type`: The type of the associated advertisable object.
+    - `advertisable_image`: The image associated with the advertisable object.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the context of the API V1 module.
+
+## Usage Examples
+To use the `AdBannerSerializer`, you would typically instantiate it with an `AdBanner` object and render it in a controller action. For example:
+```ruby
+render json: AdBannerSerializer.new(ad_banner)
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the `AdBanner` model.
+- Keep the serializer focused on the specific attributes needed for the API response to avoid over-fetching data.
+- Regularly review and update the serializer as the `AdBanner` model evolves to maintain consistency in the API responses.

@@ -1,0 +1,44 @@
+---
+description: Policy class for managing access and permitted attributes for Kiosk Product Layouts.
+globs: ['app/policies/kiosk_product_layout_policy.rb']
+alwaysApply: false
+---
+
+# KioskProductLayoutPolicy Documentation
+
+## Overview
+The `KioskProductLayoutPolicy` class is responsible for defining the authorization rules for the Kiosk Product Layouts in the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application. This policy determines whether a user can view or update Kiosk Product Layouts and specifies the attributes that are permitted for mass assignment.
+
+## Key Components
+- **Class Definition**: `KioskProductLayoutPolicy` inherits from `ApplicationPolicy`, allowing it to utilize the base policy functionalities.
+
+- **Methods**:
+  - `show?`: This method checks if the user is present, allowing access to the show action if true.
+  - `update?`: Similar to `show?`, this method checks if the user is present to allow updates to the Kiosk Product Layout.
+  - `permitted_attributes`: This method returns an array of attributes that are permitted for mass assignment when creating or updating a Kiosk Product Layout. It includes:
+    - `:stylesheet`
+    - A nested hash for `values` that includes attributes like `:id`, `:link`, `:content`, `:product_layout_element_id`, and `:_destroy`, as well as nested attributes for `asset_attributes`.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in defining the policy for Kiosk Product Layouts.
+
+## Usage Examples
+To use this policy, you would typically check the authorization in your controller actions:
+```ruby
+class KioskProductLayoutsController < ApplicationController
+  def show
+    authorize KioskProductLayout
+    # additional logic for showing the layout
+  end
+
+  def update
+    authorize KioskProductLayout
+    # additional logic for updating the layout
+  end
+end
+```
+
+## Best Practices
+- Ensure that the `user` method is properly defined in the `ApplicationPolicy` to return the current user.
+- Regularly review the permitted attributes to ensure they align with the application's security requirements.
+- Use descriptive names for methods and attributes to maintain clarity in the policy's purpose.

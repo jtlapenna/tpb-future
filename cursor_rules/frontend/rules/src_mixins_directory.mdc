@@ -1,0 +1,32 @@
+---
+description: Documentation for the src/mixins directory, detailing its purpose and contents.
+globs: ['src/mixins/*']
+alwaysApply: false
+---
+
+# Overview of src/mixins Directory
+
+The `src/mixins` directory contains a collection of mixins that provide reusable functionality across various components in the application. These mixins encapsulate specific behaviors or features that can be shared among different parts of the codebase, promoting code reusability and maintainability.
+
+## Key Files and Their Roles
+- **aeropayEvent.js**: This mixin handles events related to the Aeropay payment system, providing methods to manage payment interactions and responses.
+- **offlineMixin.js**: This mixin provides functionality to manage offline capabilities, allowing components to handle scenarios when the application is not connected to the internet.
+- **keyboardEvents.js**: This file contains a mixin that manages keyboard event listeners, enabling components to respond to user keyboard inputs effectively.
+- **redirectEvent.js**: This mixin is responsible for handling redirection events within the application, ensuring that users are navigated to the correct pages based on specific triggers.
+- **HasProductsPaginated.js**: This mixin provides pagination functionality for components that display a list of products, allowing for efficient navigation through large datasets.
+- **isCardWithAttributes.js**: This mixin checks if a card component has specific attributes, facilitating conditional rendering based on the presence of these attributes.
+- **MergeConfig.js**: This file contains logic for merging configuration settings, ensuring that components can dynamically adapt their behavior based on the provided configurations.
+
+## Relationship to Other Parts of the Codebase
+The mixins in this directory are designed to be imported and utilized by various components throughout the application. They often interact with global constants defined in `src/const/globals.js` and may also communicate with messaging services defined in `src/api/messaging/index.js`. This structure allows for a modular approach where components can leverage shared functionality without duplicating code.
+
+## Common Patterns and Conventions
+- **Mixin Structure**: Each mixin is typically structured as a JavaScript object or function that can be easily imported into components. This allows for straightforward integration and usage.
+- **Event Handling**: Many mixins focus on event handling, providing a consistent way to manage user interactions across different components.
+- **Configuration Management**: Mixins often include methods for managing configurations, ensuring that components can adapt to different contexts or settings.
+
+## Best Practices
+- **Reusability**: When creating new mixins, ensure that they encapsulate specific functionality that can be reused across multiple components. Avoid creating overly specific mixins that are only applicable to a single component.
+- **Documentation**: Document each mixin clearly, including its purpose, methods, and any parameters it accepts. This will help other developers understand how to use them effectively.
+- **Testing**: Implement unit tests for each mixin to ensure that they function correctly in isolation. This will help maintain the reliability of the mixins as the codebase evolves.
+- **Consistent Naming**: Follow a consistent naming convention for mixins to make it easier for developers to identify their purpose and functionality at a glance.

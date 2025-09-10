@@ -1,0 +1,31 @@
+---
+description: Serializer for StorePrice model in the application.
+globs: ['app/serializers/store_price_serializer.rb']
+alwaysApply: false
+---
+
+# StorePriceSerializer
+
+## Overview
+The `StorePriceSerializer` is a serializer class that is part of the ActiveModel::Serializer framework. It is responsible for defining how the `StorePrice` model is represented in JSON format when it is rendered in API responses. This is particularly useful in Rails applications that serve JSON data to clients.
+
+## Key Components
+- **Class Definition**: The class `StorePriceSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method specifies which attributes of the `StorePrice` model should be included in the serialized output. In this case, it includes `:id` and `:name`.
+
+## Dependencies
+This file does not have any external dependencies, nor is it imported by any other files in the repository. It stands alone as a serializer for the `StorePrice` model.
+
+## Usage Example
+When a `StorePrice` object is rendered in a JSON response, the serializer will format it as follows:
+```json
+{
+  "id": 1,
+  "name": "Sample Store Price"
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including sensitive information that should not be exposed.
+- Keep the serializer simple and focused on the specific model it represents. If additional logic is needed, consider using custom methods within the serializer or creating separate serializers for different contexts.
+- Regularly review and update the serializer as the model evolves to ensure that it accurately reflects the current state of the data.

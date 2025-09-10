@@ -1,0 +1,29 @@
+---
+description: Documentation for the configuration file containing server keys.
+globs: ['functions/config.js']
+alwaysApply: false
+---
+
+# Configuration File Documentation
+
+## Overview
+The `config.js` file is a configuration module that exports a constant `SERVER_KEY`. This key is typically used for authentication or authorization purposes in server communications.
+
+## Key Components
+- **SERVER_KEY**: A constant string that holds the server key used for API requests. This key is crucial for ensuring secure communication between the client and the server.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a configuration file, meaning it does not rely on or affect other parts of the codebase directly.
+
+## Usage Example
+To use the `SERVER_KEY` in another part of your application, you can import it as follows:
+```javascript
+import { SERVER_KEY } from './functions/config';
+
+console.log(SERVER_KEY); // Outputs the server key
+```
+
+## Best Practices
+- **Security**: Ensure that the `SERVER_KEY` is kept secure and not exposed in client-side code. Consider using environment variables or secure vaults for sensitive information.
+- **Version Control**: Avoid hardcoding sensitive keys directly in the codebase. Instead, use configuration management tools or environment variables to manage such keys securely.
+- **Documentation**: Keep this documentation updated if the purpose or usage of the `SERVER_KEY` changes in the future.

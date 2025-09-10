@@ -1,0 +1,39 @@
+---
+description: Documentation for the StorePrice model class in the application.
+globs: ['src/app/stores/models/store-price.ts']
+alwaysApply: false
+---
+
+# StorePrice Model Documentation
+
+## Overview
+The `StorePrice` class represents a model for storing price information related to a store. It encapsulates the properties of a store's price, specifically an identifier and a name, and provides a constructor for initializing these properties from a JSON object.
+
+## Key Components
+- **Class: StorePrice**  
+  This class contains the following properties and methods:
+  - **Properties:**  
+    - `id: number`  
+      The unique identifier for the store price.
+    - `name: string`  
+      The name associated with the store price.
+  - **Constructor:**  
+    - `constructor(json: any)`  
+      Initializes a new instance of the `StorePrice` class using a JSON object. It extracts the `id` and `name` from the provided JSON.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a simple model class.
+
+## Usage Example
+To create an instance of the `StorePrice` class, you can use the following code:
+```typescript
+const priceData = { id: 1, name: 'Standard Price' };
+const storePrice = new StorePrice(priceData);
+console.log(storePrice.id);   // Output: 1
+console.log(storePrice.name); // Output: 'Standard Price'
+```
+
+## Best Practices
+- Ensure that the JSON object passed to the constructor contains the required properties (`id` and `name`) to avoid runtime errors.
+- Consider extending the class in the future to include additional properties or methods that may be relevant to store pricing, such as discounts or currency types.
+- Keep the model simple and focused on its purpose to maintain clarity and ease of use.

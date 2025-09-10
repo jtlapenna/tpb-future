@@ -1,0 +1,28 @@
+---
+description: Documentation for the docs directory containing API documentation.
+globs: ['docs/*']
+alwaysApply: false
+---
+
+# Documentation Directory Overview
+
+The `docs` directory serves as the central location for all documentation related to the project. It is designed to provide developers and users with comprehensive information about the API and its usage.
+
+## Key Files
+
+- **peak_api.md**: This file contains detailed documentation for the Peak API, outlining its endpoints, request/response formats, and usage examples. It is essential for developers looking to integrate with or utilize the API effectively.
+
+## Relation to Other Parts of the Codebase
+
+The `docs` directory is independent of the codebase's functional components, as it does not import from or get imported by any other files. However, it plays a crucial role in enhancing the understanding of the codebase by providing necessary context and guidance for developers.
+
+## Common Patterns and Conventions
+
+- Documentation files should follow a consistent naming convention, ideally reflecting the functionality or component they describe.
+- Markdown formatting should be used to ensure clarity and readability, including headers, lists, and code blocks where applicable.
+
+## Best Practices
+
+- Keep documentation up-to-date with any changes in the API or codebase to avoid confusion.
+- Use clear and concise language to make the documentation accessible to both new and experienced developers.
+- Regularly review and refactor documentation to improve clarity and organization, ensuring it remains relevant and useful.

@@ -1,0 +1,48 @@
+---
+description: Documentation for the CurrentKioskService in the Angular application.
+globs: ['src/app/core/services/current-kiosk.service.ts']
+alwaysApply: false
+---
+
+# CurrentKioskService Documentation
+
+## Overview
+The `CurrentKioskService` is an Angular service that manages the state of the current kiosk's ID within the application. It utilizes a `ReplaySubject` to allow components to subscribe to changes in the kiosk ID, ensuring that they receive the latest value immediately upon subscription.
+
+## Key Components
+- **Class: CurrentKioskService**  
+  This is the main class of the service, decorated with `@Injectable` to allow for dependency injection throughout the application.  
+
+- **Property: kioskId$**  
+  - Type: `ReplaySubject<number>`  
+  - Description: This property is a `ReplaySubject` that holds the current kiosk ID. It is initialized to emit the last emitted value to new subscribers, ensuring that they always have the most recent kiosk ID available.
+
+## Dependencies
+This service does not import any other files from the repository, making it a standalone service. However, it is utilized by several components in the application:
+- **src/app/app.component.ts**: This component likely uses the service to manage or display the current kiosk ID.
+- **src/app/core/services/current-kiosk.service.spec.ts**: This is the test file for the service, ensuring that its functionality is correctly implemented and maintained.
+- **src/app/layout/navbar/navbar.component.ts**: This component may use the service to display or interact with the current kiosk ID in the navigation bar.
+
+## Usage Example
+To use the `CurrentKioskService`, you can inject it into a component as follows:
+```typescript
+import { Component } from '@angular/core';
+import { CurrentKioskService } from './core/services/current-kiosk.service';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: './example.component.html'
+})
+export class ExampleComponent {
+  constructor(private currentKioskService: CurrentKioskService) {
+    this.currentKioskService.kioskId$.subscribe(kioskId => {
+      console.log('Current Kiosk ID:', kioskId);
+    });
+  }
+}
+```
+
+## Best Practices
+- **Subscription Management**: When subscribing to the `kioskId$` observable, ensure to manage subscriptions properly to avoid memory leaks. Consider using `takeUntil` or `async` pipe in templates.
+- **Initialization**: Ensure that the kiosk ID is set appropriately before any components that depend on it are initialized to avoid undefined values.
+- **Testing**: Always write unit tests for the service to verify its behavior, especially when dealing with observables and state management.

@@ -1,0 +1,31 @@
+---
+description: Documentation for the static/css directory containing custom CSS files.
+globs: ['static/css/*']
+alwaysApply: false
+---
+
+# Overview of the static/css Directory
+
+The `static/css` directory is dedicated to storing custom CSS files that define the styling for the web application. This directory serves as a centralized location for all CSS styles that are not part of any external libraries or frameworks.
+
+## Key Files
+
+- **custom.example.css**: This is the primary CSS file in this directory. It contains custom styles that are applied throughout the application. Developers can modify this file to change the appearance of various components and layouts.
+
+## Relation to Other Parts of the Codebase
+
+The styles defined in the `static/css` directory are typically linked in the HTML files of the application. While this directory does not import any external files, it is crucial for ensuring that the application has a consistent look and feel. Changes made in this directory can directly impact the user interface, so it is important to coordinate updates with other developers.
+
+## Common Patterns and Conventions
+
+- **Naming Conventions**: CSS files should be named descriptively to reflect their purpose. For example, `custom.example.css` indicates that it contains custom styles, and the `.example` suffix can denote a specific theme or component.
+- **Organization**: As the project grows, consider organizing CSS files into subdirectories based on components or features to maintain clarity and manageability.
+
+## Best Practices
+
+- **Modular CSS**: Aim to keep styles modular and reusable. This can help reduce redundancy and improve maintainability.
+- **Commenting**: Use comments within the CSS file to explain complex styles or to indicate sections of the file. This will help other developers understand the intent behind specific styles.
+- **Testing Styles**: Always test styles across different browsers and devices to ensure compatibility and responsiveness.
+- **Version Control**: Use version control to track changes in CSS files, allowing for easy rollback if a change negatively impacts the design.
+
+By following these guidelines, developers can effectively manage the styles in the `static/css` directory and contribute to a cohesive and visually appealing application.

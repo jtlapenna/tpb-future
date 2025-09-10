@@ -1,0 +1,59 @@
+---
+description: This file defines the StoreSyncItem model, which handles synchronization of store products and their attributes.
+globs: ['app/models/store_sync_item.rb']
+alwaysApply: false
+---
+
+# StoreSyncItem Model Documentation
+
+## Overview
+The `StoreSyncItem` class is an ActiveRecord model that represents items being synchronized with a store. It manages the synchronization of product attributes, statuses, and relationships with other models, particularly `StoreSync` and `StoreCategory`. This model is crucial for ensuring that product data is accurately reflected in the store's inventory system.
+
+## Key Components
+
+### Class Definition
+- **`class StoreSyncItem < ApplicationRecord`**: Inherits from `ApplicationRecord`, making it a part of the Rails model layer.
+
+### Associations
+- **`belongs_to :store_sync`**: Establishes a one-to-many relationship with the `StoreSync` model, indicating that each `StoreSyncItem` is associated with a specific synchronization process.
+
+### Enum
+- **`enum status`**: Defines various statuses for the synchronization process, including `pending`, `confirmed`, `discarded`, etc. This allows for easy management of the item's state during synchronization.
+
+### Delegation
+- **`delegate :store, to: :store_sync`**: Provides a convenient way to access the associated store directly from the `StoreSyncItem` instance.
+
+### Store Fields
+- **`store :fields`**: Uses a JSON column to store various attributes related to the product, such as SKU, name, size, weight, and more. This allows for flexible storage of product data.
+
+### Validations
+- **`validates :sku, :stock, presence: true`**: Ensures that both SKU and stock are present before saving the record.
+- **`validates :stock, numericality: {greater_than_or_equal_to: 0}`**: Validates that stock is a non-negative number.
+
+### Instance Methods
+- **`create_store_product!`**: Creates a new product in the store and marks the item as confirmed.
+- **`create_wildcard_product!`**: Creates a product without confirming it immediately.
+- **`update_store_product!`**: Updates an existing store product with the current attributes of the `StoreSyncItem`.
+- **`deactivated_item?`**: Checks if the item should be deactivated based on its active status and store type.
+- **`find_brand`**: Finds or creates a brand based on the provided name.
+
+### Private Methods
+- **`create_product!`**: Handles the actual creation of a product in the store, including error handling and logging.
+- **`store_category`**: Retrieves the associated `StoreCategory` based on the `store_category_id`.
+- **`variant`**: Finds the product variant associated with the item.
+- **`find_attr_value`**: Retrieves the appropriate attribute value based on the attribute definition.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying on the Rails framework and its ActiveRecord capabilities.
+
+## Usage Examples
+To create a new store sync item and a corresponding product:
+```ruby
+store_sync_item = StoreSyncItem.new(sku: '12345', stock: 10)
+store_sync_item.create_store_product!
+```
+
+## Best Practices
+- Ensure that all required fields are populated before saving a `StoreSyncItem` to avoid validation errors.
+- Use the provided methods for creating and updating products to maintain consistency in the data.
+- Handle exceptions gracefully, especially in the `create_product!` method, to avoid application crashes during synchronization processes.

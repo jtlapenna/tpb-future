@@ -1,0 +1,32 @@
+---
+description: Documentation for the ShopifyError class in the Shopify module.
+globs: ['app/lib/shopify/shopify_error.rb']
+alwaysApply: false
+---
+
+# ShopifyError Class Documentation
+
+## Overview
+The `ShopifyError` class is a custom error class that inherits from `Errors::ExternalApiError`. It is part of the `Shopify` module and is used to handle exceptions specifically related to interactions with the Shopify API. This class allows for more granular error handling when dealing with external API calls, making it easier to identify and manage errors that arise from Shopify's services.
+
+## Key Components
+- **Class: `ShopifyError`**  
+  This class extends the `Errors::ExternalApiError`, which means it inherits all the properties and methods of that class. It does not add any new functionality or properties at this time, but serves as a specific type of error for the Shopify API.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a definition for a specific error type.
+
+## Usage Example
+While there are no methods defined within the `ShopifyError` class itself, it can be used in conjunction with other parts of the codebase that interact with the Shopify API. For example:
+```ruby
+begin
+  # Code that interacts with the Shopify API
+rescue Shopify::ShopifyError => e
+  puts "An error occurred: \\#{e.message}"
+end
+```
+
+## Best Practices
+- Use `ShopifyError` to catch and handle errors specifically related to the Shopify API. This helps in distinguishing between different types of errors in your application.
+- Ensure that any API interaction code is wrapped in appropriate error handling to gracefully manage exceptions and provide meaningful feedback to users or logs.
+- Keep the `ShopifyError` class updated if additional functionality or properties are needed in the future, especially if the error handling requirements evolve.

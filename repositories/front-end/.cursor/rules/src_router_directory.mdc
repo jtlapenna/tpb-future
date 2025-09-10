@@ -1,0 +1,32 @@
+---
+description: Documentation for the src/router directory in the codebase.
+globs: ['src/router/*']
+alwaysApply: false
+---
+
+# Overview of the src/router Directory
+
+The `src/router` directory is responsible for defining the routing logic of the application. It serves as the central point for managing navigation and URL handling within the application.
+
+## Key Files
+
+- **index.js**: This is the main file in the `src/router` directory. It typically contains the routing configuration, including the definition of routes, their corresponding components, and any necessary middleware for handling requests.
+
+## Relationship to Other Parts of the Codebase
+
+The routing logic defined in this directory interacts closely with the components and views of the application. It determines how users navigate through the application and which components are rendered based on the current URL. This directory may also interact with state management solutions or APIs to fetch data needed for specific routes.
+
+## Common Patterns and Conventions
+
+- **Route Definitions**: Routes are usually defined in a structured manner, often using a combination of path strings and component references. It is common to see nested routes for complex applications.
+- **Dynamic Routing**: If the application requires dynamic segments in the URL (e.g., user profiles), this should be handled within the routing configuration.
+- **Error Handling**: Implementing a catch-all route for handling 404 errors is a common practice to improve user experience.
+
+## Best Practices
+
+- **Keep Routes Organized**: As the application grows, consider organizing routes into separate files or modules to maintain clarity and manageability.
+- **Use Descriptive Names**: When defining routes, use descriptive names for paths and components to enhance readability and maintainability.
+- **Document Route Changes**: Whenever routes are added or modified, ensure that changes are documented to keep the team informed and aligned.
+- **Test Routing Logic**: Implement tests for routing to ensure that navigation works as expected and that all routes are accessible.
+
+By following these guidelines, developers can effectively manage the routing logic within the `src/router` directory, ensuring a smooth navigation experience for users.

@@ -1,0 +1,57 @@
+---
+description: Documentation for the ArticleComponent in the articles module of the Angular application.
+globs: ['src/app/articles/article/article.component.ts']
+alwaysApply: false
+---
+
+# ArticleComponent Documentation
+
+## Overview
+The `ArticleComponent` is a key component in the articles module of the Angular application. It is responsible for managing the creation and editing of articles, including handling form submissions, validation, and displaying notifications for user actions. This component interacts with various services to fetch and save article data, as well as manage categories and tags associated with articles.
+
+## Key Components
+
+### Class: ArticleComponent
+- **Imports**: The component imports necessary Angular modules and services, including `FormBuilder`, `FormGroup`, and various services for handling articles, categories, and notifications.
+- **Properties**:
+  - `resourceForm`: A reactive form group that manages the article form.
+  - `resource`: An instance of the `Article` model representing the current article being edited or created.
+  - `remoteErrors`: An instance of `RemoteErrors` to handle validation errors from the server.
+  - `working`: A boolean flag indicating if a save operation is in progress.
+  - `categoriesOptions`: An instance of `AutocompletePaginator` for managing category options in the form.
+
+### Lifecycle Hook: ngOnInit
+- Initializes the component by creating the form and fetching categories. It also subscribes to route parameters to load the article data if an ID is present.
+
+### Method: createForm
+- Constructs the reactive form with fields for article properties, including title, text, tag, category, icon, and excerpt. It also sets up custom validation to ensure at least one of the tag or category fields is filled.
+
+### Method: saveResource
+- Handles the submission of the article form. It processes the form data, calls the `ArticleService` to save the article, and manages notifications based on the success or failure of the operation.
+
+### Method: oneOfControlRequired
+- A custom validator that checks if at least one of the provided controls is filled. Returns a validation error if both controls are empty.
+
+## Dependencies
+The `ArticleComponent` relies on several services and models:
+- **Models**: `Article` from `src/app/articles/models`.
+- **Services**: 
+  - `ArticleService` for fetching and saving articles.
+  - `CategoryService` for managing categories.
+  - `TagsService` for handling tags.
+  - `NotificationsService` for displaying user notifications.
+- **Error Handling**: `RemoteErrors` from `src/app/core/lib/remote-error.ts` for managing server-side validation errors.
+
+### Related Files
+- **Imports**: This component is imported by `src/app/articles/articles.module.ts` and has a corresponding test file `src/app/articles/article/article.component.spec.ts`.
+
+## Usage Examples
+To use the `ArticleComponent`, ensure it is declared in the appropriate Angular module and included in the routing configuration if necessary. The component can be used in templates as follows:
+```html
+<app-article></app-article>
+```
+
+## Best Practices
+- Ensure that all form fields are properly validated before submission to enhance user experience and prevent errors.
+- Utilize the `NotificationsService` to provide feedback to users after actions such as saving or encountering errors.
+- Keep the component's logic focused on presentation and delegate data handling to services to maintain separation of concerns.

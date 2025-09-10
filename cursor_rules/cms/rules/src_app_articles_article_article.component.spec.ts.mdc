@@ -1,0 +1,39 @@
+---
+description: Unit tests for the ArticleComponent in the Angular application.
+globs: ['src/app/articles/article/article.component.spec.ts']
+alwaysApply: false
+---
+
+# ArticleComponent Spec File
+
+## Overview
+This file contains unit tests for the `ArticleComponent` in an Angular application. It utilizes Angular's testing utilities to create a test suite that verifies the component's creation and functionality.
+
+## Key Components
+- **Imports**: The file imports necessary testing utilities from Angular, the `ArticleComponent`, and a custom testing module (`PeakTestingModule`). It also imports the `ArticleService` which is used within the component.
+- **describe**: The main test suite is defined using `describe`, which groups related tests for the `ArticleComponent`.
+- **beforeEach**: Several `beforeEach` blocks are used to set up the testing environment:
+  - The first block configures the testing module, declaring the component and importing necessary modules.
+  - The second block injects the `ArticleService` to be used in the tests.
+  - The third block creates an instance of the `ArticleComponent` and initializes it with mock data.
+- **it**: The test case checks if the component is created successfully.
+
+## Dependencies
+This spec file depends on the following files:
+- `src/app/articles/article/article.component.ts`: The component being tested.
+- `src/app/test`: A custom testing module that likely provides shared testing utilities or configurations.
+- `src/app/articles/services`: Contains the `ArticleService` used in the component.
+
+This file is not imported by any other files in the repository, indicating it is solely for testing purposes.
+
+## Usage Examples
+To run the tests defined in this file, you can use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this spec file.
+
+## Best Practices
+- Ensure that the `ArticleService` is properly mocked or stubbed to avoid making real HTTP calls during tests.
+- Keep tests isolated and focused on the component's functionality to ensure clarity and maintainability.
+- Regularly update tests when changes are made to the `ArticleComponent` to keep them relevant and accurate.

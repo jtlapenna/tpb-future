@@ -1,0 +1,50 @@
+---
+description: Documentation for the Page interface used in the kiosks module.
+globs: ['src/app/kiosks/models/page.ts']
+alwaysApply: false
+---
+
+# Page Interface Documentation
+
+## Overview
+The `Page` interface defines the structure of a pagination object used within the kiosks module of the application. It encapsulates the essential properties required for managing paginated data, such as the total number of elements, the current page number, the size of the page, and an optional loading state.
+
+## Key Components
+- **totalElements**: `number`  
+  Represents the total number of elements available across all pages. This is crucial for determining the total number of pages.
+
+- **pageNumber**: `number`  
+  Indicates the current page number being viewed. This is used to track the user's position within the paginated data.
+
+- **size**: `number`  
+  Specifies the number of items displayed per page. This helps in controlling the amount of data shown to the user at any given time.
+
+- **searchString**: `string`  
+  A string used for filtering or searching through the paginated data. This allows users to find specific items within the dataset.
+
+- **loading**: `boolean` (optional)  
+  A flag indicating whether the data is currently being loaded. This can be useful for displaying loading indicators in the UI.
+
+## Dependencies
+This file does not import any other files, but it is utilized by the following components in the codebase:
+- **src/app/kiosks/rfids/rfids.component.ts**: This component likely uses the `Page` interface to manage and display paginated RFID data.
+- **src/app/kiosks/services/kiosk.service.ts**: This service may leverage the `Page` interface to handle pagination logic when fetching data from an API or other data sources.
+
+## Usage Example
+Here is a simple example of how the `Page` interface might be used in a component:
+```typescript
+import { Page } from './models/page';
+
+const examplePage: Page = {
+  totalElements: 100,
+  pageNumber: 1,
+  size: 10,
+  searchString: 'example',
+  loading: false
+};
+```
+
+## Best Practices
+- Ensure that the `totalElements`, `pageNumber`, and `size` properties are always kept in sync to avoid inconsistencies in pagination.
+- Use the `loading` property to manage UI states effectively, providing feedback to users during data fetching operations.
+- When implementing search functionality, ensure that the `searchString` is properly sanitized to prevent issues such as injection attacks.

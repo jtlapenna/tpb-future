@@ -1,0 +1,36 @@
+---
+description: Documentation for handling screen keyboard events in a web application.
+globs: ['src/mixins/keyboardEvents.js']
+alwaysApply: false
+---
+
+# ScreenKeyboardEvents Documentation
+
+## Overview
+The `ScreenKeyboardEvents` mixin is designed to manage the visibility of on-screen keyboards in a web application. It listens for click events on the document and determines whether to show or hide the keyboard based on the user's interactions with input fields and the keyboard itself.
+
+## Key Components
+- **mounted**: This lifecycle hook is called when the component is mounted. It triggers the `hideScreenKeyboard` method to set up the event listener for click events.
+- **hideScreenKeyboard**: This method attaches a click event listener to the document. It checks the target of the click event to decide whether to show or hide the on-screen keyboard and its number pad.
+  - If the click is outside of the input fields and keyboard elements, both the keyboard and number pad are hidden.
+  - If the click is on an input field with the class `input-osk`, the keyboard is shown, and the number pad is hidden.
+  - If the click is on an input field with the class `input-phone`, the number pad is shown, and the keyboard is hidden.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on jQuery for DOM manipulation.
+
+## Usage Example
+To use this mixin, simply include it in your Vue component:
+```javascript
+import ScreenKeyboardEvents from 'src/mixins/keyboardEvents.js';
+
+export default {
+  mixins: [ScreenKeyboardEvents],
+  // other component options
+};
+```
+
+## Best Practices
+- Ensure that jQuery is included in your project, as this mixin relies on it for DOM manipulation.
+- Be cautious when using global event listeners, as they can lead to performance issues if not managed properly. Consider removing the event listener when the component is destroyed to prevent memory leaks.
+- Test the keyboard visibility functionality across different devices and browsers to ensure a consistent user experience.

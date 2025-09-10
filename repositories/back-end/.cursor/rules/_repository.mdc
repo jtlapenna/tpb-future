@@ -1,0 +1,54 @@
+---
+description: Documentation for understanding the structure and organization of the repository.
+globs: ['*']
+alwaysApply: true
+---
+
+# Repository Overview
+
+This repository is designed to provide a robust framework for building and managing applications with a focus on modularity, scalability, and maintainability. It encompasses various components that work together to deliver a seamless user experience and efficient backend processes.
+
+## Key Directories and Their Roles
+
+- **app/**: Contains the core application code, including:
+  - **channels/**: Manages Action Cable channels for real-time features.
+  - **contracts/**: Defines contracts for data validation and business logic.
+  - **controllers/**: Handles incoming requests and orchestrates responses.
+  - **jobs/**: Contains background jobs for asynchronous processing.
+  - **lib/**: Houses reusable libraries and modules.
+  - **mailers/**: Manages email notifications and templates.
+  - **models/**: Contains data models and business logic.
+  - **serializers/**: Transforms data into JSON format for API responses.
+  - **views/**: Contains templates for rendering HTML and JSON responses.
+
+- **config/**: Configuration files for the application, including environment settings and initializers.
+- **db/**: Database migrations and schema definitions.
+- **spec/**: Contains tests for various components of the application, ensuring code quality and functionality.
+
+## Architectural Patterns and Organization
+
+The repository follows a modular architecture, promoting separation of concerns. Each component is organized into distinct directories, making it easy to locate and manage code. The use of MVC (Model-View-Controller) pattern is prevalent, ensuring a clear distinction between data handling, user interface, and application logic.
+
+## Core Modules and Their Significance
+
+- **Action Cable**: Facilitates real-time features through WebSockets.
+- **Active Job**: Provides a framework for declaring jobs and making them run on a variety of queueing backends.
+- **Active Record**: Manages database interactions and object-relational mapping.
+
+## Entry Points and Navigation
+
+Key entry points include:
+- **app/controllers**: The main entry point for handling HTTP requests.
+- **app/jobs**: For background processing tasks.
+- **app/mailers**: For sending emails.
+
+To navigate the codebase, developers should familiarize themselves with the directory structure and understand the purpose of each module. The README file and inline documentation within the code provide additional context and guidance.
+
+## Best Practices
+
+- Follow naming conventions for files and directories to maintain consistency.
+- Write tests for new features and bug fixes to ensure code quality.
+- Use descriptive commit messages to document changes in the repository.
+- Keep dependencies up to date and regularly review the code for refactoring opportunities.
+
+By adhering to these practices, developers can contribute effectively and maintain a high standard of code quality within the repository.

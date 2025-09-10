@@ -1,0 +1,36 @@
+---
+description: This file serves as an entry point for exporting all functionalities from the article service module.
+globs: ['src/app/articles/services/index.ts']
+alwaysApply: false
+---
+
+# Overview
+
+The `index.ts` file in the `src/app/articles/services/` directory acts as a central export hub for the article-related services in the application. It simplifies the import process for other modules by aggregating exports from the `article.service` file.
+
+# Purpose and Functionality
+
+This file does not contain any logic or functionality of its own; instead, it re-exports everything from the `article.service` module. This pattern is commonly used in TypeScript to create a cleaner and more organized module structure, allowing other parts of the application to import services from a single location.
+
+# Key Components
+
+- **Export Statement**: The only line in this file is an export statement that pulls in all exports from `./article.service`. This means that any functions, classes, or constants defined in `article.service` will be available for import from this file.
+
+# Dependencies
+
+- **Imports**: This file does not import any other files in the repository.
+- **Exports**: It exports everything from `article.service`, which is expected to contain the actual service logic related to articles.
+
+# Usage Example
+
+To use the services defined in `article.service`, you can import them in another file like this:
+```typescript
+import { ArticleService } from 'src/app/articles/services';
+```
+This allows you to access all functionalities provided by `ArticleService` without needing to specify the path to `article.service` directly.
+
+# Best Practices
+
+- **Organize Exports**: Use index files like this one to keep your module exports organized. This makes it easier for other developers to find and use the services they need.
+- **Keep It Simple**: Avoid adding additional logic or exports in index files. Their purpose should be solely to aggregate exports from other modules.
+- **Documentation**: Ensure that the services being exported from `article.service` are well-documented, as this will help users understand how to utilize them effectively.

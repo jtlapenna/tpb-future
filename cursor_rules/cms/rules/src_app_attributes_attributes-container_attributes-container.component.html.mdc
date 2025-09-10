@@ -1,0 +1,24 @@
+---
+description: Documentation for the attributes-container.component.html file in the Angular application.
+globs: ['src/app/attributes/attributes-container/attributes-container.component.html']
+alwaysApply: false
+---
+
+# Attributes Container Component HTML
+
+## Overview
+The `attributes-container.component.html` file serves as the template for the Attributes Container component in the Angular application. It is responsible for rendering the router outlet, which acts as a placeholder for dynamically loaded components based on the application's routing configuration.
+
+## Key Components
+- **Router Outlet**: The `<router-outlet></router-outlet>` directive is a built-in Angular component that acts as a placeholder for the routed components. When the user navigates to different routes, the corresponding component will be displayed in this outlet.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It is a standalone template that relies on Angular's routing mechanism to function correctly.
+
+## Usage Examples
+While this file does not contain any complex logic or additional components, it is essential for the routing functionality of the application. To see it in action, ensure that your Angular application has defined routes that correspond to the components you wish to load into this outlet.
+
+## Best Practices
+- Ensure that the routing configuration in your Angular application is correctly set up to utilize the router outlet effectively.
+- Keep the template clean and minimal, as it primarily serves as a container for other components. Avoid adding unnecessary markup that could complicate the routing logic.
+- Regularly review the routing paths and components to ensure they align with the application's navigation structure.

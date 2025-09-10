@@ -1,0 +1,51 @@
+---
+description: Documentation for the ProductValue model in the application.
+globs: ['app/models/product_value.rb']
+alwaysApply: false
+---
+
+# ProductValue Model Documentation
+
+## Overview
+The `ProductValue` model represents a value associated with a polymorphic entity, allowing it to be linked to various types of objects (e.g., `StoreProduct`). It manages the persistence of these values in the database and includes validations and callbacks to ensure data integrity and to notify related entities of changes.
+
+## Key Components
+- **Class Definition**: `ProductValue < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, making it a part of the Active Record framework.
+
+- **Associations**:
+  - `belongs_to :valuable, polymorphic: true, inverse_of: :product_values, touch: true`
+    - Establishes a polymorphic association with other models, allowing `ProductValue` to be associated with different types of records.
+
+- **Validations**:
+  - `validates :value, numericality: { greater_than_or_equal_to: 0 }`
+    - Ensures that the `value` attribute is a number and is not negative.
+
+- **Callbacks**:
+  - `after_update_commit`, `after_create_commit`, `after_destroy_commit`
+    - These callbacks trigger methods to notify the associated `StoreProduct` of changes to the `ProductValue` instance.
+
+### Callback Methods
+- **notify_store_product_create**: Updates the `last_updated_websocket` timestamp of the associated `StoreProduct` when a new `ProductValue` is created.
+- **notify_store_product_update**: Updates the `last_updated_websocket` timestamp if relevant fields change after an update.
+- **notify_store_product_destroy**: Logs the destruction of a `ProductValue` and updates the associated `StoreProduct` if it exists.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently but relies on the `StoreProduct` model for its polymorphic association.
+
+## Usage Examples
+To create a new `ProductValue` associated with a `StoreProduct`:
+```ruby
+store_product = StoreProduct.create(name: 'Example Product')
+product_value = ProductValue.create(value: 10.00, valuable: store_product)
+```
+
+To update an existing `ProductValue`:
+```ruby
+product_value.update(value: 15.00)
+```
+
+## Best Practices
+- Ensure that the `value` attribute is always set to a non-negative number to maintain data integrity.
+- Be cautious when modifying the `notify_store_product_*` methods, as they directly affect the associated `StoreProduct` instances. Ensure that any changes do not introduce unintended side effects.
+- Use the polymorphic association wisely to maintain clarity in your codebase, especially when dealing with multiple types of associated records.

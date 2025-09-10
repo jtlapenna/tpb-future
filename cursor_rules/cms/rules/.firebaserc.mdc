@@ -1,0 +1,23 @@
+---
+description: Configuration file for Firebase project settings.
+globs: ['.firebaserc']
+alwaysApply: false
+---
+
+# Overview
+The `.firebaserc` file is a configuration file used by Firebase CLI to manage project settings for Firebase applications. It specifies the default Firebase project that the CLI should use when executing commands.
+
+# Key Components
+- **projects**: This section contains the project settings. In this case, it defines a single project under the key `default`.
+  - **default**: The name of the Firebase project that is set as the default for the Firebase CLI commands. In this example, it is set to `tpb-cms-aim`.
+
+# Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file specifically for Firebase CLI usage.
+
+# Usage
+To use this file, ensure that the Firebase CLI is installed and configured on your local machine. You can run Firebase commands such as `firebase deploy` or `firebase serve`, and the CLI will reference the project specified in this file.
+
+# Best Practices
+- Always ensure that the project name specified in the `.firebaserc` file matches the project name in your Firebase console to avoid deployment issues.
+- Keep this file in version control to maintain consistent project settings across different environments and team members.
+- If you have multiple Firebase projects, consider using different `.firebaserc` files for each project to avoid confusion.

@@ -1,0 +1,30 @@
+---
+description: Documentation for the dependency graph visualization HTML file.
+globs: ['mdc_output/dependency_graph_subgraphs/index.html']
+alwaysApply: false
+---
+
+# Repository Dependency Graphs
+
+## Overview
+This HTML file serves as an interactive visualization tool for displaying the dependency graph of a code repository. It utilizes the Cytoscape.js library to render a graphical representation of the relationships between various files in the project, categorized by their programming languages (Python, JavaScript, TypeScript).
+
+## Key Components
+- **HTML Structure**: The file contains a standard HTML structure with a head and body section. The head includes meta tags for character set and viewport settings, as well as links to external libraries (Cytoscape.js and jQuery).
+- **CSS Styles**: Inline CSS styles define the layout and appearance of the graph, buttons, and other UI elements.
+- **JavaScript Logic**: The script section contains the logic for initializing the Cytoscape instance, loading graph data, handling user interactions, and managing layout options.
+  - **Graph Initialization**: The graph is initialized with a predefined dataset (`mainGraphData`) and layout settings.
+  - **Event Handlers**: Functions are defined to handle user interactions, such as selecting different graph layouts and clicking on nodes to display additional information.
+  - **Dynamic Data Loading**: The script dynamically populates the dropdown for subgraphs and updates the displayed graph based on user selection.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently to provide a visual representation of the dependency graph.
+
+## Usage Examples
+- **Loading the Graph**: Upon loading the page, the main graph is displayed automatically. Users can interact with the graph by clicking on nodes to view details about specific files.
+- **Changing Layouts**: Users can select different layout options (e.g., random, grid, concentric) using the provided buttons to rearrange the graph visually.
+
+## Best Practices
+- **Maintain Data Integrity**: Ensure that the `mainGraphData` and `subgraphsData` variables are updated correctly to reflect any changes in the codebase.
+- **Optimize Performance**: For larger codebases, consider optimizing the graph rendering and layout algorithms to improve performance and responsiveness.
+- **User Experience**: Keep the UI intuitive and responsive, providing clear feedback (e.g., loading indicators) during data processing and layout changes.

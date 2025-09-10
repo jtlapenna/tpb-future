@@ -1,0 +1,30 @@
+---
+description: Documentation for the article list component HTML file in the application.
+globs: ['src/app/stores/article-list/article-list.component.html']
+alwaysApply: false
+---
+
+# Article List Component
+
+## Overview
+This file defines the HTML structure for the Article List component in the application. It provides a user interface for displaying a list of articles, allowing users to add, edit, and remove articles. The component utilizes the ngx-datatable library to present the articles in a tabular format with pagination and sorting capabilities.
+
+## Key Components
+- **Page Title**: Displays the title "Store articles" at the top of the page.
+- **Add Article Button**: A button that navigates to a new article creation page when clicked. It includes an icon for better user experience.
+- **Data Table**: The main feature of this component, implemented using `ngx-datatable`, which displays the articles in a structured format. It includes:
+  - **Columns**: Each article is represented with columns for ID, Title, Tag, and Actions.
+  - **Actions Column**: Contains buttons for editing and removing articles. The edit button navigates to the edit page for the selected article, while the remove button triggers a function to delete the article.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It is a standalone component that relies on the ngx-datatable library for its table functionality.
+
+## Usage Examples
+- To add a new article, click the "Add article" button, which will redirect to the article creation page.
+- To edit an article, click the "Edit" link in the Actions column of the respective article row.
+- To remove an article, click the "Remove" button in the Actions column, which will invoke the `removeArticle` function.
+
+## Best Practices
+- Ensure that the `removeArticle` function is implemented correctly to handle article deletions safely, including confirmation prompts if necessary.
+- Keep the UI responsive by managing the loading state effectively, especially when fetching data for the table.
+- Maintain accessibility standards by ensuring that buttons and links are keyboard navigable and have appropriate aria-labels where necessary.

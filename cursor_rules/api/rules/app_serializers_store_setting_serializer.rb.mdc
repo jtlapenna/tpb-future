@@ -1,0 +1,41 @@
+---
+description: Documentation for the StoreSettingSerializer class in the serializers directory.
+globs: ['app/serializers/store_setting_serializer.rb']
+alwaysApply: false
+---
+
+# StoreSettingSerializer Documentation
+
+## Overview
+The `StoreSettingSerializer` class is a serializer for the store settings in the application. It is responsible for defining how the store settings data is structured when it is converted to JSON format for API responses. This serializer utilizes the ActiveModel::Serializer framework to manage the attributes and relationships of the store settings.
+
+## Key Components
+- **Attributes**: The serializer defines a number of attributes that will be included in the serialized output. These attributes include:
+  - `id`: The unique identifier for the store setting.
+  - `printer_location`: The location of the printer associated with the store.
+  - `main_color` and `secondary_color`: Color settings for the store's branding.
+  - `featured_products_on_top_for_brands_page`, `featured_products_on_top_for_effects_and_uses_page`, `featured_products_on_top_for_products_page`: Boolean flags indicating whether featured products should be displayed at the top of various pages.
+  - `default_product_description`: A default description for products.
+  - `dispensary_license_number`: The license number for the dispensary.
+  - `lat` and `lng`: Latitude and longitude for the store's location.
+  - Various other settings related to tax, product display, and user interface options.
+
+- **Conditional Attributes**: Certain attributes are included conditionally based on the user's role. For example, attributes like `admin_email`, `pos_location`, and `service_worker_log` are only included if the user has admin privileges.
+
+- **Relationships**: The serializer defines relationships to other models:
+  - `has_one :background_media`: Indicates that each store setting can have one associated background media.
+  - `has_many :purchase_limits`: Indicates that each store setting can have multiple associated purchase limits.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone in its functionality, focusing solely on the serialization of store settings.
+
+## Usage Examples
+To use the `StoreSettingSerializer`, you would typically instantiate it with a store setting object and render it in a controller action. For example:
+```ruby
+render json: @store_setting, serializer: StoreSettingSerializer
+```
+
+## Best Practices
+- Ensure that sensitive information is not exposed through the serializer. Review the attributes included for admin users to avoid leaking sensitive data.
+- Keep the serializer updated as the store settings model evolves. If new attributes are added to the model, they should be reflected in the serializer.
+- Use conditional attributes judiciously to maintain clarity in the API responses, ensuring that only relevant data is sent to the client based on user roles.

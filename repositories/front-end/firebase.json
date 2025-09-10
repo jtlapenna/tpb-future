@@ -1,0 +1,423 @@
+{
+  "hosting": [
+    {
+      "public": "dist",
+      "target": "default",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "offline",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "jarupa",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "empireconnect",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "leaflogix",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "addsalesproducts",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "addsalesbrands",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "aeropay",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "abstrax",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "treez",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "cccbanning",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "fake-pagination",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "tpb-data",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "shopify",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "test-shopify",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "greengoddess",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "budologic",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "demoflower",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "heacock",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target": "tpb-product-limit",
+      "hosting": {
+        "public": "dist",
+        "target": "",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    },
+    {
+      "public": "dist",
+      "target":"pax-resinate",
+      "hosting": {
+        "public": "dist",
+        "target":"",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    }
+  ],
+  "functions": {
+    "source": "functions"
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8082
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "pubsub": {
+      "port": 9100
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}

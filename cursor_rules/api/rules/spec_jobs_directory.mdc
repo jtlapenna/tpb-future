@@ -1,0 +1,28 @@
+---
+description: Documentation for the spec/jobs directory containing job specifications.
+globs: ['spec/jobs/*']
+alwaysApply: false
+---
+
+# Overview of the `spec/jobs` Directory
+
+The `spec/jobs` directory contains RSpec test files that are specifically designed to test background jobs in the application. These jobs are responsible for handling asynchronous tasks, ensuring that the application can perform operations without blocking the main thread.
+
+## Key Files and Their Roles
+- **store_sync_job_spec.rb**: This file contains tests for the `StoreSyncJob`, which is responsible for synchronizing data between the application and an external store. The tests ensure that the job performs its tasks correctly and handles errors gracefully.
+- **share_product_text_message_job_spec.rb**: This file tests the `ShareProductTextMessageJob`, which sends text messages to users regarding product updates. The tests verify that messages are sent under the right conditions and that the job behaves as expected.
+- **customer_sync_job_spec.rb**: This file includes tests for the `CustomerSyncJob`, which synchronizes customer data with external systems. The tests check for data integrity and the correct execution of synchronization logic.
+
+## Relationship to Other Parts of the Codebase
+The `spec/jobs` directory is closely related to the `app/jobs` directory, where the actual job classes are defined. Each job specification file corresponds to a job class, ensuring that the functionality of the jobs is thoroughly tested. This structure promotes a clear separation of concerns, allowing developers to maintain and test job logic independently.
+
+## Common Patterns and Conventions
+- Each job specification file should follow the naming convention of `<job_name>_spec.rb`, making it easy to identify which job is being tested.
+- Tests should be organized into contexts that describe the conditions under which the job is executed, helping to clarify the purpose of each test.
+- Use `let` and `before` blocks to set up common test data and states, reducing duplication and improving readability.
+
+## Best Practices
+- Ensure that each job has comprehensive test coverage, including edge cases and error handling scenarios.
+- Keep tests isolated and avoid dependencies on external services by using mocks and stubs where appropriate.
+- Regularly run the test suite to catch any regressions or issues introduced by changes in job logic or related components.
+- Document any complex logic within the job specifications to aid future developers in understanding the tests and the jobs they cover.

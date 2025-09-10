@@ -1,0 +1,37 @@
+---
+description: Documentation for the ApplicationMailer class in the mailers directory.
+globs: ['app/mailers/application_mailer.rb']
+alwaysApply: false
+---
+
+# ApplicationMailer Documentation
+
+## Overview
+The `ApplicationMailer` class serves as the base class for all mailers in the application. It inherits from `ActionMailer::Base`, which provides the functionality to send emails. This class sets a default sender email address for all outgoing emails, ensuring consistency across the application.
+
+## Key Components
+- **Class Definition**: `class ApplicationMailer < ActionMailer::Base`
+  - This line defines the `ApplicationMailer` class, which extends `ActionMailer::Base`, allowing it to utilize all the features provided by ActionMailer.
+
+- **Default Email From**: `default from: ENV['DEFAULT_EMAIL_FROM']`
+  - This line sets a default sender email address for all emails sent from this mailer. The email address is retrieved from an environment variable, `DEFAULT_EMAIL_FROM`, which allows for easy configuration across different environments (development, testing, production).
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as the foundational mailer class for the application.
+
+## Usage Examples
+To create a new mailer that inherits from `ApplicationMailer`, you can define a new class as follows:
+```ruby
+class UserMailer < ApplicationMailer
+  def welcome_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  end
+end
+```
+In this example, `UserMailer` inherits from `ApplicationMailer`, allowing it to use the default email settings defined in `ApplicationMailer`.
+
+## Best Practices
+- **Environment Configuration**: Ensure that the `DEFAULT_EMAIL_FROM` environment variable is set in all environments where the application is deployed to avoid sending emails from an undefined address.
+- **Extending Functionality**: When creating new mailers, always inherit from `ApplicationMailer` to maintain consistency in email configuration and to leverage any shared functionality.
+- **Testing Mailers**: Use ActionMailer’s built-in testing capabilities to test your mailers. Ensure that emails are sent with the correct parameters and that the content is as expected.

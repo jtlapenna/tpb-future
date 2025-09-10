@@ -1,0 +1,39 @@
+---
+description: Documentation for the ProductsPaginator class in the products paginator module.
+globs: ['src/app/core/classes/products-paginator.ts']
+alwaysApply: false
+---
+
+# ProductsPaginator Documentation
+
+## Overview
+The `ProductsPaginator` class is a specialized paginator that extends the functionality of the `AutocompletePaginator`. It is designed to manage pagination for product listings, allowing for efficient data retrieval and display in applications that require product selection or browsing.
+
+## Key Components
+### Class: ProductsPaginator
+- **Constructor**: The constructor takes in a `ProductService`, a `paginationSize`, and an optional `filterBy` parameter. It initializes the paginator with the provided service and settings.
+  - **Parameters**:
+    - `service`: An instance of `ProductService` that provides methods to fetch product data.
+    - `paginationSize`: A number indicating how many items to display per page (default is 10).
+    - `filterBy`: An optional parameter to filter the products based on certain criteria.
+
+- **Method: getOptions()**: This method is currently defined but not implemented. It is intended to retrieve the options for pagination, which may include the current page, total items, and other relevant pagination data.
+
+## Dependencies
+The `ProductsPaginator` class relies on the following dependencies:
+- **ProductService**: Imported from `src/app/products/services`, this service is responsible for handling product-related data operations.
+- **CrudService**: Imported from `../services/crud.service`, this service may provide additional CRUD operations that can be utilized by the paginator.
+- **AutocompletePaginator**: The base class from which `ProductsPaginator` inherits, located in `./autocomplete-paginator`. This class likely provides foundational pagination logic and methods.
+
+## Usage Example
+To use the `ProductsPaginator`, you would typically instantiate it with a `ProductService` and configure it as needed:
+```typescript
+const productService = new ProductService();
+const paginator = new ProductsPaginator(productService, 20, 'category');
+```
+
+## Best Practices
+- Ensure that the `ProductService` is properly configured and provides the necessary methods for data retrieval.
+- Implement the `getOptions()` method to return meaningful pagination data to enhance the usability of the paginator.
+- Consider extending the functionality of the paginator by adding methods for sorting or filtering products based on user input.
+- Keep the pagination size configurable to allow for flexibility in different contexts of use.

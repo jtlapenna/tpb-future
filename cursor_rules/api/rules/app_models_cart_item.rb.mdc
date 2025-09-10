@@ -1,0 +1,50 @@
+---
+description: Documentation for the CartItem model in the application.
+globs: ['app/models/cart_item.rb']
+alwaysApply: false
+---
+
+# CartItem Model Documentation
+
+## Overview
+The `CartItem` model represents an item in a shopping cart within the application. It is responsible for linking a specific product from the store to a cart, along with the quantity of that product that the user wishes to purchase.
+
+## Key Components
+- **Class Definition**: `CartItem < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the model with Active Record functionalities.
+
+- **Associations**:
+  - `belongs_to :cart`: This establishes a relationship where each `CartItem` is associated with a single `Cart`. This means that each item in the cart is linked to a specific cart instance.
+  - `belongs_to :store_product`: This sets up a relationship where each `CartItem` is linked to a specific product available in the store. This allows the application to track which product is being purchased.
+
+## Schema Information
+The `CartItem` model corresponds to the `cart_items` table in the database, which includes the following fields:
+- `id`: Primary key for the cart item record.
+- `quantity`: The number of units of the product in the cart.
+- `created_at`: Timestamp for when the cart item was created.
+- `updated_at`: Timestamp for when the cart item was last updated.
+- `cart_id`: Foreign key linking to the `carts` table.
+- `store_product_id`: Foreign key linking to the `store_products` table.
+
+### Indexes
+- `index_cart_items_on_cart_id`: Index on the `cart_id` for faster lookups.
+- `index_cart_items_on_store_product_id`: Index on the `store_product_id` for efficient querying.
+
+### Foreign Keys
+- `fk_rails_... (cart_id => carts.id)`: Ensures referential integrity between `cart_items` and `carts`.
+- `fk_rails_... (store_product_id => store_products.id)`: Ensures referential integrity between `cart_items` and `store_products`.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently as a model within the Rails application.
+
+## Usage Examples
+To create a new cart item, you can use the following code:
+```ruby
+cart_item = CartItem.new(cart_id: 1, store_product_id: 2, quantity: 3)
+cart_item.save
+```
+
+## Best Practices
+- Ensure that the `quantity` is always a positive integer when creating or updating a `CartItem`.
+- Use validations to check the presence of `cart_id` and `store_product_id` to prevent orphaned records.
+- Consider adding methods to handle common operations related to cart items, such as updating quantities or removing items from the cart.

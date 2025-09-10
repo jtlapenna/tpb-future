@@ -1,0 +1,32 @@
+---
+description: Documentation for the PaymentGatewayProviderSerializer class in the serializers directory.
+globs: ['app/serializers/payment_gateway_provider_serializer.rb']
+alwaysApply: false
+---
+
+# PaymentGatewayProviderSerializer Documentation
+
+## Overview
+The `PaymentGatewayProviderSerializer` class is a serializer that formats the output of payment gateway provider objects for API responses. It inherits from `ActiveModel::Serializer`, which provides a way to customize the JSON representation of the model.
+
+## Key Components
+- **Class**: `PaymentGatewayProviderSerializer`
+  - **Attributes**: The serializer defines three attributes to be included in the serialized output:
+    - `id`: The unique identifier for the payment gateway provider.
+    - `name`: The name of the payment gateway provider.
+    - `fields`: Additional fields related to the payment gateway provider, which may include configuration options or settings.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the payment gateway provider model.
+
+## Usage Example
+To use this serializer, you would typically call it within a controller action that responds with JSON. For example:
+```ruby
+render json: @payment_gateway_provider, serializer: PaymentGatewayProviderSerializer
+```
+This would return a JSON response containing the `id`, `name`, and `fields` of the specified payment gateway provider.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data structure of the underlying model.
+- Keep the serializer focused on formatting the output without including business logic or data manipulation.
+- Regularly review and update the serializer as the model evolves to ensure consistency in API responses.

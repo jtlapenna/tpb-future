@@ -1,0 +1,73 @@
+
+.the-sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:$sidebar-height;
+  pointer-events: none;
+  z-index: 3;
+  .nav-container{
+    position: relative;
+    height: 100%;
+  }
+  .store-bg{
+    opacity: .6;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 50%;
+    z-index: 2;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (min-width: $md-breakpoint) {
+  .the-sidebar{
+    width: $sidebar-width;
+    height: 100% ;
+    .store-bg{
+      display: none;
+    }
+  }
+
+    .cart,.the-nav{
+      z-index: 2;
+    }
+  .cart{
+    display: flex;
+    overflow: hidden;
+    padding: 0 0 0 50px;
+    position: absolute;
+    bottom: 1.85vh;
+    left: 0;
+    width: 13.54vw;
+    height: 14.81vh;
+    border-radius: 0 20px 20px 0;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    pointer-events: auto;
+    color: #fff;
+
+   .lottie-container{
+     &--block-default-intro path {
+      fill: rgba(0, 0, 0, 0.3);
+    }
+   }
+    .lottie-container, &__background{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+}

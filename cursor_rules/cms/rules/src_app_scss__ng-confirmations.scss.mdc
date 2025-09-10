@@ -1,0 +1,35 @@
+---
+description: Documentation for the SCSS file responsible for styling the confirmation dialog component.
+globs: ['src/app/scss/_ng-confirmations.scss']
+alwaysApply: false
+---
+
+# _ng-confirmations.scss Documentation
+
+## Overview
+The `_ng-confirmations.scss` file contains the styling rules for the confirmation dialog component used in the application. This component is designed to provide users with a visual confirmation prompt, typically for actions that require user validation, such as deletions or important decisions.
+
+## Key Components
+- **.jaspero__confirmation_dialog**: This class styles the confirmation dialog box. The key properties include:
+  - `display: block !important;`: Ensures that the dialog is displayed as a block element, overriding any other display settings.
+  - `top: 50% !important;`: Positions the dialog vertically centered in the viewport.
+  - `bottom: unset !important;`: Resets any bottom positioning to ensure proper centering.
+  - `transform: translate(0, -50%);`: Adjusts the dialog's position to perfectly center it by translating it upwards by half of its height.
+
+## Dependencies
+This file does not import any other SCSS files, nor is it imported by any other files in the repository. It stands alone in its functionality, meaning it is self-contained and does not rely on external styles or components.
+
+## Usage Examples
+To use the confirmation dialog in your HTML, you would typically include the following structure:
+```html
+<div class="jaspero__confirmation_dialog">
+  <p>Are you sure you want to proceed?</p>
+  <button>Yes</button>
+  <button>No</button>
+</div>
+```
+
+## Best Practices
+- Ensure that the confirmation dialog is only used when necessary to avoid overwhelming users with prompts.
+- Maintain accessibility standards by ensuring that the dialog can be navigated using a keyboard and is screen reader friendly.
+- Keep the content of the dialog clear and concise to facilitate user understanding and decision-making.

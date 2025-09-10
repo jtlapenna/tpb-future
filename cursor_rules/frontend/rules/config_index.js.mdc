@@ -1,0 +1,47 @@
+---
+description: Configuration file for Vue.js project build and development settings.
+globs: ['config/index.js']
+alwaysApply: false
+---
+
+# Configuration File: config/index.js
+
+## Overview
+This file serves as the configuration for a Vue.js project, defining settings for both development and production environments. It specifies paths, server settings, and build options that are crucial for the proper functioning of the application.
+
+## Key Components
+
+### Development Settings (`dev`)
+- **Paths**: Defines the subdirectory for static assets and the public path for serving them.
+- **Server Settings**: Configures the development server, including host, port, and options for automatic browser opening and error notifications.
+- **Linting**: Options to enable ESLint during development, providing real-time feedback on code quality.
+- **Source Maps**: Configures source maps for easier debugging during development.
+
+### Production Settings (`build`)
+- **Template for index.html**: Specifies the path to the main HTML file for the production build.
+- **Paths**: Similar to development, but tailored for production assets.
+- **Source Maps**: Controls the generation of source maps in production for debugging purposes.
+- **Gzip Compression**: Options for enabling Gzip compression for production assets to optimize loading times.
+- **Bundle Analyzer**: Option to generate a report on the bundle size after the build process.
+
+## Dependencies
+This file does not import or export any modules, making it self-contained. It is not referenced by any other files in the repository, but it is essential for the build process of the Vue.js application.
+
+## Usage Examples
+To run the development server, you would typically use a command like:
+```bash
+npm run dev
+```
+This command utilizes the settings defined in the `dev` section of this configuration file.
+
+For building the application for production, you would use:
+```bash
+npm run build
+```
+This command leverages the `build` settings to prepare the application for deployment.
+
+## Best Practices
+- Ensure that the `assetsPublicPath` is correctly set for your deployment environment to avoid issues with asset loading.
+- Regularly update the `devtool` settings based on your debugging needs, especially when working with Vue files.
+- Consider enabling Gzip compression if your hosting provider does not already handle it, to improve load times for users.
+- Keep the ESLint settings updated to maintain code quality throughout the development process.

@@ -1,0 +1,27 @@
+---
+description: Documentation for the staging AWS environment configuration file.
+globs: ['src/environments/environment.staging-aws.ts']
+alwaysApply: false
+---
+
+# Environment Staging AWS Configuration
+
+## Overview
+This file defines the configuration settings for the staging environment of the application when deployed on AWS. It contains essential URLs and settings that the application will use to connect to various services.
+
+## Key Components
+- **production**: A boolean flag indicating whether the application is running in production mode. In this case, it is set to `true`, which is typical for staging environments to mimic production behavior.
+- **apiUrl**: The base URL for the API that the application will interact with in the staging environment. This is set to `https://tpb-api-stage.thepeakbeyond.com`.
+- **rfidSensorUrl**: The URL for the RFID sensor service, which is set to `http://localhost:3000`. This is likely used for local development or testing purposes.
+- **SENTRY_DSN**: The Data Source Name (DSN) for Sentry, a service for monitoring and fixing crashes in real-time. This allows the application to report errors to Sentry for tracking and debugging.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file specifically for the staging environment.
+
+## Usage Examples
+This configuration file is automatically used by the application when it is built for the staging environment. Developers do not need to manually reference this file; it is integrated into the build process based on the environment settings.
+
+## Best Practices
+- Ensure that sensitive information, such as the SENTRY_DSN, is not exposed in public repositories. Consider using environment variables or secret management tools for production settings.
+- Regularly review and update the API URLs and other configurations to ensure they point to the correct services as the application evolves.
+- When testing locally, be cautious with the `rfidSensorUrl` to avoid conflicts with other services running on the same port.

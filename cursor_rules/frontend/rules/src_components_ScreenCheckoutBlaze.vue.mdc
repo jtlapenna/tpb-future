@@ -1,0 +1,69 @@
+---
+description: Documentation for the ScreenCheckoutBlaze component in a Vue.js application.
+globs: ['src/components/ScreenCheckoutBlaze.vue']
+alwaysApply: false
+---
+
+# ScreenCheckoutBlaze.vue Documentation
+
+## Overview
+The `ScreenCheckoutBlaze.vue` file defines a Vue.js component responsible for handling the checkout process in a web application. It provides a user interface for customers to enter their personal information, such as name, email, phone number, and birthday, and allows them to proceed with their order using different payment methods, including Aeropay.
+
+## Key Components
+
+### Template Structure
+- **Form Elements**: The component contains a form with various input fields for user data, including:
+  - First name and last name (conditionally displayed)
+  - Email (conditionally displayed)
+  - Birthday (split into month, day, and year inputs)
+  - Phone number (conditionally displayed)
+- **Checkout Buttons**: There are buttons for proceeding with the checkout, which change based on the payment method selected (Aeropay or standard checkout).
+
+### Script Section
+- **Data Properties**: The component maintains several data properties to manage user input and state, such as `firstname`, `lastname`, `email`, `phoneNumber`, and flags for showing/hiding input fields.
+- **Computed Properties**: These include `birthday`, which formats the birthday input, and `checkoutType`, which determines the type of checkout based on configuration.
+- **Methods**:
+  - `inputBirthday`: Handles input for birthday fields and manages focus between them.
+  - `proceedCheckout`: Validates user input and initiates the checkout process, including customer verification and order submission.
+  - `sendOrder`: Sends the order data to the API and handles responses, including error management.
+
+### Watchers
+The component includes watchers for input fields to ensure that only valid data is processed (e.g., limiting the length of phone numbers and dates).
+
+## Dependencies
+This component imports the following mixins and libraries:
+- **Mixins**: `OFFLINE`, `AeropayEvent`, and `ScreenKeyboardEvents` to handle offline functionality, Aeropay events, and keyboard events respectively.
+- **Libraries**: It uses `@sentry/vue` for error tracking and `jquery` for DOM manipulation. The `qrcode.vue` library is used to generate QR codes for Aeropay transactions.
+
+## Usage Example
+To use this component, include it in a parent component and pass the required `cart` prop:
+```vue
+<template>
+  <ScreenCheckoutBlaze :cart="cartItems" @success="handleSuccess" @error="handleError" />
+</template>
+<script>
+import ScreenCheckoutBlaze from './ScreenCheckoutBlaze.vue';
+export default {
+  components: { ScreenCheckoutBlaze },
+  data() {
+    return {
+      cartItems: [] // Populate with cart data
+    };
+  },
+  methods: {
+    handleSuccess(message) {
+      // Handle successful checkout
+    },
+    handleError(error) {
+      // Handle checkout error
+    }
+  }
+};
+</script>
+```
+
+## Best Practices
+- Ensure that all required fields are validated before proceeding with the checkout to enhance user experience and reduce errors.
+- Use the provided event emitters (`@success` and `@error`) to handle checkout outcomes in parent components effectively.
+- Keep the component's state management clean and avoid unnecessary reactivity to improve performance.
+- Regularly update dependencies and monitor for any changes in the API that may affect the checkout process.

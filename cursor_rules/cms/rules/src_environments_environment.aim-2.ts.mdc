@@ -1,0 +1,32 @@
+---
+description: Documentation for the environment configuration file used in the AIM services.
+globs: ['src/environments/environment.aim-2.ts']
+alwaysApply: false
+---
+
+# Environment Configuration File
+
+## Overview
+The `environment.aim-2.ts` file is a configuration file that defines environment-specific settings for the AIM services application. It is primarily used to manage different configurations for development and production environments.
+
+## Key Components
+- **production**: A boolean flag indicating whether the application is running in production mode. When set to `true`, it signifies that the application should use production settings.
+- **apiUrl**: A string that holds the base URL for the API that the application will interact with. In this case, it points to the production API endpoint.
+- **rfidSensorUrl**: A string that specifies the URL for the RFID sensor service. This is typically set to a local development server during development.
+- **SENTRY_DSN**: A string containing the Data Source Name (DSN) for Sentry, which is used for error tracking and monitoring in the application.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It serves as a standalone configuration file that can be referenced directly in the application code where needed.
+
+## Usage Examples
+To use the configuration values defined in this file, you can import the `environment` object in your application code as follows:
+```javascript
+import { environment } from './src/environments/environment.aim-2';
+
+console.log(environment.apiUrl); // Outputs: https://tpb-api.aimservices.tech
+```
+
+## Best Practices
+- Ensure that sensitive information, such as the SENTRY_DSN, is not exposed in public repositories. Consider using environment variables or a secure vault for production secrets.
+- When deploying to production, verify that the `production` flag is set to `true` to avoid using development settings inadvertently.
+- Regularly review and update the API URLs and other configurations to reflect any changes in the backend services.

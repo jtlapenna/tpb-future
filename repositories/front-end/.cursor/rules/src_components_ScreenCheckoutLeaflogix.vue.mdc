@@ -1,0 +1,48 @@
+---
+description: Documentation for the ScreenCheckoutLeaflogix component in a Vue.js application.
+globs: ['src/components/ScreenCheckoutLeaflogix.vue']
+alwaysApply: false
+---
+
+# ScreenCheckoutLeaflogix.vue Documentation
+
+## Overview
+The `ScreenCheckoutLeaflogix.vue` file defines a Vue.js component responsible for handling the checkout process in a Leaflogix application. It provides a user interface for collecting customer information such as name, email, phone number, and birthday, and processes the checkout order by interacting with an API.
+
+## Key Components
+
+### Template Structure
+- **Form Elements**: The component contains a form with various input fields that are conditionally displayed based on the checkout type (name, email, or phone).
+- **Input Fields**: Includes fields for first name, last name, email, phone number, and birthday. Each field is bound to the component's data properties using `v-model`.
+- **Checkout Button**: A button that triggers the checkout process, with dynamic classes based on the connection status and sending state.
+
+### Data Properties
+- `firstname`, `lastname`, `email`, `phoneNumber`: Store user input for customer details.
+- `birthdayDay`, `birthdayMonth`, `birthdayYear`: Manage birthday input.
+- `isSending`: Indicates if the checkout process is currently in progress.
+- `showName`, `showEmail`, `showPhoneNumber`, `showBirthday`: Control the visibility of input fields based on the checkout type.
+
+### Computed Properties
+- `checkoutType`: Determines the type of checkout based on configuration.
+- `fullName`: Combines first and last name if both are provided.
+- `checkoutValue`: Returns the appropriate value based on the checkout type.
+
+### Methods
+- **`proceedCheckout`**: Validates input data and initiates the checkout process by searching for the customer in the database. If not found, it attempts to create a new customer.
+- **`validateData`**: Ensures that all required fields are filled out correctly before proceeding.
+- **`sendOrder`**: Sends the order details to the API and handles the response, including error handling and printing requests.
+
+## Dependencies
+This component does not import any other files from the repository and is not imported by any other files. It relies on external libraries such as jQuery, dayjs, and Sentry for functionality.
+
+## Usage Example
+To use this component, include it in a parent component's template:
+```html
+<ScreenCheckoutLeaflogix :cart="cartItems" @success="handleSuccess" @error="handleError" />
+```
+
+## Best Practices
+- Ensure that all input fields are validated before submission to prevent errors during the checkout process.
+- Use the `v-show` directive to conditionally render fields based on user input to enhance user experience.
+- Handle API errors gracefully and provide user feedback through emitted events.
+- Keep the component's data properties organized and clearly defined to maintain readability and ease of maintenance.

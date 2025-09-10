@@ -1,0 +1,43 @@
+---
+description: Serializer for product variants in the application, defining how product variant data is structured for API responses.
+globs: ['app/serializers/product_variant_serializer.rb']
+alwaysApply: false
+---
+
+# ProductVariantSerializer
+
+## Overview
+The `ProductVariantSerializer` class is responsible for serializing product variant data into a format suitable for API responses. It leverages the ActiveModel::Serializer framework to define the attributes and relationships that should be included in the serialized output.
+
+## Key Components
+- **Attributes**: The serializer defines several attributes that will be included in the serialized output:
+  - `id`: The unique identifier for the product variant.
+  - `name`: The name of the product variant.
+  - `sku`: The stock keeping unit for inventory management.
+  - `description`: A brief description of the product variant.
+  - `tag_list`: A list of tags associated with the product variant.
+  - `override_tags`: Any tags that override the default tags.
+  - `is_wildcard`: A computed attribute that checks if the variant is a wildcard variant based on an environment variable.
+
+- **Relationships**: The serializer defines several relationships:
+  - `belongs_to :brand`: Indicates that each product variant is associated with a brand.
+  - `belongs_to :category`: Indicates that each product variant belongs to a category.
+  - `belongs_to :product`: Indicates that each product variant is associated with a product, using the `ProductMinimalSerializer` for nested serialization.
+  - `has_many :attribute_values`: Indicates that a product variant can have multiple attribute values.
+  - `has_many :images`: Indicates that a product variant can have multiple images.
+  - `has_many :reviews`: Indicates that a product variant can have multiple reviews.
+  - `has_one :video`: Indicates that a product variant can have one associated video.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the context of the application.
+
+## Usage Examples
+To use the `ProductVariantSerializer`, you would typically instantiate it with a product variant object and render it in a controller action:
+```ruby
+render json: @product_variant, serializer: ProductVariantSerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers to avoid over-fetching data.
+- Keep the serializer focused on a single responsibility; avoid adding complex business logic within the serializer.
+- Regularly review and update the serializer as the data model evolves to ensure it remains accurate and efficient.

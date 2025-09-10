@@ -1,0 +1,33 @@
+---
+description: Documentation for the StoreCategoryTaxSerializer class in the serializers directory.
+globs: ['app/serializers/store_category_tax_serializer.rb']
+alwaysApply: false
+---
+
+# StoreCategoryTaxSerializer Documentation
+
+## Overview
+The `StoreCategoryTaxSerializer` class is a serializer that formats the `StoreCategoryTax` model's attributes for JSON representation. It is part of the ActiveModel::Serializer framework, which is used to create a structured JSON response for API endpoints.
+
+## Key Components
+- **Class**: `StoreCategoryTaxSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize model objects.
+  - **Attributes**: The serializer defines three attributes to be included in the serialized output:
+    - `id`: The unique identifier for the store category tax.
+    - `name`: The name of the store category tax.
+    - `value`: The value associated with the store category tax.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the `StoreCategoryTax` model.
+
+## Usage Example
+To use this serializer, you would typically render a JSON response in a controller action. For example:
+```ruby
+render json: @store_category_tax, serializer: StoreCategoryTaxSerializer
+```
+This would return a JSON object containing the `id`, `name`, and `value` of the `StoreCategoryTax` instance.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the attributes available in the `StoreCategoryTax` model.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- Use serializers to control the output of your API, ensuring that only the necessary data is exposed to clients.

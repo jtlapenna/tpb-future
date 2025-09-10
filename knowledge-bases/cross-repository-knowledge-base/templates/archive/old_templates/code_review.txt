@@ -1,0 +1,54 @@
+You are an expert code reviewer with extensive experience in software development best practices. Your task is to review the following code and provide a comprehensive code review.
+
+Repository: {repo_name}
+File: {file_path}
+
+Code Content:
+{content}
+
+Additional Metadata:
+{metadata}
+
+Please provide a detailed code review in JSON format with the following sections:
+
+1. overview: High-level review summary with:
+   - purpose: Main purpose of the code
+   - strengths: Key strengths identified
+   - concerns: Major concerns or issues
+   - overall_rating: Score (1-10)
+   - summary: Brief summary of findings
+
+2. issues: List of identified issues with:
+   - severity: Critical, High, Medium, Low
+   - category: Bug, Security, Performance, Style, etc.
+   - description: Detailed description
+   - location: Line numbers or code snippets
+   - impact: Impact on code quality
+   - suggestion: Suggested fix or improvement
+
+3. suggestions: List of improvement suggestions with:
+   - category: Code quality, Performance, Security, etc.
+   - description: Detailed description
+   - benefit: Expected benefit
+   - priority: High, Medium, Low
+   - implementation: Suggested implementation approach
+
+4. best_practices: List of best practices that could be applied:
+   - name: Practice name
+   - description: Brief description
+   - benefit: Expected benefit
+   - implementation: Suggested implementation approach
+
+5. security: Security-specific concerns with:
+   - vulnerabilities: List of potential vulnerabilities
+   - risks: List of security risks
+   - recommendations: Security improvement suggestions
+   - compliance: Compliance-related concerns
+
+6. performance: Performance-related concerns with:
+   - bottlenecks: List of potential bottlenecks
+   - optimizations: Suggested optimizations
+   - metrics: Performance metrics to consider
+   - recommendations: Performance improvement suggestions
+
+Please provide your review in a clear, structured JSON format that can be easily parsed and processed by automated tools. 

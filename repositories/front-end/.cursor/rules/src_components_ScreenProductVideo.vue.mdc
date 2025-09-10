@@ -1,0 +1,39 @@
+---
+description: Documentation for the ScreenProductVideo component in a Vue.js application.
+globs: ['src/components/ScreenProductVideo.vue']
+alwaysApply: false
+---
+
+# ScreenProductVideo Component
+
+## Overview
+The `ScreenProductVideo` component is a Vue.js component designed to display a full-screen video that plays automatically in a loop. It is intended for use in product screens where visual engagement is crucial. The video is set to autoplay, muted, and loop, ensuring a seamless viewing experience.
+
+## Key Components
+- **Template**: The template consists of a `<video>` element that sources its video from a prop called `videoSrc`. The video is styled to cover the entire screen and is set to autoplay, muted, and loop.
+- **Props**:  
+  - `videoSrc`: A required string prop that specifies the source URL of the video to be played.
+- **Methods**:  
+  - `startAnimatingOut()`: This method adds a `fade-out` class to the video element, triggering a CSS transition that fades the video out when called.
+- **Lifecycle Hooks**:  
+  - `created()`: Registers an event listener for `animate-full-screen-background` to trigger the `startAnimatingOut` method.
+  - `beforeDestroy()`: Cleans up by removing the event listener when the component is destroyed.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the props passed to it.
+
+## Usage Example
+To use the `ScreenProductVideo` component, you can include it in a parent component as follows:
+```vue
+<template>
+  <ScreenProductVideo videoSrc="path/to/video.mp4" />
+</template>
+```
+
+## Best Practices
+- Ensure that the `videoSrc` prop is always provided to avoid runtime errors.
+- Consider the performance implications of using large video files, especially on mobile devices.
+- Use appropriate video formats and compression to optimize loading times and playback performance.
+- Be mindful of user experience; provide alternative content or controls if necessary, especially for users who may not want to view the video.
+
+By following these guidelines, developers can effectively integrate the `ScreenProductVideo` component into their applications, enhancing the visual appeal of product displays.

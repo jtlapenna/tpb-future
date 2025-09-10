@@ -1,0 +1,44 @@
+---
+description: Documentation for the StoreProductPromotion model in the application.
+globs: ['app/models/store_product_promotion.rb']
+alwaysApply: false
+---
+
+# StoreProductPromotion Model Documentation
+
+## Overview
+The `StoreProductPromotion` model represents promotions associated with store products in the application. It manages the relationship between promotions and store products, ensuring that each store product can have only one active promotion at a time. The model includes validations, callbacks, and methods to handle updates and notifications related to promotions.
+
+## Key Components
+- **Class Definition**: `StoreProductPromotion` inherits from `ApplicationRecord`, making it a part of the Active Record framework in Rails.
+- **Associations**: The model establishes a `belongs_to` relationship with the `StoreProduct` model, indicating that each promotion is linked to a specific store product.
+- **Validations**:  
+  - `validates :store_product_id, presence: true, uniqueness: true`: Ensures that the `store_product_id` is present and unique across promotions.
+  - `validates :promotion, length: { maximum: 20 }`: Limits the length of the promotion text to a maximum of 20 characters.
+- **Callbacks**:  
+  - `after_create_commit`, `after_update_commit`, and `after_destroy_commit`: These callbacks trigger methods to notify the associated store product whenever a promotion is created, updated, or destroyed.
+
+## Methods
+- **notify_store_product_create**: Updates the `last_updated_websocket` timestamp of the associated store product when a new promotion is created.
+- **notify_store_product_update**: Checks for changes in relevant fields and updates the `last_updated_websocket` timestamp if any changes are detected.
+- **notify_store_product_destroy**: Updates the `last_updated_websocket` timestamp of the associated store product when a promotion is destroyed.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently but relies on the `StoreProduct` model for its associations and updates.
+
+## Usage Examples
+To create a new promotion for a store product:
+```ruby
+store_product_promotion = StoreProductPromotion.create(store_product_id: 1, promotion: 'Summer Sale')
+```
+
+To update an existing promotion:
+```ruby
+store_product_promotion = StoreProductPromotion.find(1)
+store_product_promotion.update(promotion: 'Winter Sale')
+```
+
+## Best Practices
+- Ensure that the `store_product_id` is always valid and corresponds to an existing store product to maintain data integrity.
+- Keep the promotion text concise, adhering to the maximum length validation to avoid validation errors.
+- Use the provided methods to handle updates and notifications to the associated store product, ensuring that the `last_updated_websocket` is always current.

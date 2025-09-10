@@ -1,0 +1,6 @@
+[submodule "knowledge-bases/front-end-knowledge-base"]
+	path = knowledge-bases/front-end-knowledge-base
+	url = https://github.com/jtlapenna/front-end-knowledge-base.git
+[submodule "repositories/cms-fe-angular"]
+	path = repositories/cms-fe-angular
+	url = https://github.com/jtlapenna/cms-fe-angular.git

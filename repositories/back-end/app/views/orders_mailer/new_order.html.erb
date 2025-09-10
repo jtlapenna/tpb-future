@@ -1,0 +1,62 @@
+<% if @is_for_customer %>
+  <p><%= @settings[:notifications_intro].html_safe %></p>
+<% else %>
+  <p>Customer: <%= @order[:customer_name] %> <%= @is_update ? '[UPDATED]' : ''%></p>
+  <% if @order[:customer_email] %>
+   <p style="color:#ed4f33;font-weight: 700;">Email: <%= @order[:customer_email] %></p>
+  <% end %>
+  <p>Just submitted an order for:</p>
+<% end %>
+
+<% if @order[:items] %>
+  <table class="table" cellspacing="10" cellpadding="5">
+    <thead>
+      <tr>
+        <th align="left">Product</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Label</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order[:items].each do |item| %>
+      <tr>
+        <% if product = StoreProduct.find_by(id: item[:product_id]) %>
+          <td><%= product.name_for_catalog %></td>
+        <% else %>
+          <td><%= item[:product_id] %></td>
+        <% end %>
+
+        <%# CATEGORY OF PRODUCT %>
+        <% if product.store_category.name %>
+          <td><%= product.store_category.name %></td>
+        <% else %>
+          <td>-</td>
+        <% end %>
+
+        <td align="center"><%= item[:quantity] %></td>
+        
+        <%# LABEL OF PRODUCT %>
+        <% if label = ProductValue.find_by(id: item[:product_value_id]) %>
+          <td><%= label.name %></td>
+        <% else %>
+          <td>-</td>
+        <% end %>
+
+        <td align="right"><%= number_to_currency(item[:price_total]) %></td>
+
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td align="left" colspan="2">Total</td>
+        <% total = @order[:items].sum{|i| i[:price_total] } %>
+        <td align="right"><%= number_to_currency(total) %></td>
+      </tr>
+    </tfoot>
+  </table>
+<% else %>
+  <p>No items.</p>
+<% end %>

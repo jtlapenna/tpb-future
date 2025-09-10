@@ -1,0 +1,46 @@
+---
+description: Documentation for the EventsAPI class responsible for uploading analytics events.
+globs: ['src/analytics/EventsAPI.js']
+alwaysApply: false
+---
+
+# EventsAPI.js Documentation
+
+## Overview
+The `EventsAPI.js` file defines the `EventsAPI` class, which is responsible for handling the upload of analytics events to a specified API endpoint. It utilizes Axios for making HTTP requests and is designed to be easily instantiated and used throughout the application.
+
+## Key Components
+### EventsAPI Class
+- **baseurl**: A class property that stores the base URL for the analytics API, retrieved from the global `kioskConfig` object.
+
+#### uploadEvents(data, token)
+- **Parameters**:
+  - `data`: The payload containing the events to be uploaded.
+  - `token`: The authorization token required for the API request.
+- **Functionality**: This method logs a message to the console and sends a POST request to the `baseurl` with the provided `data` and `token`. It sets the appropriate headers for content type and authorization.
+- **Returns**: The Axios promise for the POST request, allowing for further handling of the response or errors.
+
+## Dependencies
+This file does not import any other files within the repository. However, it is imported by `src/analytics/analytics.js`, which likely utilizes the `EventsAPI` class to manage analytics events in the application.
+
+## Usage Example
+To use the `EventsAPI` class, you can import it in another module and call the `uploadEvents` method as follows:
+```javascript
+import EventsAPI from './EventsAPI';
+
+const eventData = { event: 'user_signup', timestamp: Date.now() };
+const authToken = 'your_auth_token';
+
+EventsAPI.uploadEvents(eventData, authToken)
+  .then(response => {
+    console.log('Events uploaded successfully:', response.data);
+  })
+  .catch(error => {
+    console.error('Error uploading events:', error);
+  });
+```
+
+## Best Practices
+- Ensure that the `kioskConfig.ANALYTICS_API_URL` is correctly set in your environment to avoid runtime errors.
+- Handle the promise returned by `uploadEvents` to manage success and error cases appropriately.
+- Consider implementing additional error handling or retries for network requests to improve robustness.

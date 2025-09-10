@@ -1,0 +1,1368 @@
+{
+  "nodes": [
+    {
+      "id": "how-to-make-a-deploy.md",
+      "type": "file"
+    },
+    {
+      "id": ".babelrc",
+      "type": "file"
+    },
+    {
+      "id": "REPOSITORY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "CODE_QUALITY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "realese.md",
+      "type": "file"
+    },
+    {
+      "id": "favicon.ico",
+      "type": "file"
+    },
+    {
+      "id": "index.html",
+      "type": "file"
+    },
+    {
+      "id": "firebase-messaging-sw.js",
+      "type": "file"
+    },
+    {
+      "id": "dockerfile",
+      "type": "file"
+    },
+    {
+      "id": ".firebaserc",
+      "type": "file"
+    },
+    {
+      "id": "progress.md",
+      "type": "file"
+    },
+    {
+      "id": "ui-debug.log",
+      "type": "file"
+    },
+    {
+      "id": "versions.md",
+      "type": "file"
+    },
+    {
+      "id": "table.md",
+      "type": "file"
+    },
+    {
+      "id": "SECURITY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": ".editorconfig",
+      "type": "file"
+    },
+    {
+      "id": "README.md",
+      "type": "file"
+    },
+    {
+      "id": "firestore-debug.log",
+      "type": "file"
+    },
+    {
+      "id": "release.md",
+      "type": "file"
+    },
+    {
+      "id": "sesion.js",
+      "type": "file"
+    },
+    {
+      "id": ".dockerignore",
+      "type": "file"
+    },
+    {
+      "id": ".nvmrc",
+      "type": "file"
+    },
+    {
+      "id": ".prettierrc",
+      "type": "file"
+    },
+    {
+      "id": ".eslintrc.js",
+      "type": "file"
+    },
+    {
+      "id": "RULES_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "INTEGRATION_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": ".eslintignore",
+      "type": "file"
+    },
+    {
+      "id": "pubsub-debug.log",
+      "type": "file"
+    },
+    {
+      "id": "comparison_analysis.md",
+      "type": "file"
+    },
+    {
+      "id": "TEST_COVERAGE_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": ".tsconfig",
+      "type": "file"
+    },
+    {
+      "id": ".postcssrc.js",
+      "type": "file"
+    },
+    {
+      "id": "PERFORMANCE_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "MAINTAINABILITY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "config/workbox.js",
+      "type": "file"
+    },
+    {
+      "id": "config/index.js",
+      "type": "file"
+    },
+    {
+      "id": ".firebase/gscript.js",
+      "type": "file"
+    },
+    {
+      "id": "static/.gitkeep",
+      "type": "file"
+    },
+    {
+      "id": "static/css/custom.example.css",
+      "type": "file"
+    },
+    {
+      "id": "static/js/firebase-messaging-sw.js",
+      "type": "file"
+    },
+    {
+      "id": "static/js/upload.js",
+      "type": "file"
+    },
+    {
+      "id": "static/js/config.js",
+      "type": "file"
+    },
+    {
+      "id": "static/js/jquery.onScreenKeyboard.js",
+      "type": "file"
+    },
+    {
+      "id": "static/js/sw-cache-sync.js",
+      "type": "file"
+    },
+    {
+      "id": "static/js/jquery.onScreenKeynumber.js",
+      "type": "file"
+    },
+    {
+      "id": "mdc_output/dependency_graph.gexf",
+      "type": "file"
+    },
+    {
+      "id": "mdc_output/repo_analysis_report.md",
+      "type": "file"
+    },
+    {
+      "id": "mdc_output/directory_structure.txt",
+      "type": "file"
+    },
+    {
+      "id": "mdc_output/dependency_graph_subgraphs/index.html",
+      "type": "file"
+    },
+    {
+      "id": "functions/index.js",
+      "type": "file"
+    },
+    {
+      "id": "functions/config.js",
+      "type": "file"
+    },
+    {
+      "id": "functions/.eslintrc.js",
+      "type": "file"
+    },
+    {
+      "id": "src/App.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/main.js",
+      "type": "file"
+    },
+    {
+      "id": "src/const/globals.js",
+      "type": "file"
+    },
+    {
+      "id": "src/store/store.js",
+      "type": "file"
+    },
+    {
+      "id": "src/router",
+      "type": "file"
+    },
+    {
+      "id": "src/analytics/analytics.js",
+      "type": "file"
+    },
+    {
+      "id": "src/store/modules/cart.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/aeropayEvent.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/messaging/index.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/offlineMixin.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/keyboardEvents.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/redirectEvent.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/HasProductsPaginated.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/HasShopify.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/isCardWithAttributes.js",
+      "type": "file"
+    },
+    {
+      "id": "src/mixins/MergeConfig.js",
+      "type": "file"
+    },
+    {
+      "id": "src/plugins/config.js",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ActiveCartKeepShoppingButton.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeRfidSwipe.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/Slider.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeSwipe.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutLeaflogix.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeRfidNav.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutShopify.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenEffectsUses.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeDefault.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCart.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeSplitCards.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckout.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenProduct.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ProductImage.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenUploadEvents.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutBlaze.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ProductCard.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHome.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ActiveCartKeepShopping.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/LottieContainer.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ProductCardMenuBoard.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ActiveCartKeepShoppingFinalizeOrderFooter.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenMenuBoard.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeCCC.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeSpotlightCards.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenProductVideo.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ActiveCartCheckoutCompleted.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ActiveCartFinalizeOrderButton.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeSpotlight.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ModalTemplate.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ShareButton.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ActiveCartNotFound.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ActiveCartButton.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenBlank.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ProductCardBlank.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenIframeTest.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutCovasoft.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ProductCardSale.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenBrands.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ThankYouOrderCompleted.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeCards.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/TheBrandSlideshow.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ProductGraphs.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutTreez.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutFlowhub.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeVideoImageBackground.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutActiveCartCreator.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenProducts.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/Spinner.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenProductsPromotions.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeQuickCheckout.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/CloseActiveCart.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenHomeSwipeNav.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/TheNav.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/TheSidebar.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenFeaturedProducts.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenCheckoutEmail.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenDebugCache.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/components/ScreenProductImage.vue",
+      "type": "file"
+    },
+    {
+      "id": "src/api/LocalRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/dbconfig.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/db.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/urls.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/RemoteRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/http.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/api.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/repo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/feature-tags/FeatureTagsRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/feature-tags/FeatureTagsLocal.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/feature-tags/FeatureTagsRemote.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/products/ProductsRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/products/ProductsLocal.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/products/ProductsRemote.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/brands/BrandsRemote.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/brands/BrandsLocal.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/brands/BrandsRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/articles/ArticlesLocal.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/articles/ArticlesRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/articles/ArticlesRemote.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/messaging/fb.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/categories/CategoriesRemote.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/categories/CategoriesLocal.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/categories/CategoriesRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/rfid/test.conf",
+      "type": "file"
+    },
+    {
+      "id": "src/api/rfid/RFIDRemote.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/rfid/RFIDRepo.js",
+      "type": "file"
+    },
+    {
+      "id": "src/api/rfid/RFIDLocal.js",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/css/onScreenKeyboard.css",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/css/onScreenKeyboardNumber.css",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/css/normalize.css",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/js/GSDevTools3.min.js",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/js/utils.js",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/global.css.map",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/_fonts.scss",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/_colors.scss",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/_animations.scss",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/global.css",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/global.scss",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/_buttons.scss",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/scss/layout/_sidebar.scss",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/Muli-ExtraLight.ttf",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/muli-extrabold-webfont.woff2",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/muli-light-webfont.woff2",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/Muli-ExtraBold.ttf",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/Muli-Bold.ttf",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/muli-extralight-webfont.woff2",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/muli-semibold-webfont.woff2",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/Muli-SemiBold.ttf",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/muli-regular-webfont.woff2",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/muli-bold-webfont.woff2",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/muli-black-webfont.woff2",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/Muli-Light.ttf",
+      "type": "file"
+    },
+    {
+      "id": "src/assets/fonts/Muli-Regular.ttf",
+      "type": "file"
+    },
+    {
+      "id": "src/analytics/events.js",
+      "type": "file"
+    },
+    {
+      "id": "src/analytics/db.js",
+      "type": "file"
+    },
+    {
+      "id": "src/analytics/EventsAPI.js",
+      "type": "file"
+    },
+    {
+      "id": "src/analytics/example.js",
+      "type": "file"
+    },
+    {
+      "id": "src/store/modules/products.js",
+      "type": "file"
+    },
+    {
+      "id": "src/router/index.js",
+      "type": "file"
+    }
+  ],
+  "edges": [
+    {
+      "source": "src/main.js",
+      "target": "src/const/globals.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "SETTINGS_TIME",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/main.js",
+      "target": "src/store/store.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "vuexStore",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/main.js",
+      "target": "src/App.vue",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "App",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/main.js",
+      "target": "src/router",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "router",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/main.js",
+      "target": "src/analytics/analytics.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "Analytics",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/main.js",
+      "target": "src/store/modules/cart.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "cart",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/store/store.js",
+      "target": "src/store/modules/products.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "products",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/store/store.js",
+      "target": "src/store/modules/cart.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "cart",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/analytics/analytics.js",
+      "target": "src/analytics/events.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "Events",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/analytics/analytics.js",
+      "target": "src/analytics/EventsAPI.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "EventsAPI",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/mixins/aeropayEvent.js",
+      "target": "src/const/globals.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "fireb",
+          "alias": "eConfig",
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/mixins/aeropayEvent.js",
+      "target": "src/api/messaging/index.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "getAeropayOrderChanges",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/messaging/index.js",
+      "target": "src/const/globals.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "SERVER_KEY",
+          "alias": null,
+          "type": "unknown"
+        },
+        {
+          "name": "VAPID_KEY",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/messaging/index.js",
+      "target": "src/api/messaging/fb.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "fbMessaging",
+          "alias": null,
+          "type": "unknown"
+        },
+        {
+          "name": "fireb",
+          "alias": "eDB",
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/plugins/config.js",
+      "target": "src/const/globals.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "API_ENVIROMENTS",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/LocalRepo.js",
+      "target": "src/api/dbconfig.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "DB",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/api/RemoteRepo.js",
+      "target": "src/api/http.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "HTTP",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/api/api.js",
+      "target": "src/api/urls.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "ORDERS_PREVIEW",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/feature-tags/FeatureTagsRepo.js",
+      "target": "src/api/repo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "Repo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/feature-tags/FeatureTagsRepo.js",
+      "target": "src/api/feature-tags/FeatureTagsLocal.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "FeatureTagsLocal",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/feature-tags/FeatureTagsRepo.js",
+      "target": "src/api/feature-tags/FeatureTagsRemote.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "FeaturesTagsRemote",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/feature-tags/FeatureTagsLocal.js",
+      "target": "src/api/LocalRepo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "LocalRepo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/feature-tags/FeatureTagsRemote.js",
+      "target": "src/api/http.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "HTTP",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/api/products/ProductsRepo.js",
+      "target": "src/api/repo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "Repo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/products/ProductsRepo.js",
+      "target": "src/api/products/ProductsLocal.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "ProductsLocal",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/products/ProductsRepo.js",
+      "target": "src/api/products/ProductsRemote.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "ProductsRemote",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/products/ProductsLocal.js",
+      "target": "src/api/LocalRepo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "LocalRepo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/products/ProductsRemote.js",
+      "target": "src/api/http.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "HTTP",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/api/brands/BrandsRemote.js",
+      "target": "src/api/http.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "HTTP",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/api/brands/BrandsLocal.js",
+      "target": "src/api/LocalRepo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "LocalRepo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/brands/BrandsRepo.js",
+      "target": "src/api/brands/BrandsLocal.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "BrandsLocal",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/brands/BrandsRepo.js",
+      "target": "src/api/brands/BrandsRemote.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "BrandsRemote",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/brands/BrandsRepo.js",
+      "target": "src/api/repo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "Repo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/articles/ArticlesLocal.js",
+      "target": "src/api/LocalRepo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "LocalRepo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/articles/ArticlesRepo.js",
+      "target": "src/api/articles/ArticlesLocal.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "ArticlesLocal",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/articles/ArticlesRepo.js",
+      "target": "src/api/articles/ArticlesRemote.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "ArticlesRemote",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/articles/ArticlesRepo.js",
+      "target": "src/api/repo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "Repo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/articles/ArticlesRemote.js",
+      "target": "src/api/http.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "HTTP",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/api/messaging/fb.js",
+      "target": "src/const/globals.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "fireb",
+          "alias": "eConfig",
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/categories/CategoriesRemote.js",
+      "target": "src/api/RemoteRepo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "RemoteRepo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/categories/CategoriesLocal.js",
+      "target": "src/api/LocalRepo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "LocalRepo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/categories/CategoriesRepo.js",
+      "target": "src/api/categories/CategoriesRemote.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "CategoriesRemote",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/categories/CategoriesRepo.js",
+      "target": "src/api/categories/CategoriesLocal.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "CategoriesLocal",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/categories/CategoriesRepo.js",
+      "target": "src/api/repo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "Repo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/rfid/RFIDRemote.js",
+      "target": "src/api/http.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "HTTP",
+          "type": "default"
+        }
+      ]
+    },
+    {
+      "source": "src/api/rfid/RFIDRepo.js",
+      "target": "src/api/repo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "Repo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/rfid/RFIDRepo.js",
+      "target": "src/api/rfid/RFIDLocal.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "RFIDLocal",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/rfid/RFIDRepo.js",
+      "target": "src/api/rfid/RFIDRemote.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "RFIDRemote",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/api/rfid/RFIDLocal.js",
+      "target": "src/api/LocalRepo.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "LocalRepo",
+          "alias": null,
+          "type": "unknown"
+        }
+      ]
+    },
+    {
+      "source": "src/analytics/events.js",
+      "target": "src/analytics/db.js",
+      "type": "js_import",
+      "imported_items": [
+        {
+          "name": "default",
+          "alias": "DB",
+          "type": "default"
+        }
+      ]
+    }
+  ]
+}

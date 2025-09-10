@@ -1,0 +1,41 @@
+---
+description: Documentation for the LottieContainer component in a Vue.js application.
+globs: ['src/components/LottieContainer.vue']
+alwaysApply: false
+---
+
+# LottieContainer.vue Documentation
+
+## Overview
+The `LottieContainer` component is a Vue.js component designed to render Lottie animations within a specified container. It utilizes the `lottie-web` library to load and control animations based on the provided properties. This component is particularly useful for integrating complex animations into Vue applications with minimal effort.
+
+## Key Components
+- **Template**: The template consists of a `div` element that serves as the container for the Lottie animation. The class of the div is dynamically bound to the `path` prop, allowing for different styles based on the animation being loaded.
+
+- **Props**:
+  - `path`: A required string that specifies the path to the Lottie animation JSON file.
+  - `autoplay`: A boolean that determines whether the animation should start playing automatically. Defaults to `false`.
+  - `loop`: A boolean that indicates if the animation should loop. Defaults to `false`.
+  - `frame`: A string that specifies which frame to display initially. Defaults to `'firstFrame'`.
+
+- **Data**: The component maintains a single piece of state, `animation`, which holds the instance of the loaded Lottie animation.
+
+- **Lifecycle Hooks**:
+  - `mounted`: This hook is where the Lottie animation is loaded using the `lottie.loadAnimation` method. It sets up the animation with the specified properties and adds an event listener for when the animation is fully loaded.
+  - `removed`: This hook is called when the component is destroyed. It ensures that the animation is properly cleaned up to prevent memory leaks.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies solely on the `lottie-web` library and jQuery for its functionality.
+
+## Usage Example
+To use the `LottieContainer` component, you can include it in your Vue template as follows:
+```html
+<LottieContainer path="example-animation" :autoplay="true" :loop="true" frame="lastFrame" />
+```
+This example will load the animation located at `/static/anim/example-animation.json`, autoplay it, loop it, and start at the last frame.
+
+## Best Practices
+- Ensure that the `path` prop is always provided to avoid runtime errors.
+- Use the `autoplay` and `loop` props to control the animation behavior according to your application's needs.
+- Clean up the animation in the `removed` hook to prevent memory leaks, especially if the component is frequently mounted and unmounted.
+- Consider using scoped styles to avoid conflicts with other components in your application.

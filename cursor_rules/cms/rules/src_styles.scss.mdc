@@ -1,0 +1,36 @@
+---
+description: Documentation for the global styles defined in src/styles.scss.
+globs: ['src/styles.scss']
+alwaysApply: false
+---
+
+# Overview
+
+The `src/styles.scss` file is responsible for defining global styles for the application, particularly focusing on the styling of the `ng-select` component. It allows for customization of the appearance and behavior of the select dropdowns used throughout the application.
+
+# Key Components
+
+## Global Styles
+- The file begins with an import statement that includes the default theme for the `ng-select` component from the `@ng-select` library. This ensures that the base styles are applied before any custom styles are defined.
+
+## Custom Styles for ng-select
+- The `.ng-select.peak` class modifies the appearance of the `ng-select` component when it is in a single selection mode. It adjusts the height of the select container and positions the input and placeholder text appropriately.
+  - **Height Adjustment**: The height of the select container is set to `38px`.
+  - **Input Positioning**: The input field is positioned with a top margin of `7px`.
+  - **Placeholder Styling**: The placeholder text is styled with a specific color, font family, font size, and padding, ensuring it fits well within the design.
+
+## Validation Styles
+- The styles for invalid and touched states of the `ng-select` component are defined to provide visual feedback to users. When the select component is invalid and has been interacted with, it displays a border color of `#dd5826` and a shadow effect to indicate an error state.
+
+# Dependencies
+
+This file does not import any other files within the repository, nor is it imported by any other files. It serves as a standalone stylesheet for global styles related to the `ng-select` component.
+
+# Usage Examples
+
+To use the `ng-select` component with the defined styles, ensure that the component is included in your Angular templates. The styles will automatically apply based on the classes defined in this file.
+
+# Best Practices
+- When modifying styles in this file, ensure that you maintain consistency with the overall design of the application.
+- Avoid adding too many specific styles that could lead to conflicts with other components or stylesheets.
+- Regularly review and refactor styles to keep the stylesheet clean and maintainable.

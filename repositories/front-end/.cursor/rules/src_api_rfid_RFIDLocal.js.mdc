@@ -1,0 +1,38 @@
+---
+description: Documentation for the RFIDLocal class in the RFIDLocal.js file.
+globs: ['src/api/rfid/RFIDLocal.js']
+alwaysApply: false
+---
+
+# RFIDLocal.js Documentation
+
+## Overview
+The `RFIDLocal` class is a specialized implementation of the `LocalRepo` class, designed to manage RFID records in a local repository. It extends the functionality of `LocalRepo` by specifying the collection name and the unique identifier for the records.
+
+## Key Components
+- **Class: `RFIDLocal`**  
+  This class inherits from `LocalRepo` and is initialized with specific parameters that define the collection name as 'rfids' and the unique identifier field as 'id'.  
+  - **Constructor**:  
+    - **Parameters**: None  
+    - **Functionality**: Calls the parent constructor with 'rfids' and 'id' to set up the local repository for RFID records.
+
+## Dependencies
+- **Imports**:  
+  - `LocalRepo`: This is the base class from which `RFIDLocal` inherits. It provides the foundational methods and properties for managing local data repositories.
+- **Exports**:  
+  - This file is imported by `src/api/rfid/RFIDRepo.js`, which likely utilizes the `RFIDLocal` class to interact with RFID data.
+
+## Usage Example
+To use the `RFIDLocal` class, you can instantiate it as follows:
+```javascript
+import { RFIDLocal } from './RFIDLocal';
+
+const rfidRepo = new RFIDLocal();
+// Now you can use rfidRepo to manage RFID records.
+```
+
+## Best Practices
+- Ensure that the `LocalRepo` class is properly implemented and tested, as `RFIDLocal` relies on its functionality.
+- When extending the `LocalRepo`, consider overriding methods if specific behavior is needed for RFID records.
+- Keep the collection name and identifier consistent with the rest of the application to avoid confusion.
+- Document any additional methods or properties added to `RFIDLocal` to maintain clarity in the codebase.

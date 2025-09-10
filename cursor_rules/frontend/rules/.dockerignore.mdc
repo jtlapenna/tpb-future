@@ -1,0 +1,30 @@
+---
+description: Documentation for the .dockerignore file, which specifies files and directories to ignore when building Docker images.
+globs: ['.dockerignore']
+alwaysApply: false
+---
+
+# .dockerignore Documentation
+
+## Overview
+The `.dockerignore` file is used to specify which files and directories should be excluded from the context sent to the Docker daemon when building an image. This helps to reduce the size of the build context and can improve build performance by preventing unnecessary files from being included.
+
+## Key Components
+- **node_modules**: This directory contains all the installed Node.js packages for the project. It is typically large and should not be included in the Docker image, as the packages can be installed directly in the Dockerfile.
+- **.git**: This directory contains the version control information for the project. It is not needed in the Docker image and can be safely ignored to keep the image size smaller.
+- **.gitignore**: This file specifies intentionally untracked files to ignore in the Git repository. It is not necessary for the Docker image and can be excluded as well.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. Its role is solely to inform Docker about which files to ignore during the image build process.
+
+## Usage Examples
+When building a Docker image, the presence of the `.dockerignore` file will automatically exclude the specified files and directories. For example, running the following command:
+```bash
+docker build -t my-app .
+```
+will ignore the files listed in `.dockerignore`, resulting in a cleaner and more efficient image.
+
+## Best Practices
+- Always include a `.dockerignore` file in your Docker projects to optimize the build context.
+- Regularly review and update the `.dockerignore` file to ensure that only necessary files are included in the Docker image.
+- Avoid including sensitive information or large files that are not needed for the application to run in production.

@@ -1,0 +1,45 @@
+---
+description: Documentation for the On-Screen Keyboard jQuery Plugin.
+globs: ['static/js/jquery.onScreenKeyboard.js']
+alwaysApply: false
+---
+
+# On-Screen Keyboard jQuery Plugin
+
+## Overview
+This file implements a jQuery plugin that provides a fluid-width on-screen keyboard. It allows users to interact with input fields using a virtual keyboard displayed on the screen, enhancing accessibility and usability for users who may have difficulty using a physical keyboard.
+
+## Key Components
+- **Plugin Initialization**: The plugin is initialized by calling `$.fn.onScreenKeyboard` with optional settings for customization.
+- **activateInput**: This function focuses on the current input field and customizes the keyboard based on data attributes of the input element.
+- **fixWidths**: Adjusts the width of the keyboard keys to ensure they display correctly across different browsers.
+- **renderKeyboard**: Creates and appends the keyboard HTML structure to the body if it does not already exist.
+
+### Functions
+- **activateInput($input)**: Activates the keyboard for the specified input element, enabling or disabling keys based on data attributes.
+- **fixWidths()**: Ensures the keyboard keys are displayed correctly in browsers that round down pixel values.
+- **renderKeyboard(keyboardId)**: Generates the keyboard layout and returns a jQuery object representing the keyboard.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies solely on jQuery and jQuery UI for its functionality, particularly for the draggable feature.
+
+## Usage Example
+To use the on-screen keyboard, simply call the plugin on the desired input elements:
+```javascript
+$(document).ready(function() {
+    $('input, textarea').onScreenKeyboard({
+        draggable: true,
+        rewireReturn: 'search',
+        topPosition: '10%',
+        leftPosition: '50%'
+    });
+});
+```
+
+## Best Practices
+- Ensure that jQuery and jQuery UI are included in your project before using this plugin.
+- Customize the keyboard settings according to the needs of your application, such as enabling or disabling specific keys.
+- Test the keyboard functionality across different browsers to ensure consistent behavior, especially regarding width adjustments.
+- Use data attributes on input elements to control keyboard behavior dynamically.
+
+By following these guidelines, developers can effectively integrate and utilize the on-screen keyboard plugin in their web applications.

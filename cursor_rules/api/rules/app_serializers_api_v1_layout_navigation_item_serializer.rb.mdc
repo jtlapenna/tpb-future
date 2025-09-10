@@ -1,0 +1,49 @@
+---
+description: Serializer for layout navigation items in the API V1 namespace.
+globs: ['app/serializers/api/v1/layout_navigation_item_serializer.rb']
+alwaysApply: false
+---
+
+# LayoutNavigationItemSerializer
+
+## Overview
+The `LayoutNavigationItemSerializer` is a serializer class that formats the output of layout navigation items for the API version 1. It is part of the `Api::V1` module and is used to define how layout navigation items are represented in JSON format when sent to clients.
+
+## Key Components
+- **Class Definition**: The class `LayoutNavigationItemSerializer` inherits from `ActiveModel::Serializer`, which provides a way to serialize Ruby objects into JSON.
+- **Attributes**: The serializer defines several attributes that will be included in the serialized output:
+  - `id`: The unique identifier for the navigation item.
+  - `label`: The display label for the navigation item.
+  - `link`: The URL that the navigation item points to.
+  - `title`: The title of the navigation item, often used for tooltips or additional context.
+  - `description`: A brief description of the navigation item.
+  - `order`: The order in which the navigation item should appear in a list.
+  - `created_at`: Timestamp of when the navigation item was created.
+  - `updated_at`: Timestamp of the last update to the navigation item.
+- **Associations**: The serializer includes a `has_one` association with an `asset`, which is serialized using the `Api::V1::AssetSerializer`. This allows for nested serialization of related asset data.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on the serialization of layout navigation items.
+
+## Usage Example
+When a layout navigation item is requested via the API, the `LayoutNavigationItemSerializer` will format the response as follows:
+```json
+{
+  "id": 1,
+  "label": "Home",
+  "link": "https://example.com/home",
+  "title": "Go to Home",
+  "description": "The main page of the site.",
+  "order": 1,
+  "created_at": "2023-01-01T00:00:00Z",
+  "updated_at": "2023-01-02T00:00:00Z",
+  "asset": {
+    // asset data here
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data model and are kept up to date with any changes in the database schema.
+- When adding new attributes or associations, consider the impact on the API response size and performance.
+- Use the serializer in conjunction with appropriate controller actions to ensure that the serialized data is returned correctly in API responses.

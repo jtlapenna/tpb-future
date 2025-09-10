@@ -1,0 +1,34 @@
+---
+description: Documentation for the ImageSerializer class in the API V1 module.
+globs: ['app/serializers/api/v1/image_serializer.rb']
+alwaysApply: false
+---
+
+# ImageSerializer Documentation
+
+## Overview
+The `ImageSerializer` class is part of the `Api::V1` module and is responsible for serializing image objects into JSON format. It inherits from `ActiveModel::Serializer`, which provides a way to define how objects are represented in JSON, making it easier to work with APIs in a Rails application.
+
+## Key Components
+- **Class**: `ImageSerializer`
+  - **Inherits from**: `ActiveModel::Serializer`
+  - **Attributes**: The serializer defines the following attributes to be included in the serialized output:
+    - `id`: The unique identifier for the image.
+    - `url`: The URL where the image can be accessed.
+    - `created_at`: The timestamp when the image was created.
+    - `updated_at`: The timestamp when the image was last updated.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for image objects within the API V1 context.
+
+## Usage Example
+To use the `ImageSerializer`, you would typically call it when rendering an image object in a controller action. For example:
+```ruby
+render json: @image, serializer: Api::V1::ImageSerializer
+```
+This will return a JSON representation of the `@image` object, including only the specified attributes.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including sensitive information that should not be exposed.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- If additional attributes or methods are needed in the future, consider extending the serializer rather than modifying existing attributes to prevent breaking changes.

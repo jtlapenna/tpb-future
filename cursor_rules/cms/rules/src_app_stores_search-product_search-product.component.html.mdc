@@ -1,0 +1,37 @@
+---
+description: Documentation for the search product modal component in the application.
+globs: ['src/app/stores/search-product/search-product.component.html']
+alwaysApply: false
+---
+
+# Search Product Component
+
+## Overview
+The `search-product.component.html` file defines the template for a modal dialog that allows users to search and select products. It integrates a filter component and a data table to display the products dynamically based on user input.
+
+## Key Components
+- **Modal Header**: Contains the title of the modal and a close button that triggers the `bsModalRef.hide()` method to close the modal.
+- **Filter Component**: An `<app-filter>` component that takes `filters` as input and emits changes through the `onChanges` event. This allows users to refine their product search.
+- **Data Table**: Utilizes the `ngx-datatable` library to display a list of products. It supports features like external paging and sorting, and it is configured to show product details such as name, category, thumbnail image, and action buttons.
+  - **Columns**: The table includes columns for product name, category, thumbnail, and actions (select button).
+- **Modal Footer**: Contains a cancel button that also closes the modal when clicked.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It is a standalone component that relies on Angular's component architecture and the `ngx-datatable` library for its functionality.
+
+## Usage Example
+To use this component, ensure that it is included in a parent component that manages the modal's visibility. The parent component should handle the logic for filtering products and managing the selected product state.
+
+```html
+<!-- Example of using the search product modal in a parent component -->
+<button (click)="openSearchProductModal()">Search Products</button>
+<ng-template #searchProductModal>
+  <app-search-product></app-search-product>
+</ng-template>
+```
+
+## Best Practices
+- Ensure that the `filters` input is properly initialized in the parent component to avoid undefined errors.
+- Handle the `onFilterChange` event to update the product list based on user selections.
+- Keep the modal's state management (open/close) centralized in the parent component for better control and maintainability.
+- Regularly update the `ngx-datatable` library to benefit from performance improvements and new features.

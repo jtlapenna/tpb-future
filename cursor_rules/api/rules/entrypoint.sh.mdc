@@ -1,0 +1,35 @@
+---
+description: Documentation for the entrypoint.sh file in the codebase.
+globs: ['entrypoint.sh']
+alwaysApply: false
+---
+
+# entrypoint.sh Documentation
+
+## Overview
+The `entrypoint.sh` file serves as the initial script executed when starting the application. It is responsible for running database migrations and starting the Rails server, making it a crucial component for setting up the application environment.
+
+## Key Components
+- **Shebang Line**: `#!/usr/bin/env sh`
+  - This line indicates that the script should be run in a shell environment.
+
+- **Database Migration Command**: `bundle exec rake db:migrate`
+  - This command runs the database migrations using Rake, ensuring that the database schema is up to date with the latest changes.
+
+- **Rails Server Command**: `bundle exec rails s -p 3000 -b '0.0.0.0'`
+  - This command starts the Rails server, binding it to all interfaces on port 3000, allowing external access to the application.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently to set up the application environment.
+
+## Usage Example
+To use this script, simply run it in your terminal:
+```sh
+sh entrypoint.sh
+```
+This will execute the database migrations and start the Rails server.
+
+## Best Practices
+- Ensure that your database is properly configured before running this script to avoid migration errors.
+- Always check for pending migrations before starting the server to ensure the application runs smoothly.
+- Consider using a process manager like `foreman` or `docker-compose` to manage the application lifecycle in a production environment.

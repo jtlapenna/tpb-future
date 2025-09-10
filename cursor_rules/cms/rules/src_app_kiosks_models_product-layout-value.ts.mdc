@@ -1,0 +1,44 @@
+---
+description: Documentation for the ProductLayoutValue model in the kiosks module.
+globs: ['src/app/kiosks/models/product-layout-value.ts']
+alwaysApply: false
+---
+
+# ProductLayoutValue Model
+
+## Overview
+The `ProductLayoutValue` class represents a model for product layout values in the kiosks module of the application. It encapsulates the properties and behaviors associated with a product layout element, including its ID, link, content, and associated asset.
+
+## Key Components
+- **Class: `ProductLayoutValue`**  
+  This class is responsible for defining the structure of a product layout value. It includes the following properties:
+  - `id`: A unique identifier for the product layout value.
+  - `productLayoutElementId`: The ID of the associated product layout element.
+  - `link`: A URL link related to the product layout value.
+  - `content`: The textual content associated with the product layout value.
+  - `asset`: An instance of the `Asset` class, initialized with an empty asset or the asset data from the provided JSON.
+
+- **Constructor**:  
+  The constructor takes a JSON object as an argument and initializes the properties of the `ProductLayoutValue` instance based on the values in the JSON. If the asset data is not provided, it initializes the `asset` property with a new `Asset` instance.
+
+## Dependencies
+This file imports the `Asset` class from `src/app/core/models`. The `ProductLayoutValue` class is used in the `kiosk-product-layout.ts` file, which likely handles the rendering or management of product layouts in the kiosk context.
+
+## Usage Example
+To create a new instance of `ProductLayoutValue`, you can do the following:
+```typescript
+const productLayoutData = {
+  id: 1,
+  product_layout_element_id: 101,
+  link: 'https://example.com/product/1',
+  content: 'This is a product layout value.',
+  asset: { /* asset data */ }
+};
+
+const productLayoutValue = new ProductLayoutValue(productLayoutData);
+```
+
+## Best Practices
+- Ensure that the JSON object passed to the constructor contains all necessary fields to avoid undefined properties.
+- When working with assets, validate the asset data structure to ensure compatibility with the `Asset` class.
+- Keep the model updated with any changes in the product layout requirements to maintain consistency across the application.

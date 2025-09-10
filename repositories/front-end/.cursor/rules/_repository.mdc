@@ -1,0 +1,51 @@
+---
+description: Documentation for the repository structure and organization.
+globs: ['*']
+alwaysApply: true
+---
+
+# Repository Overview
+
+This repository is designed to provide a comprehensive solution for managing and serving data through a structured API. It encompasses various functionalities including analytics, product management, and messaging, all while adhering to best practices in software development.
+
+## Key Directories and Their Roles
+- **.firebase**: Contains configuration and deployment files for Firebase services used in the application.
+- **config**: Holds configuration files that define environment variables and settings for the application.
+- **functions**: Contains serverless functions that handle backend logic and API endpoints.
+- **mdc_output**: Directory for generated documentation and dependency graphs.
+- **src**: The main source directory containing all application code.
+  - **analytics**: Implements analytics tracking and reporting functionalities.
+  - **api**: Contains modules for interacting with various data entities such as articles, products, and brands.
+  - **assets**: Holds static assets like CSS, JS, fonts, and images used throughout the application.
+  - **components**: Contains reusable UI components.
+  - **const**: Defines global constants used across the application.
+  - **mixins**: Contains reusable mixins for Vue components.
+  - **plugins**: Holds Vue plugins that extend the functionality of the application.
+  - **router**: Manages application routing and navigation.
+  - **store**: Implements Vuex store for state management, including modules for different features.
+
+## Architectural Patterns and Organization
+The repository follows a modular architecture where each feature is encapsulated within its own directory. This promotes separation of concerns and makes the codebase easier to navigate and maintain. The use of Vue.js for the frontend allows for a reactive and component-based approach to building user interfaces.
+
+## Core Modules and Their Significance
+The following core modules are crucial for the application's functionality:
+- **src/api/LocalRepo.js**: Manages local data storage and retrieval, imported by multiple components.
+- **src/api/http.js**: Handles HTTP requests and responses, providing a centralized way to manage API interactions.
+- **src/api/repo.js**: Serves as a repository pattern implementation for data management.
+- **src/const/globals.js**: Defines global constants that are used throughout the application, ensuring consistency.
+
+## Entry Points and How to Navigate the Codebase
+The following files serve as entry points into the application, initializing the app and importing necessary modules:
+- **src/main.js**: The main entry point for the Vue application, bootstrapping the app and mounting it to the DOM.
+- **src/mixins/aeropayEvent.js**: Contains mixins related to Aeropay events.
+- **src/plugins/config.js**: Configures and registers plugins used in the application.
+- **src/api/api.js**: Centralizes API endpoints and interactions.
+
+To navigate the codebase, developers should start from the `src/main.js` file to understand how the application initializes and how different modules are interconnected.
+
+## Best Practices for Working with This Repository
+- **Modular Design**: Keep related functionalities grouped together in their respective directories.
+- **Consistent Naming**: Follow consistent naming conventions for files and directories to enhance readability.
+- **Documentation**: Document new features and modules thoroughly to aid future developers.
+- **Code Reviews**: Engage in regular code reviews to maintain code quality and share knowledge across the team.
+- **Testing**: Implement unit and integration tests for critical modules to ensure reliability and maintainability.

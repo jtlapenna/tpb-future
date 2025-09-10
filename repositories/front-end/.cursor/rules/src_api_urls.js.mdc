@@ -1,0 +1,32 @@
+---
+description: Documentation for the URL constants used in the API module.
+globs: ['src/api/urls.js']
+alwaysApply: false
+---
+
+# src/api/urls.js Documentation
+
+## Overview
+This file defines constants that represent the endpoints used in the API for handling order-related operations. These constants help maintain consistency and avoid hardcoding strings throughout the codebase.
+
+## Key Components
+- **ORDERS_PREVIEW**: A constant string that holds the URL path for previewing an order. This is used in API requests to fetch order preview data.
+
+## Dependencies
+This file does not import any other files, but it is imported by `src/api/api.js`. This indicates that the constants defined here are utilized in the API logic to construct requests to the server.
+
+## Usage Example
+In `src/api/api.js`, you might see the following usage:
+```javascript
+import { ORDERS_PREVIEW } from './urls';
+
+function fetchOrderPreview(orderId) {
+    return fetch(`${API_BASE_URL}/${ORDERS_PREVIEW}/${orderId}`);
+}
+```
+This example shows how the `ORDERS_PREVIEW` constant is used to build a complete URL for fetching an order preview based on an `orderId`.
+
+## Best Practices
+- Always use the defined constants instead of hardcoding URL strings in your API calls. This ensures that if the endpoint changes, you only need to update it in one place.
+- Keep the naming of constants clear and descriptive to enhance code readability and maintainability.
+- Consider adding comments for any new constants added in the future to explain their purpose.

@@ -1,0 +1,48 @@
+---
+description: Documentation for the RFIDRepo class which manages RFID data retrieval and storage.
+globs: ['src/api/rfid/RFIDRepo.js']
+alwaysApply: false
+---
+
+# RFIDRepo.js Documentation
+
+## Overview
+The `RFIDRepo` class is responsible for managing RFID data by interacting with both remote and local data sources. It extends the base `Repo` class and provides methods to list RFID items, ensuring that local data is updated based on remote data availability.
+
+## Key Components
+
+### Class: RFIDRepo
+- **Constructor**: Initializes the `RFIDRepo` with instances of `RFIDRemote` and `RFIDLocal`, and sets the data name to 'rfids'.
+
+- **Method: list()**  
+  This method retrieves a list of RFID items. It first attempts to fetch data from the remote source. If the remote fetch fails, it falls back to retrieving data from the local source. The method returns a promise that resolves with the list of items.
+
+  **Error Handling**: If an error occurs during the remote fetch, it logs the error and retrieves local items instead, ensuring that the application can still function with available data.
+
+- **Method: updateLocalItems(items)**  
+  This method updates the local items by mapping the incoming items to include an `id` based on their index. It calls the parent class's `updateLocalItems` method to perform the actual update.
+
+## Dependencies
+- **Repo**: The base class from which `RFIDRepo` inherits, located in `src/api/repo.js`. It provides common repository functionalities.
+- **RFIDLocal**: A local data source for RFID items, located in `src/api/rfid/RFIDLocal.js`.
+- **RFIDRemote**: A remote data source for RFID items, located in `src/api/rfid/RFIDRemote.js`.
+
+## Usage Example
+To use the `RFIDRepo`, you can import it and call the `list` method to retrieve RFID items:
+```javascript
+import RFIDRepo from './RFIDRepo';
+
+async function fetchRFIDItems() {
+  try {
+    const items = await RFIDRepo.list();
+    console.log('RFID Items:', items);
+  } catch (error) {
+    console.error('Failed to fetch RFID items:', error);
+  }
+}
+```
+
+## Best Practices
+- Always handle errors when calling the `list` method to ensure that your application can gracefully fall back to local data if remote data is unavailable.
+- When updating local items, ensure that the data structure matches what is expected by the `Repo` class to avoid inconsistencies.
+- Keep the dependencies updated and ensure that both `RFIDLocal` and `RFIDRemote` are functioning correctly to maintain data integrity.

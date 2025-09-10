@@ -1,0 +1,44 @@
+---
+description: Serializer for Kiosk model in API V1, handling serialization of kiosk-related data.
+globs: ['app/serializers/api/v1/kiosk_serializer.rb']
+alwaysApply: false
+---
+
+# KioskSerializer Documentation
+
+## Overview
+The `KioskSerializer` class is responsible for serializing the Kiosk model's data for the API V1. It formats the Kiosk data into a JSON structure that can be easily consumed by clients. This serializer includes various attributes related to the Kiosk and its associated data, such as notifications and layout information.
+
+## Key Components
+- **Class Definition**: `class KioskSerializer < ActiveModel::Serializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the Kiosk model.
+
+- **Associations**:
+  - `has_many :ad_configs, serializer: AdConfigSerializer`
+    - This line indicates that a Kiosk can have multiple associated Ad Configurations, which are serialized using the `AdConfigSerializer`.
+  - `has_one :layout, serializer: Api::V1::KioskLayoutSerializer`
+    - This indicates that each Kiosk has one associated layout, serialized with `KioskLayoutSerializer`.
+
+- **Attributes**:
+  - `attribute :notifications_send_to_customer, key: :notify_to_customer`
+    - This custom attribute retrieves the `notifications_send_to_customer` value from the associated store object.
+  - `attribute :notifications_enabled, key: :notify_by_email`
+    - Similar to the previous attribute, this retrieves the `notifications_enabled` value from the store.
+  - `attribute :api_type`
+    - Directly retrieves the `api_type` from the store.
+  - `attributes :sensor_method, :sensor_threshold, :location, :tag_list`
+    - These attributes are directly serialized from the Kiosk model itself.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the context of the API V1.
+
+## Usage Examples
+To use the `KioskSerializer`, you would typically instantiate it with a Kiosk object and render it in a controller action:
+```ruby
+render json: KioskSerializer.new(kiosk).as_json
+```
+
+## Best Practices
+- Ensure that the Kiosk model is properly populated with the necessary associations (like `store` and `ad_configs`) before serialization.
+- Keep the serializer focused on formatting data rather than including business logic. Any complex logic should reside in the model or service objects.
+- Regularly review and update the serializer as the Kiosk model evolves to ensure that all relevant attributes are included.

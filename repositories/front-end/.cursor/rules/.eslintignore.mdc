@@ -1,0 +1,31 @@
+---
+description: This file specifies which files and directories should be ignored by ESLint during linting processes.
+globs: ['/build/', '/config/', '/dist/', '/*.js']
+alwaysApply: false
+---
+
+# .eslintignore Documentation
+
+## Overview
+The `.eslintignore` file is used to define a list of files and directories that ESLint should ignore when performing linting operations. This is particularly useful for excluding build artifacts, configuration files, and other generated files that do not require linting.
+
+## Key Components
+- **/build/**: This pattern tells ESLint to ignore all files and directories within the `build` directory. This is typically where compiled or bundled files are stored, which do not need to be linted.
+- **/config/**: Similar to the `build` directory, this pattern excludes all files in the `config` directory, which usually contains configuration files that are not part of the source code.
+- **/dist/**: This pattern ignores the `dist` directory, where distribution-ready files are placed. These files are often generated and do not require linting.
+- **/*.js**: This pattern excludes all JavaScript files in the root directory of the project. This is useful if you want to ignore specific scripts that are not part of the main application logic.
+
+## Relationship to Other Files
+The `.eslintignore` file does not import or get imported by any other files in the repository. It operates independently to configure ESLint's behavior, ensuring that only relevant files are checked for code quality and style issues.
+
+## Usage Examples
+To use this file, simply place it in the root of your project directory. When you run ESLint, it will automatically read this file and apply the ignore rules specified within it. For example:
+```bash
+eslint .
+```
+This command will lint the project, excluding any files or directories listed in `.eslintignore`.
+
+## Best Practices
+- Regularly review the contents of the `.eslintignore` file to ensure that it accurately reflects the current structure of your project.
+- Avoid ignoring files that should be linted, as this can lead to undetected issues in your codebase.
+- Use comments within the `.eslintignore` file to document why certain files or directories are being ignored, which can help other developers understand the rationale behind these decisions.

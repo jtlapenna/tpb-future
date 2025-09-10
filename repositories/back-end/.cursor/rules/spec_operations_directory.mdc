@@ -1,0 +1,29 @@
+---
+description: Documentation for the spec/operations directory containing operation specifications.
+globs: ['spec/operations/*']
+alwaysApply: false
+---
+
+# Overview of the spec/operations Directory
+
+The `spec/operations` directory is dedicated to holding the RSpec test files that define the expected behavior of various operations within the application. This directory plays a crucial role in ensuring that the operations perform as intended and adhere to the defined specifications.
+
+## Key Files
+
+- **clone_kiosk_operations_spec.rb**: This file contains the specifications for the `clone_kiosk_operations` functionality. It outlines the expected outcomes and behaviors when the operations related to cloning a kiosk are executed. This is essential for validating that the cloning process works correctly and meets the application's requirements.
+
+## Relationship to Other Parts of the Codebase
+
+The `spec/operations` directory is part of the broader testing framework of the application. It specifically focuses on the operational aspects, which may interact with other components such as models, controllers, and services. While this directory does not import from or export to other files, the operations defined here are likely invoked by other parts of the application, making it essential for maintaining overall application integrity.
+
+## Common Patterns and Conventions
+
+- **RSpec Structure**: The files in this directory follow the RSpec conventions, utilizing `describe`, `context`, and `it` blocks to structure tests clearly and logically.
+- **Descriptive Naming**: Each spec file is named to reflect the functionality it tests, making it easier for developers to locate and understand the purpose of each test.
+
+## Best Practices
+
+- **Keep Tests Isolated**: Ensure that tests in this directory do not depend on the state of other tests. Each test should be able to run independently to avoid side effects.
+- **Use Factories for Test Data**: When creating test data, utilize factories (e.g., FactoryBot) to maintain consistency and reduce duplication in test setup.
+- **Regularly Update Tests**: As the application evolves, ensure that the tests in this directory are updated to reflect any changes in the operations they are meant to validate. This helps maintain the reliability of the test suite.
+- **Run Tests Frequently**: Regularly run the tests in this directory to catch any regressions early in the development process.

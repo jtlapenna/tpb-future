@@ -1,0 +1,66 @@
+---
+description: Documentation for the AttributeGroupService class in the Angular application.
+globs: ['src/app/attributes/services/attribute-group.service.ts']
+alwaysApply: false
+---
+
+# AttributeGroupService Documentation
+
+## Overview
+The `AttributeGroupService` class is an Angular service that extends the `CrudService` to manage `AttributeGroup` resources. It provides methods to create new attribute groups and retrieve existing ones with their associated attributes from the backend API.
+
+## Key Components
+
+### Class: AttributeGroupService
+- **Extends:** `CrudService<AttributeGroup>`  
+  This inheritance allows `AttributeGroupService` to utilize CRUD operations defined in the `CrudService` class.
+
+### Method: createResource(params: any): AttributeGroup
+- **Purpose:** Creates a new instance of `AttributeGroup` using the provided parameters.  
+- **Parameters:**  
+  - `params`: An object containing the attributes for the new `AttributeGroup`.  
+- **Returns:** An instance of `AttributeGroup`.
+
+### Method: resourceName({plural}: {plural?: boolean} = {}): string
+- **Purpose:** Returns the resource name for the `AttributeGroup`, either in singular or plural form based on the input parameter.  
+- **Parameters:**  
+  - `plural`: A boolean indicating whether to return the plural form.  
+- **Returns:** A string representing the resource name.
+
+### Method: allWithAttributes(): Observable<AttributeGroup[]>
+- **Purpose:** Fetches all `AttributeGroup` resources from the API, including their associated attributes.  
+- **Returns:** An observable that emits an array of `AttributeGroup` instances.
+- **Implementation Details:**  
+  - Uses `HttpParams` to set query parameters for pagination and sorting.  
+  - Maps the response data to create an array of `AttributeGroup` instances.
+
+## Dependencies
+- **environment.ts:** Provides the base API URL for making HTTP requests.
+- **CrudService:** A base service that provides common CRUD operations.
+- **models:** Contains the `AttributeGroup` model definition used for type safety and structure.
+
+## Usage Example
+To use the `AttributeGroupService`, you would typically inject it into an Angular component or another service:
+```typescript
+import { Component } from '@angular/core';
+import { AttributeGroupService } from './services/attribute-group.service';
+
+@Component({
+  selector: 'app-attribute-group',
+  templateUrl: './attribute-group.component.html'
+})
+export class AttributeGroupComponent {
+  constructor(private attributeGroupService: AttributeGroupService) {}
+
+  ngOnInit() {
+    this.attributeGroupService.allWithAttributes().subscribe(attributeGroups => {
+      console.log(attributeGroups);
+    });
+  }
+}
+```
+
+## Best Practices
+- Ensure that the API endpoint is correctly configured in the `environment.ts` file.
+- Use the `createResource` method to instantiate `AttributeGroup` objects to maintain consistency.
+- Handle errors when subscribing to observables to avoid unhandled exceptions in your application.

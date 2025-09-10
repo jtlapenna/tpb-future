@@ -1,0 +1,60 @@
+---
+description: Vuex store configuration for managing application state.
+globs: ['src/store/store.js']
+alwaysApply: false
+---
+
+# Vuex Store Configuration
+
+## Overview
+This file sets up the Vuex store for the application, which is responsible for managing the state of the application in a centralized manner. It imports modules for products and cart management, allowing for a modular approach to state management.
+
+## Key Components
+- **State**: The state object contains the following properties:
+  - `connected`: A boolean indicating if the user is online.
+  - `totalCart`: Holds the total number of items in the cart.
+  - `doesNotCameFromProduct`: A flag to indicate if the navigation did not originate from a product page.
+  - `selectedNavigationBrand`: A flag to track the selected brand in navigation.
+
+- **Getters**: Functions to access state properties:
+  - `connected`: Returns the current online status.
+  - `totalCart`: Returns the total number of items in the cart.
+
+- **Mutations**: Synchronous functions to modify the state:
+  - `SET_CONNECTED`: Updates the `connected` state.
+  - `SET_TOTAL_CART`: Updates the `totalCart` state.
+  - `setDoesNotCameFromProduct`: Updates the `doesNotCameFromProduct` state.
+  - `setSelectedNavigationBrand`: Updates the `selectedNavigationBrand` state.
+
+- **Actions**: Asynchronous functions that commit mutations:
+  - `setConnected`: Commits the `SET_CONNECTED` mutation.
+  - `setTotalCart`: Commits the `SET_TOTAL_CART` mutation.
+
+- **Modules**: This store includes two modules:
+  - `products`: Manages product-related state.
+  - `cart`: Manages cart-related state.
+
+## Dependencies
+This file imports the following modules:
+- `src/store/modules/products.js`: Contains product-related state management.
+- `src/store/modules/cart.js`: Contains cart-related state management.
+
+It is imported by:
+- `src/main.js`: The main entry point of the application, where the Vuex store is integrated into the Vue instance.
+
+## Usage Examples
+To update the cart total, you can dispatch the `setTotalCart` action:
+```javascript
+this.$store.dispatch('setTotalCart', newTotal);
+```
+
+To check if the user is connected:
+```javascript
+const isConnected = this.$store.getters.connected;
+```
+
+## Best Practices
+- Always commit mutations to change the state, never modify the state directly.
+- Use actions for asynchronous operations before committing mutations.
+- Keep the state as flat as possible to avoid complex nested structures.
+- Modularize your store by separating concerns into different modules for better maintainability.

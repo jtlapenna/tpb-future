@@ -1,0 +1,69 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- production
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- task: CopyFiles@2
+  displayName: 'Copy dist folder'
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDiretory)'
+
+- task: SSH@0
+  displayName: 'Stop Current App'
+  inputs:
+    sshEndpoint: 'thepb_ec2'
+    runOptions: 'commands'
+    commands: 'cd /var/app/current/ && forever stopall'
+    readyTimeout: '20000'
+    failOnStdErr: false
+
+- task: CopyFilesOverSSH@0
+  displayName: 'copy source files'
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDiretory)'
+    sshEndpoint: 'thepb_ec2'
+    cleanTargetFolder: true
+    contents: '**'
+    targetFolder: '/var/app/current'
+    readyTimeout: '20000'
+
+- task: SSH@0
+  displayName: 'install packages'
+  inputs:
+    sshEndpoint: 'thepb_ec2'
+    runOptions: 'commands'
+    commands: 'cd /var/app/current/ && npm install'
+    readyTimeout: '20000'
+    failOnStdErr: false
+
+- task: SSH@0
+  displayName: 'Build Source'
+  inputs:
+    sshEndpoint: 'thepb_ec2'
+    runOptions: 'commands'
+    commands: 'cd /var/app/current/ && npm run build'
+    readyTimeout: '20000'
+    failOnStdErr: false
+
+- task: SSH@0
+  displayName: 'Run'
+  inputs:
+    sshEndpoint: 'thepb_ec2'
+    runOptions: 'commands'
+    commands: 'cd /var/app/current/ && env-cmd -f .env.prod forever start dist/main.js'
+    readyTimeout: '20000'
+    failOnStdErr: false

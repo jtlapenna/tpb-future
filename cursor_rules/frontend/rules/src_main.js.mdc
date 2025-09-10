@@ -1,0 +1,65 @@
+---
+description: Documentation for the main entry point of the Vue.js application.
+globs: ['src/main.js']
+alwaysApply: false
+---
+
+# src/main.js Documentation
+
+## Overview
+This file serves as the main entry point for the Vue.js application. It initializes the Vue instance, sets up global configurations, and manages the application lifecycle, including handling service workers and socket connections.
+
+## Key Components
+
+### 1. **Imports**
+The file imports various dependencies essential for the application:
+- **Vue**: The core framework for building the application.
+- **Axios**: For making HTTP requests.
+- **Socket.io**: For real-time communication.
+- **Vuex**: For state management.
+- **jQuery**: For DOM manipulation and animations.
+- **Sentry**: For error tracking and monitoring.
+
+### 2. **Environment Variables**
+The file retrieves configuration values from environment variables and a global `kioskConfig` object, which are used throughout the application for API endpoints and other settings.
+
+### 3. **Axios Configuration**
+Multiple Axios instances are created with different base configurations:
+- `Vue.http`: For authenticated requests.
+- `Vue.httpEmpty`: For unauthenticated requests.
+- `Vue.httpPrinter`: For printer-related requests.
+
+### 4. **Application Restart Logic**
+The application includes a timer that checks if the app has started successfully. If not, it reloads the page automatically.
+
+### 5. **Configuration Loading**
+The file contains functions to load configuration data either from the cache or online, ensuring the app is initialized with the latest settings.
+- **useCacheConfig**: Loads configuration from the cache.
+- **useOnlineConfig**: Fetches configuration from the API.
+
+### 6. **Vue Instance Initialization**
+The Vue instance is created with the main App component, router, and Vuex store. It also sets up event listeners for online/offline status.
+
+### 7. **Socket Initialization**
+If RFID functionality is enabled, the file establishes a socket connection to listen for RFID events and handle them accordingly.
+
+### 8. **Service Worker Registration**
+The file registers service workers to enable offline capabilities and cache management.
+
+## Dependencies
+This file relies on several other files in the codebase:
+- **src/const/globals.js**: Contains global constants used throughout the application.
+- **src/store/store.js**: The Vuex store for state management.
+- **src/App.vue**: The root component of the Vue application.
+- **src/router**: Manages routing within the application.
+- **src/analytics/analytics.js**: Handles analytics tracking.
+- **src/store/modules/cart.js**: Manages cart-related state in the Vuex store.
+
+## Usage Examples
+To use this file, simply run the application using your preferred method (e.g., `npm run serve`). The application will automatically initialize and connect to the necessary services.
+
+## Best Practices
+- Ensure that environment variables are correctly set up in your development and production environments.
+- Regularly check for updates in dependencies to maintain security and performance.
+- Use the Vue DevTools for debugging and monitoring the state of your application during development.
+- Follow the established coding standards and conventions for consistency across the codebase.

@@ -1,0 +1,47 @@
+---
+description: Documentation for the StoreProduct parser in the Blaze webhooks.
+globs: ['app/parsers/webhooks/blaze/store_product.rb']
+alwaysApply: false
+---
+
+# StoreProduct Parser Documentation
+
+## Overview
+The `StoreProduct` class is a parser designed to handle product data received from webhooks in the Blaze system. It processes incoming payloads to extract relevant product information, such as category IDs, brand IDs, pricing, and attributes, and formats this data into a structured hash for further use.
+
+## Key Components
+- **Class Definition**: `Webhooks::Blaze::StoreProduct` inherits from `Webhooks::Blaze::Base`, indicating it is part of a hierarchy of webhook parsers.
+- **Main Method**: The `parse` method is the entry point for processing the payload. It constructs a hash containing various product attributes, including:
+  - `store_category_id`: ID of the store category.
+  - `brand_id`: ID of the brand, fetched or created based on the payload.
+  - `product_variant_id`: A wildcard variant ID from environment variables.
+  - `active`: Status of the product.
+  - `stock`: Quantity available, defaulting to 0 if not specified.
+  - `sku`: Stock Keeping Unit from the payload.
+  - `weight`: Weight of the product, determined by the `get_weight_value` method.
+  - `name`, `description`, `status`, `prices`, `own_images`, `primary_image_url`, `thumb_image_url`, `attribute_values`, and `tags`: Various other attributes extracted from the payload.
+
+- **Private Methods**: Several private methods assist in extracting specific pieces of information:
+  - `own_images`: Determines the primary and thumbnail image URLs based on the assets provided in the payload.
+  - `get_prices`: Retrieves the sale price from the payload, checking both price breaks and ranges.
+  - `get_weight_value` and `get_weight_name`: Handle weight-related data, including custom weights.
+  - `product_status`: Determines if the product is active or deactivated.
+  - `brand_id` and `store_category_id`: Fetch or create IDs for brands and store categories based on the payload.
+  - `attribute_values`: Collects various attributes like THC and CBD content, creating or fetching definitions as necessary.
+  - `get_thc` and `get_cbd`: Extract THC and CBD values from the payload, formatting them appropriately.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the payload data provided to it.
+
+## Usage Example
+To use the `StoreProduct` parser, instantiate the class and call the `parse` method with the appropriate payload:
+```ruby
+payload = { ... } # Incoming webhook payload
+parser = Webhooks::Blaze::StoreProduct.new(payload)
+product_data = parser.parse
+```
+
+## Best Practices
+- Ensure that the payload structure matches the expected format to avoid nil errors during parsing.
+- When modifying the parsing logic, maintain the integrity of the data structure returned by the `parse` method to ensure compatibility with other components that rely on this data.
+- Regularly review and update the attribute definitions to reflect any changes in the product data schema.

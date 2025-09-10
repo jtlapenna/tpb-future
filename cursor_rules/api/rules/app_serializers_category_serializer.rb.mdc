@@ -1,0 +1,37 @@
+---
+description: Documentation for the CategorySerializer class in the serializers directory.
+globs: ['app/serializers/category_serializer.rb']
+alwaysApply: false
+---
+
+# CategorySerializer Documentation
+
+## Overview
+The `CategorySerializer` class is a part of the ActiveModel Serializers framework, which is used to serialize Ruby objects into JSON format. This particular serializer is responsible for defining how `Category` objects are represented when converted to JSON, specifically including the `id` and `name` attributes.
+
+## Key Components
+- **Class**: `CategorySerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects.
+  - **Attributes**: The serializer specifies two attributes to be included in the serialized output:
+    - `id`: The unique identifier for the category.
+    - `name`: The name of the category.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a simple serializer for the `Category` model.
+
+## Usage Example
+When a `Category` object is rendered in a controller, the `CategorySerializer` will automatically be used to format the output. For example:
+```ruby
+class CategoriesController < ApplicationController
+  def show
+    category = Category.find(params[:id])
+    render json: category
+  end
+end
+```
+In this example, when a `Category` is fetched and rendered, the output will include only the `id` and `name` attributes as defined in the `CategorySerializer`.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data that should be exposed to the API consumers.
+- Keep the serializer simple and focused on the specific model it represents. If additional logic is needed, consider using custom methods or additional serializers as necessary.
+- Regularly review and update the serializer as the underlying model changes to ensure consistency in the API responses.

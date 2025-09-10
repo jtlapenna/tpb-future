@@ -1,0 +1,30 @@
+---
+description: Configuration file for defining coding styles and formatting rules across the project.
+globs: ['.editorconfig']
+alwaysApply: false
+---
+
+# Overview
+The `.editorconfig` file is used to define and maintain consistent coding styles across different editors and IDEs. It helps developers adhere to the same formatting rules, ensuring that the codebase remains clean and uniform regardless of the tools used.
+
+# Key Components
+- **root**: This setting indicates that this is the top-level `.editorconfig` file. It prevents any parent `.editorconfig` files from being applied.
+- **[*]**: This section applies the following settings to all file types in the project.
+  - **charset**: Specifies the character encoding for the files. In this case, it is set to `utf-8`, which is a widely used encoding that supports many characters from different languages.
+  - **indent_style**: Defines the style of indentation. Here, it is set to `space`, meaning spaces will be used for indentation instead of tabs.
+  - **indent_size**: Sets the number of spaces used for each indentation level. This file specifies an indentation size of `2` spaces.
+  - **end_of_line**: Specifies the line ending style. The setting `lf` indicates that line endings will be in Unix style (Line Feed).
+  - **insert_final_newline**: When set to `true`, this ensures that files end with a newline character, which is a common best practice in many programming languages.
+  - **trim_trailing_whitespace**: This setting, when `true`, removes any whitespace characters at the end of a line, helping to keep the code clean.
+
+# Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file that affects the formatting of all files in the project.
+
+# Usage Examples
+To use this configuration, simply place the `.editorconfig` file in the root of your project. Most modern editors and IDEs will automatically recognize and apply the settings defined in this file. For example, if you open a Python file in your editor, it will automatically format the file according to the rules specified in `.editorconfig`.
+
+# Best Practices
+- Always ensure that your `.editorconfig` file is up to date with the team's coding standards.
+- Avoid mixing tabs and spaces for indentation; stick to the defined `indent_style` and `indent_size`.
+- Regularly check for trailing whitespace and ensure that files end with a newline to maintain consistency.
+- Encourage all team members to configure their editors to respect the settings defined in the `.editorconfig` file.

@@ -1,0 +1,37 @@
+---
+description: Serializer for AdBannerLocation in the API V1 namespace.
+globs: ['app/serializers/api/v1/ad_banner_location_serializer.rb']
+alwaysApply: false
+---
+
+# AdBannerLocationSerializer
+
+## Overview
+The `AdBannerLocationSerializer` is a serializer class that is part of the API version 1 namespace. It is responsible for defining how the `AdBannerLocation` model is represented in JSON format when it is serialized for API responses. This serializer uses the `ActiveModel::Serializer` framework to specify which attributes of the model should be included in the serialized output.
+
+## Key Components
+- **Class Definition**: The class `AdBannerLocationSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method is called to define the list of attributes that will be included in the serialized output. In this case, the attributes are:
+  - `id`: The unique identifier for the ad banner location.
+  - `text`: The textual content associated with the ad banner location.
+  - `codename`: A unique code name for the ad banner location.
+  - `special_type`: A type designation that may affect how the ad banner is displayed or used.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `AdBannerLocation` model, which means it is specifically tailored for use within the API V1 context.
+
+## Usage Example
+When an instance of `AdBannerLocation` is serialized, it will return a JSON object that includes the specified attributes. For example:
+```json
+{
+  "id": 1,
+  "text": "Welcome to our site!",
+  "codename": "homepage_banner",
+  "special_type": "featured"
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data you want to expose through the API. Avoid including sensitive information.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- If additional logic is needed for formatting or conditional attributes, consider overriding the `attributes` method or using custom methods within the serializer.

@@ -1,0 +1,40 @@
+---
+description: Documentation for the src/environments directory containing environment configuration files.
+globs: ['src/environments/*']
+alwaysApply: false
+---
+
+# Overview of the `src/environments` Directory
+
+The `src/environments` directory is responsible for managing environment-specific configuration settings for the application. These settings are crucial for defining how the application behaves in different deployment scenarios, such as development, production, and staging environments.
+
+## Key Files and Their Roles
+- **environment.prod.ts**: Configuration settings for the production environment, optimized for performance and security.
+- **environment.dev.ts**: Development environment settings, typically with debugging enabled and less stringent security measures.
+- **environment.aimheroku.ts**: Configuration tailored for deployment on Heroku, possibly including specific API endpoints and service configurations.
+- **environment.ts**: Default environment settings that may be used when no specific environment is defined.
+- **environment.staging-aws.ts**: Staging environment settings for AWS deployments, allowing for testing in a production-like environment.
+- **environment.staging.ts**: General staging environment settings, which may differ from AWS-specific configurations.
+- **environment.aim-2.ts**: Another specific environment configuration, possibly for a different deployment target or service.
+- **globals.ts**: Contains global constants or settings that are shared across different environments.
+- **environment.aws.ts**: Configuration settings specifically for AWS deployments.
+- **environment.aim.ts**: A general configuration for a specific aim environment, possibly for testing or staging purposes.
+
+## Relationship to Other Parts of the Codebase
+Files in this directory are imported by various services across the application, including:
+- Store services, product services, and kiosk services, which rely on environment configurations to determine API endpoints and feature flags.
+- Core services that manage application-wide settings and behaviors.
+- The main entry point of the application (`src/main.ts`), which initializes the application with the appropriate environment settings.
+
+This directory plays a critical role in ensuring that the application behaves correctly in different environments, allowing developers to easily switch configurations based on the deployment context.
+
+## Common Patterns and Conventions
+- Each environment file is named according to its purpose, making it easy to identify the intended use case.
+- The default `environment.ts` file serves as a fallback, ensuring that there is always a base configuration available.
+- Environment files typically export a configuration object that can be imported and used throughout the application.
+
+## Best Practices
+- Always ensure that sensitive information (like API keys) is not hardcoded in these files, especially in production configurations.
+- Use environment variables where possible to manage sensitive data and configuration settings.
+- Keep environment configurations consistent in structure to simplify the process of adding new environments in the future.
+- Regularly review and update environment configurations to reflect changes in deployment strategies or service endpoints.

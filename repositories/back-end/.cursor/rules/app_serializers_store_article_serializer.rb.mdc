@@ -1,0 +1,40 @@
+---
+description: Serializer for StoreArticle model in the application.
+globs: ['app/serializers/store_article_serializer.rb']
+alwaysApply: false
+---
+
+# StoreArticleSerializer
+
+## Overview
+The `StoreArticleSerializer` is a serializer class that formats the `StoreArticle` model for JSON representation. It is part of the ActiveModel::Serializer framework, which is used to create a structured JSON output for API responses in Ruby on Rails applications.
+
+## Key Components
+- **Class Declaration**: The class `StoreArticleSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Type Declaration**: The `type 'article'` line specifies the type of the serialized object, which is useful for API consumers to understand the kind of resource being returned.
+- **Attributes**: The `attributes` method lists the fields that will be included in the serialized output. In this case, the serializer includes the following attributes:
+  - `id`: Unique identifier for the article.
+  - `store_id`: Identifier for the associated store.
+  - `article_id`: Identifier for the article itself.
+  - `text`: The main content of the article.
+  - `tag`: Tags associated with the article.
+  - `title`: Title of the article.
+  - `icon`: Icon representing the article.
+  - `excerpt`: A short summary of the article.
+  - `category`: The category under which the article falls.
+- **Associations**: The `has_many :store_products` line indicates that a `StoreArticle` can be associated with multiple `StoreProduct` records, allowing for a nested representation of related data in the JSON output.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the `StoreArticle` model.
+
+## Usage Examples
+To use this serializer, you would typically render a `StoreArticle` object in a controller action like so:
+```ruby
+render json: @store_article, serializer: StoreArticleSerializer
+```
+This will return a JSON response formatted according to the attributes and relationships defined in the `StoreArticleSerializer`.
+
+## Best Practices
+- Ensure that the attributes listed in the serializer are relevant and necessary for the API consumers to avoid over-fetching data.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.
+- Regularly review and update the serializer as the underlying model changes to ensure consistency in the API responses.

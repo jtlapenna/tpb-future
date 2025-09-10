@@ -1,0 +1,29 @@
+---
+description: Documentation for the KioskMinimalSerializer class in the app/serializers directory.
+globs: ['app/serializers/kiosk_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# KioskMinimalSerializer Documentation
+
+## Overview
+The `KioskMinimalSerializer` class is a serializer that defines how the `Kiosk` model is represented in JSON format. It is part of the ActiveModel::Serializer framework, which is used to create a structured JSON response for API endpoints in Ruby on Rails applications.
+
+## Key Components
+- **Class Definition**: `KioskMinimalSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the `Kiosk` model.
+- **Attributes**: The `attributes` method specifies which fields of the `Kiosk` model should be included in the serialized output. In this case, it includes `:id` and `:name`.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the `Kiosk` model.
+
+## Usage Example
+To use the `KioskMinimalSerializer`, you would typically render a `Kiosk` object in a controller action like so:
+```ruby
+render json: @kiosk, serializer: KioskMinimalSerializer
+```
+This will return a JSON response containing only the `id` and `name` attributes of the `Kiosk` object.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the fields available in the `Kiosk` model.
+- Keep the serializer lightweight by only including necessary attributes to optimize performance and reduce payload size.
+- If additional attributes or relationships are needed in the future, consider creating a more comprehensive serializer instead of modifying this minimal one.

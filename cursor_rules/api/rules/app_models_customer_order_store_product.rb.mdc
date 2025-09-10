@@ -1,0 +1,72 @@
+---
+description: Documentation for the CustomerOrderStoreProduct model in the application.
+globs: ['app/models/customer_order_store_product.rb']
+alwaysApply: false
+---
+
+# CustomerOrderStoreProduct Model Documentation
+
+## Overview
+The `CustomerOrderStoreProduct` class is an ActiveRecord model that represents the relationship between customer orders and store products in the application. It is responsible for managing the data related to customer orders that include specific products from the store.
+
+## Key Components
+- **Attributes**: The model includes several attributes that are accessible via `attr_accessor`:
+  - `kiosks_id`: Identifier for the kiosk associated with the order.
+  - `first_name`: First name of the customer.
+  - `last_name`: Last name of the customer.
+  - `amount`: Total amount for the order.
+  - `uuid`: Unique identifier for the order.
+  - `payed`: Boolean indicating if the order has been paid.
+  - `date`: Date of the order.
+  - `client_id`: Identifier for the client placing the order.
+
+- **Validations**: The model enforces the presence of the following attributes to ensure data integrity:
+  - `order_customers_id`
+  - `store_products_id`
+  - `product_value_id`
+  - `quantity`
+
+## Schema Information
+The model corresponds to the `customer_order_store_products` table in the database, which includes the following fields:
+- `id`: Primary key for the record.
+- `quantity`: The number of products ordered (required).
+- `created_at`: Timestamp for when the record was created.
+- `updated_at`: Timestamp for when the record was last updated.
+- `order_customers_id`: Foreign key linking to the `order_customers` table.
+- `product_value_id`: Identifier for the product value.
+- `store_products_id`: Foreign key linking to the `store_products` table.
+
+### Indexes
+The following indexes are defined for performance optimization:
+- `index_customer_order_store_products_on_order_customers_id`
+- `index_customer_order_store_products_on_store_products_id`
+
+### Foreign Keys
+The model includes foreign key constraints to maintain referential integrity:
+- `order_customers_id` references `order_customers.id`
+- `store_products_id` references `store_products.id`
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently within the application.
+
+## Usage Examples
+To create a new customer order store product, you can use the following code:
+```ruby
+order_product = CustomerOrderStoreProduct.new(
+  order_customers_id: 1,
+  store_products_id: 2,
+  product_value_id: 3,
+  quantity: 5
+)
+
+if order_product.save
+  puts 'Order product saved successfully!'
+else
+  puts 'Error saving order product: #{order_product.errors.full_messages}'
+end
+```
+
+## Best Practices
+- Ensure that all required fields are populated before saving an instance of `CustomerOrderStoreProduct` to avoid validation errors.
+- Use meaningful names for the attributes to maintain clarity in the codebase.
+- Regularly review and update validations as the application evolves to ensure data integrity.

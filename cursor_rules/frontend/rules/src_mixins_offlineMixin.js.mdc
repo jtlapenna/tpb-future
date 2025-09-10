@@ -1,0 +1,35 @@
+---
+description: Documentation for the offlineMixin.js file in the mixins directory.
+globs: ['src/mixins/offlineMixin.js']
+alwaysApply: false
+---
+
+# offlineMixin.js Documentation
+
+## Overview
+The `offlineMixin.js` file defines a Vue.js mixin that provides a computed property to track the online/offline status of the application. It utilizes Vuex to manage the state of the connection status, allowing components to reactively respond to changes in connectivity.
+
+## Key Components
+- **OFFLINE**: This is the main export of the file, which is an object containing Vue.js computed properties. It uses the `mapState` helper from Vuex to map the `connected` state from the Vuex store to the component's computed properties.
+
+## Functionality
+The mixin allows any Vue component that includes it to access the `connected` state, which indicates whether the application is currently online or offline. This can be particularly useful for displaying connection status to users or for conditionally rendering components based on connectivity.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It is a standalone mixin that can be included in any Vue component that requires connectivity information.
+
+## Usage Example
+To use the `OFFLINE` mixin in a Vue component, you can import it and include it in the component's mixins array:
+```javascript
+import OFFLINE from '@/mixins/offlineMixin'
+
+export default {
+  mixins: [OFFLINE],
+  template: `<div v-if="connected">You are online!</div>`
+}
+```
+
+## Best Practices
+- Ensure that the Vuex store is properly set up to manage the `connected` state before using this mixin.
+- Use this mixin in components where connectivity status is relevant, such as in network-sensitive applications.
+- Keep the mixin focused on its purpose; avoid adding unrelated functionality to maintain clarity and reusability.

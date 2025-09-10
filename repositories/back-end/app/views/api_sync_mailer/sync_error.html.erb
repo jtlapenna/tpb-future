@@ -1,0 +1,20 @@
+<p>
+  Error syncing store <b><%= @store.name %></b>
+</p>
+
+<% if @errors.present? %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li> row: <%= error[:row] %>, messages: <%= error[:messages] %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @expception.present? %>
+  <p>Exception: </p>
+  <pre>
+    <% @expception.each do |line| %>
+      <%= line %>
+    <% end %>
+  </pre>
+<% end %>

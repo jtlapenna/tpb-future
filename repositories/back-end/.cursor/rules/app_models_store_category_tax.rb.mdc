@@ -1,0 +1,53 @@
+---
+description: Documentation for the StoreCategoryTax model in the application.
+globs: ['app/models/store_category_tax.rb']
+alwaysApply: false
+---
+
+# StoreCategoryTax Model Documentation
+
+## Overview
+The `StoreCategoryTax` model represents the tax information associated with a specific store category in the application. It is responsible for managing the tax details, including the name and value of the tax, and ensuring that these details are valid and unique within the context of their associated store category.
+
+## Key Components
+- **Class Definition**: `StoreCategoryTax < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the model with ActiveRecord functionalities.
+
+- **Associations**: 
+  - `belongs_to :store_category`: This establishes a relationship where each `StoreCategoryTax` is linked to a single `StoreCategory`. This relationship allows for easy access to the associated store category from a tax record.
+
+- **Validations**:
+  - `validates :name, presence: true, uniqueness: { scope: :store_category_id }`: Ensures that the `name` attribute is present and unique within the scope of the `store_category_id`.
+  - `validates :value, presence: true`: Ensures that the `value` attribute is present.
+
+- **Scopes**:
+  - `scope :owner`: A lambda function that allows for querying `StoreCategoryTax` records based on the owner of the associated store. It uses a join with the `Store` model to filter results.
+
+## Schema Information
+The model corresponds to the `store_category_taxes` table in the database, which includes the following fields:
+- `id`: Primary key for the record.
+- `name`: The name of the tax.
+- `value`: The tax value, represented as a float.
+- `store_category_id`: Foreign key linking to the `store_categories` table.
+
+### Indexes
+- An index on `store_category_id` to optimize queries that filter by store category.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the ActiveRecord framework for its functionality.
+
+## Usage Examples
+To create a new tax record associated with a store category:
+```ruby
+store_category_tax = StoreCategoryTax.create(name: 'Sales Tax', value: 0.07, store_category_id: 1)
+```
+
+To find all tax records for a specific owner:
+```ruby
+owner_taxes = StoreCategoryTax.owner(owner_id)
+```
+
+## Best Practices
+- Ensure that the `name` and `value` fields are always provided when creating or updating a `StoreCategoryTax` record to avoid validation errors.
+- Use the `owner` scope to efficiently retrieve tax records associated with a specific store owner, rather than manually filtering through all records.
+- Regularly review the uniqueness of tax names within the same store category to maintain data integrity.

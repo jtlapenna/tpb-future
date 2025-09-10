@@ -1,0 +1,52 @@
+---
+description: Documentation for the Brand model in the application.
+globs: ['app/models/brand.rb']
+alwaysApply: false
+---
+
+# Brand Model Documentation
+
+## Overview
+The `Brand` model represents a brand entity in the application, inheriting from `ApplicationRecord`. It manages relationships with various other models, including `rfid_products`, `ad_banners`, and `logo`. This model enforces data integrity through validations and provides scopes for querying brands based on specific criteria.
+
+## Key Components
+
+### Associations
+- **`has_many :rfid_products`**: Establishes a one-to-many relationship with the `RfidProduct` model. If a brand is deleted, its associated RFID products will also be destroyed.
+- **`has_many :ad_banners`**: Links to the `AdBanner` model, allowing for multiple ad banners to be associated with a brand. If a brand is deleted, the ad banners will not be destroyed but will have their association set to null.
+- **`has_one :logo`**: Associates a single logo with the brand, allowing for nested attributes. If the brand is deleted, the logo's association will be set to null.
+- **`has_many :product_variants`**: Connects to the `ProductVariant` model, allowing multiple variants to be associated with a brand. If the brand is deleted, the product variants will have their association set to null.
+
+### Validations
+- **`validates :name`**: Ensures that the `name` attribute is present and unique across all brand records.
+
+### Scopes
+- **`scope :containing_text`**: A scope that allows querying brands by name or description using a case-insensitive search. It returns brands whose names or descriptions contain the specified text.
+- **`scope :name_equal`**: A scope that finds brands with names that match a given name, ignoring spaces and case sensitivity.
+
+### Instance Methods
+- **`def store_count`**: This method calculates the number of unique stores associated with the product variants of the brand. It queries the `StoreProduct` model to count distinct store IDs linked to the brand's product variants.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the codebase.
+
+## Usage Examples
+To create a new brand:
+```ruby
+brand = Brand.create(name: 'New Brand', description: 'A description of the new brand')
+```
+
+To find brands containing specific text:
+```ruby
+brands = Brand.containing_text('Brand')
+```
+
+To count the number of stores associated with a brand:
+```ruby
+store_count = brand.store_count
+```
+
+## Best Practices
+- Always ensure that the `name` attribute is unique when creating or updating a brand to avoid validation errors.
+- Use the provided scopes for efficient querying instead of writing raw SQL queries.
+- When dealing with nested attributes for logos, ensure that the attributes are properly formatted to avoid issues during creation or updates.

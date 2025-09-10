@@ -1,0 +1,35 @@
+---
+description: Documentation for the CustomerOrder parser in the Treez webhook integration.
+globs: ['app/parsers/webhooks/treez/customer_order.rb']
+alwaysApply: false
+---
+
+# Webhooks::Treez::CustomerOrder
+
+## Overview
+The `Webhooks::Treez::CustomerOrder` class is responsible for parsing customer order data received from the Treez webhook. It extracts relevant information from the payload, specifically the order ID and customer ID, and returns it in a structured format.
+
+## Key Components
+- **Class**: `Webhooks::Treez::CustomerOrder`
+  - Inherits from `Webhooks::Treez::Base`, indicating it is part of a hierarchy of webhook parsers.
+  - **Method**: `parse`
+    - This method processes the incoming payload and returns a hash containing:
+      - `order_id`: The ID of the order, extracted from the `ticket_id` field of the payload.
+      - `customer_id`: The ID of the customer, extracted from the `customer_id` field of the payload.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the webhook parsing context.
+
+## Usage Example
+To use the `CustomerOrder` parser, you would typically instantiate the class and call the `parse` method with the appropriate payload:
+```ruby
+payload = { 'ticket_id' => '12345', 'customer_id' => '67890' }
+order_parser = Webhooks::Treez::CustomerOrder.new(payload)
+parsed_order = order_parser.parse
+puts parsed_order # => { order_id: '12345', customer_id: '67890' }
+```
+
+## Best Practices
+- Ensure that the payload passed to the `parse` method contains the expected keys (`ticket_id` and `customer_id`).
+- Handle any potential errors or exceptions that may arise from missing or malformed data in the payload.
+- Consider extending the functionality of the parser if additional fields from the payload are required in the future.

@@ -1,0 +1,31 @@
+---
+description: Documentation for the Repository Analysis Report file, providing insights into the structure and dependencies of the codebase.
+globs: ['mdc_output/repo_analysis_report.md']
+alwaysApply: false
+---
+
+# Repository Analysis Report Documentation
+
+## Overview
+This file serves as a comprehensive analysis report of the repository, detailing the local repository path, directory structure, code dependencies, and key components. It provides insights into the organization of the codebase and highlights important files and their relationships, which can aid developers in understanding the architecture and flow of the application.
+
+## Key Components
+- **Local Repository Path**: Indicates the location of the repository on the local machine.
+- **Directory Structure**: A visual representation of the project's folder hierarchy, showcasing the organization of files and directories.
+- **Code Dependency Graph**: A summary of the total files analyzed and the relationships between them, along with a visual representation of the dependency graph.
+- **Most Important Files**: Lists files that are frequently imported by others, indicating their significance in the codebase.
+- **Files With Most Dependencies**: Highlights files that import multiple other files, suggesting they may play a central role in the application.
+- **Potential Core Modules**: Identifies files that are likely to be core components of the application based on their import relationships.
+- **Potential Entry Points**: Lists files that serve as entry points into the application, which may not be imported by other files.
+- **Most Shared Functions, Classes, and Variables**: Provides information on components that are reused across multiple files, indicating shared functionality.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It serves as a standalone report that summarizes the state of the repository.
+
+## Usage Examples
+While this file does not contain executable code, it can be referenced by developers to understand the structure and dependencies of the codebase. For example, when adding new features or refactoring existing code, developers can consult this report to identify which files may be affected by their changes.
+
+## Best Practices
+- Regularly update this report to reflect changes in the repository structure or dependencies.
+- Use the insights from this report to guide architectural decisions and maintain a clean codebase.
+- When adding new files or modules, consider their potential impact on existing dependencies and document them accordingly.

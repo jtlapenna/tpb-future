@@ -1,0 +1,38 @@
+---
+description: Documentation for the ScreenUploadEvents component in a Vue.js application.
+globs: ['src/components/ScreenUploadEvents.vue']
+alwaysApply: false
+---
+
+# ScreenUploadEvents Component Documentation
+
+## Overview
+The `ScreenUploadEvents` component is a Vue.js component designed to manage the uploading and displaying of event data within a screen analytics interface. It provides functionality for users to upload events, refresh the event list, and add new events to a local database.
+
+## Key Components
+- **Template Structure**: The component's template includes buttons for uploading and refreshing events, a display area for total events, and a textarea for inputting new events.
+- **Data Properties**:
+  - `events`: An array that holds the fetched events.
+  - `eventsToUpload`: A string that contains the new events to be added to the local database.
+- **Methods**:
+  - `uploadEvents()`: Asynchronously uploads events using a client service and handles errors gracefully.
+  - `setToDB()`: Parses the input from `eventsToUpload`, confirms with the user, and saves the events to the local database.
+  - `copyToClipboard()`: Copies the current events to the clipboard for easy sharing.
+  - `getEvents()`: Fetches events from the local database and updates the `events` array.
+- **Computed Properties**:
+  - `eventsFormated`: Returns a JSON string representation of the `events` array for display purposes.
+
+## Dependencies
+This component does not import any other files from the repository, nor is it imported by any other files. It relies on the `@/analytics/events` module for event management functions such as fetching and saving events.
+
+## Usage Examples
+To use this component, simply include it in your Vue application as follows:
+```html
+<ScreenUploadEvents />
+```
+
+## Best Practices
+- Ensure that the events data being uploaded is in the correct JSON format to avoid parsing errors.
+- Handle user confirmations carefully to prevent accidental data loss or corruption.
+- Regularly check for updates in the `@/analytics/events` module to ensure compatibility with any changes in event management logic.
+- Consider adding more user feedback mechanisms (like loading indicators) to improve the user experience during asynchronous operations.

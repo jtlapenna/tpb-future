@@ -1,0 +1,80 @@
+---
+description: Documentation for the Events class handling local database transactions.
+globs: ['src/analytics/events.js']
+alwaysApply: false
+---
+
+# Events Class Documentation
+
+## Overview
+The `Events` class is responsible for managing local database transactions related to event data. It provides methods to create, read, update, and delete (CRUD) items in a specified object store within the local database. This class is designed to work with IndexedDB through a transaction-based approach, ensuring that operations are performed safely and efficiently.
+
+## Key Components
+
+### Class: Events
+- **Variables:**
+  - `tableName`: A string representing the name of the object store in the database.
+  - `id`: A string representing the base identifier used to search for items in the store.
+
+- **Constructor:**
+  - `constructor(tableName, id)`: Initializes the `Events` class with a specified `tableName` and `id`.
+
+### Methods:
+
+- **getReadTransaction()**  
+  - **Returns:** A promise that resolves to a read-write transaction for the specified object store.
+  - **Description:** This method establishes a transaction for reading and writing to the database, ensuring that the operations are performed within a transaction context.
+
+- **delete(item)**  
+  - **Parameters:** `item` - The item to be deleted from the local repository.
+  - **Returns:** A promise that resolves when the deletion is complete.
+  - **Description:** Deletes a specified item from the object store based on its identifier.
+
+- **index()**  
+  - **Returns:** A promise that resolves to an array of items from the object store.
+  - **Description:** Retrieves all items from the object store using a cursor to iterate through the entries.
+
+- **save(item)**  
+  - **Parameters:** `item` - The object to be saved or updated in the local database.
+  - **Returns:** A promise that resolves when the save operation is complete.
+  - **Description:** Saves or updates an item in the object store. If the item already exists, it will be updated; otherwise, it will be added as a new entry.
+
+## Dependencies
+This file imports the following module:
+- `src/analytics/db.js`: This module is responsible for establishing the connection to the local database and is essential for the transaction methods used in the `Events` class.
+
+The `Events` class is imported by:
+- `src/analytics/analytics.js`: This file likely utilizes the `Events` class to manage event-related data within the analytics context.
+
+## Usage Example
+```javascript
+import events from './events';
+
+// Saving an event
+const newEvent = { id: 1, name: 'Sample Event' };
+events.save(newEvent).then(() => {
+  console.log('Event saved successfully!');
+}).catch(error => {
+  console.error('Error saving event:', error);
+});
+
+// Deleting an event
+const eventToDelete = { id: 1 };
+events.delete(eventToDelete).then(() => {
+  console.log('Event deleted successfully!');
+}).catch(error => {
+  console.error('Error deleting event:', error);
+});
+
+// Retrieving all events
+events.index().then(items => {
+  console.log('Retrieved events:', items);
+}).catch(error => {
+  console.error('Error retrieving events:', error);
+});
+```
+
+## Best Practices
+- Always handle promises returned by the methods to ensure that errors are caught and managed appropriately.
+- When using the `save` method, ensure that the item being saved has a unique identifier to avoid unintentional overwrites.
+- Use the `delete` method carefully, as it will permanently remove items from the local database.

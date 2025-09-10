@@ -1,0 +1,37 @@
+---
+description: Serializer for Purchase Limit model in the application.
+globs: ['app/serializers/purchase_limit_serializer.rb']
+alwaysApply: false
+---
+
+# PurchaseLimitSerializer Documentation
+
+## Overview
+The `PurchaseLimitSerializer` is a serializer class that is part of the ActiveModel::Serializer framework. It is responsible for defining how the `PurchaseLimit` model is represented in JSON format when it is rendered in API responses. This serializer ensures that only the specified attributes are included in the output, providing a clean and efficient way to expose data to clients.
+
+## Key Components
+- **Class Definition**: The class `PurchaseLimitSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The `attributes` method defines which fields of the `PurchaseLimit` model will be included in the serialized output. In this case, the following attributes are included:
+  - `id`: The unique identifier for the purchase limit.
+  - `name`: The name associated with the purchase limit.
+  - `limit`: The numerical limit value.
+  - `store_category_ids`: An array of IDs representing the store categories associated with this purchase limit.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `PurchaseLimit` model.
+
+## Usage Example
+When a `PurchaseLimit` object is rendered in a JSON response, the serializer will format it as follows:
+```json
+{
+  "id": 1,
+  "name": "Daily Limit",
+  "limit": 100,
+  "store_category_ids": [1, 2, 3]
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant and necessary for the API consumers. Avoid exposing sensitive information.
+- Keep the serializer lightweight by only including attributes that are needed for the specific use case.
+- If additional logic is required for formatting or including attributes conditionally, consider overriding the `attributes` method or using custom methods within the serializer.

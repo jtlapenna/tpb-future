@@ -1,0 +1,51 @@
+---
+description: Documentation for the ProductCardBlank component in a Vue.js application.
+globs: ['src/components/ProductCardBlank.vue']
+alwaysApply: false
+---
+
+# ProductCardBlank.vue Documentation
+
+## Overview
+The `ProductCardBlank` component is a Vue.js single-file component that represents a blank product card, typically used to indicate that a product is out of stock. It provides a visual placeholder with customizable layout options and styles, making it suitable for various display contexts, including shared screens and split screens.
+
+## Key Components
+- **Template**: The template section defines the structure of the product card, including:
+  - A main `div` that binds classes based on props like `layout`, `sharedScreenConfig`, and `isForSplitScreen`.
+  - An icon placeholder that adjusts its size based on the `isForSplitScreen` prop.
+  - A message indicating that the product is out of stock.
+  - An optional `div` that displays the `indexOrder` if provided.
+
+- **Script**: The script section exports the component with the following props:
+  - `layout`: A string that determines the layout style of the card.
+  - `sharedScreenConfig`: A boolean that indicates if the card is displayed in a shared screen context.
+  - `isForSplitScreen`: A boolean that indicates if the card is displayed in a split-screen layout.
+  - `cardZise`: A number that defines the size of the card.
+  - `product`: An object representing the product (not used in this blank state).
+  - `indexOrder`: A number that can be used to display the order index of the product.
+
+- **Styles**: The styles are scoped to the component and include:
+  - Flexbox layout for centering content.
+  - Specific styles for the out-of-stock message and icon.
+  - Responsive design adjustments based on the `cardZise` prop.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It is a standalone component designed for use within a larger product listing or catalog.
+
+## Usage Example
+To use the `ProductCardBlank` component, you can include it in a parent component as follows:
+```vue
+<ProductCardBlank 
+  layout="full" 
+  sharedScreenConfig="true" 
+  isForSplitScreen="false" 
+  cardZise="2" 
+  indexOrder="1" 
+/> 
+```
+
+## Best Practices
+- Ensure that the `layout` prop is set appropriately to maintain consistent styling across different contexts.
+- Use the `indexOrder` prop to provide context when displaying multiple product cards, especially in lists or grids.
+- Keep the component's props minimal and relevant to maintain clarity and ease of use.
+- Regularly review the styles to ensure they align with the overall design system of the application.

@@ -1,0 +1,52 @@
+---
+description: Documentation for the AdBanner model in the application.
+globs: ['app/models/ad_banner.rb']
+alwaysApply: false
+---
+
+# AdBanner Model Documentation
+
+## Overview
+The `AdBanner` model represents an advertisement banner associated with a specific store and location within the application. It manages the relationships with images, videos, and an optional advertisable entity, allowing for a flexible advertisement system.
+
+## Key Components
+- **Associations**:
+  - `belongs_to :store`: Each ad banner is linked to a specific store.
+  - `belongs_to :ad_banner_location`: Each ad banner is associated with a specific location for display.
+  - `has_many :images`: Allows multiple images to be associated with the ad banner, supporting nested attributes for easy management.
+  - `has_one :advertisable_image`: Links to a single image that serves as the primary visual for the advertisement.
+  - `has_many :videos`: Similar to images, this allows for multiple video assets to be linked to the ad banner.
+
+- **Validations**:
+  - `validates :ad_banner_location, presence: true`: Ensures that an ad banner must have a location.
+  - `validates :ad_banner_location, uniqueness: { scope: :store }`: Ensures that each location can only have one ad banner per store.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the ActiveRecord framework for its functionality.
+
+## Usage Examples
+To create a new ad banner, you can use the following code:
+```ruby
+ad_banner = AdBanner.new(
+  store: some_store,
+  ad_banner_location: some_location,
+  images_attributes: [
+    { url: 'image1.jpg' },
+    { url: 'image2.jpg' }
+  ],
+  videos_attributes: [
+    { url: 'video1.mp4' }
+  ]
+)
+
+if ad_banner.save
+  puts 'Ad banner created successfully!'
+else
+  puts 'Error creating ad banner: #{ad_banner.errors.full_messages}'
+end
+```
+
+## Best Practices
+- Always ensure that the `ad_banner_location` is set and unique per store to avoid validation errors.
+- When adding images or videos, utilize the nested attributes feature to streamline the creation process.
+- Regularly check for any updates in the associated models (like `Store` or `AdBannerLocation`) to maintain data integrity.

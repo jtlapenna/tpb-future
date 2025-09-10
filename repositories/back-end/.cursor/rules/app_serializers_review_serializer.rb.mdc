@@ -1,0 +1,40 @@
+---
+description: Documentation for the ReviewSerializer class in the app/serializers directory.
+globs: ['app/serializers/review_serializer.rb']
+alwaysApply: false
+---
+
+# ReviewSerializer Documentation
+
+## Overview
+The `ReviewSerializer` class is a part of the ActiveModel Serializers framework, which is used to serialize Ruby objects into JSON format. This specific serializer is designed to handle the serialization of `Review` objects, making it easier to convert them into a format suitable for API responses.
+
+## Key Components
+- **Class**: `ReviewSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize Ruby objects.
+  - **Attributes**: The following attributes are defined for serialization:
+    - `id`: The unique identifier for the review.
+    - `user`: The user who created the review.
+    - `rate`: The rating given in the review.
+    - `text`: The textual content of the review.
+    - `reviewable_type`: The type of the object being reviewed (e.g., Product, Service).
+    - `reviewable_id`: The ID of the object being reviewed.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `Review` model.
+
+## Usage Examples
+To use the `ReviewSerializer`, you would typically call it within a controller action that responds to JSON requests. For example:
+```ruby
+class ReviewsController < ApplicationController
+  def show
+    review = Review.find(params[:id])
+    render json: review, serializer: ReviewSerializer
+  end
+end
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the requirements of the API response. This helps maintain consistency across different parts of the application.
+- Keep the serializer focused on the specific model it represents. Avoid adding unnecessary logic or methods that do not pertain to serialization.
+- Regularly review and update the serializer as the underlying model changes to ensure that the serialized output remains accurate and relevant.

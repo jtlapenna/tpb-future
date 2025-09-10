@@ -1,0 +1,38 @@
+---
+description: Documentation for the ActiveCartKeepShopping component in a Vue.js application.
+globs: ['src/components/ActiveCartKeepShopping.vue']
+alwaysApply: false
+---
+
+# ActiveCartKeepShopping.vue Documentation
+
+## Overview
+The `ActiveCartKeepShopping.vue` component is designed to enhance the user experience in an e-commerce application by providing a visual prompt to encourage users to continue shopping after adding items to their cart. It features animations and a button that allows users to return to shopping seamlessly.
+
+## Key Components
+- **Template Structure**: The component consists of a main container that holds text prompts and an `ActiveCartButton` component. The text prompts inform users about their current cart status and encourage them to keep shopping.
+- **Data Properties**:
+  - `timeouts`: An array to store timeout IDs for animations and navigation.
+  - `activeButtonSize`: A string that determines the size of the active cart button, initially set to 'small'.
+- **Lifecycle Hooks**:
+  - `created`: Initializes the component and sets up event listeners for transitions.
+  - `mounted`: Resets the active cart session, sets up timeouts for animations, and navigates to the home page after a delay.
+  - `destroyed`: Cleans up event listeners and clears timeouts to prevent memory leaks.
+- **Methods**:
+  - `transitionEnter`: Handles the entrance animation of the component using GSAP for smooth transitions.
+  - `onTransitionLeave`: Manages the exit animation of the component, ensuring a polished user experience.
+
+## Dependencies
+This component imports the `ActiveCartButton` component and utilizes jQuery and GSAP for animations. It does not import or export any other files, nor is it imported by any other files in the repository.
+
+## Usage Example
+To use this component, simply include it in your Vue.js application as follows:
+```html
+<ActiveCartKeepShopping />
+```
+
+## Best Practices
+- **Animation Timing**: Be mindful of the timing set in the `setTimeout` functions to ensure a smooth user experience. Adjust the delays as necessary based on user feedback.
+- **Cleanup**: Always ensure that event listeners and timeouts are properly cleaned up in the `destroyed` lifecycle hook to prevent memory leaks.
+- **Styling**: When modifying styles, ensure that animations are consistent and do not interfere with the user experience. Use scoped styles to avoid conflicts with other components.
+- **Testing**: Test the component across different devices to ensure that the animations and transitions work as expected, providing a consistent experience for all users.

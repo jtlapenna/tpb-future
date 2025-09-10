@@ -1,0 +1,28 @@
+---
+description: Documentation for the .ruby-gemset file, which specifies the gemset for a Ruby project.
+globs: ['.ruby-gemset']
+alwaysApply: false
+---
+
+# .ruby-gemset Documentation
+
+## Overview
+The `.ruby-gemset` file is used in Ruby projects to specify the gemset that the project should use. Gemsets allow developers to manage different sets of gems for different projects, preventing version conflicts and ensuring that the correct dependencies are loaded for each project.
+
+## Key Components
+- **File Content**: The file contains a single line, `peak_beyond`, which indicates the name of the gemset to be used. This gemset will be created or activated when the project is run in a Ruby environment that supports gemsets, such as RVM (Ruby Version Manager).
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It serves as a standalone configuration file that is read by Ruby version managers to set up the environment for the project.
+
+## Usage Example
+To use the gemset specified in this file, ensure that you are using a Ruby version manager like RVM. You can activate the gemset by running the following command in your terminal:
+```bash
+rvm use ruby-<version>@peak_beyond
+```
+Replace `<version>` with the specific Ruby version you are using for your project.
+
+## Best Practices
+- Always ensure that the gemset name in the `.ruby-gemset` file is unique to avoid conflicts with other projects.
+- Regularly update your gemset to include the latest versions of gems that your project depends on.
+- Use version control to track changes to the `.ruby-gemset` file, as it is an important part of your project's configuration.

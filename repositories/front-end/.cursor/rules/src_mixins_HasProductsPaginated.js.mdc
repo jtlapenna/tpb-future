@@ -1,0 +1,46 @@
+---
+description: Mixin for handling paginated product loading in a Vue.js application.
+globs: ['src/mixins/HasProductsPaginated.js']
+alwaysApply: false
+---
+
+# HasProductsPaginated Mixin
+
+## Overview
+The `HasProductsPaginated` mixin is designed to facilitate the loading of products in a paginated manner within a Vue.js application. It leverages the `vue-infinite-loading` component to provide an infinite scroll experience, allowing users to load more products as they scroll down the page.
+
+## Key Components
+- **InfiniteLoading**: A Vue component that provides infinite scrolling functionality.
+- **TpbSpinner**: A loading spinner component that indicates to users that more products are being loaded.
+- **PRODUCTS_PAGE_SIZE**: A constant that defines how many products are loaded per page.
+
+### Computed Properties
+- **currentPage**: This property is mapped from the Vuex store, representing the current page of products being displayed.
+- **productsLimit**: Calculates the total number of products to display based on the current page and the defined page size.
+- **productPage**: Returns a sliced array of `filteredProducts` based on the `productsLimit`, effectively providing the products to be displayed on the current page.
+
+### Methods
+- **loadMore($state)**: This method is triggered when the user scrolls to the bottom of the product list. It increments the current page and checks if all products have been loaded. If all products are loaded, it completes the loading state; otherwise, it indicates that more products are available to load.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently, relying solely on the Vuex store for state management.
+
+## Usage Example
+To use this mixin, simply include it in your Vue component:
+```javascript
+import HasProductsPaginated from '@/mixins/HasProductsPaginated'
+
+export default {
+  mixins: [HasProductsPaginated],
+  data() {
+    return {
+      filteredProducts: [] // This should be populated with your product data
+    }
+  }
+}
+```
+
+## Best Practices
+- Ensure that `filteredProducts` is properly populated before using the `loadMore` method to avoid errors.
+- Keep the `PRODUCTS_PAGE_SIZE` constant consistent across your application to maintain a uniform user experience.
+- Consider implementing error handling in the `loadMore` method to manage potential loading issues gracefully.

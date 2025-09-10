@@ -1,0 +1,36 @@
+---
+description: Documentation for the ProductMinimalSerializer class in the serializers directory.
+globs: ['app/serializers/product_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# ProductMinimalSerializer Documentation
+
+## Overview
+The `ProductMinimalSerializer` class is a serializer for the `Product` model, designed to provide a minimal representation of product data. It is part of the ActiveModel::Serializer framework, which is used to customize the JSON output of models in a Rails application.
+
+## Key Components
+- **Class Definition**: `ProductMinimalSerializer` inherits from `ActiveModel::Serializer`, allowing it to define how the `Product` model should be serialized.
+- **Attributes**: The `attributes` method specifies which fields of the `Product` model should be included in the serialized output. In this case, it includes `:id` and `:name`.
+- **Associations**: The `belongs_to :category` line indicates that each product is associated with a category, and this relationship will be included in the serialized output.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a serializer for the `Product` model.
+
+## Usage Example
+When a `Product` object is serialized, the output will include only the `id` and `name` attributes, along with the associated `category`. For example:
+```json
+{
+  "id": 1,
+  "name": "Sample Product",
+  "category": {
+    "id": 2,
+    "name": "Sample Category"
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including unnecessary data to keep the response lightweight.
+- When adding new attributes or associations, consider the impact on performance and the size of the serialized output.
+- Keep the serializer focused on a single model to maintain clarity and separation of concerns.

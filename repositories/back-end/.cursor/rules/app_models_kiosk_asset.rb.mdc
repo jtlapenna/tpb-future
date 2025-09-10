@@ -1,0 +1,62 @@
+---
+description: Documentation for the KioskAsset model in the application.
+globs: ['app/models/kiosk_asset.rb']
+alwaysApply: false
+---
+
+# KioskAsset Model Documentation
+
+## Overview
+The `KioskAsset` model represents an asset associated with a kiosk layout in the application. It is responsible for managing the relationships between various layout positions and the assets that are displayed in a kiosk. This model leverages ActiveRecord to interact with the `kiosk_assets` database table, providing a structured way to handle kiosk-related data.
+
+## Key Components
+- **Class Definition**: `KioskAsset < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the base functionality for all models in the application.
+
+- **Associations**:
+  - `belongs_to :text_position, class_name: 'LayoutPosition', optional: true`
+  - `belongs_to :asset_position, class_name: 'LayoutPosition', optional: true`
+  - `belongs_to :section_position, class_name: 'LayoutPosition', optional: true`
+  - `belongs_to :kiosk_layout, inverse_of: :kiosk_assets`
+    - These associations define the relationships between `KioskAsset` and `LayoutPosition` as well as `KioskLayout`. The `optional: true` option allows for the possibility that these relationships may not always be present.
+
+- **Asset Management**:
+  - `has_one :asset, as: :source, inverse_of: :source, dependent: :nullify`
+    - This sets up a one-to-one relationship with the `Asset` model, allowing for the management of assets associated with the kiosk.
+  - `accepts_nested_attributes_for :asset, allow_destroy: true, reject_if: :all_blank`
+    - This enables nested attributes for the asset, allowing for the creation and destruction of associated assets through the `KioskAsset` form.
+
+- **Asset Elements**:
+  - `has_many :asset_elements, dependent: :destroy`
+    - This establishes a one-to-many relationship with `AssetElement`, allowing multiple elements to be associated with a single kiosk asset.
+  - `accepts_nested_attributes_for :asset_elements, allow_destroy: true, reject_if: :all_blank`
+    - Similar to assets, this allows for nested attributes for asset elements.
+
+## Schema Information
+The `kiosk_assets` table includes the following fields:
+- `id`: Primary key for the record.
+- `code`: A string representing a unique code for the asset.
+- `secondary_text`: Text field for additional information.
+- `text`: Main text associated with the asset.
+- `created_at` and `updated_at`: Timestamps for record creation and updates.
+- Foreign keys for layout positions and kiosk layout.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the context of the application.
+
+## Usage Examples
+To create a new `KioskAsset` with associated asset and asset elements:
+```ruby
+kiosk_asset = KioskAsset.new(
+  code: 'KA001',
+  text: 'Main Kiosk Asset',
+  asset_attributes: { name: 'Asset Name' },
+  asset_elements_attributes: [{ content: 'Element 1' }, { content: 'Element 2' }]
+)
+kiosk_asset.save
+```
+
+## Best Practices
+- Ensure that all necessary associations are correctly set up before saving a `KioskAsset` to avoid validation errors.
+- Use nested attributes judiciously to maintain clean and manageable forms, especially when dealing with multiple associated records.
+- Regularly review and update the schema information to reflect any changes in the database structure.

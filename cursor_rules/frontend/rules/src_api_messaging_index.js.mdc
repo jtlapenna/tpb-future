@@ -1,0 +1,55 @@
+---
+description: Documentation for the messaging API service in the application.
+globs: ['src/api/messaging/index.js']
+alwaysApply: false
+---
+
+# Messages Service Documentation
+
+## Overview
+The `index.js` file in the `src/api/messaging` directory provides a service for handling messaging functionalities using Firebase. It includes methods for receiving messages, managing Firestore document snapshots, and subscribing to topics for push notifications.
+
+## Key Components
+
+### MessagesService Class
+- **oneMessage(payloadFn)**: This method sets up a listener for incoming messages using Firebase's `onMessage` function. It takes a callback function `payloadFn` that is executed when a message is received.
+
+### getFMCToken Function
+- **getFMCToken(setTokenFound)**: This function retrieves the Firebase Messaging token, which is essential for sending messages to the client. It accepts a callback `setTokenFound` to handle the token once it is retrieved.
+
+### Firestore Data Retrieval Functions
+- **getOrders(kioskId, callback)**: This function listens for changes in the orders collection for a specific kiosk. It takes a `kioskId` and a callback function that processes the changes.
+- **getOrderChanges({kioskId, orderId, env}, callback)**: Similar to `getOrders`, but it listens for changes to a specific order identified by `orderId`. It also considers the environment if provided.
+- **getAeropayOrderChanges(uuid, callback)**: This function listens for changes to a specific Aeropay order identified by `uuid`.
+
+### subscribeToTopic Function
+- **subscribeToTopic(topicName, handler)**: This function subscribes the client to a specific topic for push notifications. It retrieves the current token and sends a subscription request to the Firebase server. The `handler` function processes incoming messages for that topic.
+
+## Dependencies
+This file imports the following modules:
+- **`src/const/globals.js`**: Contains global constants such as `SERVER_KEY` and `VAPID_KEY` used for Firebase messaging.
+- **`src/api/messaging/fb.js`**: Exports the initialized Firebase messaging and Firestore instances used throughout this file.
+
+This file is imported by:
+- **`src/mixins/aeropayEvent.js`**: This mixin likely utilizes the messaging functionalities provided in this service to handle events related to Aeropay.
+
+## Usage Examples
+To use the `MessagesService`, you can instantiate it and call its methods as follows:
+```javascript
+import MessagesService from './src/api/messaging';
+
+// Set up a message listener
+MessagesService.oneMessage((payload) => {
+  console.log('Message received: ', payload);
+});
+
+// Subscribe to a topic
+MessagesService.subscribeToTopic('news', (payload) => {
+  console.log('New message in news topic: ', payload);
+});
+```
+
+## Best Practices
+- Always handle errors when subscribing to topics or retrieving tokens to ensure a smooth user experience.
+- Use meaningful callback functions to process incoming messages and changes to Firestore documents.
+- Keep the Firebase configuration and keys secure and do not expose them in the client-side code.

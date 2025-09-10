@@ -1,0 +1,39 @@
+---
+description: Documentation for the ReviewPolicy class in the application policies.
+globs: ['app/policies/review_policy.rb']
+alwaysApply: false
+---
+
+# ReviewPolicy Documentation
+
+## Overview
+The `ReviewPolicy` class is part of the application's authorization layer, specifically designed to manage permissions related to review objects. It inherits from `ApplicationPolicy`, which provides a base structure for defining policies in the application.
+
+## Key Components
+- **Class**: `ReviewPolicy`
+  - Inherits from `ApplicationPolicy`, allowing it to utilize shared authorization logic.
+
+- **Method**: `permitted_attributes`
+  - Returns an array of symbols representing the attributes that are permitted for mass assignment when creating or updating review objects. The attributes include:
+    - `user`: The user associated with the review.
+    - `rate`: The rating given in the review.
+    - `text`: The textual content of the review.
+    - `reviewable_id`: The ID of the object being reviewed.
+    - `reviewable_type`: The type of the object being reviewed (e.g., Product, Service).
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in defining the policy for review objects.
+
+## Usage Examples
+To use the `ReviewPolicy`, you would typically instantiate it within a controller or service that handles review creation or updates. For example:
+```ruby
+policy = ReviewPolicy.new(user, review)
+if policy.permitted_attributes.include?(:rate)
+  # Proceed with creating or updating the review
+end
+```
+
+## Best Practices
+- Ensure that the attributes defined in `permitted_attributes` are kept up to date with any changes in the review model.
+- Always validate user permissions before allowing any modifications to review objects to maintain data integrity and security.
+- Consider extending the `ReviewPolicy` with additional methods to handle more complex authorization scenarios as needed.

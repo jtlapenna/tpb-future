@@ -1,0 +1,24 @@
+---
+description: Documentation for the Flowhub module in the flowhub.rb file.
+globs: ['app/lib/flowhub.rb']
+alwaysApply: false
+---
+
+# Flowhub Module Documentation
+
+## Overview
+The `flowhub.rb` file defines the `Flowhub` module, which serves as a namespace for organizing related functionality and components within the Flowhub application. Currently, it does not contain any methods or classes but is set up to potentially house future features related to Flowhub.
+
+## Key Components
+- **Module Flowhub**: This is the primary component of the file. It acts as a container for related classes and methods that may be added in the future. Modules in Ruby are used to group related methods and constants, and they can also be mixed into classes.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It currently stands alone, which may indicate that it is a placeholder for future development.
+
+## Usage Examples
+As the `Flowhub` module is currently empty, there are no usage examples to provide at this time. However, once functionality is added, developers can include this module in their classes or other modules to utilize its features.
+
+## Best Practices
+- **Namespace Usage**: When adding functionality to the `Flowhub` module, ensure that methods and classes are appropriately namespaced to avoid conflicts with other parts of the application.
+- **Documentation**: As new features are added, maintain clear documentation within this file to help other developers understand the purpose and usage of the added components.
+- **Testing**: Implement tests for any new methods or classes added to the `Flowhub` module to ensure reliability and maintainability of the code.

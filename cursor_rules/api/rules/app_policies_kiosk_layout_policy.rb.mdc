@@ -1,0 +1,33 @@
+---
+description: Documentation for the KioskLayoutPolicy class in the application policies.
+globs: ['app/policies/kiosk_layout_policy.rb']
+alwaysApply: false
+---
+
+# KioskLayoutPolicy Documentation
+
+## Overview
+The `KioskLayoutPolicy` class is a policy class that defines the permitted attributes for kiosk layout configurations in the application. It inherits from `ApplicationPolicy`, which provides a base for authorization policies in the application.
+
+## Purpose and Functionality
+This policy is primarily used to manage the attributes that can be set or modified for kiosk layouts. It ensures that only the allowed attributes are accessible, thereby enforcing security and data integrity within the application.
+
+## Key Components
+- **Class Definition**: `KioskLayoutPolicy` inherits from `ApplicationPolicy`, which means it can leverage any methods or properties defined in the parent class.
+- **Method: `permitted_attributes`**: This method returns an array of symbols representing the attributes that are permitted for kiosk layouts. The attributes include various layout settings and nested attributes for associated assets and navigation items.
+
+### Permitted Attributes Breakdown
+- **Basic Attributes**: Includes attributes like `:template`, `:home_layout`, `:nav_ui`, etc.
+- **Nested Attributes**: The method also defines nested attributes for `kiosk_assets`, `navigation`, `welcome_asset`, and `video_image_background_asset`, allowing for complex data structures to be managed.
+  - Each nested attribute can have its own set of permitted attributes, ensuring that the policy is comprehensive and secure.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a policy definition, relying on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+While this class does not have direct usage examples within the file, it is typically used in conjunction with controllers that handle kiosk layout configurations. For instance, when creating or updating a kiosk layout, the controller would call `KioskLayoutPolicy.new(user, kiosk_layout).permitted_attributes` to determine which attributes can be safely assigned.
+
+## Best Practices
+- **Maintain Attribute Security**: Always ensure that the attributes defined in `permitted_attributes` are reviewed and updated as necessary to reflect any changes in the application’s requirements.
+- **Use Nested Attributes Wisely**: When working with nested attributes, be cautious about the complexity they introduce. Ensure that the data structure remains manageable and that the policy accurately reflects the intended use cases.
+- **Testing**: Implement tests to verify that the policy behaves as expected, particularly when changes are made to the permitted attributes.

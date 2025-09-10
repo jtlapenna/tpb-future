@@ -1,0 +1,32 @@
+---
+description: Documentation for the REPOSITORY_ANALYSIS.md file, providing an overview of the kiosk application and its technical stack.
+globs: ['REPOSITORY_ANALYSIS.md']
+alwaysApply: false
+---
+
+# REPOSITORY_ANALYSIS.md Documentation
+
+## Overview
+The `REPOSITORY_ANALYSIS.md` file serves as a comprehensive guide to the kiosk application built with Vue.js, known as "tpb-kiosk". It outlines the project's technical stack, key dependencies, project structure, features, integration points, development workflow, and areas for analysis. This documentation is crucial for developers to understand the architecture and functionality of the application, as well as to identify areas for improvement and analysis.
+
+## Key Components
+- **Project Overview**: Provides a brief description of the application and its purpose within The Peak Beyond system.
+- **Technical Stack**: Lists the core frameworks, build tools, styling methods, development tools, and testing/quality tools used in the project.
+- **Key Dependencies**: Details the libraries and services that the application relies on, categorized by UI components, state management, cloud services, and utilities.
+- **Project Structure**: Describes the organization of the project, including build configuration, development environment, and deployment strategies.
+- **Features**: Highlights the core functionality, user experience enhancements, real-time features, and offline capabilities of the application.
+- **Integration Points**: Explains how the application interacts with back-end APIs, cloud services, and payment systems.
+- **Development Workflow**: Outlines the steps for local development, building for production, and deployment processes.
+- **Areas for Analysis**: Identifies key areas to focus on for code quality, performance, security, and maintainability.
+- **Next Steps for Analysis**: Provides actionable items for further analysis and documentation.
+
+## Dependencies
+This file does not import or get imported by any other files in the repository, making it a standalone document that provides essential context for the entire codebase.
+
+## Usage Examples
+While this file does not contain executable code, it serves as a reference for developers to understand the overall architecture and functionality of the application. Developers can use this documentation to guide their work on the project, ensuring they adhere to best practices and maintain a high standard of code quality.
+
+## Best Practices
+- Regularly update this documentation to reflect changes in the project structure or dependencies.
+- Use this file as a starting point for onboarding new developers to the project.
+- Ensure that all team members are familiar with the key components and areas for analysis outlined in this document to promote a shared understanding of the codebase.

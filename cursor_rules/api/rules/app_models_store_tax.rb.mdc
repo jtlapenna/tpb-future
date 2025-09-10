@@ -1,0 +1,43 @@
+---
+description: Documentation for the StoreTax model in the application.
+globs: ['app/models/store_tax.rb']
+alwaysApply: false
+---
+
+# StoreTax Model Documentation
+
+## Overview
+The `StoreTax` model represents the tax information associated with a specific store in the application. It inherits from `ApplicationRecord`, which means it is an ActiveRecord model that interacts with the `store_taxes` database table. This model is responsible for managing tax-related data, including validation and associations with the `Store` model.
+
+## Key Components
+- **Associations**:  
+  - `belongs_to :store`: This establishes a one-to-many relationship where each `StoreTax` belongs to a single `Store`.
+
+- **Validations**:  
+  - `validates :name, presence: true, uniqueness: { scope: :store_id }`: Ensures that the `name` attribute is present and unique within the scope of the `store_id`.
+  - `validates :value, presence: true`: Ensures that the `value` attribute is present.
+
+- **Scopes**:  
+  - `scope :owner`: This scope allows querying `StoreTax` records that belong to a specific owner by joining with the `Store` model.
+
+- **Callbacks**:  
+  - The model contains commented-out callback methods for notifying related `StoreProduct` records when a `StoreTax` is created, updated, or destroyed. These methods are designed to update the `last_updated_websocket` timestamp for associated store products, ensuring that the frontend can react to changes in real-time. The callbacks are currently commented out, indicating that they may be under development or pending further implementation.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the ActiveRecord framework and its associations.
+
+## Usage Examples
+To create a new `StoreTax`, you can use the following code:
+```ruby
+store_tax = StoreTax.create(name: 'Sales Tax', value: 0.07, store_id: store.id)
+```
+
+To find all taxes for a specific store owner:
+```ruby
+StoreTax.owner(owner_id)
+```
+
+## Best Practices
+- Ensure that the `name` and `value` attributes are always validated before saving to maintain data integrity.
+- If you decide to implement the commented-out callback methods, ensure that they are thoroughly tested to avoid performance issues with large datasets.
+- Keep the model focused on its responsibilities; consider moving complex logic to service objects if necessary.

@@ -1,0 +1,44 @@
+---
+description: This file contains global constants used throughout the application, including configuration settings, API endpoints, and retry logic.
+globs: ['src/const/globals.js']
+alwaysApply: false
+---
+
+# Overview
+The `globals.js` file serves as a centralized location for defining global constants that are used across the application. This includes configuration settings for API environments, retry logic for network requests, and various constants related to application behavior.
+
+# Key Components
+- **WAIT_TIME**: The time (in milliseconds) that the kiosk waits until the next update. Set to 3 minutes.
+- **RETRY_TIMES**: The number of times to retry a failed operation, set to 5.
+- **RETRY_LAPSUS**: The time (in seconds) to wait between retries, set to 2 seconds.
+- **SETTINGS_TIME**: The time (in milliseconds) for settings refresh, set to 3 minutes.
+- **WAIT_TIME_VERIFY_EXPIRED**: The time (in milliseconds) to wait before verifying if a session has expired, set to 10 minutes.
+- **API_ENVIROMENTS**: An array of objects defining different API environments (production, development, staging) with their respective URLs.
+- **CATEGORIES_WITH_PRIORITY**: An array of product categories with assigned priority orders for display or processing.
+- **firebaseConfig**: Configuration object for Firebase services, including API keys and project identifiers.
+- **SYNONYMOUS**: An array of arrays that define synonymous terms for various product categories, useful for search and filtering.
+- **GSAP_ANIMATION**: Configuration for animation durations and gaps when using GSAP (GreenSock Animation Platform).
+
+# Dependencies
+This file does not import any other files but is imported by several other files in the codebase:
+- `src/main.js`
+- `src/mixins/aeropayEvent.js`
+- `src/plugins/config.js`
+- `src/api/messaging/fb.js`
+- `src/api/messaging/index.js`
+
+These dependencies indicate that the constants defined in this file are essential for the overall functionality of the application, particularly in handling API interactions and user interface behavior.
+
+# Usage Examples
+To use the constants defined in this file, simply import them into the desired module. For example:
+```javascript
+import { WAIT_TIME, API_ENVIROMENTS } from './const/globals';
+
+console.log(`Next update in ${WAIT_TIME / 60000} minutes`);
+console.log(`API URL for production: ${API_ENVIROMENTS[0].url}`);
+```
+
+# Best Practices
+- **Avoid Hardcoding Values**: Use the constants defined in this file instead of hardcoding values throughout the codebase to ensure consistency and ease of maintenance.
+- **Update Carefully**: When modifying any constants, ensure that you understand the implications on the entire application, especially for values related to timing and API configurations.
+- **Document Changes**: If you make changes to this file, document them clearly in your commit messages to inform other developers of the updates.

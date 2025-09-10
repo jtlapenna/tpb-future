@@ -1,0 +1,40 @@
+---
+description: Documentation for the StoreSyncSerializer class in the serializers directory.
+globs: ['app/serializers/store_sync_serializer.rb']
+alwaysApply: false
+---
+
+# StoreSyncSerializer Documentation
+
+## Overview
+The `StoreSyncSerializer` class is a serializer that is part of the ActiveModel::Serializer framework. It is designed to format the JSON output for the `StoreSync` model, specifically focusing on the attributes and relationships that need to be included in the serialized output.
+
+## Key Components
+- **Class Definition**: `class StoreSyncSerializer < ActiveModel::Serializer`
+  - This line defines the `StoreSyncSerializer` class, which inherits from `ActiveModel::Serializer`, allowing it to utilize the serialization features provided by the ActiveModel framework.
+
+- **Attributes**: `attributes :id`
+  - This line specifies that the serialized output will include the `id` attribute of the `StoreSync` model. This is essential for identifying the resource uniquely in the API responses.
+
+- **Relationships**: `has_many :store_sync_items`
+  - This line establishes a one-to-many relationship with the `store_sync_items`. It indicates that a `StoreSync` can have multiple associated `StoreSyncItem` records, which will also be serialized when the `StoreSync` is rendered.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the `StoreSync` model.
+
+## Usage Examples
+When a `StoreSync` object is rendered in a JSON response, the `StoreSyncSerializer` will format the output to include the `id` and the associated `store_sync_items`. For example:
+```json
+{
+  "id": 1,
+  "store_sync_items": [
+    {"item_id": 1, "quantity": 10},
+    {"item_id": 2, "quantity": 5}
+  ]
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data needed by the client applications.
+- Keep the serializer lightweight by only including necessary attributes and relationships to optimize performance.
+- Regularly review and update the serializer as the underlying model changes to maintain consistency in the API responses.

@@ -1,0 +1,37 @@
+---
+description: Documentation for the ScreenCheckoutEmail component in the checkout process.
+globs: ['src/components/ScreenCheckoutEmail.vue']
+alwaysApply: false
+---
+
+# ScreenCheckoutEmail.vue Documentation
+
+## Overview
+The `ScreenCheckoutEmail.vue` component is part of the checkout process in an e-commerce application. It provides a form for users to enter their first name, last name, and email address, which are necessary for completing an order. The component handles user input, validates the data, and sends the order to the server.
+
+## Key Components
+- **Template**: The template consists of a form with input fields for the user's first name, last name, and email. It also includes a button to proceed with the checkout process.
+- **Data Properties**:
+  - `firstname`: Stores the user's first name.
+  - `lastname`: Stores the user's last name.
+  - `email`: Stores the user's email address.
+  - `isSending`: A boolean that indicates whether the order is currently being sent.
+- **Methods**:
+  - `proceedCheckout()`: Validates the input fields and triggers the order sending process if all fields are filled correctly.
+  - `sendOrder()`: Formats the order data and sends it to the server via an HTTP POST request. It handles success and error responses appropriately.
+  - `validEmail(email)`: Validates the email format using a regular expression.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It utilizes a mixin called `OFFLINE` to manage offline states, which is defined in a separate file.
+
+## Usage Example
+To use this component, include it in a parent component's template as follows:
+```html
+<ScreenCheckoutEmail :cart="cartItems" @success="handleSuccess" @error="handleError" />
+```
+
+## Best Practices
+- Ensure that the email validation is robust and consider using a library for more complex validation scenarios.
+- Handle user feedback effectively by providing clear messages for both success and error states.
+- Keep the UI responsive by managing the `isSending` state to prevent multiple submissions.
+- Consider accessibility best practices when designing forms, such as proper labeling and keyboard navigation support.

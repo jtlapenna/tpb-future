@@ -1,0 +1,47 @@
+---
+description: Documentation for the AdBannersController in the API V1 namespace.
+globs: ['app/controllers/api/v1/ad_banners_controller.rb']
+alwaysApply: false
+---
+
+# AdBannersController Documentation
+
+## Overview
+The `AdBannersController` is responsible for managing ad banners within a specific store in the API V1 namespace. It provides endpoints to create, read, update, and delete ad banners, as well as to list them with pagination and sorting capabilities.
+
+## Key Components
+- **Class Definition**: `Api::V1::AdBannersController` inherits from `ApplicationController` and includes modules for pagination, sorting, and searching.
+- **Callbacks**: The controller uses `before_action` callbacks to find the store and the ad banner based on the provided parameters.
+- **Actions**:
+  - `index`: Retrieves a list of ad banners for a specific store, applying pagination, sorting, and filtering based on a search query.
+  - `show`: Returns a single ad banner's details, including associated resources.
+  - `create`: Creates a new ad banner and returns the created object or an error message if unsuccessful.
+  - `update`: Updates an existing ad banner and returns the updated object or an error message if unsuccessful.
+  - `destroy`: Deletes an ad banner and returns a success status or an error message if unsuccessful.
+
+## Dependencies
+This controller does not import any other files and is not imported by any other files in the repository. It relies on the `Store` model and the `Api::V1::AdBannerSerializer` for serialization of ad banner objects.
+
+## Usage Examples
+- To list ad banners for a store:
+  ```http
+  GET /api/v1/stores/:store_id/ad_banners?q=search_term
+  ```
+- To create a new ad banner:
+  ```http
+  POST /api/v1/stores/:store_id/ad_banners
+  {
+      "ad_banner": {
+          "ad_banner_location_id": 1,
+          "text": "New Ad",
+          "callback_url": "http://example.com/callback",
+          "disabled": false
+      }
+  }
+  ```
+
+## Best Practices
+- Ensure that the `store_id` parameter is always provided when making requests to this controller.
+- Validate the input data thoroughly to prevent errors during ad banner creation and updates.
+- Use pagination and sorting effectively to manage large sets of ad banners and improve performance.
+- Handle errors gracefully and provide meaningful messages to the API consumers.

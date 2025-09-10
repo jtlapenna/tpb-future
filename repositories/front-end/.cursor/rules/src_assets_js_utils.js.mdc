@@ -1,0 +1,33 @@
+---
+description: This file extends jQuery's functionality by adding a reverse method to its prototype.
+globs: ['src/assets/js/utils.js']
+alwaysApply: false
+---
+
+# Overview
+
+The `utils.js` file is a utility module that enhances jQuery's functionality by adding a custom method to its prototype. Specifically, it adds a `reverse` method that allows for reversing arrays directly through jQuery's object.
+
+# Key Components
+
+- **jQuery.fn.reverse**: This line assigns the native JavaScript `reverse` method of arrays to jQuery's prototype. This allows any jQuery object that contains an array to call `.reverse()` directly.
+
+# Dependencies
+
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a utility enhancement for jQuery.
+
+# Usage Example
+
+After including this utility in your project, you can reverse an array of elements selected by jQuery as follows:
+
+```javascript
+const reversedArray = $("li").toArray().reverse();
+```
+
+This example selects all `<li>` elements, converts them to an array, and then reverses the order of the elements.
+
+# Best Practices
+
+- Ensure that jQuery is loaded before this utility file to avoid any errors.
+- Use this utility method judiciously, as reversing large arrays can impact performance. Consider the size of the data being manipulated.
+- Document any changes made to the jQuery prototype in your project to maintain clarity for other developers.

@@ -1,0 +1,33 @@
+---
+description: Configuration file for Firebase projects and hosting targets.
+globs: ['.firebaserc']
+alwaysApply: false
+---
+
+# Overview
+The `.firebaserc` file is a configuration file used by Firebase to manage project settings and hosting targets. It defines the Firebase projects associated with the codebase and specifies the hosting configurations for different environments.
+
+# Key Components
+- **projects**: This section maps environment names to Firebase project identifiers. In this case, the `staging` environment is linked to the project `tpb-kiosk-fe-vue`.
+- **targets**: This section defines the hosting targets for the specified Firebase project. Each target corresponds to a specific deployment configuration for hosting services.
+  - **purchase-limit**: Target for the purchase limit feature.
+  - **tpb-product-limit**: Target for the product limit feature.
+  - **jarupa**: Target for the Jarupa service.
+  - **treez**: Target for the Treez service.
+  - **heacock**: Target for the Heacock service.
+  - **empireconnect**: Target for the Empire Connect service.
+  - **test-shopify**: Target for testing Shopify integration.
+
+# Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It serves as a standalone configuration file for Firebase.
+
+# Usage Examples
+To deploy to a specific target, you can use Firebase CLI commands. For example, to deploy the `purchase-limit` target, you would run:
+```bash
+firebase deploy --only hosting:purchase-limit
+```
+
+# Best Practices
+- Ensure that the project identifiers in the `projects` section are correctly set up in the Firebase console.
+- Regularly review and update the hosting targets to reflect any changes in your application structure or deployment needs.
+- Use descriptive names for your targets to make it easier for team members to understand their purpose.

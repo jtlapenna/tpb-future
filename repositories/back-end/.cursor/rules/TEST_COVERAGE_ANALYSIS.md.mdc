@@ -1,0 +1,48 @@
+---
+description: Documentation for analyzing test coverage in the back-end repository.
+globs: ['TEST_COVERAGE_ANALYSIS.md']
+alwaysApply: false
+---
+
+# Back-end Test Coverage Analysis Documentation
+
+## Overview
+This document provides a comprehensive analysis of the test coverage within the back-end repository. It focuses on various aspects such as test patterns, coverage metrics, and the overall quality of tests across the codebase. The goal is to ensure that the codebase is well-tested, maintainable, and efficient.
+
+## Key Components
+
+### Test Organization Analysis
+- **Test Structure**: Discusses the organization of test directories, files, and support files to maintain clarity and accessibility.
+- **Test Categories**: Categorizes tests into unit tests, integration tests, controller tests, model tests, and service tests for better management.
+
+### Test Coverage Metrics
+- **Model Coverage**: Analyzes validation and method coverage for models, ensuring that all aspects of model functionality are tested.
+- **Controller Coverage**: Evaluates the coverage of controller actions and responses, ensuring that all routes and edge cases are handled.
+- **Service Coverage**: Looks at method tests and integration tests for services, ensuring that external interactions are properly tested.
+
+### Test Quality Analysis
+- **Test Practices**: Covers best practices for test setup and cleanup to maintain a clean testing environment.
+- **Test Patterns**: Discusses assertion and mocking patterns to ensure tests are reliable and maintainable.
+
+### Test Data Management
+- **Test Data Setup**: Details the use of factories and fixtures to create test data efficiently.
+- **Test Data Quality**: Ensures that test data is valid, isolated, and consistent across tests.
+
+### Test Performance
+- **Test Execution**: Analyzes the speed and resource usage of tests to identify bottlenecks and optimize performance.
+- **Test Optimization**: Discusses patterns and practices for optimizing test execution and resource management.
+
+### Test Maintenance
+- **Test Documentation**: Emphasizes the importance of documenting tests and their requirements for future reference.
+- **Test Updates**: Covers change management and version control practices to keep tests up-to-date with the codebase.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a guide for understanding and improving test coverage in the back-end codebase.
+
+## Best Practices
+- Regularly review and update tests to align with code changes.
+- Maintain clear documentation for each test to facilitate understanding and maintenance.
+- Use consistent patterns for test organization and data management to enhance readability and efficiency.
+
+## Usage Examples
+While this document does not provide specific code examples, it serves as a guideline for structuring and analyzing tests in the back-end repository. Developers are encouraged to refer to this document when creating or updating tests to ensure comprehensive coverage and quality.

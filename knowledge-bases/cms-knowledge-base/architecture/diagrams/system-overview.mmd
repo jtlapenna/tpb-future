@@ -1,0 +1,58 @@
+graph TB
+    %% System Overview Diagram
+    %% This diagram shows the main components and their relationships
+    
+    %% Define styles
+    classDef primary fill:#00C796,stroke:#333,stroke-width:2px,color:white
+    classDef secondary fill:#eee,stroke:#333,stroke-width:2px
+    classDef highlight fill:#7168DF,stroke:#333,stroke-width:2px,color:white
+    
+    %% Main Flow
+    A[Angular Styles] --> B[Pattern Detection]
+    B --> C[Pattern Analysis]
+    C --> D[Style Transformation]
+    D --> E[Validation]
+    E --> F[React Styles]
+    
+    %% Pattern Detection Components
+    subgraph Pattern Detection
+        B --> G[Theme Variables]:::primary
+        B --> H[Global Styles]:::primary
+        B --> I[Component Styles]:::primary
+    end
+    
+    %% Pattern Analysis Components
+    subgraph Pattern Analysis
+        C --> J[Dependencies]:::secondary
+        C --> K[Relationships]:::secondary
+        C --> L[Usage Patterns]:::secondary
+    end
+    
+    %% Style Transformation Components
+    subgraph Style Transformation
+        D --> M[Theme Migration]:::highlight
+        D --> N[Component Migration]:::highlight
+        D --> O[Layout Migration]:::highlight
+    end
+    
+    %% Validation Components
+    subgraph Validation
+        E --> P[Visual Tests]
+        E --> Q[Performance Tests]
+        E --> R[Accessibility Tests]
+    end
+    
+    %% Error Recovery Flow
+    B -.-> F[Error Recovery]
+    D -.-> F
+    F --> D
+    
+    %% Theme System Integration
+    G[Theme System] --> B
+    G --> C
+    G --> D
+    
+    %% Apply styles
+    class A,F secondary
+    class B,C,D,E primary
+    class P,Q,R highlight 

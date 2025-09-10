@@ -1,0 +1,35 @@
+---
+description: Documentation for the PDF file used in the project.
+globs: ['src/assets/pdf/treez.pdf']
+alwaysApply: false
+---
+
+# Treez PDF Documentation
+
+## Overview
+The `treez.pdf` file is a PDF document that is part of the assets in the project. It is likely used for displaying or printing information related to the Treez application. This file does not contain any executable code but serves as a static resource that can be rendered in a PDF viewer.
+
+## Key Components
+- **PDF Structure**: The file follows the PDF specification (version 1.4) and contains various objects that define its structure, including:
+  - **Catalog**: The root object of the PDF document, which points to the pages.
+  - **Pages**: Contains the actual content of the PDF, including text and images.
+  - **Fonts**: Defines the fonts used in the document, such as Arial-Bold.
+
+- **Stream Data**: The file includes compressed stream data that represents the content of the PDF pages. This data is encoded using Flate compression.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a static asset.
+
+## Usage
+To use this PDF in your application, you can link to it directly in your HTML or render it using a PDF viewer component. For example:
+```html
+<a href="/assets/pdf/treez.pdf" target="_blank">Download Treez PDF</a>
+```
+
+## Best Practices
+- **Version Control**: Keep track of changes to the PDF file in version control to ensure that updates are documented.
+- **File Size**: Monitor the size of the PDF file to ensure it does not become too large, which could affect loading times.
+- **Accessibility**: Ensure that the PDF content is accessible, including proper tagging for screen readers if applicable.
+- **Testing**: Regularly test the PDF rendering in various browsers and PDF viewers to ensure compatibility and correct display.
+
+By following these guidelines, developers can effectively manage and utilize the `treez.pdf` file within the project.

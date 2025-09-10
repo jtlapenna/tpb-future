@@ -1,0 +1,48 @@
+---
+description: Policy class for managing image-related permissions in the application.
+globs: ['app/policies/image_policy.rb']
+alwaysApply: false
+---
+
+# ImagePolicy Documentation
+
+## Overview
+The `ImagePolicy` class is responsible for defining the authorization rules related to image uploads and deletions within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application.
+
+## Key Components
+- **Class: `ImagePolicy`**  
+  This class extends `ApplicationPolicy`, allowing it to leverage common authorization methods defined in the parent class.
+
+- **Method: `upload_request?`**  
+  - **Purpose:** Determines if the user is authorized to upload an image.  
+  - **Implementation:** Returns `true` if a user is present (i.e., logged in), allowing the upload request to proceed.  
+
+- **Method: `destroy?`**  
+  - **Purpose:** Checks if the user is authorized to delete an image.  
+  - **Implementation:** Similar to `upload_request?`, it returns `true` if a user is present, permitting the deletion of the image.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To use the `ImagePolicy`, you would typically instantiate it within a controller action that handles image uploads or deletions. For example:
+```ruby
+class ImagesController < ApplicationController
+  def create
+    @image = Image.new(image_params)
+    authorize @image, :upload_request?
+    # Proceed with image upload logic
+  end
+
+  def destroy
+    @image = Image.find(params[:id])
+    authorize @image, :destroy?
+    # Proceed with image deletion logic
+  end
+end
+```
+
+## Best Practices
+- Ensure that the user is authenticated before allowing any image uploads or deletions. This is crucial for maintaining the integrity and security of the application.
+- Consider extending the policy with additional methods if more complex authorization logic is required in the future, such as checking user roles or permissions.
+- Keep the policy methods simple and focused on a single responsibility to maintain clarity and ease of testing.

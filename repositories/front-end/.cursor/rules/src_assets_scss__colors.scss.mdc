@@ -1,0 +1,38 @@
+---
+description: SCSS color variables for the project.
+globs: ['src/assets/scss/_colors.scss']
+alwaysApply: false
+---
+
+# Overview
+The `_colors.scss` file defines a set of color variables used throughout the project. These variables provide a centralized way to manage color values, ensuring consistency and ease of maintenance across stylesheets.
+
+# Key Components
+- **Color Variables**: The file contains several SCSS variables that represent specific colors used in the application. Each variable is defined using the SCSS syntax for variables, prefixed with a dollar sign (`$`).
+  - `$black`: Represents the color black with the hex value `#000000`.
+  - `$bluecharcoal`: A dark blue color with the hex value `#010D17`.
+  - `$charade`: A dark grayish color with the hex value `#2B2D37`.
+  - `$ebonyclay`: A muted dark color with the hex value `#242B35`.
+  - `$shark`: A very dark gray color with the hex value `#1A1B21`.
+  - `$white`: Represents the color white with the hex value `#ffffff`.
+
+# Dependencies
+This file does not import any other SCSS files, nor is it imported by any other files in the repository. It serves as a standalone file that can be included in other SCSS files as needed.
+
+# Usage Examples
+To use these color variables in your SCSS files, you can simply reference them by their variable names. For example:
+```scss
+body {
+    background-color: $white;
+    color: $black;
+}
+
+.header {
+    background-color: $bluecharcoal;
+}
+```
+
+# Best Practices
+- **Consistency**: Always use the defined color variables instead of hardcoding color values in your styles. This ensures that any changes to color values can be made in one place, improving maintainability.
+- **Naming Conventions**: When adding new color variables, follow the existing naming conventions to maintain clarity and consistency in the codebase.
+- **Documentation**: If new colors are added, document their purpose and usage to help other developers understand their context.

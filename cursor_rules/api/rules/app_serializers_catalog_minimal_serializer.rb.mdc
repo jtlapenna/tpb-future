@@ -1,0 +1,36 @@
+---
+description: Documentation for the CatalogMinimalSerializer class in the serializers directory.
+globs: ['app/serializers/catalog_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# CatalogMinimalSerializer Documentation
+
+## Overview
+The `CatalogMinimalSerializer` is a serializer class that inherits from `ActiveModel::Serializer`. It is designed to define how catalog objects are represented in JSON format when they are serialized. This serializer is particularly useful for API responses where minimal information about catalog items is required.
+
+## Key Components
+- **Class**: `CatalogMinimalSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+  - **Attributes**: The serializer specifies two attributes to be included in the serialized output:
+    - `id`: The unique identifier for the catalog item.
+    - `name`: The name of the catalog item.
+
+## Dependencies
+This file does not have any dependencies as it does not import any other files, nor is it imported by any other files in the repository. It stands alone as a simple serializer for catalog items.
+
+## Usage Example
+To use the `CatalogMinimalSerializer`, you would typically instantiate it with a catalog object and render it in a controller action. For example:
+```ruby
+class CatalogsController < ApplicationController
+  def show
+    catalog = Catalog.find(params[:id])
+    render json: catalog, serializer: CatalogMinimalSerializer
+  end
+end
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including unnecessary data to keep the response lightweight.
+- If additional attributes are needed in the future, consider creating a new serializer or extending this one to maintain clarity and separation of concerns.
+- Regularly review the serializer to ensure it aligns with any changes in the underlying model or business requirements.

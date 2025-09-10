@@ -1,0 +1,2 @@
+// eslint-disable-next-line max-len
+export const SERVER_KEY = "AAAAVIUQtMI:APA91bHovGU46VCvvq5rS5QXeAh_7zpR1p4xNq7iVynisjT0r4cdP6_aulxAjEC7CouveEDNVLYEk9a_8WxJwpOzWQUS_RK9bKJ2fKhvD1kWkyEmZywvYSKmVZewztams24c_7SKzITl";

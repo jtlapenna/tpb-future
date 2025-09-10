@@ -1,0 +1,43 @@
+---
+description: Documentation for the KioskSerializer class in the app/serializers directory.
+globs: ['app/serializers/kiosk_serializer.rb']
+alwaysApply: false
+---
+
+# KioskSerializer Documentation
+
+## Overview
+The `KioskSerializer` class is a serializer for the Kiosk model, designed to format the output of Kiosk objects in a JSON-friendly manner. It inherits from `ActiveModel::Serializer`, which provides a way to customize the JSON representation of the model's attributes and relationships.
+
+## Key Components
+- **Attributes**: The serializer defines several attributes that will be included in the serialized output:
+  - `id`: The unique identifier for the kiosk.
+  - `name`: The name of the kiosk.
+  - `tag_list`: A list of tags associated with the kiosk.
+  - `sensor_method`: The method used for sensor data collection.
+  - `sensor_threshold`: The threshold value for sensor alerts.
+  - `rfid_sorting`: The sorting method for RFID data.
+  - `rfid_behavior`: The behavior settings for RFID interactions.
+  - `location`: The physical location of the kiosk.
+  - `product_filter_criteria`: Criteria used to filter products displayed by the kiosk.
+  - `product_filter_value_type`: The type of value used for product filtering.
+  - `product_filter_value_id`: The ID of the value used for product filtering.
+  - `product_layout_id`: The ID of the layout associated with the kiosk.
+
+- **Relationships**:
+  - `belongs_to :store`: This indicates that each kiosk is associated with a store, and it uses the `StoreMinimalSerializer` to format the store data.
+  - `has_one :layout`: This indicates that each kiosk has one associated layout.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a serializer for the Kiosk model.
+
+## Usage Examples
+To use the `KioskSerializer`, you would typically call it within a controller action when rendering a Kiosk object. For example:
+```ruby
+render json: @kiosk, serializer: KioskSerializer
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant and necessary for the client-side application to minimize payload size.
+- Keep the serializer updated with any changes to the Kiosk model to ensure consistency in the API response.
+- Use the `StoreMinimalSerializer` for the store relationship to avoid over-fetching data that is not needed in the response.

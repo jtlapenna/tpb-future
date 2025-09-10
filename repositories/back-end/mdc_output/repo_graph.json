@@ -1,0 +1,4541 @@
+{
+  "nodes": [
+    {
+      "id": "REPOSITORY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "Guardfile",
+      "type": "file"
+    },
+    {
+      "id": ".rspec",
+      "type": "file"
+    },
+    {
+      "id": "CODE_QUALITY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": ".generators",
+      "type": "file"
+    },
+    {
+      "id": ".ruby-gemset",
+      "type": "file"
+    },
+    {
+      "id": ".ruby-version",
+      "type": "file"
+    },
+    {
+      "id": ".simplecov",
+      "type": "file"
+    },
+    {
+      "id": "Dockerfile",
+      "type": "file"
+    },
+    {
+      "id": "config.ru",
+      "type": "file"
+    },
+    {
+      "id": "SECURITY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "README.md",
+      "type": "file"
+    },
+    {
+      "id": "entrypoint_sidekiq.sh",
+      "type": "file"
+    },
+    {
+      "id": "Rakefile",
+      "type": "file"
+    },
+    {
+      "id": "restore_db.sh",
+      "type": "file"
+    },
+    {
+      "id": "Gemfile",
+      "type": "file"
+    },
+    {
+      "id": "RULES_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "INTEGRATION_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "Gemfile.lock",
+      "type": "file"
+    },
+    {
+      "id": "Procfile",
+      "type": "file"
+    },
+    {
+      "id": "run_sync_job.sh",
+      "type": "file"
+    },
+    {
+      "id": "TEST_COVERAGE_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "entrypoint.sh",
+      "type": "file"
+    },
+    {
+      "id": ".rakeTasks",
+      "type": "file"
+    },
+    {
+      "id": "PERFORMANCE_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "Dockerfile_Sidekiq",
+      "type": "file"
+    },
+    {
+      "id": "MAINTAINABILITY_ANALYSIS.md",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/treez_api_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/shopify_api_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/product_csv_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/covasoft_api_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/headset_api_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/flowhub_api_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/blaze_api_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/leaflogix_api_parser.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/blaze/base.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/blaze/store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/treez/base.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/treez/customer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/treez/store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/treez/customer_order.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/shopify/base.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/parsers/webhooks/shopify/store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/mailers/orders_mailer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/mailers/products_mailer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/mailers/application_mailer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/mailers/api_sync_mailer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/contracts/cart_contract.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/image.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/layout_navigation.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/product_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/kiosk_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/cart_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/attribute_def.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/brand.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/customer_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/attribute_value.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/article.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/category.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_article.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/order_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/ad_banner_location.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/payment_gateway_provider.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/layout_position.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/customer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/order_customer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/kiosk_asset.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_category_kiosk_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/ad_config.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/favorite.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/welcome_asset.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/asset_element.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/layout_navigation_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/attribute_group.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_product_promotion.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/video_image_background_asset.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/treez_log.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_sync_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/customer_order_store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/ad_banner.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/review.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/kiosk.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/product_layout_value.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/duplicated_sku_deleted_log.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_setting.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/rfid_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_tax.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/product_layout_tab.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/expired_kiosk_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/customer_order.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/order.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/purchase_limit.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/payment_gateway.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/product_variant.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/asset.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/kiosk_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_price.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/product_layout_element.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_category_tax.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/application_record.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/tag_info.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/brand_and_store_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/store.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/cart.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/user.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/product_value.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/concerns/reviewable.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/concerns/.keep",
+      "type": "file"
+    },
+    {
+      "id": "app/models/concerns/external_model.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/models/concerns/union_scope.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/product_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/client_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/product_variant_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/application_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/user_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/layout_position_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/product_layout_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/article_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/kiosk_layout_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_price_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/asset_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/category_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/attribute_def_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_category_tax_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_tax_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/tag_info_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_category_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/kiosk_product_layout_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/attribute_group_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/kiosk_product_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_product_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/image_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/rfid_product_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/review_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/ad_config_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_article_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_sync_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/store_product_promotion_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/brand_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/kiosk_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/policies/acts_as_taggable_on/tag_policy.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/operations/clone_kiosk_operation.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_layout_element_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/review_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_tax_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_variant_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/brand_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/attribute_group_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/layout_position_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/user_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_category_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/client_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_product_with_values_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_layout_value_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_category_tax_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_product_promotion_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_sync_item_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/image_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/ad_config_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_article_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/asset_element_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_product_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_product_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/version_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/welcome_asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/tag_info_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/article_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_product_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_value_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/payment_gateway_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_setting_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/layout_navigation_item_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_layout_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_category_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/attribute_def_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_layout_tab_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/attribute_value_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/layout_navigation_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_sync_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/brand_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/payment_gateway_provider_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_product_compact_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_product_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/purchase_limit_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/store_price_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/rfid_product_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/catalog_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/tag_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/video_image_background_asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_variant_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/product_layout_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/category_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/kiosk_product_layout_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/review_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/brand_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/kiosk_asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/store_category_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/store_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/ad_banner_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/product_layout_value_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/image_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/store_article_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/asset_element_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/store_product_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/kiosk_product_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/welcome_asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/kiosk_product_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/product_value_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/product_layout_value_container_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/store_setting_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/layout_navigation_item_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/kiosk_layout_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/store_category_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/product_layout_tab_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/attribute_value_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/layout_navigation_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/brand_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/store_product_minimal_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/ad_banner_location_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/rfid_product_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/tag_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/video_image_background_asset_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/kiosk_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/serializers/api/v1/category_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/headset.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/errors.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/blaze.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/ez_texting.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/leaflogix.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/flowhub.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/shopify.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/headset/headset_error.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/headset/api_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/blaze/api_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/blaze/blaze_error.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/blaze/order_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/blaze/customer_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez/customer.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez/api_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez/date_validator.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez/model.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez/treez_error.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez/order_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/treez/customer_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/shopify/api_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/shopify/order_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/shopify/shopify_error.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/ez_texting/client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/covasoft/covasoft_error.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/covasoft/api_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/covasoft/order_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/covasoft/customer_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/leaflogix/api_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/leaflogix/leaflogix_error.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/leaflogix/order_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/leaflogix/customer_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/flowhub/api_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/flowhub/flowhub_error.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/flowhub/order_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/lib/flowhub/customer_client.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/jobs/store_sync_job.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/jobs/clean_active_carts_job.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/jobs/clean_database_job.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/jobs/create_shopify_webhook_job.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/jobs/customer_sync_job.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/jobs/application_job.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/jobs/share_product_text_message_job.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/tag_infos_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/application_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_categories_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/ad_configs_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_prices_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/layout_positions_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/categories_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/attribute_defs_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_syncs_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/payment_gateway_providers_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/brands_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/stores_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/kiosk_products_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_taxes_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/customers_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/tags_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/articles_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/kiosk_product_layouts_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_category_taxes_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/clients_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/products_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/product_variants_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/users_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/kiosk_layouts_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/attribute_groups_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/product_layouts_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/assets_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/kiosks_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_products_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/reviews_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_articles_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/payment_gateways_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/kiosk_brands_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/store_product_promotions_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/user_token_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/rfid_products_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/application_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/carts_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/categories_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/brands_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/stores_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/customer_order_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/customers_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/health_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/orders_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/products_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/users_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/ad_banner_locations_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/ad_banners_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/catalog_articles_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/api/v1/catalogs_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/webhooks/treez_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/webhooks/shopify_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/webhooks/blaze_controller.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/concerns/paged.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/concerns/.keep",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/concerns/kiosk_required.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/concerns/sortable.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/concerns/rescuable.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/concerns/external_api_bridge.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/controllers/concerns/searchable.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/views/layouts/mailer.html.erb",
+      "type": "file"
+    },
+    {
+      "id": "app/views/layouts/mailer.text.erb",
+      "type": "file"
+    },
+    {
+      "id": "app/views/api_sync_mailer/sync_error.html.erb",
+      "type": "file"
+    },
+    {
+      "id": "app/views/api_sync_mailer/sync_error.text.erb",
+      "type": "file"
+    },
+    {
+      "id": "app/views/orders_mailer/new_order.html.erb",
+      "type": "file"
+    },
+    {
+      "id": "app/views/orders_mailer/new_order.text.erb",
+      "type": "file"
+    },
+    {
+      "id": "app/channels/application_cable/connection.rb",
+      "type": "file"
+    },
+    {
+      "id": "app/channels/application_cable/channel.rb",
+      "type": "file"
+    },
+    {
+      "id": "bin/rake",
+      "type": "file"
+    },
+    {
+      "id": "bin/setup",
+      "type": "file"
+    },
+    {
+      "id": "bin/rspec",
+      "type": "file"
+    },
+    {
+      "id": "bin/spring",
+      "type": "file"
+    },
+    {
+      "id": "bin/rails",
+      "type": "file"
+    },
+    {
+      "id": "config/routes.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/spring.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/environment.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/database.yml.sample",
+      "type": "file"
+    },
+    {
+      "id": "config/application.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/puma.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/boot.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/environments/production.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/environments/staging.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/environments/development.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/environments/test.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/application_controller_renderer.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/backtrace_silencers.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/mime_types.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/filter_parameter_logging.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/sentry.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/wrap_parameters.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/acts_as_taggable_on.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/kaminari_config.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/sidekiq.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/airbrake.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/eager_load_knock.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/algoliasearch.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/active_model_serializer.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/oj.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/knock.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/inflections.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/cors.rb",
+      "type": "file"
+    },
+    {
+      "id": "config/initializers/pusher.rb",
+      "type": "file"
+    },
+    {
+      "id": "redis/Dockerfile",
+      "type": "file"
+    },
+    {
+      "id": "redis/init.sh",
+      "type": "file"
+    },
+    {
+      "id": "redis/redis.conf",
+      "type": "file"
+    },
+    {
+      "id": "spec/spec_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/rails_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/parsers/headset_api_parser_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/parsers/treez_api_parser_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/parsers/leaflogix_api_parser_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/parsers/product_csv_parser_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/parsers/covasoft_api_parser_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/parsers/flowhub_api_parser_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/mailers/products_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/mailers/api_sync_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/mailers/orders_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_article_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_category_tax_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/ad_config_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/customer_sync_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/customer_order_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/review_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/brand_and_store_category_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_sync_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_category_kiosk_layout_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/category_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/product_layout_value_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/product_layout_tab_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/expired_kiosk_product_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_category_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/product_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_product_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/product_value_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/kiosk_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_sync_item_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/cart_item_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/payment_gateway_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/kiosk_layout_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/tag_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/payment_gateway_provider_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/image_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/product_layout_element_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/rfid_product_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/product_variant_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/kiosk_asset_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/article_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/customer_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/tag_info_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/brand_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/welcome_asset_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/attribute_value_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/cart_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/catalog_price_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/asset_element_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/order_customer_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/order_item_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/purchase_limit_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/layout_navigation_item_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/duplicated_sku_deleted_log_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/attribute_group_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/kiosk_product_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/order_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_product_promotion_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/layout_position_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/layout_navigation_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_tax_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/asset_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/user_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/customer_order_store_product_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/store_setting_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/attribute_def_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/models/product_layout_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/layout_position_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/attribute_def_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/store_sync_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/tag_info_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/image_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/store_tax_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/store_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/kiosk_product_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/brand_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/catalog_price_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/store_category_tax_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/kiosk_product_layout_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/client_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/product_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/article_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/attribute_group_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/kiosk_layout_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/product_variant_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/store_category_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/user_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/product_layout_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/asset_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/catalog_article_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/review_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/kiosk_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/store_product_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/rfid_product_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/category_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/policies/acts_as_taggable_on/tag_policy_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/operations/clone_kiosk_operations_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/attribute_groups_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/customer_order_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/brands_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/kiosk_product_layouts_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/assets_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_articles_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_syncs_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/articles_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/payment_gateways_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/kiosk_products_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_categories_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/user_tokens_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/carts_request_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_product_promotions_request_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/reviews_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/kiosk_layouts_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_prices_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/rfid_products_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/products_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/kiosk_brands_request_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/tags_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/tag_infos_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_category_taxes_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/categories_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_products_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/store_taxes_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/stores_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/product_layouts_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/ad_config_request_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/product_variants_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/attribute_defs_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/users_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/payment_gateway_providers_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/kiosks_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/clients_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/catalog_articles_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/catalogs_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/brands_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/products_updated_at_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/customers_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/carts_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/products_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/categories_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/stores_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/requests/api/v1/orders_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/catalog_articles_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/catalogs_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/brands_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/customers_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/carts_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/products_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/categories_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/stores_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/orders_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/api/v1/health_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/acceptance/api/v1/users_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/request_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/paginated_resources.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/policies_helpers.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/serialization_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/application_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/lib/treez_api_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/lib/headset_api_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/lib/leaflogix_api_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/lib/flowhub_api_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/api/v1/serialization_helper.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/matchers/product_matcher.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/matchers/attribute_matcher.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/matchers/kiosk_matcher.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/support/matchers/store_matcher.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/customer_order_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/customer_syncs.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/payment_gateway_providers.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/order_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/expired_kiosk_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/store_category_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/brand_and_store_categories.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/payment_gateways.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/store_taxes.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/carts.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/factories.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/store_category_taxes.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/ad_configs.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/store_product_promotions.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/duplicated_sku_deleted_logs.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/users.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/factories/cart_items.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/headset/api_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/treez/api_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/treez/customer_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/treez/customer_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/treez/order_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/ez_texting/client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/covasoft/api_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/leaflogix/api_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/leaflogix/customer_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/leaflogix/order_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/flowhub/api_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/flowhub/customer_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/lib/flowhub/order_client_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/routing/store_taxes_routing_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/routing/store_category_taxes_routing_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/routing/payment_gateway_providers_routing_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/routing/payment_gateways_routing_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/jobs/store_sync_job_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/jobs/share_product_text_message_job_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/jobs/customer_sync_job_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/assets_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/attribute_defs_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/rfid_products_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/product_layouts_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/kiosk_products_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/kiosks_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/store_syncs_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/user_token_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/users_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/store_categories_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/kiosk_product_layouts_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/attribute_groups_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/stores_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/secured_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/store_products_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/tag_infos_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/product_variants_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/clients_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/store_articles_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/reviews_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/categories_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/products_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/articles_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/tags_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/store_prices_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/brands_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/customers_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/users_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/catalogs_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/catalog_articles_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/orders_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/carts_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/health_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/products_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "spec/controllers/api/v1/application_controller_spec.rb",
+      "type": "file"
+    },
+    {
+      "id": "docs/peak_api.md",
+      "type": "file"
+    },
+    {
+      "id": "public/index.html",
+      "type": "file"
+    },
+    {
+      "id": "public/robots.txt",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/application.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/adjust_type_field.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/sidekiq.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/back_populate_store.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/auto_annotate_models.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/.keep",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/shopify.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/ad_banner_locations.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/set_image.rake",
+      "type": "file"
+    },
+    {
+      "id": "lib/tasks/docs.rake",
+      "type": "file"
+    },
+    {
+      "id": "mdc_output/dependency_graph.gexf",
+      "type": "file"
+    },
+    {
+      "id": "mdc_output/repo_analysis_report.md",
+      "type": "file"
+    },
+    {
+      "id": "mdc_output/directory_structure.txt",
+      "type": "file"
+    },
+    {
+      "id": "db/schema.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/seeds.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241019161124_remove_product_id_from_cart_items.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170929174923_add_video_url_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516223630_assign_store_id_to_catalog_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190306160208_add_share_email_template_to_catalog_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180627023846_create_join_table_catalog_article_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190307171654_add_enabled_share_email_product_to_catalogs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180404223217_rename_column_name_to_template_in_store_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180108184157_create_reviews.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241019155933_add_store_product_id_to_cart_items.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180713172942_add_home_layout_to_store_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171011142506_add_sku_to_product_variants.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516221327_assign_notification_settings_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191127164310_add_weight_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516192000_assign_store_id_to_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190529224538_add_kiosk_product_to_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220217174245_drop_table_store_product_variants.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200521195251_change_tax_into_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240802200630_add_last_updated_websocket_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240305171155_add_promotion_columns_to_store_product_promotions.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191113172408_rename_column_birthdaydate_to_birthday_to_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210831021211_create_favorites.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180824234644_create_customer_order.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180326141902_add_rfid_to_catalog_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180615193526_move_sync_settings_from_store_to_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170925190209_add_video_url_to_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191113190555_add_index_customer_id_and_active_to_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210622231251_create_ad_configs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516215012_add_api_setting_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190522165456_add_kiosk_id_to_kiosk_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220318112549_add_latest_update_source_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517183537_remove_enabled_share_email_product_from_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171011140538_remove_code_from_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190530211903_rename_kiosk_id_to_store_id_on_customer_order.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170925193347_add_description_to_product_variants.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200428141634_update_rfid_product_data.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521180648_rename_store_layout_on_layout_navigation.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20230616201542_add_column_to_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171011190637_add_values_to_attribute_def.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200520154023_add_tax_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180625142200_add_settings_columns_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516223600_add_store_to_catalog_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180621143634_add_excerpt_and_icon_to_article.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190808142154_replace_product_element_product_layout_tab_with_source.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180327203814_create_welcome_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200222010024_add_index_to_customer_phone.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180404180957_create_store_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171221211749_add_index_by_sku_on_variant.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190808210451_add_stylesheet_to_product_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516131212_rename_catalog_product_id_to_store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180925180133_add_override_tags_to_product_variant.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190628183852_add_auto_add_new_products_to_kiosk.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171127153201_create_tag_infos.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220506165119_create_customer_order_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171024213126_create_catalog_sync_items.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517021724_add_store_to_store_price.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240819145039_add_is_medical_only_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170928194954_add_missing_indexes_on_taggings.acts_as_taggable_on_engine.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180613171817_add_client_id_to_users.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180614041520_add_index_to_attribute_def_name.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516191904_remove_catalog_id_from_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170919225144_create_attribute_defs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516182301_remove_caatalog_id_from_store_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20221111130215_add_inventory_type_medical_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20181127214123_add_featured_to_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180524185011_remove_rfid_from_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517143458_assign_featured_mode_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200222011418_add_api_key_to_customer_syncs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20221026142649_add_column_order_to_store_category_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180529173232_create_catalog_articles.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180405182820_create_layouts_for_existent_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517022023_remove_catalog_id_from_store_price.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190702150438_replace_kiosk_add_new_product_with_product_filter.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170915194440_create_users.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180405143637_delete_column_store_layout_id_from_welcome_asset_and_add_to_welcome_asset_id_to_store_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211106165507_add_disabled_to_ad_banners.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20221111130227_add_inventory_type_medical_to_store_sync_items.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180404183305_remove_layout_from_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191120203751_delete_index_customer_id_and_active_to_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180530173315_add_unique_index_to_catalog_article.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190604164216_update_valuable_type_on_product_values.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516132231_rename_catalog_product_id_on_rfid_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516184159_remove_catalog_id_from_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171031123637_add_primary_image_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200710134207_add_rfid_sorting_to_kiosk.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200521223533_change_tax_into_store_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180405145957_drop_tables_picture_in_pictures_and_green_dots.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517183308_add_enabled_share_email_product_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240621144639_add_access_token_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190801191509_create_product_layout_values.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180524125725_create_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240822221120_create_expired_kiosk_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180918231306_add_catalog_id_to_customer_order.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516223946_rename_catalog_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190520202448_rename_catalogs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240327171141_add_discount_price_to_store_products_promotions_table.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170919225700_create_attribute_values.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170925192859_add_video_url_to_product_variants.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521182217_assign_kiosk_id_to_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516174043_add_store_to_store_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517183358_assign_enabled_share_email_product_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210707170948_add_block_simultaneous_nfc_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20221011092616_add_disable_overlay_mask_tokiosklayouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190515223013_rename_catalog_price.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516215227_assign_api_settings_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516125430_rename_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190726193710_add_stand_side_to_kiosk_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516174337_asign_store_to_store_categories.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180404184535_change_column_store_id_by_layout_id_in_store_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211013073118_create_payment_gateways.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521183029_rename_store_asset_id_on_asset_element.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191120183832_add_to_customers_index_by_lower_email.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180403145522_change_store_layout_string_to_integer.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180815160024_add_name_index_to_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20201028220945_add_home_category_to_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521180912_rename_store_asset.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180626230538_move_store_general_settings_to_store_settings.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170926145741_create_product_values.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517142808_add_featured_mode_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211004191721_add_callback_url_to_ad_banners.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180712163831_change_type_column_secundary_text_to_store_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211106161745_add_special_type_to_ad_banner_locations.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190515195419_rename_catalog_category_on_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180710204157_create_navigation_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20201030165250_add_home_screen_title_to_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180626224949_create_store_settings.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180907152448_rename_column_ticket_id_to_order_id_for_customer_orders.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180813143007_add_welcome_message_to_store_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516221551_remove_notification_setting_from_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170928194953_change_collation_for_tag_names.acts_as_taggable_on_engine.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171013173710_add_stock_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190808215404_add_stylesheet_to_kiosk_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20181127183713_add_featured_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220506145820_create_order_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20181025202034_add_order_to_catalog_categories.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191128205152_change_purchase_limit_and_product_weight_to_integer.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190529224614_assign_kiosk_product_id_to_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191111181102_create_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516195904_rename_column_store_article_join_table.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241126213758_add_is_full_screen_video_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240523152801_add_has_promotion_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191111215030_create_customer_syncs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517143842_remove_featured_mode_from_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516224314_rename_catalog_sync_id_on_catalog_sync_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180122175230_add_set_active_default_on_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516223748_remove_catalog_id_from_catalog_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20181026205435_add_notification_settings_to_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516191621_add_store_id_to_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211106155515_add_code_name_to_ad_banner_locations.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516175755_update_imageable_types.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190530150828_add_featured_flag_to_kiosk_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180913212932_add_category_product_to_article.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190523150207_create_kiosk_products_from_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190529224236_assign_kiosk_id_to_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516224457_rename_catalog_sync_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180711200930_create_navigation_for_each_store_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190729174150_create_product_layout_tabs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171025144407_add_state_to_catalog_sync_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240612142002_add_sync_columns_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516195000_remove_catalog_id_from_store_article.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240917164137_add_discount_type_to_store_product_promotions.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180326205655_move_layout_column_from_store_asset_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180409184659_change_column_element_type_to_asset_elements.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190520214722_move_catalog_tags_to_kiosk.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171013174901_create_versions.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190729195034_create_product_layout_elements.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171031141450_add_thumb_image_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200525202824_create_store_taxes.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516194650_add_store_to_catalog_article.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170922233751_add_type_to_attribute_group.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170928194951_add_taggings_counter_cache_to_tags.acts_as_taggable_on_engine.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190726211444_create_product_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190807023611_add_enabled_share_sms_product_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200222011412_add_api_key_to_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220720163537_add_fast_animation_to_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220705182154_add_order_to_rfid_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190522142656_update_asset_source_type.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180719212218_add_title_and_description_to_layout_navigation_item.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190515193251_rename_catalog_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516182700_add_store_id_to_store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190426234821_pusblish_all_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516221131_add_notification_settings_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171102221351_add_catalog_id_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191011143359_add_screen_type_to_kiosk_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210928085723_create_ad_banner_locations.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180921190109_remove_video_url_field.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190731143134_add_product_layout_to_kiosk_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211106165245_add_advertisable_to_ad_banners.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171003140359_add_active_to_user.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241019171748_add_index_to_carts_updated_at.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171003170335_add_jti_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191122210103_create_join_table_purchase_limit_store_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180626230959_remove_general_settings_from_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240316000000_create_users.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180806142820_rename_columns_disabled_shopping_and_disabled_rfid_to_store_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516194749_assign_store_id_to_store_articles.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521182113_add_kiosk_to_kisk_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516133040_rename_catalog_images_join_table.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220209173044_create_store_product_variants.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211210131620_add_webhook_url_to_stores.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190807024735_add_share_sms_template_to_store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516133402_rename_catalog_product_id_join_table_column.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516131004_rename_catalog_article_products_join_table.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20221004111646_change_default_rfid_order_value.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180326221807_create_green_dots.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190426230446_add_status_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200520184719_add_tax_to_store_category.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190614211942_add_data_to_kiosk.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517021817_assign_store_id_tostore_price.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180326153923_create_store_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20181129193408_set_value_default_for_featured_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170919124530_add_description_to_brand.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190619201403_delete_scheduled_catalog_sync_and_schedule_store_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170928194950_add_missing_unique_indices.acts_as_taggable_on_engine.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171109135932_create_catalog_prices.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180326190204_add_store_id_and_main_to_store_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20221010195833_create_store_category_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521181003_renaname_store_layout_on_kiosk_asset.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210928090111_create_ad_banners.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190808030957_add_width_to_product_layout_element.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20231020043003_add_lastest_update_token_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20230614151826_add_printed_date_and_printed_id_to_customer_orders.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521175600_rename_store_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210623152134_create_remove_assets_fields_from_ad_configs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210623154408_add_use_brand_spotlight_to_ad_configs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200525221918_create_store_category_taxes.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20230620142737_renamelast_modified_date_utc_in_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171009210900_create_join_table_product_variant_image.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170919172250_add_description_to_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180405145732_create_asset_elements.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180712193410_add_code_to_store_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180409220444_create_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20220115053632_change_product_weight_to_decimal.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20201028010058_create_store_product_promotions.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200422143126_add_polimorfic_object_to_rfid_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190520214124_rename_catalog_id_on_customer_order.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190530150907_assign_featured_to_kiosk_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180925183527_add_override_tags_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180326183214_create_layout_positions.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20230612163116_add_data_to_customer_orders.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170915193057_initial_imgration.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180614050059_add_multi_column_index_to_attribute_value.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171006214139_create_images.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190916181632_add_index_incasesensitive_to_brand.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210125204446_add_location_to_kiosk.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241017155603_create_cart_items.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171010143624_create_join_table_catalog_product_image.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20221125143304_add_object_changes_to_versions.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20181204212224_add_brand_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180109134458_add_order_to_attribute_group.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190522163045_create_kiosk_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211013071018_create_payment_gateway_providers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516195808_rename_store_articles_products_join_table.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20210929033533_add_index_to_ad_banner_location.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170928194949_acts_as_taggable_on_migration.acts_as_taggable_on_engine.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241022184026_add_enabled_continuous_cart_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180712194302_add_section_position_id_to_store_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180404183501_change_column_store_id_by_layout_id_in_welcome_asset.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191120204302_add_index_store_id_and_status_to_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180405215215_add_sync_settings_to_store.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170928194952_add_missing_taggable_index.acts_as_taggable_on_engine.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240628154934_create_brand_and_store_categories.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241017154812_create_carts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516215507_remove_api_settings_from_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171102210843_add_sku_to_catalog_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190521182349_remove_store_from_kiosk_layout.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20240821174131_create_duplicated_sku_deleted_logs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180327204123_remove_column_main_to_store_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180326213453_create_picture_in_pictures.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171011185000_add_restricted_to_attribute_def.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170919224551_create_attribute_groups.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171002220157_add_active_to_catalog.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20200918230155_add_rfid_behavior_to_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191121194546_create_purchase_limits.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180411132612_catalog_active_default_value.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190529224920_remove_store_product_id_from_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190530151047_remove_featured_from_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190517221941_move_tags_to_store_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171102141247_add_catalog_to_catalog_sync.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180528185723_create_articles.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180710205210_create_navigation_layout_items.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20191120204107_add_store_id_to_customers.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241202230040_create_video_image_background_assets.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20201222195225_add_nav_ui_to_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20171024212632_create_catalog_syncs.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180803213308_add_disabled_rfid_disabled_shopping_to_store_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20241202230146_add_video_image_background_asset_to_kiosk_layouts.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190529224153_add_kiosk_id_to_rfid_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20211013080646_add_enabled_projects_to_payment_gateways.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190710174003_change_store_product_default_status.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20170929175001_add_description_to_catalog_product.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20180618141623_change_sync_settings_to_api_settings.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516183340_assign_store_id_to_store_products.rb",
+      "type": "file"
+    },
+    {
+      "id": "db/migrate/20190516194325_rename_catalog_article_to_store_article.rb",
+      "type": "file"
+    },
+    {
+      "id": "log/.keep",
+      "type": "file"
+    },
+    {
+      "id": "tmp/.keep",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/load-path-cache",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/61/596b8c17491f54",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/92/be2eef725d86b3",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/3e/5ea4c73b951ef4",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/50/e9fa2fa2988e41",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/50/17ae1f56f0785a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/68/1d8d0966a7f790",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/6f/8bbad0b746a1dc",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/9e/33e2b481f1330e",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/9e/6ef2374b187600",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/04/5596e3a4d74e15",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/6a/51546c1f07c8f7",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/69/150083ce11d287",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/3c/ac0ed7c0c381ae",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/56/734dfe2edbf86d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/3d/8b65665cebbea6",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/3d/3a43e0038f3861",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/58/cc6b4af021e6f6",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/58/3bc280c2d62eb9",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/67/d5d3e2813eb92c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/0b/c19bef74b875ca",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/93/599233b49187fe",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/93/e7ae4410895d34",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/0e/7f491badab2c2a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/0e/011e82383a787f",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/34/b604917705c0fa",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/5f/444e9bf7ac3760",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/05/12e76d26752d79",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/a4/56d0d2de25b6e6",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/a4/f37f29f7e54806",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/b5/6b13fabbb5aa93",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/b5/7fd1e3ebc77958",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/d9/e3b1297412c90c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/d9/ba756530e9d082",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/bb/789b3c05d44051",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/bb/c6e3a0611bfd0c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/bb/a22664efdf0bae",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/d7/d0a8fcc362b089",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/b3/95566972630306",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/b3/57512acac2c13b",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/b3/8882e572dea779",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/df/0b1362de8f5800",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/df/f36856112b80e7",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/a5/46cb995fa4ea27",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/bd/2c330292cb385b",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/d6/7ce04b2b7b706d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/bc/5b6e7ec3716aa3",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/ae/acfd8ac1fd6d7d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/ab/56ee2eb000e351",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e5/a16cbcca3d5a1f",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e2/cc657701eb49c6",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e2/1cc7f4d2e8fe9b",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/f3/dc84bd007d0728",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c7/67650487f5a693",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/ee/2fce0cc9678f87",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/fd/aac3f9c5b27361",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/f5/cb74c8a522522a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e3/6138b60a1d6d81",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/cf/08e5177f203eaf",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c8/cb7ce73791775d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/fb/6f2837fdc4255f",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/fb/1f302c47cbcdd8",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/ed/06c88b2fda35a9",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c1/c330e9fe9ac596",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c6/3267b481aa2c9d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c6/200571a93ac3d8",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/20/e74278d1a91607",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/27/631253dfdf8737",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/11/021a761274b336",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/7d/3b3cc438a3a1b9",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/7c/469f1b4112537d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/16/af5c334263c0d5",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/45/edee4527d1677d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/1f/c503982b6eccc2",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/73/15c7dab7d8e07b",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/73/a41bc9364d1931",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/87/30ce939ead8796",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/80/d2172054082610",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/1a/508bb0782ff165",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/7b/01566873334908",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8a/e3439e66cf2763",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/26/10273c98ea4568",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/4d/6650d2512a1d84",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/75/2347ea404e6cbf",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/81/9e4a54bdb631bd",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/44/452af5fb8318b1",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/44/15beae0cd3ee19",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/2a/4422e2e86b1f75",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/2f/ad97ca7fd19ce9",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/43/504c56c38f98e8",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/43/4eb8f477527b29",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/9f/0caf2f5e2f2d36",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/38/798dba8bc05619",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/00/dde653bfcd3f29",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/6e/8ae00c6fc4c172",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/36/cb7e144c0f3d61",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/5c/cccebdea6211ea",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/09/19d85967e79037",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/91/a871b9f255314a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/65/81aac35c6aec04",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/98/d77001734fe44b",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/53/c746affc4d76c4",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/53/1474f2497b5f64",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/30/1de0878d44b11e",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/5b/ebd0ed81099199",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/37/0f33111ef3a840",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/37/08a3849e683a0a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/08/7aa6da9459d53a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/6d/3488eb117058a3",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/6d/baee8c0c11b13e",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/01/cc305a0095ed9f",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/01/25cc9c3b2f1201",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/6c/08e94dea4313cd",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/39/abcb4dab3b1285",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/52/6d068c2b1f521c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/63/29fe2d8f0e2dd1",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/0a/b12be0eb0657a0",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/bf/8c6da6ffa9fb48",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/d3/22aacce9bf5a3c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/a7/b0bca643f239ae",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/dd/2afe669c17a747",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/dc/925930cb1e606f",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/aa/9dc5e6871b382f",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/af/9f8ae1f5523e0d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/b7/1b31364f10bb8c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/db/a07c8bf5eb06f8",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/de/3b9f6682667d4a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/b0/da75241b5e9546",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/a6/893b70e90b2cb6",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/a1/26547eec5b56ef",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/ef/c42e092c4b1072",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c4/436cd3701eb688",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/ea/86b26d0662bb38",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e1/c9a1eafcde0abd",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/cd/be9221508d8da1",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e6/780edace89eb6c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/fa/5958be50fc65ef",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c5/0b256ec8be423e",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c2/127246377efeba",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/c2/6b286bae692ae4",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/f1/3218225942be05",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/f1/ffe280d4e8b957",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/cb/8e2d2324327d05",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/f8/cb0f479a7680ba",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/f8/7f8d66e168ad75",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/ce/156b4f72ee33d1",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e0/4e2fbf84b12460",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/e0/1a930183d84bdc",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/46/2cdbc6d94e6e84",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/46/a321a5d580742a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/2c/9708740d6679b4",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/79/cf106218582545",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/79/d66d5c54ececae",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/79/18d0ac9e2259af",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/41/9ffe5c3afc5d9f",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/77/d9143e00a5c26c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/77/ac5b0137298fce",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/48/ce74df8b565e65",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/70/b7ea8923cbc51e",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/70/33ab1f3cda3a0e",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/70/45e218d5f6349d",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/84/8c8593cb53934a",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/4a/affd2e3708fb90",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/23/10ef80a448837e",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8d/228cac848d49ab",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8d/f9499ff75dd112",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8d/54a24bf6a71ca4",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/12/178162f38e0d01",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/12/99d547c4824ed1",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/12/b94999875c7a80",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8c/7b4e2f41ee089c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8c/a7a045786659f0",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/1c/a717f921395bc2",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/49/f2c09d62750ffd",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/2e/3c7cd3b7762502",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/2e/d63bbb4630a37b",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/2b/d55ba0f0bc3465",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/47/b01e63e09d628c",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/78/caf8d3321f8349",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/78/69f81fdc04e244",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/78/5318f0c5de10d1",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8b/829b6ae6616741",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/13/9eeb47a5bea2c3",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/13/bd2319366852f5",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/13/db415b3c749b40",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/14/20547f69eb71ce",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/14/00970d0baca1b7",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/8e/357ce8a5a2642b",
+      "type": "file"
+    },
+    {
+      "id": "tmp/cache/bootsnap/compile-cache-iseq/25/b945fdfc608cfa",
+      "type": "file"
+    }
+  ],
+  "edges": []
+}

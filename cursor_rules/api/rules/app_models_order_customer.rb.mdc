@@ -1,0 +1,65 @@
+---
+description: Documentation for the OrderCustomer model in the application.
+globs: ['app/models/order_customer.rb']
+alwaysApply: false
+---
+
+# OrderCustomer Model Documentation
+
+## Overview
+The `OrderCustomer` class represents a model in the application that handles customer orders. It inherits from `ApplicationRecord`, which means it is an ActiveRecord model that interacts with the `order_customers` table in the database. This model is responsible for validating the presence of essential customer information and managing associated product data.
+
+## Key Components
+- **Class Definition**: `class OrderCustomer < ApplicationRecord`
+  - This line defines the `OrderCustomer` class, which extends the functionality of `ApplicationRecord`.
+
+- **Attributes**: `attr_accessor :products`
+  - This line creates a getter and setter for the `products` attribute, allowing the model to hold product information related to the order.
+
+- **Validations**:
+  - `validates :kiosks_id, :first_name, :last_name, :amount, presence: true`
+    - Ensures that the `kiosks_id`, `first_name`, `last_name`, and `amount` fields are always present when creating or updating an `OrderCustomer` record.
+  - `validates :uuid, :client_id, presence: false`
+    - Specifies that `uuid` and `client_id` are optional fields.
+
+## Schema Information
+The `OrderCustomer` model corresponds to the `order_customers` table in the database, which includes the following fields:
+- `id`: Primary key (bigint)
+- `amount`: Decimal value representing the order amount (decimal(10, 2))
+- `date`: Date and time of the order (datetime)
+- `first_name`: Customer's first name (string, not null)
+- `last_name`: Customer's last name (string, not null)
+- `payed`: Boolean indicating if the order has been paid (boolean, not null)
+- `uuid`: Unique identifier for the order (string, not null)
+- `created_at`: Timestamp for record creation (datetime, not null)
+- `updated_at`: Timestamp for record updates (datetime, not null)
+- `client_id`: Identifier for the client (integer, not null)
+- `kiosks_id`: Identifier for the associated kiosk (bigint)
+
+### Indexes
+- `index_order_customers_on_kiosks_id`: Index on the `kiosks_id` field to improve query performance.
+
+### Foreign Keys
+- `fk_rails_... (kiosks_id => kiosks.id)`: Establishes a foreign key relationship with the `kiosks` table.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a model that interacts directly with the database.
+
+## Usage Examples
+To create a new order customer:
+```ruby
+order_customer = OrderCustomer.new(
+  first_name: 'John',
+  last_name: 'Doe',
+  amount: 100.00,
+  kiosks_id: 1,
+  uuid: 'unique-identifier',
+  client_id: 1
+)
+order_customer.save
+```
+
+## Best Practices
+- Ensure that all required fields are provided when creating or updating an `OrderCustomer` instance to avoid validation errors.
+- Use the `products` attribute to manage associated product data effectively, ensuring that it is properly initialized before use.
+- Regularly review and update validations as necessary to reflect any changes in business requirements.

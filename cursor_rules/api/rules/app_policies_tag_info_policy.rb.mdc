@@ -1,0 +1,32 @@
+---
+description: Policy class for managing permitted attributes for TagInfo.
+globs: ['app/policies/tag_info_policy.rb']
+alwaysApply: false
+---
+
+# TagInfoPolicy Documentation
+
+## Overview
+The `TagInfoPolicy` class is a policy that defines the permitted attributes for the `TagInfo` model in the application. It inherits from `ApplicationPolicy`, which provides a base structure for defining authorization rules in the application.
+
+## Key Components
+- **Class**: `TagInfoPolicy`
+  - Inherits from `ApplicationPolicy`, allowing it to leverage common authorization logic.
+
+- **Method**: `permitted_attributes`
+  - Returns an array of symbols representing the attributes that are permitted for mass assignment. In this case, it allows the `:tag` and `:description` attributes.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a policy definition for the `TagInfo` model.
+
+## Usage Example
+To use this policy in your application, you would typically call the `permitted_attributes` method when creating or updating a `TagInfo` object. For example:
+```ruby
+# In a controller action
+@tag_info = TagInfo.new(tag_info_policy.permitted_attributes)
+```
+
+## Best Practices
+- Ensure that the attributes defined in `permitted_attributes` are the only ones that should be mass-assignable to prevent security vulnerabilities.
+- Regularly review and update the permitted attributes as the application evolves to ensure they remain relevant and secure.
+- Use descriptive names for attributes to maintain clarity in the policy's purpose.

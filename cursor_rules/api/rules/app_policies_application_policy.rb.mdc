@@ -1,0 +1,50 @@
+---
+description: This file defines the ApplicationPolicy class for managing user permissions in the application.
+globs: ['app/policies/application_policy.rb']
+alwaysApply: false
+---
+
+# ApplicationPolicy Documentation
+
+## Overview
+The `ApplicationPolicy` class serves as a base policy for managing user permissions in the application. It utilizes the Pundit gem to define authorization rules for various actions related to records. This class is designed to be inherited by other policy classes that define specific permissions for different models.
+
+## Key Components
+- **Attributes**:
+  - `user`: The user object representing the current user.
+  - `record`: The record object for which permissions are being checked.
+
+- **Initialization**:
+  - `initialize(user, record)`: Sets the user and record for the policy instance.
+
+- **Authorization Methods**:
+  - `index?`, `show?`, `create?`, `new?`, `update?`, `edit?`, `destroy?`: These methods return a boolean indicating whether the user has permission to perform the respective action. All methods currently check if the user is an admin by calling the `admin?` method.
+
+- **Scope**:
+  - `scope`: Returns the policy scope for the record's class using Pundit.
+
+- **Scope Class**:
+  - `Scope`: A nested class that handles the scoping of records based on user permissions. It includes:
+    - `initialize(user, scope)`: Initializes the scope with the user and the records.
+    - `resolve`: Returns the scope as is, which can be customized in subclasses.
+
+- **Protected Methods**:
+  - `admin?`: Checks if the user is an admin by calling `user.admin?`. This method is used to centralize the admin check across all actions.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It is a standalone policy class that can be extended by other policy classes in the application.
+
+## Usage Examples
+To create a specific policy for a model, you would inherit from `ApplicationPolicy` and define the necessary methods. For example:
+```ruby
+class PostPolicy < ApplicationPolicy
+  def create?
+    user.present? && !user.banned?
+  end
+end
+```
+
+## Best Practices
+- Always ensure that the `admin?` method accurately reflects the permissions required for your application.
+- When creating new policies, inherit from `ApplicationPolicy` to maintain consistency in permission checks.
+- Consider customizing the `resolve` method in the `Scope` class to filter records based on user roles or other criteria as needed.

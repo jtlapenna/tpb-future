@@ -1,0 +1,33 @@
+---
+description: Documentation for the ExternalModel concern in the application.
+globs: ['app/models/concerns/external_model.rb']
+alwaysApply: false
+---
+
+# ExternalModel Concern Documentation
+
+## Overview
+The `ExternalModel` module is a Ruby on Rails concern that extends the functionality of ActiveModel. It allows for the assignment of attributes without raising errors for unknown attributes, making it easier to work with dynamic or loosely defined models.
+
+## Key Components
+- **Module Declaration**: The module is defined as `ExternalModel` and extends `ActiveSupport::Concern`, which provides a way to include shared behavior in classes.
+- **ActiveModel Inclusion**: It includes `ActiveModel::Model` and `ActiveModel::Serialization`, enabling the module to behave like an ActiveModel, which is useful for creating models that do not persist to a database.
+- **_assign_attribute Method**: This protected method overrides the default behavior of attribute assignment in ActiveModel. It allows the assignment of attributes without raising an error for unknown attributes. If the setter method for the attribute exists, it will call it with the provided value.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a concern that can be included in any ActiveModel-based class.
+
+## Usage Example
+To use the `ExternalModel` concern, include it in your model class as follows:
+```ruby
+class MyModel
+  include ExternalModel
+
+  # Define your attributes and methods here
+end
+```
+
+## Best Practices
+- **Attribute Management**: When using this concern, ensure that you manage your attributes carefully. Since unknown attributes are ignored, it can lead to silent failures if not handled properly.
+- **Testing**: Write tests to verify that your model behaves as expected when using this concern, especially when dealing with dynamic attributes.
+- **Documentation**: Keep your code well-documented to ensure that other developers understand the implications of using this concern in their models.

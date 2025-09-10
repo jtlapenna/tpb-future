@@ -1,0 +1,37 @@
+---
+description: Documentation for the ScreenHomeRfidSwipe component in a Vue.js application.
+globs: ['src/components/ScreenHomeRfidSwipe.vue']
+alwaysApply: false
+---
+
+# ScreenHomeRfidSwipe.vue Documentation
+
+## Overview
+The `ScreenHomeRfidSwipe.vue` file defines a Vue.js component that serves as the home screen for an RFID swipe interface. It provides a user-friendly interface for users to interact with RFID-enabled items, featuring animations and responsive design elements.
+
+## Key Components
+- **Template Structure**: The component's template is divided into two main halves, each containing various elements such as titles, illustrations, and action prompts.
+- **LottieContainer**: This component is used to display animations that guide users on how to use the RFID swipe feature.
+- **ActiveCartButton**: A button that appears conditionally based on the `isActiveCartFeatureActivated` prop, allowing users to access their active cart.
+
+### Methods
+- **transitionEnter**: Handles the entrance animation of the component, utilizing GSAP for smooth transitions and animations.
+- **onTransitionLeave**: Manages the exit animation when the component is removed from the DOM.
+- **onSwipe**: Listens for swipe events and navigates to a different route when a swipe is detected.
+- **logoHold** and **logoRelease**: Emit events to manage a hard refresh when the store logo is held or released.
+- **setStoreLogoRatio**: Calculates and sets the appropriate ratio for the store logo based on its dimensions.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It relies on Vue.js and external libraries like GSAP and jQuery for animations and DOM manipulation.
+
+## Usage Examples
+To use this component, simply include it in your Vue.js application as follows:
+```html
+<ScreenHomeRfidSwipe :isActiveCartFeatureActivated="true" />
+```
+
+## Best Practices
+- Ensure that the `isActiveCartFeatureActivated` prop is passed correctly to control the visibility of the active cart button.
+- When modifying animations, be cautious with the GSAP timelines to maintain smooth transitions.
+- Keep the component's template clean and organized to facilitate future updates and maintenance.
+- Test the component across different devices to ensure responsiveness and usability.

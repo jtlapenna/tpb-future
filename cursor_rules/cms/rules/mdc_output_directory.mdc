@@ -1,0 +1,27 @@
+---
+description: Documentation for the mdc_output directory, detailing its contents and purpose.
+globs: ['mdc_output/*']
+alwaysApply: false
+---
+
+# mdc_output Directory Documentation
+
+## Overview
+The `mdc_output` directory serves as a centralized location for storing various output files generated during the analysis and documentation processes of the codebase. It contains files that provide insights into the structure and dependencies of the project, aiding developers in understanding the overall architecture.
+
+## Key Files
+- **dependency_graph.gexf**: This file represents the dependency graph of the project in GEXF format, which can be visualized using graph visualization tools. It helps in understanding the relationships and dependencies between different components of the codebase.
+- **repo_analysis_report.md**: A markdown report summarizing the analysis conducted on the repository. This report includes metrics, findings, and recommendations based on the analysis, serving as a valuable resource for developers and stakeholders.
+- **directory_structure.txt**: A plain text file that outlines the structure of the project directory. It provides a quick reference for developers to navigate the codebase and understand where specific files and components are located.
+
+## Relation to Other Parts of the Codebase
+The `mdc_output` directory is primarily used for output generated from various analysis tools and scripts within the codebase. While it does not import from or export to other directories, the information contained within its files is crucial for developers working on the project, as it provides context and insights that can influence development decisions.
+
+## Common Patterns and Conventions
+- Files in this directory are typically generated as part of automated processes, ensuring consistency in format and content.
+- The naming conventions for files are descriptive, indicating their purpose and content clearly, which aids in quick identification.
+
+## Best Practices
+- Regularly update the files in this directory to reflect the latest analysis and findings, ensuring that the documentation remains relevant and useful.
+- Use version control to track changes to the files in this directory, especially for the `repo_analysis_report.md`, as it may contain critical insights that evolve over time.
+- When adding new output files, follow the existing naming conventions and ensure that they are documented appropriately to maintain clarity.

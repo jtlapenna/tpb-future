@@ -1,0 +1,38 @@
+---
+description: Documentation for the src/analytics directory, detailing its purpose and file organization.
+globs: ['src/analytics/*']
+alwaysApply: false
+---
+
+# Overview of the src/analytics Directory
+
+The `src/analytics` directory is responsible for handling analytics-related functionalities within the application. It contains various modules that facilitate event tracking, data management, and interaction with analytics APIs.
+
+## Key Files and Their Roles
+
+- **events.js**: This file defines the event tracking logic, including how events are captured and sent to the analytics service. It serves as the core module for managing user interactions and system events.
+
+- **EventsAPI.js**: This module provides an interface for communicating with external analytics services. It abstracts the API calls and handles responses, ensuring that the application can send and retrieve analytics data seamlessly.
+
+- **db.js**: This file manages local storage or database interactions for analytics data. It may include functions for saving, retrieving, and deleting analytics records, allowing for offline capabilities or temporary data storage.
+
+- **analytics.js**: This is the main entry point for the analytics functionality. It integrates the various components, orchestrating the flow of data from event capture to API communication and local storage.
+
+- **example.js**: This file serves as a demonstration or test case for the analytics functionality. It may include sample events and usage patterns to help developers understand how to implement analytics in their own code.
+
+## Relationship to Other Parts of the Codebase
+
+The `src/analytics` directory is primarily imported by `src/main.js`, which indicates that it plays a crucial role in the application's startup process. The analytics functionality is likely initialized early in the application lifecycle to ensure that all user interactions are tracked from the beginning.
+
+## Common Patterns and Conventions
+
+- **Event Naming**: Events should be named clearly and consistently to ensure that they are easily identifiable in analytics reports. Use a standard naming convention that reflects the action being tracked.
+- **Modular Structure**: Each file in this directory is designed to handle a specific aspect of analytics, promoting separation of concerns and making the codebase easier to maintain.
+
+## Best Practices
+
+- **Keep Events Lightweight**: Ensure that the event tracking logic is efficient and does not block the main thread, especially in performance-sensitive applications.
+- **Error Handling**: Implement robust error handling in the API communication to gracefully manage failures in sending analytics data.
+- **Documentation**: Maintain clear documentation within each file to describe the purpose and usage of functions, especially for complex logic or API interactions.
+
+By following these guidelines, developers can effectively utilize the `src/analytics` directory to implement and manage analytics within the application.

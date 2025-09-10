@@ -1,0 +1,31 @@
+---
+description: Documentation for the config directory containing configuration files for the application.
+globs: ['config/*']
+alwaysApply: false
+---
+
+# Config Directory Documentation
+
+## Overview
+The `config` directory is essential for setting up and managing the configuration of the application. It contains various files that define the application's environment, routing, and other critical settings necessary for the application to run smoothly.
+
+## Key Files and Their Roles
+- **routes.rb**: This file defines the application's routing configuration, mapping URLs to controller actions. It is crucial for directing incoming requests to the appropriate parts of the application.
+- **spring.rb**: This file is used to configure Spring, a Rails application preloader that speeds up development by keeping the application running in the background.
+- **environment.rb**: This file loads the Rails application and sets up the environment. It is typically the entry point for the application configuration.
+- **database.yml.sample**: A sample configuration file for the database. It provides a template for setting up the database connection details for different environments (development, test, production).
+- **application.rb**: This file contains the main application configuration settings. It is where you can configure middleware, load paths, and other application-wide settings.
+- **puma.rb**: This file is used to configure the Puma web server, which is often used to serve Rails applications in production.
+- **boot.rb**: This file is responsible for bootstrapping the application, loading the necessary libraries and initializing the application environment.
+
+## Relation to Other Parts of the Codebase
+The `config` directory is closely related to other directories in the codebase, particularly the `app` directory, which contains the application logic and views. The configurations defined in the `config` directory directly influence how the application behaves and interacts with the database, routes, and other components.
+
+## Common Patterns and Conventions
+- Configuration files typically follow a naming convention that indicates their purpose (e.g., `database.yml` for database settings).
+- Environment-specific configurations are often separated, allowing for different settings in development, test, and production environments.
+
+## Best Practices
+- Always keep the `database.yml.sample` file updated to reflect the current configuration needs, ensuring new developers can easily set up their environment.
+- Avoid hardcoding sensitive information in configuration files. Instead, use environment variables or encrypted credentials.
+- Regularly review and refactor configuration files to remove any deprecated settings or unused configurations, keeping the directory clean and maintainable.

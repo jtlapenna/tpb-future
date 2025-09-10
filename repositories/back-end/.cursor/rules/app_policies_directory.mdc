@@ -1,0 +1,36 @@
+---
+description: Documentation for the app/policies directory, which contains various policy files for authorization and access control in the application.
+globs: ['app/policies/*']
+alwaysApply: false
+---
+
+# Overview of the app/policies Directory
+
+The `app/policies` directory is responsible for defining authorization policies within the application. These policies determine the permissions and access control for various resources, ensuring that users can only perform actions they are authorized to do. This is crucial for maintaining security and integrity in the application.
+
+## Summary of Key Files and Their Roles
+
+- **application_policy.rb**: The base policy class that other policies inherit from. It contains common logic and methods used across all policies.
+- **product_policy.rb**: Defines access rules for product-related actions, such as viewing, creating, or updating products.
+- **store_policy.rb**: Manages permissions related to store operations, including store management and access.
+- **user_policy.rb**: Handles authorization for user-related actions, ensuring that user data is protected and only accessible to authorized users.
+- **kiosk_policy.rb**: Governs access to kiosk-related functionalities, which may include product displays and transactions.
+- **review_policy.rb**: Controls permissions for creating, editing, or deleting reviews associated with products or services.
+
+## Relationship to Other Parts of the Codebase
+
+The policies defined in this directory are typically used in conjunction with controllers and models throughout the application. When a user attempts to perform an action, the corresponding policy is invoked to check if the action is permitted. This integration ensures that business logic regarding user permissions is centralized and easily maintainable.
+
+## Common Patterns or Conventions Used
+
+- **Inheritance**: Most policy files inherit from `ApplicationPolicy`, allowing for shared methods and reducing code duplication.
+- **Method Naming**: Policy methods are usually named after the actions they authorize, such as `show?`, `create?`, `update?`, and `destroy?`. This naming convention makes it clear what each method is responsible for.
+- **Scope**: Policies often define a `scope` method that limits the records a user can access based on their permissions.
+
+## Best Practices When Working with Files in This Directory
+
+1. **Keep Policies Focused**: Each policy should focus on a specific resource or functionality to maintain clarity and separation of concerns.
+2. **Use Descriptive Method Names**: Ensure that method names clearly indicate the action they are authorizing to improve readability and maintainability.
+3. **Document Policies**: Include comments and documentation within each policy file to explain the purpose and logic behind the authorization rules.
+4. **Test Policies**: Implement tests for each policy to ensure that they behave as expected and that permissions are enforced correctly.
+5. **Review and Refactor**: Regularly review policies for redundancy and refactor them to improve efficiency and clarity as the application evolves.

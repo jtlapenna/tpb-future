@@ -1,0 +1,52 @@
+---
+description: Documentation for the SensorObserver interface in the kiosks module.
+globs: ['src/app/kiosks/models/sensor-observer.ts']
+alwaysApply: false
+---
+
+# SensorObserver Interface Documentation
+
+## Overview
+The `SensorObserver` interface defines a contract for observing sensor data in a reactive manner using RxJS Observables. It provides a structured way to access sensor availability, type, and values, as well as methods to manage thresholds and clean up resources.
+
+## Key Components
+- **available**: `Observable<boolean>`  
+  This observable indicates whether the sensor is currently available. Subscribers can react to changes in availability.
+
+- **type**: `Observable<string>`  
+  This observable provides the type of the sensor as a string. It allows consumers to understand what kind of sensor they are dealing with.
+
+- **values**: `Observable<any>`  
+  This observable emits the current values from the sensor. The type is `any` to accommodate various sensor data types.
+
+- **setThreshold(value: number)**:  
+  This method allows setting a threshold value for the sensor. The specific behavior of this method will depend on the implementation of the interface.
+
+- **dispose()**: `void`  
+  This method is used to clean up resources when the sensor observer is no longer needed. It should be called to prevent memory leaks.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a definition for the `SensorObserver` interface.
+
+## Usage Example
+To implement the `SensorObserver` interface, a class might look like this:
+```typescript
+class MySensor implements SensorObserver {
+    available = new Observable<boolean>(observer => { /* logic */ });
+    type = new Observable<string>(observer => { /* logic */ });
+    values = new Observable<any>(observer => { /* logic */ });
+
+    setThreshold(value: number) {
+        // Implementation for setting threshold
+    }
+
+    dispose() {
+        // Cleanup logic
+    }
+}
+```
+
+## Best Practices
+- Always ensure to call the `dispose()` method when the observer is no longer needed to free up resources.
+- When implementing the `SensorObserver`, consider the types of data that will be emitted and ensure that the observables are properly managed to avoid memory leaks.
+- Use the `setThreshold` method judiciously, ensuring that the threshold values are within acceptable limits for the specific sensor type.

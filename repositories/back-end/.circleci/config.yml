@@ -1,0 +1,119 @@
+defaults: &defaults
+  working_directory: ~/peak_beyond_api
+  docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.7.0
+        environment:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://root@127.0.0.1:5432/circle_test
+          AWS_ACCESS_KEY_ID: XXX
+          AWS_SECRET_ACCESS_KEY: YYY
+          BUCKET_NAME: test-images
+          BUCKET_REGION: sa-east-1
+          ALGOLIASEARCH_APPLICATION_ID: 1
+          ALGOLIASEARCH_API_KEY: XXX
+          CONTINUOUS_INTEGRATION: true # need by fuubar formatter only when running at circle
+      - image: circleci/postgres:9.4.12-alpine
+      - image: redis:4.0.1
+
+version: 2
+jobs:
+  checkout_code:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: save SHA to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - save_cache:
+          key: v1-repo-{{ checksum ".circle-sha" }}
+          paths:
+            - ~/peak_beyond_api
+
+  bundle_dependencies:
+    <<: *defaults
+    steps:
+      - run:
+          name: save SHA to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - v1-repo-{{ checksum ".circle-sha" }}
+      - restore_cache:
+          keys:
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - vendor/bundle
+          key: v1-bundle-{{ checksum "Gemfile.lock" }}
+
+  rubocop:
+    <<: *defaults
+    steps:
+      - run:
+          name: save SHA to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - v1-repo-{{ checksum ".circle-sha" }}
+      - restore_cache:
+          keys:
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
+          name: Lint code with rubocop
+          command: bundle exec rubocop
+
+  rspec:
+    <<: *defaults
+    steps:
+      - run:
+          name: save SHA to a file
+          command: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          keys:
+            - v1-repo-{{ checksum ".circle-sha" }}
+      - restore_cache:
+          keys:
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      # Database setup
+      - run: bundle exec rake db:create db:schema:load --trace
+
+      - run:
+          name: run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+
+            bundle exec rspec --format Fuubar \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            $TEST_FILES
+
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - checkout_code
+      - bundle_dependencies:
+          requires:
+            - checkout_code
+      - rubocop:
+          requires:
+            - bundle_dependencies
+      - rspec:
+          requires:
+            - bundle_dependencies

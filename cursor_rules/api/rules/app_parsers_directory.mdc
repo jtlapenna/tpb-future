@@ -1,0 +1,32 @@
+---
+description: Documentation for the app/parsers directory containing various API parsers.
+globs: ['app/parsers/*']
+alwaysApply: false
+---
+
+# Overview of the app/parsers Directory
+
+The `app/parsers` directory is dedicated to handling the parsing of data from various external APIs and file formats. Each parser is designed to transform incoming data into a format that can be easily utilized within the application.
+
+## Key Files and Their Roles
+- **treez_api_parser.rb**: Responsible for parsing data from the Treez API, converting the API responses into structured objects for further processing.
+- **shopify_api_parser.rb**: Handles the parsing of data from the Shopify API, ensuring that product and order information is correctly formatted for internal use.
+- **product_csv_parser.rb**: Parses CSV files containing product data, allowing for bulk imports into the application.
+- **covasoft_api_parser.rb**: Manages data parsing from the Covasoft API, focusing on specific data structures required by the application.
+- **headset_api_parser.rb**: Extracts and formats data from the Headset API, particularly for analytics and reporting purposes.
+- **flowhub_api_parser.rb**: Parses data from the Flowhub API, facilitating integration with their services.
+- **blaze_api_parser.rb**: Responsible for parsing Blaze API responses, converting them into usable formats for the application.
+- **leaflogix_api_parser.rb**: Handles parsing for the Leaflogix API, ensuring data integrity and proper formatting.
+
+## Relationship to Other Parts of the Codebase
+The parsers in this directory are integral to the data flow within the application. They serve as the bridge between external data sources and the internal data structures used throughout the application. By standardizing how data is parsed, these files help maintain consistency and reliability in data handling.
+
+## Common Patterns and Conventions
+- Each parser typically follows a similar structure, including methods for fetching data, parsing it, and returning structured objects.
+- Naming conventions are consistent, with each file named after the API or data source it handles, making it easy to identify their purpose.
+
+## Best Practices
+- Ensure that each parser is well-documented, explaining the data format expected from the API or file being parsed.
+- Implement error handling within each parser to manage unexpected data formats or API changes gracefully.
+- Regularly update parsers to accommodate changes in external APIs or data structures to prevent breaking changes in the application.
+- Write unit tests for each parser to ensure they function correctly and handle edge cases appropriately.

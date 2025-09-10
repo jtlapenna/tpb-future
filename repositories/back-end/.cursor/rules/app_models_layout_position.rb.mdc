@@ -1,0 +1,43 @@
+---
+description: Documentation for the LayoutPosition model in the application.
+globs: ['app/models/layout_position.rb']
+alwaysApply: false
+---
+
+# LayoutPosition Model Documentation
+
+## Overview
+The `LayoutPosition` model represents a layout position in the application. It inherits from `ApplicationRecord`, which means it is a part of the Active Record framework in Ruby on Rails. This model is primarily responsible for managing layout position data in the database.
+
+## Key Components
+- **Class Definition**: `class LayoutPosition < ApplicationRecord`
+  - This line defines the `LayoutPosition` class, which inherits from `ApplicationRecord`, allowing it to interact with the database.
+
+- **Validations**: `validates :label, presence: true`
+  - This validation ensures that the `label` attribute must be present before a `LayoutPosition` object can be saved to the database. This is crucial for maintaining data integrity.
+
+## Schema Information
+The `layout_positions` table in the database has the following schema:
+- `id`: A unique identifier for each layout position (primary key).
+- `label`: A string that represents the name or label of the layout position.
+- `created_at`: A timestamp indicating when the record was created.
+- `updated_at`: A timestamp indicating when the record was last updated.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a model definition.
+
+## Usage Examples
+To create a new layout position, you can use the following code:
+```ruby
+layout_position = LayoutPosition.new(label: 'Header')
+if layout_position.save
+  puts 'Layout position created successfully!'
+else
+  puts 'Error: ' + layout_position.errors.full_messages.join(', ')
+end
+```
+
+## Best Practices
+- Always ensure that the `label` attribute is provided when creating or updating a `LayoutPosition` instance to avoid validation errors.
+- Consider adding additional validations or methods to enhance the functionality of the `LayoutPosition` model as the application grows.
+- Keep the model focused on its responsibilities; avoid adding unrelated methods or logic that could complicate its purpose.

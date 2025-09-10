@@ -1,0 +1,37 @@
+---
+description: Documentation for the ArticlesLocal class which manages local article data storage.
+globs: ['src/api/articles/ArticlesLocal.js']
+alwaysApply: false
+---
+
+# ArticlesLocal.js Documentation
+
+## Overview
+The `ArticlesLocal` class is a part of the local data management layer for articles in the application. It extends the `LocalRepo` class, providing a specific implementation for handling articles stored locally.
+
+## Key Components
+- **Class: ArticlesLocal**  
+  The `ArticlesLocal` class inherits from `LocalRepo`. It is initialized with the parameters 'articles' and 'id', which define the collection name and the unique identifier for each article, respectively.
+
+### Constructor
+- **constructor()**  
+  The constructor calls the parent class constructor with the arguments 'articles' and 'id'. This sets up the local repository for managing article data.
+
+## Dependencies
+- **Imports:**  
+  - `LocalRepo` from `../LocalRepo`: This is the base class that provides common functionality for local data repositories.
+
+- **Exports:**  
+  - This file is imported by `src/api/articles/ArticlesRepo.js`, which likely uses `ArticlesLocal` to manage article data operations.
+
+## Usage Example
+To use the `ArticlesLocal` class, you would typically instantiate it and call its methods to interact with the local article data. For example:
+```javascript
+const articlesLocal = new ArticlesLocal();
+// Use articlesLocal to perform operations like fetching, saving, or deleting articles.
+```
+
+## Best Practices
+- Ensure that any modifications to the `ArticlesLocal` class maintain the integrity of the data structure defined in the `LocalRepo` class.
+- When extending functionality, consider the implications on performance and data consistency, especially if multiple components interact with the same local data.
+- Keep the class focused on local data management; avoid adding unrelated functionalities that could complicate its purpose.

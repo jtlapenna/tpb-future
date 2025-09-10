@@ -1,0 +1,34 @@
+---
+description: Documentation for the ArticleListComponent test file in an Angular application.
+globs: ['src/app/articles/article-list/article-list.component.spec.ts']
+alwaysApply: false
+---
+
+# ArticleListComponent Test File
+
+## Overview
+This file contains unit tests for the `ArticleListComponent` in an Angular application. It utilizes Angular's testing utilities to ensure that the component is created successfully and behaves as expected.
+
+## Key Components
+- **Imports**: The file imports necessary testing utilities from Angular, the component under test, and a custom testing module.
+- **describe**: A Jasmine function that groups related tests for the `ArticleListComponent`.
+- **beforeEach**: Sets up the testing environment before each test runs. It configures the testing module, compiles components, and initializes the component instance.
+- **it**: A Jasmine function that defines an individual test case, in this case, checking if the component is created successfully.
+
+## Dependencies
+- **ArticleListComponent**: The component being tested, located at `src/app/articles/article-list/article-list.component.ts`. This component is responsible for displaying a list of articles.
+- **PeakTestingModule**: A custom testing module imported from `src/app/test`, which likely includes shared testing utilities or mock services.
+- **CUSTOM_ELEMENTS_SCHEMA**: This schema allows the use of custom elements in the component without Angular throwing errors about unknown elements.
+
+## Usage Examples
+To run the tests defined in this file, use the Angular CLI command:
+```bash
+ng test
+```
+This will execute all tests in the project, including those in this file.
+
+## Best Practices
+- Ensure that all components have corresponding test files to maintain code quality and reliability.
+- Use descriptive test names to clarify the purpose of each test case.
+- Keep tests isolated and focused on a single behavior to make debugging easier.
+- Regularly run tests during development to catch issues early.

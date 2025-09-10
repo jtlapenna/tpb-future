@@ -1,0 +1,43 @@
+---
+description: Documentation for the Paged concern in the Rails application.
+globs: ['app/controllers/concerns/paged.rb']
+alwaysApply: false
+---
+
+# Paged Concern Documentation
+
+## Overview
+The `Paged` module is a Rails concern that provides pagination functionality for collections in a controller. It simplifies the handling of pagination parameters and provides a structured way to return pagination metadata.
+
+## Key Components
+
+### Methods
+- **`page`**: Returns the current page number from the request parameters. If no page is specified, it defaults to `1`.
+  - **Usage**: `page` can be called to determine which page of results to display.
+
+- **`page_size`**: Returns the number of items per page from the request parameters. If not specified, it defaults to the value defined in the Kaminari configuration.
+  - **Usage**: `page_size` can be used to determine how many items should be displayed on each page.
+
+- **`pagination_dict(collection, enable_automate_promotions = false)`**: Accepts a collection (typically a paginated ActiveRecord relation) and returns a hash containing pagination metadata such as the current page, next page, previous page, total pages, and total count of items. It also includes an option to enable automated promotions.
+  - **Usage**: This method is useful for constructing a response that includes pagination information, which can be sent back to the client.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It is a standalone concern that can be included in any controller that requires pagination functionality.
+
+## Usage Example
+To use the `Paged` concern in a controller, include it as follows:
+```ruby
+class ItemsController < ApplicationController
+  include Paged
+
+  def index
+    items = Item.page(page).per(page_size)
+    render json: items, meta: pagination_dict(items)
+  end
+end
+```
+
+## Best Practices
+- Ensure that the `Kaminari` gem is properly configured in your application to utilize the default pagination settings.
+- When using the `pagination_dict` method, always check if the collection is paginated to avoid errors.
+- Consider implementing error handling for cases where the requested page exceeds the total number of pages available.

@@ -1,0 +1,53 @@
+---
+description: Documentation for the TagInfo model in the application.
+globs: ['app/models/tag_info.rb']
+alwaysApply: false
+---
+
+# TagInfo Model Documentation
+
+## Overview
+The `TagInfo` model represents a tag and its associated description in the application. It inherits from `ApplicationRecord`, which means it is an ActiveRecord model that interacts with the database.
+
+## Purpose and Functionality
+The primary purpose of the `TagInfo` model is to manage tags within the application. It ensures that each tag has a unique value and a description, enforcing data integrity through validations.
+
+## Key Components
+- **Class Definition**: `class TagInfo < ApplicationRecord`
+  - This line defines the `TagInfo` class, which is a subclass of `ApplicationRecord`, allowing it to utilize ActiveRecord features.
+
+- **Validations**:
+  - `validates :tag, :description, presence: true`
+    - This validation ensures that both the `tag` and `description` fields must be present when creating or updating a `TagInfo` record.
+  - `validates :tag, uniqueness: { message: 'Tag already exists.' }`
+    - This validation enforces that the `tag` must be unique across all records in the `tag_infos` table, providing a custom error message if a duplicate is attempted.
+
+## Schema Information
+The `TagInfo` model corresponds to the `tag_infos` table in the database, which has the following schema:
+- `id`: Primary key, automatically generated.
+- `description`: Text field for storing the description of the tag.
+- `tag`: String field for storing the tag itself.
+- `created_at`: Timestamp for when the record was created.
+- `updated_at`: Timestamp for when the record was last updated.
+
+### Indexes
+- `index_tag_infos_on_tag (tag) UNIQUE`: This index ensures that the `tag` field is unique, which is crucial for the uniqueness validation.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a model for managing tag information.
+
+## Usage Examples
+To create a new tag:
+```ruby
+new_tag = TagInfo.create(tag: 'example_tag', description: 'An example tag for demonstration.')
+```
+
+To find a tag by its name:
+```ruby
+existing_tag = TagInfo.find_by(tag: 'example_tag')
+```
+
+## Best Practices
+- Always ensure that the `tag` and `description` fields are provided when creating or updating a `TagInfo` record to avoid validation errors.
+- Use the uniqueness validation to prevent duplicate tags, which can lead to confusion and data integrity issues.
+- Consider adding additional validations or methods to enhance the functionality of the `TagInfo` model as the application evolves.

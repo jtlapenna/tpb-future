@@ -1,0 +1,130 @@
+/*-----[Keyboard structure]---------------------------------------------------*/
+
+#osk-container-number {
+  visibility: hidden;
+  position: fixed;
+  overflow: hidden;
+  padding: 1%;
+  margin: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+}
+
+#osk-container-number > li {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.81395349%;
+  height: 3em;
+  margin: 0 0.726744186% 5px 0;
+  line-height: 3em;
+  text-align: center;
+  list-style-type: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#osk-container-number > .osk-capslock,
+#osk-container-number > .osk-tab,
+#osk-container-number > .osk-shift {
+  clear: left;
+}
+
+#osk-container-number > .osk-dragger {
+  display: none;
+  width: 100%;
+  cursor: move;
+}
+
+#osk-container-number > .osk-dragger:hover {
+  position: static;
+}
+
+#osk-container-number > .osk-tab,
+#osk-container-number > .osk-backspace {
+  width: 14.9709302%;
+}
+
+#osk-container-number > .osk-capslock {
+  width: 13.6337209%;
+}
+
+#osk-container-number > .osk-return {
+  width: 13.6918605%;
+}
+
+#osk-container-number > .osk-shift {
+  width: 16.2381395%;
+}
+
+#osk-container-number > .osk-hide {
+  width: 17.5581396%;
+}
+
+#osk-container-number > .osk-space {
+  clear: left;
+  width: 100%;
+  margin: 0;
+}
+
+#osk-container-number > .osk-last-item {
+  margin-right: 0 !important;
+}
+
+#osk-container-number .osk-on {
+  display: none;
+}
+
+#osk-container-number > .osk-uppercase {
+  text-transform: uppercase;
+}
+
+#osk-container-number > .osk-disabled {
+  cursor: default;
+}
+
+#osk-container-number > .osk-disabled:hover {
+  position: static;
+}
+
+#osk-container-number > li:hover {
+  position: relative;
+  top: 1px;
+}
+
+/*-----[Customisable styles]--------------------------------------------------*/
+
+#osk-container-number {
+  width: 47%; /* Account for 2% padding and a vertical scroll bar */
+  min-width: 500px;
+  /* max-width: 1450px; */
+  background: #eee;
+  border-radius: 5%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#osk-container-number > li {
+  background: #ddd;
+  border-radius: 10%;
+  -moz-transition: 0.5s;
+}
+
+#osk-container-number > .osk-dragger {
+  background: transparent;
+  color: #aaa;
+}
+
+#osk-container-number > .osk-disabled {
+  background: #e5e5e5;
+  color: #ccc;
+}
+
+.osk-focused {
+  background: #fafafa !important;
+}

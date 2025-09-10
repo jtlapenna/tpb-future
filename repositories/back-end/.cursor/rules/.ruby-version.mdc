@@ -1,0 +1,31 @@
+---
+description: This file specifies the Ruby version for the project.
+globs: ['.ruby-version']
+alwaysApply: false
+---
+
+# .ruby-version Documentation
+
+## Overview
+The `.ruby-version` file is used to specify the version of Ruby that the project is intended to run on. This helps ensure that all developers working on the project are using the same Ruby version, which can prevent compatibility issues and streamline the development process.
+
+## Key Components
+- **Ruby Version**: The content of the file is a single line that indicates the version of Ruby to be used. In this case, it specifies `3.1.4`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It serves as a standalone configuration file that is typically read by Ruby version managers such as RVM or rbenv.
+
+## Usage Examples
+When using a Ruby version manager, simply ensure that the version specified in this file is installed. For example, if you are using rbenv, you can install the specified version with:
+```bash
+rbenv install 3.1.4
+```
+After installation, you can set the local Ruby version for the project:
+```bash
+rbenv local 3.1.4
+```
+
+## Best Practices
+- Always keep the `.ruby-version` file updated to reflect the Ruby version that the project is currently using.
+- When starting a new project or updating an existing one, ensure that the specified Ruby version is compatible with the gems and libraries used in the project.
+- Encourage all team members to use the same Ruby version manager to avoid discrepancies in the development environment.

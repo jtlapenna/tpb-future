@@ -1,0 +1,28 @@
+---
+description: Documentation for the .dockerignore file, which specifies files and directories to ignore when building Docker images.
+globs: ['.dockerignore']
+alwaysApply: false
+---
+
+# .dockerignore Documentation
+
+## Overview
+The `.dockerignore` file is used to specify which files and directories should be excluded from the context sent to the Docker daemon when building an image. This helps to reduce the size of the build context and can improve build performance by preventing unnecessary files from being included.
+
+## Key Components
+- **node_modules**: This entry indicates that the `node_modules` directory should be ignored during the Docker build process. This is important because `node_modules` can contain a large number of files and is typically not needed in the Docker image, as dependencies can be installed directly in the image using the `package.json` file.
+
+## Relationship to Other Files
+This file does not import or get imported by any other files in the repository. It operates independently to manage the build context for Docker images. However, it is closely related to the `Dockerfile`, which defines how the image is built. The `.dockerignore` file ensures that unnecessary files are not included in the context that the `Dockerfile` uses.
+
+## Usage Examples
+When building a Docker image, the presence of the `.dockerignore` file will automatically exclude the specified files and directories. For example, running the following command:
+```bash
+docker build -t my-app .
+```
+will ignore the `node_modules` directory as specified in the `.dockerignore` file.
+
+## Best Practices
+- Always include a `.dockerignore` file in your project to optimize the build context.
+- Be mindful of what you include in the `.dockerignore` file; only exclude files that are not necessary for the application to run in the container.
+- Regularly review and update the `.dockerignore` file as your project evolves to ensure it remains relevant and effective.

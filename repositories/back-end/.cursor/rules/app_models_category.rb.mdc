@@ -1,0 +1,44 @@
+---
+description: Documentation for the Category model in the application.
+globs: ['app/models/category.rb']
+alwaysApply: false
+---
+
+# Category Model Documentation
+
+## Overview
+The `Category` model represents a category in the application, which can be associated with multiple products and kiosk layouts. It inherits from `ApplicationRecord`, making it a part of the Active Record framework in Ruby on Rails.
+
+## Key Components
+- **Associations:**  
+  - `has_many :products, dependent: :nullify`: This association indicates that a category can have many products. If a category is deleted, the associated products will not be deleted but their category reference will be set to `null`.
+  - `has_many :category_kiosk_layout, dependent: :destroy`: This sets up a one-to-many relationship with the `category_kiosk_layout` join model, which allows for the association of categories with kiosk layouts. If a category is deleted, the associated `category_kiosk_layout` records will also be destroyed.
+  - `has_many :kiosk_layouts, through: :category_kiosk_layout`: This establishes a many-to-many relationship with `kiosk_layouts` through the `category_kiosk_layout` join model.
+
+- **Validations:**  
+  - `validates :name, presence: true, uniqueness: true`: This validation ensures that every category must have a name that is both present and unique within the database.
+
+## Schema Information
+The `categories` table in the database has the following structure:
+- `id`: A unique identifier for each category (primary key).
+- `name`: The name of the category (string).
+- `created_at`: Timestamp for when the category was created.
+- `updated_at`: Timestamp for when the category was last updated.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the codebase.
+
+## Usage Examples
+To create a new category, you can use the following code:
+```ruby
+Category.create(name: 'Electronics')
+```
+To find a category by name:
+```ruby
+category = Category.find_by(name: 'Electronics')
+```
+
+## Best Practices
+- Always ensure that the `name` attribute is unique to avoid validation errors when creating new categories.
+- Use the `dependent: :nullify` option carefully to ensure that product associations are handled correctly when a category is deleted.
+- Consider adding additional validations or methods to enhance the functionality of the `Category` model as needed.

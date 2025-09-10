@@ -1,0 +1,42 @@
+---
+description: Serializer for Kiosk Product Compact representation in the application.
+globs: ['app/serializers/kiosk_product_compact_serializer.rb']
+alwaysApply: false
+---
+
+# KioskProductCompactSerializer
+
+## Overview
+The `KioskProductCompactSerializer` is a serializer class that defines how a kiosk product is represented in JSON format when sent to the client. It is part of the ActiveModel::Serializer framework, which is used to create a structured representation of models in Rails applications.
+
+## Key Components
+- **Class Definition**: The class `KioskProductCompactSerializer` inherits from `ActiveModel::Serializer`, which provides the necessary functionality to serialize the model.
+- **Attributes**: The serializer specifies that only the `id` attribute of the kiosk product should be included in the serialized output.
+- **Associations**: The `belongs_to` method is used to define a relationship with the `store_product`. It customizes the output to include the `store_product_id` as part of the serialized data.
+
+## File Structure
+```ruby
+class KioskProductCompactSerializer < ActiveModel::Serializer
+  attributes :id
+
+  belongs_to :store_product do
+    { id: object.store_product_id }
+  end
+end
+```
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, focusing solely on the serialization of the kiosk product.
+
+## Usage Example
+When a request is made to retrieve kiosk product data, this serializer will be invoked to format the response. For example:
+```ruby
+kiosk_product = KioskProduct.find(params[:id])
+render json: kiosk_product, serializer: KioskProductCompactSerializer
+```
+This will return a JSON response containing only the `id` of the kiosk product and the associated `store_product_id`.
+
+## Best Practices
+- **Keep it Simple**: Since this serializer is designed to provide a compact representation, avoid adding unnecessary attributes or associations that could bloat the response.
+- **Consistency**: Ensure that similar serializers follow the same structure and naming conventions to maintain consistency across the codebase.
+- **Testing**: Write tests to verify that the serializer outputs the expected JSON structure, especially when changes are made to the underlying models.

@@ -1,0 +1,52 @@
+---
+description: Documentation for the ScreenCart component in a Vue.js application.
+globs: ['src/components/ScreenCart.vue']
+alwaysApply: false
+---
+
+# ScreenCart.vue Documentation
+
+## Overview
+The `ScreenCart.vue` file defines a Vue.js component that represents the shopping cart screen in an e-commerce application. It provides functionality for displaying cart items, managing quantities, applying discounts, and handling checkout processes. The component is designed to be responsive and user-friendly, ensuring a smooth shopping experience.
+
+## Key Components
+
+### Template Structure
+- **Main Container**: The main `<div>` with the ID `screen-cart` serves as the container for the entire cart screen.
+- **Cart Title**: Displays the title "My Cart".
+- **Cart Items**: Uses conditional rendering to display either an empty cart message or the list of products in the cart.
+- **Product Details**: Each product in the cart shows its image, name, price, and quantity, along with options to edit or remove the item.
+- **Total Calculation**: Displays the subtotal, discounts, taxes, and total amount due.
+- **Action Buttons**: Includes buttons for checking out, resetting the cart, and saving the cart.
+
+### Script Section
+- **Data Properties**: Manages the state of the cart, including items, quantities, and discount codes.
+- **Computed Properties**: Calculates the subtotal, total, and checks if the cart is empty or if specific features are activated.
+- **Methods**: Includes methods for handling user interactions, such as toggling item edit forms, checking out, and resetting the cart.
+
+### Styles
+- The component uses scoped SCSS styles to ensure that styles do not leak into other components. It includes styles for layout, typography, and responsive design.
+
+## Dependencies
+This file imports several components and libraries:
+- **ModalTemplate**: Used for displaying modals for errors and confirmations.
+- **ProductImage**: Displays product images in the cart.
+- **QrcodeVue**: Generates QR codes for checkout links.
+- **Vuex**: Manages state related to the cart and products.
+- **GSAP**: Used for animations during transitions.
+
+## Usage Examples
+To use the `ScreenCart` component, it should be included in a parent component or router view. For example:
+```vue
+<template>
+  <ScreenCart :cart="cartItems" :cartTotal="totalAmount" :isOffline="isOffline" :products="productList" />
+</template>
+```
+
+## Best Practices
+- **State Management**: Ensure that the cart state is managed through Vuex to maintain consistency across the application.
+- **Performance**: Use computed properties to optimize performance by avoiding unnecessary re-renders.
+- **Accessibility**: Ensure that all interactive elements are accessible and provide appropriate feedback to users.
+- **Testing**: Write unit tests for methods that handle cart logic to ensure reliability and maintainability.
+
+By following these guidelines, developers can effectively work with the `ScreenCart.vue` component and integrate it into the larger application.

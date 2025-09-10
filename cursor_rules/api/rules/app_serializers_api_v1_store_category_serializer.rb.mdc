@@ -1,0 +1,44 @@
+---
+description: Serializer for StoreCategory in the API V1 namespace.
+globs: ['app/serializers/api/v1/store_category_serializer.rb']
+alwaysApply: false
+---
+
+# StoreCategorySerializer
+
+## Overview
+The `StoreCategorySerializer` is responsible for serializing the `StoreCategory` model in the API V1 namespace. It defines how the `StoreCategory` data is structured when sent to the client, ensuring that only the necessary attributes are included in the JSON response.
+
+## Key Components
+- **Class Definition**: The class `StoreCategorySerializer` inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+- **Attributes**: The `attributes` method specifies which fields of the `StoreCategory` model should be included in the serialized output. In this case, the following attributes are included:
+  - `id`: The unique identifier for the store category.
+  - `name`: The name of the store category.
+  - `order`: The order in which the store category should be displayed.
+  - `created_at`: The timestamp when the store category was created.
+  - `updated_at`: The timestamp when the store category was last updated.
+- **Associations**: The `has_one` method indicates that each store category can have one associated `banner`, which is serialized using the `Api::V1::AssetSerializer`. This allows for nested serialization of related objects.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on the serialization of the `StoreCategory` model.
+
+## Usage Example
+When a request is made to the API to retrieve a store category, the `StoreCategorySerializer` will format the response as follows:
+```json
+{
+  "id": 1,
+  "name": "Electronics",
+  "order": 1,
+  "created_at": "2023-01-01T00:00:00Z",
+  "updated_at": "2023-01-02T00:00:00Z",
+  "banner": {
+    "id": 10,
+    "url": "http://example.com/banner.png"
+  }
+}
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the fields available in the `StoreCategory` model to avoid serialization errors.
+- When adding new attributes or associations, update the serializer accordingly to maintain consistency in the API response.
+- Use the `AssetSerializer` for the `banner` association to keep the serialization logic modular and reusable.

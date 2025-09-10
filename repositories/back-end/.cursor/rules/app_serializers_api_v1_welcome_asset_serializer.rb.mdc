@@ -1,0 +1,40 @@
+---
+description: Documentation for the WelcomeAssetSerializer in the API V1 module.
+globs: ['app/serializers/api/v1/welcome_asset_serializer.rb']
+alwaysApply: false
+---
+
+# WelcomeAssetSerializer Documentation
+
+## Overview
+The `WelcomeAssetSerializer` is a serializer class that formats the output of `WelcomeAsset` objects for the API version 1. It is part of the `Api::V1` module and extends `ActiveModel::Serializer`, which provides a way to customize the JSON representation of the model.
+
+## Key Components
+- **Class Definition**: `class WelcomeAssetSerializer < ActiveModel::Serializer`
+  - This line defines the `WelcomeAssetSerializer` class, inheriting from `ActiveModel::Serializer`, which allows for easy serialization of Active Record objects.
+
+- **Attributes**: `attributes :id, :asset_position, :created_at, :updated_at`
+  - This line specifies the attributes that will be included in the serialized output. The serializer will include the `id`, `asset_position`, `created_at`, and `updated_at` fields.
+
+- **Custom Method**: `def asset_position`
+  - This method customizes the serialization of the `asset_position` attribute. It retrieves the label of the associated `asset_position` object, if it exists, using safe navigation (`&.`) to avoid errors if `asset_position` is nil.
+
+- **Association**: `has_one :asset, serializer: Api::V1::AssetSerializer`
+  - This line indicates that the `WelcomeAsset` has a one-to-one relationship with an `Asset` object, and it specifies that the `AssetSerializer` should be used to serialize the associated asset.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone in its functionality, focusing solely on the serialization of the `WelcomeAsset` model.
+
+## Usage Example
+To use the `WelcomeAssetSerializer`, you would typically instantiate it with a `WelcomeAsset` object:
+```ruby
+welcome_asset = WelcomeAsset.find(1)
+serializer = Api::V1::WelcomeAssetSerializer.new(welcome_asset)
+render json: serializer.serializable_hash
+```
+
+## Best Practices
+- Ensure that the attributes defined in the serializer match the fields available in the `WelcomeAsset` model.
+- Use safe navigation (`&.`) when accessing nested attributes to prevent nil errors.
+- Keep the serializer focused on formatting the output; avoid including business logic within the serializer.
+- Regularly review and update the serializer as the underlying model changes to ensure consistency in the API response.

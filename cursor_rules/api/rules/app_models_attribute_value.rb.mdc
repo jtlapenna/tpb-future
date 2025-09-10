@@ -1,0 +1,57 @@
+---
+description: Documentation for the AttributeValue model in the application.
+globs: ['app/models/attribute_value.rb']
+alwaysApply: false
+---
+
+# AttributeValue Model Documentation
+
+## Overview
+The `AttributeValue` model represents a value associated with a specific attribute definition in the application. It is designed to handle polymorphic associations, allowing it to be linked to various target models, such as `StoreProduct`. This model includes validations, scopes, and callbacks to manage the lifecycle of attribute values effectively.
+
+## Key Components
+- **Associations**:  
+  - `belongs_to :attribute_def`: Establishes a relationship with the `AttributeDef` model, linking each attribute value to its definition.  
+  - `belongs_to :target, polymorphic: true`: Allows the `AttributeValue` to be associated with different models (e.g., `StoreProduct`) through a polymorphic association.
+
+- **Validations**:  
+  - `validates :value, presence: true`: Ensures that an attribute value cannot be created without a value.
+
+- **Scopes**:  
+  - `scope :with_name`: A class method that retrieves attribute values associated with a specific attribute name by joining with the `AttributeDef` model.
+
+- **Callbacks**:  
+  - `after_create_commit`, `after_update_commit`, `after_destroy_commit`: These callbacks trigger methods to update the `last_updated_websocket` timestamp on the associated `StoreProduct` whenever an `AttributeValue` is created, updated, or destroyed.
+
+## Methods
+- **notify_store_product_create**:  
+  Updates the `last_updated_websocket` timestamp of the associated `StoreProduct` when a new `AttributeValue` is created, if the target type is `StoreProduct`.
+
+- **notify_store_product_update**:  
+  Similar to the create method, this updates the timestamp if relevant fields have changed during an update.
+
+- **notify_store_product_destroy**:  
+  Updates the timestamp when an `AttributeValue` is destroyed, ensuring the associated `StoreProduct` reflects the latest changes.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on its defined associations and ActiveRecord functionalities.
+
+## Usage Examples
+To create a new `AttributeValue`:
+```ruby
+attribute_value = AttributeValue.create(
+  value: 'Some Value',
+  attribute_def_id: 1,
+  target: some_store_product
+)
+```
+
+To query `AttributeValues` by attribute name:
+```ruby
+AttributeValue.with_name('Color')
+```
+
+## Best Practices
+- Ensure that the `value` field is always populated when creating or updating an `AttributeValue` to avoid validation errors.
+- Be cautious when modifying the `notify_store_product_*` methods, as they directly affect the `StoreProduct` model's timestamps. Ensure that any changes maintain the integrity of the data and the intended functionality.
+- When working with polymorphic associations, always verify the `target_type` to avoid unexpected behavior.

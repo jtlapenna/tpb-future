@@ -1,0 +1,46 @@
+---
+description: This file defines the authorization policy for asset-related actions in the application.
+globs: ['app/policies/asset_policy.rb']
+alwaysApply: false
+---
+
+# AssetPolicy Documentation
+
+## Overview
+The `AssetPolicy` class is responsible for defining the authorization rules for actions related to assets, specifically for uploading and destroying assets. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes in the application.
+
+## Key Components
+
+### Class: AssetPolicy
+- **Inheritance**: Inherits from `ApplicationPolicy`, which likely contains common authorization logic.
+
+#### Method: `upload_request?`
+- **Purpose**: Determines if a user is authorized to upload an asset.
+- **Logic**: 
+  - Returns the `user` if the `record` is of type `Image`.
+  - Otherwise, it checks if the user is an admin by calling `admin?` method.
+
+#### Method: `destroy?`
+- **Purpose**: Checks if a user is authorized to destroy an asset.
+- **Logic**: 
+  - Returns `true` if there is a `user` or if the user is an admin.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+- To check if a user can upload an image:
+  ```ruby
+  policy = AssetPolicy.new(user, image)
+  policy.upload_request? # returns true or false based on user role
+  ```
+- To check if a user can destroy an asset:
+  ```ruby
+  policy = AssetPolicy.new(user, asset)
+  policy.destroy? # returns true or false based on user role
+  ```
+
+## Best Practices
+- Ensure that the `user` and `admin?` methods are properly defined in the `ApplicationPolicy` or the user model to avoid unexpected behavior.
+- When adding new asset types, consider extending the logic in `upload_request?` to accommodate new conditions as necessary.
+- Keep the policy methods simple and focused on a single responsibility to maintain clarity and ease of testing.

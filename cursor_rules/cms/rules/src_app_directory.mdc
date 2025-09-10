@@ -1,0 +1,33 @@
+---
+description: Documentation for the src/app directory in the codebase.
+globs: ['src/app/*']
+alwaysApply: false
+---
+
+# Overview of the src/app Directory
+
+The `src/app` directory serves as the main application module for the Angular application. It contains the core components, routing configurations, and application-level services that are essential for the functionality and structure of the application.
+
+## Key Files and Their Roles
+- **app.component.ts**: The root component of the application, serving as the entry point for the Angular component tree.
+- **app.module.ts**: The main application module that declares and imports all necessary components, services, and modules required for the application to function.
+- **app.routes.ts**: Contains the routing configuration for the application, defining the navigation paths and associated components.
+- **app.component.html**: The template for the root component, defining the layout and structure of the application’s UI.
+- **app.config.ts**: Configuration settings for the application, which may include environment-specific variables and constants.
+- **app.component.spec.ts**: Unit tests for the root component, ensuring its functionality and integration with other parts of the application.
+
+## Relationship to Other Parts of the Codebase
+The files in the `src/app` directory interact with various other modules and components throughout the application. They import services from the `src/app/core/services` directory, such as `current-store.service.ts` and `current-kiosk.service.ts`, which provide essential data and functionality. Additionally, components from this directory are utilized by various feature modules, including product layouts, stores, and user management, indicating a high level of interconnectivity within the application.
+
+## Common Patterns and Conventions
+- **Component Structure**: Each component typically consists of a TypeScript file, an HTML template, and a CSS file (if applicable), following the Angular style guide.
+- **Service Injection**: Services are injected into components to promote reusability and separation of concerns, adhering to Angular's dependency injection principles.
+- **Routing**: The routing configuration is centralized in `app.routes.ts`, allowing for easy management of navigation paths and lazy loading of feature modules.
+
+## Best Practices
+- **Consistent Naming**: Follow a consistent naming convention for components, services, and modules to enhance readability and maintainability.
+- **Modularization**: Keep components and services modular to promote reusability and reduce dependencies between different parts of the application.
+- **Testing**: Write unit tests for components and services to ensure reliability and facilitate easier debugging and refactoring in the future.
+- **Documentation**: Maintain clear documentation for each file and its purpose to assist other developers in understanding the codebase quickly.
+
+By adhering to these practices and understanding the structure of the `src/app` directory, developers can effectively contribute to and maintain the application.

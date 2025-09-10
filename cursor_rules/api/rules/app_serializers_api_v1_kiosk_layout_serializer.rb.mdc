@@ -1,0 +1,46 @@
+---
+description: Serializer for Kiosk Layout in the API V1 namespace.
+globs: ['app/serializers/api/v1/kiosk_layout_serializer.rb']
+alwaysApply: false
+---
+
+# KioskLayoutSerializer Documentation
+
+## Overview
+The `KioskLayoutSerializer` is responsible for serializing the Kiosk Layout objects in the API V1 namespace. It defines how the Kiosk Layout data is structured when sent to the client, ensuring that all necessary attributes and relationships are included in the JSON response.
+
+## Key Components
+- **Attributes**: The serializer includes a variety of attributes such as `id`, `template`, `home_layout`, and others that represent the properties of a Kiosk Layout.
+- **Relationships**:  
+  - `belongs_to` relationships with `welcome_asset`, `video_image_background_asset`, and `store_category`, each using their respective serializers to format the associated data correctly.
+  - `has_many` relationships with `store_category_kiosk_layouts` and `store_categories`, where the latter includes a custom mapping to extract specific fields and their order from the associated layouts.
+  - `has_one` relationship with `navigation`, which is serialized using `LayoutNavigationSerializer`.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the API V1 namespace, focusing solely on the Kiosk Layout serialization.
+
+## Usage Example
+When a request is made to retrieve a Kiosk Layout, the `KioskLayoutSerializer` will format the response as follows:
+```json
+{
+  "id": 1,
+  "template": "default",
+  "home_layout": "grid",
+  "store_categories": [
+    {
+      "id": 2,
+      "name": "Electronics",
+      "order": 1,
+      "store_id": 1
+    }
+  ],
+  "welcome_asset": {...},
+  "video_image_background_asset": {...},
+  "navigation": {...}
+}
+```
+
+## Best Practices
+- Ensure that any changes to the Kiosk Layout model are reflected in this serializer to maintain consistency in the API response.
+- When adding new attributes or relationships, consider the impact on performance and the size of the serialized response.
+- Use the appropriate serializers for associated objects to keep the response clean and well-structured.

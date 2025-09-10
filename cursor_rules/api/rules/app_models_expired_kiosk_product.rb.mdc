@@ -1,0 +1,40 @@
+---
+description: Documentation for the ExpiredKioskProduct model in the application.
+globs: ['app/models/expired_kiosk_product.rb']
+alwaysApply: false
+---
+
+# ExpiredKioskProduct Model Documentation
+
+## Overview
+The `ExpiredKioskProduct` model represents products that have expired in a kiosk. It is part of the application's data layer and interacts with the database to manage expired products associated with kiosks and stores.
+
+## Key Components
+- **Class Definition**: `ExpiredKioskProduct` inherits from `ApplicationRecord`, making it a Rails model that can interact with the database.
+- **Associations**:
+  - `belongs_to :store_product, optional: true`: This indicates that an expired kiosk product may be associated with a store product, but it is not mandatory.
+  - `belongs_to :store, optional: true`: Similar to the above, this association links the expired product to a store, if applicable.
+  - `belongs_to :kiosk, optional: true`: This links the expired product to a kiosk, allowing for the tracking of which kiosk the product was associated with.
+- **Validations**:
+  - `validates :expired_at, presence: true`: Ensures that the `expired_at` attribute is present when creating or updating an expired kiosk product.
+  - `validates :last_updated_at, presence: true`: Ensures that the `last_updated_at` attribute is also present.
+- **Scopes**:
+  - `scope :active, -> { where active: true }`: This scope allows for easy querying of active expired kiosk products.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It operates independently within the application, relying solely on its defined associations and validations.
+
+## Usage Examples
+To create a new expired kiosk product, you can use the following code:
+```ruby
+ExpiredKioskProduct.create(expired_at: Time.now, last_updated_at: Time.now, kiosk_id: 1, store_id: 1)
+```
+To retrieve all active expired kiosk products:
+```ruby
+active_products = ExpiredKioskProduct.active
+```
+
+## Best Practices
+- Always ensure that the `expired_at` and `last_updated_at` fields are populated to maintain data integrity.
+- Use the defined scopes for querying to keep the code clean and efficient.
+- Consider adding additional validations or methods as needed to enhance the functionality of the model.

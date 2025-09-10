@@ -1,0 +1,25 @@
+---
+description: Documentation for the release notes file in the codebase.
+globs: ['release.md']
+alwaysApply: false
+---
+
+# Release.md Documentation
+
+## Overview
+The `release.md` file serves as a changelog for the project, documenting the release notes for version V1.6.0. It provides a summary of the changes, improvements, and fixes made in this version, allowing developers and users to understand what has been updated.
+
+## Key Components
+- **Release Version**: The file starts with a header indicating the version of the release (e.g., `## Release: V1.6.0`). This helps in tracking the evolution of the project over time.
+- **Release Notes**: Following the version header, the file contains a section for release notes, which can include new features, bug fixes, and other relevant information about the release.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a documentation file, making it easy to reference without needing to understand the broader codebase.
+
+## Usage Examples
+While this file does not contain executable code, it is essential for users and developers to refer to it when upgrading or maintaining the software. For example, when a developer is preparing for a deployment, they should review the release notes to understand what changes have been made since the last version.
+
+## Best Practices
+- **Keep it Updated**: Ensure that the release notes are updated with each new version to maintain accurate documentation of changes.
+- **Be Descriptive**: When adding notes, be clear and concise about what has changed, why it matters, and any actions that users may need to take.
+- **Versioning**: Follow a consistent versioning scheme (e.g., Semantic Versioning) to help users understand the significance of each release.

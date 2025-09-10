@@ -1,0 +1,34 @@
+---
+description: Styling for the kiosk product layout component in the application.
+globs: ['src/app/kiosks/kiosk-product-layout/kiosk-product-layout.component.scss']
+alwaysApply: false
+---
+
+# Kiosk Product Layout Component Styles
+
+## Overview
+This SCSS file contains the styling for the kiosk product layout component of the application. It defines the visual presentation of the page title and subtitle, ensuring a consistent look and feel across the kiosk interface.
+
+## Key Components
+- **`.page-title`**: This class styles the main title of the page. It includes a bottom margin to create space between the title and subsequent content.
+  - **Margin**: `1rem` bottom margin to separate it from the content below.
+
+- **`.page-subtitle`**: This class styles the subtitle of the page. It is designed to be visually distinct from the main title, using a larger font size and italic style.
+  - **Font Size**: `1.5rem` to make it prominent.
+  - **Font Style**: `italic` to differentiate it from regular text.
+  - **Margin**: `2.5rem` bottom margin to provide ample space before the next section.
+
+## Dependencies
+This file does not import any other styles or files, nor is it imported by any other files in the repository. It is a standalone stylesheet specifically for the kiosk product layout component.
+
+## Usage Examples
+To use these styles, simply apply the classes to the relevant HTML elements in your kiosk product layout component template:
+```html
+<h1 class="page-title">Kiosk Product</h1>
+<h2 class="page-subtitle">Your one-stop shop for all products</h2>
+```
+
+## Best Practices
+- Ensure that the class names are used consistently across the component to maintain a uniform style.
+- When modifying styles, consider the impact on the overall layout and ensure that changes do not disrupt the visual hierarchy.
+- Keep the styles modular and avoid adding unnecessary complexity to maintain readability and ease of maintenance.

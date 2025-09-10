@@ -1,0 +1,64 @@
+---
+description: Documentation for the AdConfig model in the application.
+globs: ['app/models/ad_config.rb']
+alwaysApply: false
+---
+
+# AdConfig Model Documentation
+
+## Overview
+The `AdConfig` model represents the configuration settings for advertisements within the application. It is responsible for managing the relationship between advertisements and kiosks, products, and brands. This model leverages ActiveRecord to interact with the database and includes various associations, scopes, and an enumeration for templates.
+
+## Key Components
+
+### Class Definition
+```ruby
+class AdConfig < ApplicationRecord
+```
+The `AdConfig` class inherits from `ApplicationRecord`, which provides it with all the functionalities of an ActiveRecord model.
+
+### Enum
+```ruby
+enum template: { image: 0, video: 1 }
+```
+This line defines an enumeration for the `template` attribute, allowing the model to have a type of either `image` or `video` for advertisements.
+
+### Associations
+- `belongs_to :kiosk`: Establishes a mandatory relationship with the `Kiosk` model.
+- `belongs_to :kiosk_product, optional: true`: Creates an optional association with the `KioskProduct` model.
+- `belongs_to :brand, optional: true`: Creates an optional association with the `Brand` model.
+- `has_one :asset`: Defines a one-to-one relationship with the `Asset` model, allowing for the management of associated assets.
+- `has_one :store_product, through: :kiosk_product`: Sets up a through association to access `StoreProduct` via `KioskProduct`.
+
+### Nested Attributes
+```ruby
+accepts_nested_attributes_for :asset, allow_destroy: true, reject_if: :all_blank
+```
+This allows for nested attributes for the `asset`, enabling the creation and destruction of associated assets through the `AdConfig` model.
+
+### Scopes
+- `scope :owner`: A scope to filter `AdConfig` records based on the owner of the associated `Kiosk`.
+- `scope :sorted`: A scope to sort `AdConfig` records by their `id` in ascending order.
+- `scope :sorted_by_availability`: A scope that sorts `AdConfig` records based on the availability of associated `StoreProduct` stock.
+
+### Paper Trail
+```ruby
+has_paper_trail on: %i[update destroy]
+```
+This line enables versioning for the `AdConfig` model, tracking changes made during updates and deletions.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently but relies on the presence of associated models (`Kiosk`, `KioskProduct`, `Brand`, `Asset`, and `StoreProduct`) to function correctly.
+
+## Usage Examples
+To create a new advertisement configuration:
+```ruby
+ad_config = AdConfig.new(name: 'New Ad', template: :image, kiosk_id: 1)
+ad_config.build_asset(file: 'path/to/image.jpg')
+ad_config.save
+```
+
+## Best Practices
+- Ensure that all associated records (like `Kiosk`, `KioskProduct`, and `Brand`) exist before creating an `AdConfig` to avoid validation errors.
+- Use the defined scopes to filter and sort `AdConfig` records efficiently.
+- When dealing with nested attributes, validate the presence of necessary fields to maintain data integrity.

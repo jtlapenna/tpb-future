@@ -1,0 +1,46 @@
+---
+description: Documentation for the Spinner component in the Vue.js codebase.
+globs: ['src/components/Spinner.vue']
+alwaysApply: false
+---
+
+# Spinner Component Documentation
+
+## Overview
+The `Spinner.vue` file defines a reusable spinner component for loading indicators in a Vue.js application. It provides a visual cue to users that a process is ongoing, enhancing user experience during asynchronous operations.
+
+## Key Components
+- **Template**: The template section contains a `div` element styled as a spinner. It uses Vue's `v-bind` directive to bind any additional attributes passed to the component.
+- **Props**:
+  - `width`: Controls the width of the spinner. It accepts both string and number types, with a default value of `48` pixels.
+  - `thiccness`: Controls the thickness of the spinner's border. It also accepts string and number types, with a default value of `4` pixels.
+- **Styles**: The CSS styles define the appearance of the spinner, including its size, border, and animation. The spinner is styled to be circular and animated to rotate continuously.
+- **Animation**: The `@keyframes spin` defines the rotation animation, which rotates the spinner from `0deg` to `360deg` in a linear fashion.
+
+## Dependencies
+This component does not import any other files and is not imported by any other files in the repository. It is a standalone component that can be used wherever a loading indicator is needed.
+
+## Usage Example
+To use the `Spinner` component in another Vue component, you can import it and include it in your template as follows:
+```vue
+<template>
+  <div>
+    <Spinner :width="60" :thiccness="5" />
+  </div>
+</template>
+
+<script>
+import Spinner from './components/Spinner.vue';
+
+export default {
+  components: {
+    Spinner
+  }
+};
+</script>
+```
+
+## Best Practices
+- Ensure that the spinner is used in contexts where loading times are expected, such as during data fetching or processing.
+- Customize the `width` and `thiccness` props to match the design requirements of your application.
+- Avoid using multiple spinners simultaneously to prevent UI clutter and confusion for users.

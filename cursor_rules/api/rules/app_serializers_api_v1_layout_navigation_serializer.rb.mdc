@@ -1,0 +1,30 @@
+---
+description: Serializer for layout navigation in the API V1 namespace.
+globs: ['app/serializers/api/v1/layout_navigation_serializer.rb']
+alwaysApply: false
+---
+
+# LayoutNavigationSerializer
+
+## Overview
+The `LayoutNavigationSerializer` is responsible for serializing the layout navigation data for the API version 1. It defines how the layout navigation data is structured when sent to the client, ensuring that only the necessary attributes are included in the response.
+
+## Key Components
+- **Class Definition**: The class `LayoutNavigationSerializer` inherits from `ActiveModel::Serializer`, which provides a framework for serializing Ruby objects into JSON.
+- **Attributes**: The serializer specifies that the `id` attribute should be included in the serialized output.
+- **Relationships**: The `has_many :items` association indicates that this serializer will include a collection of items related to the layout navigation. The items are serialized using the `Api::V1::LayoutNavigationItemSerializer`, and they are ordered by the `order` attribute.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It operates independently within the API V1 namespace.
+
+## Usage Example
+To use the `LayoutNavigationSerializer`, you would typically instantiate it with a layout navigation object and render it in a controller action. For example:
+```ruby
+layout_navigation = LayoutNavigation.find(params[:id])
+render json: layout_navigation, serializer: Api::V1::LayoutNavigationSerializer
+```
+
+## Best Practices
+- Ensure that the `items` association is properly populated before serialization to avoid returning empty arrays.
+- Keep the serializer focused on the specific attributes and relationships needed for the API response to minimize payload size and improve performance.
+- Regularly review and update the serializer as the data model evolves to ensure it accurately reflects the current structure and requirements.

@@ -1,0 +1,89 @@
+---
+description: Documentation for the ProductVariant model in the application.
+globs: ['app/models/product_variant.rb']
+alwaysApply: false
+---
+
+# ProductVariant Model Documentation
+
+## Overview
+The `ProductVariant` class represents a variant of a product in the application. It extends the `ApplicationRecord` and integrates various functionalities such as tagging, Algolia search, and associations with other models like `Product` and `Brand`. This model is crucial for managing product variants, their attributes, and their relationships with other entities in the system.
+
+## Key Components
+
+### Class Declaration
+```ruby
+class ProductVariant < ApplicationRecord
+```
+This line declares the `ProductVariant` class, inheriting from `ApplicationRecord`, which provides it with ActiveRecord functionalities.
+
+### Tagging and Search
+```ruby
+acts_as_taggable
+include AlgoliaSearch
+```
+- `acts_as_taggable`: Enables tagging functionality for the product variants.
+- `include AlgoliaSearch`: Integrates Algolia search capabilities, allowing for efficient searching of product variants.
+
+### Algolia Search Configuration
+```ruby
+algoliasearch per_environment: true, ... do
+```
+This block configures the Algolia search settings, defining attributes to be indexed and conditions under which indexing occurs.
+
+### Associations
+- `belongs_to :product`: Each product variant is associated with a product.
+- `belongs_to :brand, optional: true`: A product variant can optionally belong to a brand.
+- `has_many :attribute_values`: Defines a one-to-many relationship with attribute values.
+- `has_many :store_products`: Associates product variants with store products.
+- `has_and_belongs_to_many :images`: Establishes a many-to-many relationship with images, with callbacks for managing image ownership and changes.
+
+### Delegations
+```ruby
+delegate :name, :description, ...
+```
+Delegates methods to the associated `product` and `brand`, allowing easy access to their attributes.
+
+### Scopes
+```ruby
+scope :name_like, lambda { |name| ... }
+```
+Defines a scope for querying product variants by name, including a search on associated products.
+
+### Callbacks
+The model includes several callbacks for managing data integrity and relationships:
+- `before_validation`, `before_create`, `before_save`: Used for sanitizing data and managing default values.
+- `after_update`: Updates related kiosk products when the brand changes.
+
+### Validations
+```ruby
+validates :sku, uniqueness: true, allow_nil: true
+```
+Ensures that the SKU is unique across product variants.
+
+### Instance Methods
+- `merged_attribute_values`: Combines attribute values from the variant and its associated product.
+- `name_for_product` and `description_for_product`: Methods to retrieve the name and description, falling back to the product's attributes if necessary.
+- `video_url`: Returns the URL of the associated video, if present.
+
+### Private Methods
+Contains several private methods for internal logic, such as sanitizing tags, assigning default images, and tracking changes to tags and images.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it self-contained. However, it relies on the `ApplicationRecord` and other ActiveRecord functionalities provided by Rails.
+
+## Usage Examples
+To create a new product variant:
+```ruby
+variant = ProductVariant.new(name: 'Variant 1', sku: 'SKU123')
+variant.save
+```
+To search for product variants by name:
+```ruby
+ProductVariant.name_like('Variant')
+```
+
+## Best Practices
+- Ensure that all product variants have unique SKUs to avoid conflicts.
+- Use the provided scopes and methods to interact with product variants to maintain consistency and leverage built-in functionality.
+- Be cautious when modifying associations, especially with images, to prevent data integrity issues.

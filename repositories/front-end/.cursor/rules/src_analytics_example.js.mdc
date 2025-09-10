@@ -1,0 +1,41 @@
+---
+description: Documentation for the GsClient analytics module.
+globs: ['src/analytics/example.js']
+alwaysApply: false
+---
+
+# GsClient Analytics Module
+
+## Overview
+The `GsClient` function is a JavaScript module designed to facilitate event tracking and data uploading for analytics purposes. It manages user sessions, stores event data in an IndexedDB database, and periodically uploads this data to a specified server endpoint.
+
+## Key Components
+- **Default Options**: The module initializes with default options including `accountId`, `licenceKey`, `source`, and `uploadFrequency`.
+- **Database Management**: The module uses IndexedDB to store events locally. It includes functions to open the database, create object stores, and manage data transactions.
+- **Token Management**: The `getToken` function handles the retrieval and refreshing of access tokens required for authenticated API requests.
+- **Event Tracking**: The `track` function allows for the logging of events with associated parameters, which are then stored in the local database.
+- **Data Uploading**: The `uploadEvents` function uploads stored events to the server, handling responses and errors appropriately.
+- **Periodic Uploads**: The module sets intervals for preparing and uploading events based on the specified `uploadFrequency`.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently, relying solely on the browser's IndexedDB API and the Fetch API for network requests.
+
+## Usage Example
+To use the `GsClient`, instantiate it with the required options:
+```javascript
+const analyticsClient = new GsClient({
+  accountId: 12345,
+  licenceKey: 'your-licence-key',
+  source: 'your-source',
+  uploadFrequency: 5 // in seconds
+});
+
+// Track an event
+analyticsClient.track('button_click', { buttonId: 'submit' }, {}, 'user123');
+```
+
+## Best Practices
+- **Token Security**: Ensure that the `licenceKey` and `accountId` are kept secure and not exposed in client-side code.
+- **Error Handling**: Implement additional error handling as needed, especially for network requests and database operations.
+- **Data Privacy**: Be mindful of user privacy and data protection regulations when collecting and storing user data.
+- **Testing**: Thoroughly test the module in various scenarios to ensure that event tracking and data uploads function as expected under different conditions.

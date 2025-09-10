@@ -1,0 +1,32 @@
+---
+description: Serializer for image objects in the application.
+globs: ['app/serializers/image_serializer.rb']
+alwaysApply: false
+---
+
+# ImageSerializer Documentation
+
+## Overview
+The `ImageSerializer` class is responsible for serializing image objects in the application. It inherits from `ActiveModel::Serializer`, which provides a way to convert Ruby objects into a JSON format that can be easily rendered in API responses.
+
+## Key Components
+- **Class**: `ImageSerializer`
+  - **Inherits from**: `ActiveModel::Serializer`
+  - **Attributes**: The serializer defines two attributes that will be included in the serialized output:
+    - `id`: The unique identifier for the image object.
+    - `url`: The URL where the image can be accessed.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a simple serializer for image objects.
+
+## Usage Example
+To use the `ImageSerializer`, you would typically render an image object in a controller action like so:
+```ruby
+render json: @image, serializer: ImageSerializer
+```
+This will output a JSON representation of the `@image` object, including only the `id` and `url` attributes.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including sensitive information.
+- Keep the serializer simple and focused on the specific object it represents. If additional logic is needed, consider using a different service or decorator pattern.
+- Regularly review and update the serializer as the application evolves to ensure it meets the current requirements.

@@ -1,0 +1,57 @@
+---
+description: Documentation for the AdBannerLocation model in the application.
+globs: ['app/models/ad_banner_location.rb']
+alwaysApply: false
+---
+
+# AdBannerLocation Model Documentation
+
+## Overview
+The `AdBannerLocation` model represents a location for advertisement banners within the application. It is responsible for managing the relationships and validations associated with ad banner locations.
+
+## Key Components
+- **Class Definition**: `AdBannerLocation < ApplicationRecord`
+  - Inherits from `ApplicationRecord`, which provides the model with ActiveRecord functionalities.
+
+- **Associations**: `has_many :ad_banners`
+  - This establishes a one-to-many relationship with the `AdBanner` model, indicating that each `AdBannerLocation` can have multiple associated ad banners.
+
+- **Validations**:
+  - `validates :text, presence: true, uniqueness: true`
+    - Ensures that the `text` attribute is present and unique across all records.
+  - `validates :codename, presence: true, uniqueness: true`
+    - Ensures that the `codename` attribute is present and unique.
+  - `validates :special_type, uniqueness: true, allow_nil: true`
+    - Ensures that the `special_type` is unique if provided, but allows it to be nil.
+
+## Schema Information
+The model corresponds to the `ad_banner_locations` table in the database, which includes the following fields:
+- `id`: Primary key, automatically generated.
+- `codename`: A string representing a unique identifier for the location.
+- `special_type`: A string that can specify a special category for the location, which is optional.
+- `text`: A string that describes the location, which must be unique.
+- `created_at`: Timestamp for when the record was created.
+- `updated_at`: Timestamp for when the record was last updated.
+
+### Indexes
+- An index on the `text` field ensures that lookups by text are efficient and that the text is unique.
+
+## Dependencies
+This model does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, focusing solely on ad banner locations.
+
+## Usage Examples
+To create a new ad banner location:
+```ruby
+AdBannerLocation.create(text: 'Homepage Top', codename: 'homepage_top', special_type: 'featured')
+```
+
+To retrieve all ad banners for a specific location:
+```ruby
+location = AdBannerLocation.find_by(codename: 'homepage_top')
+location.ad_banners
+```
+
+## Best Practices
+- Ensure that the `text` and `codename` attributes are always unique to avoid validation errors.
+- Use meaningful names for `special_type` to maintain clarity in the codebase.
+- Regularly check for orphaned ad banners that may not be associated with any `AdBannerLocation` to maintain data integrity.

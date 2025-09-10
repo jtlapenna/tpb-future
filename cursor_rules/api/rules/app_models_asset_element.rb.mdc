@@ -1,0 +1,46 @@
+---
+description: Documentation for the AssetElement model in the application.
+globs: ['app/models/asset_element.rb']
+alwaysApply: false
+---
+
+# AssetElement Model Documentation
+
+## Overview
+The `AssetElement` class represents an element associated with a kiosk asset in the application. It inherits from `ApplicationRecord`, making it a part of the Active Record framework in Ruby on Rails. This model is primarily used to manage different types of visual elements that can be displayed in a kiosk interface.
+
+## Key Components
+- **Enum Declaration**: The `element_type` enum defines two types of elements: `picture_in_picture` and `dot`. This allows for easy categorization and querying of asset elements based on their type.
+- **Associations**:
+  - `belongs_to :kiosk_asset`: This establishes a one-to-many relationship with the `KioskAsset` model, indicating that each `AssetElement` is associated with a specific kiosk asset.
+  - `has_one :asset`: This sets up a polymorphic association where an `AssetElement` can have one associated `Asset`. The `dependent: :nullify` option ensures that if the `AssetElement` is deleted, the associated `Asset` will not be deleted but rather its reference will be set to null.
+  - `accepts_nested_attributes_for :asset`: This allows for nested attributes to be passed for the `Asset` when creating or updating an `AssetElement`, enabling more complex forms that can handle both models simultaneously.
+
+## Schema Information
+The database schema for the `asset_elements` table includes the following fields:
+- `id`: Primary key for the record.
+- `coord_x` and `coord_y`: String fields that likely represent the coordinates of the element in the kiosk display.
+- `element_type`: An integer that defaults to `picture_in_picture`, indicating the type of the asset element.
+- `link`: A string that may hold a URL or reference link related to the asset element.
+- `created_at` and `updated_at`: Timestamps for record creation and updates.
+- `kiosk_asset_id`: A foreign key that links the asset element to its parent kiosk asset.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone in its functionality but is part of a larger system that includes the `KioskAsset` and `Asset` models.
+
+## Usage Examples
+To create a new `AssetElement`, you might use the following code:
+```ruby
+AssetElement.create(
+  coord_x: '100',
+  coord_y: '200',
+  element_type: :dot,
+  link: 'http://example.com',
+  kiosk_asset_id: '1'
+)
+```
+
+## Best Practices
+- Ensure that the `kiosk_asset_id` is valid and corresponds to an existing `KioskAsset` to maintain referential integrity.
+- When using nested attributes for `Asset`, validate the presence of necessary fields to avoid creating orphaned records.
+- Use the enum values for `element_type` to maintain consistency and avoid magic numbers in your code.

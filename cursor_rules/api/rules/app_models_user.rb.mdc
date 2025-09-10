@@ -1,0 +1,51 @@
+---
+description: Documentation for the User model in the application.
+globs: ['app/models/user.rb']
+alwaysApply: false
+---
+
+# User Model Documentation
+
+## Overview
+The `User` model represents a user in the application, inheriting from `ApplicationRecord`. It includes functionality for secure password handling, associations, validations, and token management for authentication purposes.
+
+## Key Components
+
+### Class Definition
+- **`class User < ApplicationRecord`**: This defines the `User` model, which is a subclass of `ApplicationRecord`, allowing it to interact with the database.
+
+### Associations
+- **`belongs_to :client, optional: true`**: This sets up a relationship where a user can optionally belong to a client. If a user does not belong to a client, the `client_id` will be `nil`.
+
+### Validations
+- **Email Validation**: Ensures that the `email` field is present, unique, and formatted correctly using a regular expression.
+- **Name Validation**: Ensures that the `name` field is present.
+- **Password Validations**: Validates that the password is at least 8 characters long and requires a password confirmation unless the password is blank.
+
+### Scopes
+- **`scope :active, -> { where active: true }`**: This scope retrieves all users who are marked as active.
+
+### Instance Methods
+- **`def self.from_token_payload(payload)`**: This class method retrieves a user based on the provided token payload. It raises an exception if the payload is invalid or if the user is not found.
+- **`def to_token_payload`**: This instance method generates a token payload for the user, including the user's ID and audience information.
+- **`def admin?`**: This method checks if the user is an admin by verifying if the `client_id` is blank.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the codebase.
+
+## Usage Examples
+To create a new user:
+```ruby
+user = User.new(email: 'example@example.com', name: 'Example User', password: 'securepassword', password_confirmation: 'securepassword')
+user.save
+```
+
+To find an active user by token:
+```ruby
+user = User.from_token_payload(token_payload)
+```
+
+## Best Practices
+- Always ensure that the email is unique and properly formatted when creating a new user.
+- Use the `active` scope to filter users when necessary, especially in user management features.
+- Handle exceptions when retrieving users from token payloads to ensure robust error handling in your application.

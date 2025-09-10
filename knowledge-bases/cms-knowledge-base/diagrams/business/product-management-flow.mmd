@@ -1,0 +1,137 @@
+---
+title: Product Management Flow
+category: business_process
+status: draft
+version: 1.0
+last_updated: 2024-03-13
+---
+
+```mermaid
+flowchart TD
+    %% Styles
+    classDef start fill:#4CAF50,stroke:#45A049,color:white
+    classDef end fill:#f44336,stroke:#d32f2f,color:white
+    classDef process fill:#2196F3,stroke:#1976D2,color:white
+    classDef decision fill:#FFC107,stroke:#FFA000,color:black
+    classDef error fill:#FF5722,stroke:#F4511E,color:white
+    classDef subflow fill:#9C27B0,stroke:#7B1FA2,color:white
+
+    %% Start/End Nodes
+    Start([Start Product Management]):::start
+    End([End]):::end
+    Error([Error Handler]):::error
+
+    %% Main Process Nodes
+    CreateProduct[Create New Product]:::process
+    EnterBasicInfo[Enter Basic Information]:::process
+    AssignCategory[Assign Category/Brand]:::process
+    ConfigureAttrs[Configure Attributes]:::process
+    SetupLayout[Setup Product Layout]:::process
+    StoreIntegration[Store Integration]:::process
+    POSIntegration[POS Integration]:::process
+
+    %% Decision Nodes
+    NeedVariants{Need Variants?}:::decision
+    NeedLayout{Need Custom Layout?}:::decision
+    StoreSync{Store Sync?}:::decision
+    POSSync{POS Sync?}:::decision
+    ValidateProduct{Validate Product}:::decision
+
+    %% Variant Management Subgraph
+    subgraph VariantManagement[Variant Management]
+        direction TB
+        CreateVariant[Create Variant]:::process
+        ConfigVariant[Configure Variant Details]:::process
+        SetPricing[Set Variant Pricing]:::process
+        SetInventory[Set Inventory Levels]:::process
+        
+        CreateVariant --> ConfigVariant
+        ConfigVariant --> SetPricing
+        SetPricing --> SetInventory
+    end
+
+    %% Layout Management Subgraph
+    subgraph LayoutManagement[Layout Management]
+        direction TB
+        SelectTemplate[Select Layout Template]:::process
+        CustomizeLayout[Customize Layout]:::process
+        ConfigureElements[Configure Elements]:::process
+        PreviewLayout[Preview Layout]:::process
+        
+        SelectTemplate --> CustomizeLayout
+        CustomizeLayout --> ConfigureElements
+        ConfigureElements --> PreviewLayout
+    end
+
+    %% Main Flow
+    Start --> CreateProduct
+    CreateProduct --> EnterBasicInfo
+    EnterBasicInfo --> AssignCategory
+    AssignCategory --> ConfigureAttrs
+    ConfigureAttrs --> NeedVariants
+
+    %% Variant Flow
+    NeedVariants -->|Yes| VariantManagement
+    NeedVariants -->|No| NeedLayout
+    VariantManagement --> NeedLayout
+
+    %% Layout Flow
+    NeedLayout -->|Yes| LayoutManagement
+    NeedLayout -->|No| ValidateProduct
+    LayoutManagement --> ValidateProduct
+
+    %% Integration Flow
+    ValidateProduct -->|Valid| StoreSync
+    ValidateProduct -->|Invalid| Error
+    StoreSync -->|Yes| StoreIntegration
+    StoreSync -->|No| POSSync
+    StoreIntegration --> POSSync
+    POSSync -->|Yes| POSIntegration
+    POSSync -->|No| End
+    POSIntegration --> End
+    Error --> CreateProduct
+
+    %% Notes
+    %% 1. Product creation starts with basic information
+    %% 2. Category and brand assignment is mandatory
+    %% 3. Attributes are configured based on category
+    %% 4. Variants are optional but common
+    %% 5. Custom layouts are optional
+    %% 6. Integration with stores and POS is final step
+```
+
+## Diagram Notes
+
+### Purpose
+This diagram illustrates the complete flow of product management in the CMS, from creation through integration.
+
+### Key Components
+- Product creation and basic setup
+- Variant management workflow
+- Layout management workflow
+- Integration points with stores and POS systems
+- Validation and error handling
+
+### Usage Context
+- Reference for product management workflow
+- Guide for implementation teams
+- Documentation for system integrators
+- Training material for new users
+
+### Style Guide
+1. Node Types:
+   - Start/End: Rounded rectangles (green/red)
+   - Process: Rectangle (blue)
+   - Decision: Diamond (yellow)
+   - Error: Rounded rectangle (orange-red)
+   - Subflow: Rectangle with rounded corners (purple)
+
+2. Flow Direction:
+   - Main flow: Top to bottom
+   - Subflows: Left to right
+   - Error handling: Right to left
+
+3. Naming:
+   - Clear, action-oriented names
+   - Consistent terminology with codebase
+   - Brief but descriptive 

@@ -1,0 +1,47 @@
+---
+description: Documentation for the ScreenHomeSwipeNav component in a Vue.js application.
+globs: ['src/components/ScreenHomeSwipeNav.vue']
+alwaysApply: false
+---
+
+# ScreenHomeSwipeNav.vue Documentation
+
+## Overview
+The `ScreenHomeSwipeNav.vue` file defines a Vue.js component that serves as a home screen navigation interface for a swipe-based application. It includes a store logo, a welcome message, and navigation elements, providing users with an interactive experience.
+
+## Key Components
+- **Template Structure**: The template consists of a main `div` that contains:
+  - An image element for the store logo, which adjusts its size based on the logo's aspect ratio.
+  - A text prompt encouraging users to swipe to get started.
+  - A conditional message display for a welcome message.
+  - A navigation component (`TheNav`) that is visually styled and responsive.
+  - An active cart button that appears based on a prop.
+
+- **Script Section**: The script section includes:
+  - **Data Properties**: `navLayout`, `reloadTimeout`, `storeLogo`, `storeLogoRatio`, and `welcomeMessage` to manage the component's state.
+  - **Lifecycle Hooks**: The `created` hook initializes the store logo and welcome message, while the `destroyed` hook cleans up event listeners.
+  - **Methods**:
+    - `transitionEnter`: Handles the entrance animation of the component using GSAP for smooth transitions.
+    - `onTransitionLeave`: Manages the exit animation of the component.
+    - `onSwipe`: Responds to swipe events by navigating to a different route.
+    - `logoHold` and `logoRelease`: Emit events for refreshing actions when the logo is held or released.
+    - `setStoreLogoRatio`: Calculates and sets the logo's aspect ratio based on its natural dimensions.
+
+## Dependencies
+This component imports:
+- `TheNav` from `@/components/TheNav`
+- `ActiveCartButton` from `./ActiveCartButton.vue`
+
+It does not import or export any other files in the repository, nor is it imported by any other files, making it a standalone component within the codebase.
+
+## Usage Examples
+To use this component, ensure it is included in a parent component's template:
+```html
+<ScreenHomeSwipeNav :isActiveCartFeatureActivated="true" />
+```
+
+## Best Practices
+- Ensure that the store logo is correctly configured in the application settings to avoid broken images.
+- Use the `isActiveCartFeatureActivated` prop to conditionally render the active cart button based on the application's state.
+- When modifying animations, consider the performance impact and test on various devices to ensure a smooth user experience.
+- Keep the welcome message configurable through application settings to allow for easy updates without code changes.

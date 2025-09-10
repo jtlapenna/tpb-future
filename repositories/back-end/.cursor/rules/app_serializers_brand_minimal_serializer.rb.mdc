@@ -1,0 +1,32 @@
+---
+description: Documentation for the BrandMinimalSerializer class in the serializers directory.
+globs: ['app/serializers/brand_minimal_serializer.rb']
+alwaysApply: false
+---
+
+# BrandMinimalSerializer Documentation
+
+## Overview
+The `BrandMinimalSerializer` class is a serializer that defines how brand objects are represented in JSON format. It is part of the ActiveModel::Serializer framework, which is used to create a structured representation of models for APIs.
+
+## Key Components
+- **Class:** `BrandMinimalSerializer`
+  - **Inherits from:** `ActiveModel::Serializer`
+  - **Attributes:** The serializer specifies two attributes to be included in the serialized output:
+    - `id`: The unique identifier for the brand.
+    - `name`: The name of the brand.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a simple serializer for brand objects.
+
+## Usage Example
+To use the `BrandMinimalSerializer`, you would typically render a brand object in a controller action like so:
+```ruby
+render json: @brand, serializer: BrandMinimalSerializer
+```
+This would return a JSON response containing only the `id` and `name` of the brand.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer are relevant to the API consumers. Avoid including unnecessary data to keep the response lightweight.
+- If additional attributes are needed in the future, consider creating a new serializer or extending this one to maintain clarity and separation of concerns.
+- Regularly review the serializers as the application evolves to ensure they still meet the needs of the API consumers.

@@ -1,0 +1,32 @@
+---
+description: Documentation for the environment configuration file in the AIM services codebase.
+globs: ['src/environments/environment.aim.ts']
+alwaysApply: false
+---
+
+# Environment Configuration File
+
+## Overview
+The `environment.aim.ts` file is a configuration file that defines environment-specific settings for the AIM services application. It is primarily used to manage different configurations for development and production environments.
+
+## Key Components
+- **production**: A boolean flag indicating whether the application is running in production mode. In this file, it is set to `false`, indicating that this configuration is for a development environment.
+- **apiUrl**: A string that specifies the base URL for the API that the application will interact with. In this case, it points to `https://tpb-api.aimservices.tech`.
+- **rfidSensorUrl**: A string that provides the URL for the RFID sensor service, set to `http://localhost:3000`, which is typically used during local development.
+- **SENTRY_DSN**: A string containing the Data Source Name (DSN) for Sentry, a service for monitoring application errors. This allows the application to report errors to Sentry for tracking and debugging purposes.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It serves as a standalone configuration file that can be referenced directly in the application code where needed.
+
+## Usage Examples
+To use the configuration values defined in this file, you can import the `environment` object in other parts of your application. For example:
+```javascript
+import { environment } from './src/environments/environment.aim';
+
+console.log(environment.apiUrl); // Outputs: https://tpb-api.aimservices.tech
+```
+
+## Best Practices
+- **Environment Management**: Ensure that the `production` flag is set to `true` in the production environment configuration file to avoid exposing development settings.
+- **Sensitive Information**: Avoid hardcoding sensitive information such as API keys or DSNs in the configuration files. Consider using environment variables or a secure vault service to manage sensitive data.
+- **Version Control**: Keep the environment configuration files under version control, but be cautious with sensitive information. Use `.gitignore` for files that contain sensitive data.

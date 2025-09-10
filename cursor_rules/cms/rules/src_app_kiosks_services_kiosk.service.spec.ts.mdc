@@ -1,0 +1,37 @@
+---
+description: Documentation for the KioskService test suite.
+globs: ['src/app/kiosks/services/kiosk.service.spec.ts']
+alwaysApply: false
+---
+
+# KioskService Test Suite
+
+## Overview
+This file contains unit tests for the `KioskService` class, which is responsible for managing kiosk-related operations in the application. The tests ensure that the service behaves as expected when interacting with the backend API for RFID products.
+
+## Key Components
+- **Imports**: The file imports necessary modules from Angular's testing framework and the `KioskService` itself. It also imports `HttpClientTestingModule` and `HttpTestingController` to facilitate HTTP request testing.
+- **Test Suite**: The main test suite is defined using `describe`, which groups related tests for the `KioskService`.
+- **Setup**: The `beforeEach` function initializes the testing environment, creating an instance of `KioskService` and setting up the HTTP mock controller.
+- **Tests**: The suite includes tests to verify the creation of the service and to check the functionality of the `rfidsProducts` method, which retrieves RFID products from the backend.
+
+## Tests Explained
+1. **Service Creation**: The first test checks if the `KioskService` is created successfully.
+2. **Retrieving RFID Products**: The second test verifies that the `rfidsProducts` method returns the correct list of RFID products when called with a specific kiosk ID.
+3. **Sorted RFID Products**: The third test checks if the `rfidsProducts` method returns the RFID products sorted according to the specified order, ensuring that unavailable products are listed first.
+
+## Dependencies
+This test file directly depends on the `KioskService` located at `src/app/kiosks/services/kiosk.service.ts`. It does not serve as a dependency for any other files in the repository.
+
+## Usage Examples
+To run the tests, use the Angular CLI command:
+```bash
+ng test
+```
+This will execute the test suite and provide feedback on the success or failure of each test case.
+
+## Best Practices
+- Ensure that the backend API is running and accessible at the specified URL during testing.
+- Keep the test data (like `rfidProducts`) consistent to avoid flaky tests.
+- Use descriptive test names to clarify the purpose of each test case.
+- Regularly update tests when the `KioskService` functionality changes to maintain accuracy.

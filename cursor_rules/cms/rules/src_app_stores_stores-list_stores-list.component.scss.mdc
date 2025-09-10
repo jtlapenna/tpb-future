@@ -1,0 +1,25 @@
+---
+description: Styling for the Stores List component in the application.
+globs: ['src/app/stores/stores-list/stores-list.component.scss']
+alwaysApply: false
+---
+
+# Stores List Component Styles
+
+## Overview
+This SCSS file contains the styling rules for the `StoresListComponent` in the application. It defines specific styles that enhance the user interface and user experience of the stores list feature.
+
+## Key Components
+- **.fa.fa-times**: This class applies a pointer cursor to the element, indicating that it is clickable. This is typically used for close buttons or dismiss actions in the UI.
+- **pre**: The `pre` tag is styled to allow normal white-space handling, which means that text within this tag will wrap normally instead of maintaining its original formatting. This is useful for displaying code snippets or preformatted text in a more readable manner.
+
+## Dependencies
+This file does not import any other styles or files, nor is it imported by any other files in the repository. It stands alone, specifically targeting the styles for the stores list component.
+
+## Usage Examples
+To use the styles defined in this file, ensure that the `StoresListComponent` is included in your Angular application. The styles will automatically apply to the relevant HTML elements that utilize the specified classes.
+
+## Best Practices
+- Ensure that the `.fa.fa-times` class is used on elements that require a close or dismiss action to maintain consistency in user interactions.
+- When adding new styles, consider the impact on the overall layout and ensure that they do not conflict with existing styles in the application.
+- Regularly review and refactor styles to keep the codebase clean and maintainable.

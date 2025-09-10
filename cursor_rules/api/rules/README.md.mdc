@@ -1,0 +1,74 @@
+---
+description: Documentation for the back-end API README file, outlining setup, usage, and API endpoints.
+globs: ['README.md']
+alwaysApply: false
+---
+
+# Overview
+
+This README.md file provides essential information about the back-end API application built with Ruby on Rails and PostgreSQL. It serves as a guide for developers to set up, run, and test the application, as well as to understand the available API endpoints.
+
+## Key Components
+
+### Requirements
+- **Ruby 3.0.x**: The version of Ruby required to run the application.
+- **PostgreSQL**: The database system used for data storage.
+- **Bundler**: A dependency manager for Ruby applications.
+
+### Setup Instructions
+1. **Install Dependencies**: Use `bundle install` to install all necessary gems.
+2. **Setup Database**: Run `rails db:create db:migrate` to create and migrate the database.
+3. **Start the Server**: Launch the application with `rails server`.
+
+### Testing
+To run the test suite with coverage, execute:
+```bash
+COVERAGE=true bundle exec rspec
+```
+The coverage report will be available at `coverage/index.html`.
+
+### API Documentation
+Generate the API documentation using:
+```bash
+bundle exec rake docs:generate
+```
+The generated documentation can be found in `doc/api/index.html`.
+
+### API Endpoints
+- **Health Check**:  
+  - `GET /api/v1/health`: Returns the application health status.  
+  - `GET /api/v1/ping`: A simple ping endpoint to check if the API is responsive.
+
+- **Users**:  
+  - `GET /api/v1/users`: Lists all users.  
+  - `GET /api/v1/users/:id`: Retrieves a specific user by ID.
+
+### Development Server
+To run the development server, use:
+```bash
+rails server
+```
+
+### Running Tests with Guard
+To run the development server and tests simultaneously, execute:
+```bash
+bundle exec guard
+```
+This will start the API on port 3001.
+
+### Local Configuration
+To avoid running `bundle update peak_beyond_model`, configure it locally:
+```bash
+bundle config local.peak_beyond_model /path/to/local/git/repository
+```
+
+### Restoring a Backup
+For restoring a backup, refer to the `restore_db.sh` file. Follow the steps outlined in the script manually, as it is not automated. **IMPORTANT**: Do not run the `restore_db.sh` script directly.
+
+### Known Issues
+If you encounter a 401 error after a restore, ensure that the user you are using is active in the database.
+
+## Best Practices
+- Always check the README for setup instructions before running the application.
+- Use version control for your database migrations to keep track of changes.
+- Regularly update your dependencies but be cautious with major updates that may introduce breaking changes.

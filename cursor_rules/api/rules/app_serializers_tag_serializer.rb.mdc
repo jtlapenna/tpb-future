@@ -1,0 +1,30 @@
+---
+description: Documentation for the TagSerializer class in the serializers directory.
+globs: ['app/serializers/tag_serializer.rb']
+alwaysApply: false
+---
+
+# TagSerializer Documentation
+
+## Overview
+The `TagSerializer` class is a part of the ActiveModel Serializers framework, which is used to serialize Ruby objects into JSON format. This specific serializer is designed to handle the serialization of `Tag` objects, focusing on the `name` attribute.
+
+## Key Components
+- **Class**: `TagSerializer`
+  - Inherits from `ActiveModel::Serializer`, which provides the necessary functionality to convert Ruby objects into JSON.
+  - **Attributes**: The only attribute defined for serialization is `:name`, meaning that when a `Tag` object is serialized, only the `name` field will be included in the output JSON.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a simple serializer for the `Tag` model.
+
+## Usage Example
+To use the `TagSerializer`, you would typically call it when rendering a `Tag` object in a controller. For example:
+```ruby
+render json: @tag, serializer: TagSerializer
+```
+This will output a JSON representation of the `@tag` object, including only the `name` attribute.
+
+## Best Practices
+- Ensure that the attributes defined in the serializer accurately reflect the data you want to expose through your API. In this case, only exposing the `name` attribute is appropriate if that is the only information needed by the client.
+- If additional attributes are required in the future, they can be added to the `attributes` line in the serializer.
+- Keep serializers focused and lightweight to maintain performance and clarity in your API responses.

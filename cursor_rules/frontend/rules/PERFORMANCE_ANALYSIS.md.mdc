@@ -1,0 +1,49 @@
+---
+description: Documentation for analyzing front-end performance in a Vue.js codebase.
+globs: ['PERFORMANCE_ANALYSIS.md']
+alwaysApply: false
+---
+
+# Front-end Performance Analysis Documentation
+
+## Overview
+This document provides a comprehensive analysis of the performance characteristics of the front-end repository, specifically focusing on rendering performance, resource usage, and optimization patterns within the Vue.js codebase. It serves as a guide for developers to understand and improve the performance of their applications.
+
+## Key Components
+The document is structured into several key sections:
+
+### 1. Rendering Performance Analysis
+- **Component Rendering**: Analyzes the performance of Vue components, including mount times, update performance, and virtual DOM efficiency.
+- **Template Performance**: Evaluates the efficiency of templates, including complexity and binding performance.
+
+### 2. Resource Usage Analysis
+- **Memory Usage**: Examines memory patterns related to components, event listeners, and stores, along with optimization strategies.
+- **Network Usage**: Looks at API calls, asset loading, and WebSocket usage, providing insights into network optimization.
+
+### 3. State Management Analysis
+- **Store Performance**: Focuses on state updates, their frequency, and complexity, along with optimization techniques.
+- **Component State**: Analyzes local state management and persistence strategies.
+
+### 4. Asset Management Analysis
+- **Asset Loading**: Reviews loading performance and optimization techniques for assets.
+- **Asset Optimization**: Discusses asset size, compression, and delivery strategies.
+
+### 5. Route Performance Analysis
+- **Navigation Performance**: Analyzes route changes and their impact on performance, along with optimization strategies.
+- **Route Management**: Looks at route patterns and their complexity, providing insights into management and optimization.
+
+### 6. Monitoring Analysis
+- **Performance Monitoring**: Discusses metrics collection and tools for monitoring performance.
+- **Performance Reporting**: Covers report generation and analysis to identify trends and optimization opportunities.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It stands alone as a guide for performance analysis in the front-end codebase.
+
+## Usage Examples
+While this document does not contain code examples, developers are encouraged to apply the analysis techniques discussed to their own components and applications to identify performance bottlenecks and optimization opportunities.
+
+## Best Practices
+- Regularly review and update performance metrics to stay informed about application performance.
+- Implement the suggested optimization techniques to enhance rendering and resource usage.
+- Utilize monitoring tools to track performance over time and identify areas for improvement.
+- Collaborate with team members to share insights and strategies for performance optimization.

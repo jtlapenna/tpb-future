@@ -1,0 +1,36 @@
+---
+description: Documentation for custom CSS file used for overriding styles in the project.
+globs: ['static/css/custom.example.css']
+alwaysApply: false
+---
+
+# Custom CSS Documentation
+
+## Overview
+This file, `custom.example.css`, is intended for local CSS rule overrides. It allows developers to customize styles without altering the core CSS files. To activate these custom styles, rename the file to `custom.css`.
+
+## Key Components
+- **CSS Variables**: The file contains a section for defining CSS variables that can be used throughout the stylesheet. These variables include font styles and color themes, which can be easily modified to fit the design requirements.
+- **Font Loading**: The file provides a template for loading custom fonts using the `@font-face` rule. This allows for the inclusion of specific font files hosted in the `/static/fonts/` directory.
+
+## Usage
+To use this file effectively:
+1. Rename `custom.example.css` to `custom.css`.
+2. Add your custom styles below the existing CSS variables and font-face declarations.
+3. Use the defined CSS variables in your styles to maintain consistency across the application.
+
+### Example
+```css
+#screen-home-swipe .catcher {
+    background-color: var(--main-color);
+    font-family: 'mulibold';
+}
+```
+
+## Best Practices
+- **Naming Conventions**: Always rename the file to `custom.css` to ensure it is recognized by the application.
+- **Specificity**: When adding custom rules, prepend the screen ID to your selectors to increase specificity and ensure your styles take precedence over existing styles.
+- **Font Management**: Ensure that any fonts you wish to use are properly hosted in the `/static/fonts/` directory and referenced correctly in the `@font-face` declarations.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a customization layer for CSS.

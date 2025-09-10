@@ -1,0 +1,37 @@
+---
+description: Documentation for the normalize.css file which provides cross-browser consistency in default styling.
+globs: ['src/assets/css/normalize.css']
+alwaysApply: false
+---
+
+# normalize.css Documentation
+
+## Overview
+The `normalize.css` file is a CSS reset library that aims to provide cross-browser consistency in the default styling of HTML elements. It addresses common inconsistencies across different browsers, ensuring that elements render more consistently and in line with modern web standards.
+
+## Purpose and Functionality
+This file serves to correct common issues with default browser styles, such as line heights, margins, and font sizes. By applying a set of sensible defaults, it helps developers avoid the need for extensive resets and allows for a more predictable styling experience across various browsers.
+
+## Key Components
+- **HTML Element Styles**: Sets the line height and prevents font size adjustments in iOS.
+- **Body Styles**: Removes default margins to ensure a clean slate for styling.
+- **Headings**: Adjusts the font size and margin for `h1` elements to ensure consistency across browsers.
+- **Text-level Semantics**: Styles for elements like `a`, `b`, `strong`, `code`, and others to ensure proper font weight and size.
+- **Forms**: Normalizes styles for form elements, ensuring consistent appearance and behavior across browsers.
+- **Interactive Elements**: Ensures that elements like `details` and `summary` display correctly in all browsers.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a foundational stylesheet that can be included in any project to ensure consistent styling.
+
+## Usage Examples
+To use `normalize.css`, simply include it in your HTML file within the `<head>` section:
+```html
+<link rel="stylesheet" href="src/assets/css/normalize.css">
+```
+
+## Best Practices
+- **Include Early**: Always include `normalize.css` at the beginning of your CSS files to ensure it applies before any custom styles.
+- **Customize as Needed**: While `normalize.css` provides a solid foundation, feel free to customize styles further to fit your design needs.
+- **Keep Updated**: Regularly check for updates to `normalize.css` to benefit from improvements and fixes made by the community.
+
+By following these guidelines, developers can leverage `normalize.css` effectively to create a more consistent and reliable styling experience across different browsers.

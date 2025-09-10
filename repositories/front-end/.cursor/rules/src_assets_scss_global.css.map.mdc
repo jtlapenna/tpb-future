@@ -1,0 +1,35 @@
+---
+description: Documentation for the global CSS source map file.
+globs: ['src/assets/scss/global.css.map']
+alwaysApply: false
+---
+
+# Global CSS Source Map Documentation
+
+## Overview
+The `global.css.map` file is a source map for the compiled CSS file `global.css`. It provides a mapping between the compiled CSS and the original SCSS source files, allowing developers to debug styles more effectively in the browser. This file is essential for maintaining a clear connection between the styles applied in the browser and the original SCSS files, which enhances the development experience.
+
+## Purpose and Functionality
+The primary purpose of this source map is to facilitate debugging of the CSS styles defined in the SCSS files. When a developer inspects an element in the browser, the source map allows them to see the original SCSS file and line number where the styles were defined, rather than just the compiled CSS. This significantly improves the efficiency of debugging and makes it easier to maintain the styles.
+
+## Key Components
+- **Version**: The version of the source map format, which is `3` in this case.
+- **Mappings**: A string that encodes the mapping between the generated CSS and the original SCSS files. This is a complex string that allows tools to reconstruct the original source from the compiled output.
+- **Sources**: An array of the original SCSS files that were compiled to create the `global.css`. In this case, it includes:
+  - `global.scss`
+  - `_fonts.scss`
+  - `_colors.scss`
+  - `_animations.scss`
+  - `_buttons.scss`
+- **File**: The name of the generated CSS file, which is `global.css`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It serves solely as a mapping for the `global.css` file, which is generated from the listed SCSS source files.
+
+## Usage Examples
+When using browser developer tools, you can inspect an element and see the styles applied to it. If you click on a style rule, the source map will direct you to the corresponding line in the original SCSS file, making it easier to understand how styles are applied and to make necessary adjustments.
+
+## Best Practices
+- Always ensure that the source map is generated alongside your CSS files during the build process. This will help maintain a smooth debugging experience.
+- Keep your SCSS files organized and modular to make it easier to navigate through the source map.
+- Regularly check that the mappings are accurate, especially after making significant changes to your SCSS files, to ensure that the debugging process remains effective.

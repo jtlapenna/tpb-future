@@ -1,0 +1,38 @@
+---
+description: Documentation for the Tax model class used in the application.
+globs: ['src/app/shared/models/tax.ts']
+alwaysApply: false
+---
+
+# Tax Model Documentation
+
+## Overview
+The `Tax` class represents a tax entity within the application. It encapsulates the properties and behaviors associated with a tax, allowing for easy manipulation and management of tax-related data.
+
+## Key Components
+- **Class: `Tax`**  
+  The `Tax` class contains the following properties:
+  - `id`: A number representing the unique identifier for the tax.
+  - `name`: A string representing the name of the tax.
+  - `value`: A number representing the value or rate of the tax.
+  - `_destroy`: A boolean flag indicating whether the tax entity is marked for deletion (default is `false`).
+
+### Constructor
+- **Constructor: `constructor(json: any)`**  
+  The constructor takes a JSON object as an argument and initializes the `Tax` instance properties based on the provided data. It sets the `id`, `name`, and `value` properties from the JSON object and initializes `_destroy` to `false`.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a model class, which can be instantiated wherever needed in the application.
+
+## Usage Example
+To create a new instance of the `Tax` class, you can do the following:
+```typescript
+const taxData = { id: 1, name: 'Sales Tax', value: 0.07 };
+const salesTax = new Tax(taxData);
+console.log(salesTax);
+```
+
+## Best Practices
+- Ensure that the JSON object passed to the constructor contains all the required properties (`id`, `name`, and `value`) to avoid undefined values.
+- Use the `_destroy` property to manage the lifecycle of tax entities, especially when implementing features that require soft deletion.
+- Keep the model simple and focused on its purpose; avoid adding unnecessary methods or properties that do not pertain to the tax entity.

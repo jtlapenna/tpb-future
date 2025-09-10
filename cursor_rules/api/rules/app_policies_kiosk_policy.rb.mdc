@@ -1,0 +1,43 @@
+---
+description: Documentation for the KioskPolicy class in the application policies.
+globs: ['app/policies/kiosk_policy.rb']
+alwaysApply: false
+---
+
+# KioskPolicy Documentation
+
+## Overview
+The `KioskPolicy` class is responsible for defining the authorization rules for the Kiosk resource within the application. It inherits from `ApplicationPolicy`, which provides a base structure for all policy classes. This policy determines what actions a user can perform on Kiosk objects based on their role (admin or regular user).
+
+## Key Components
+
+### Classes
+- **KioskPolicy**: The main policy class that defines user permissions for Kiosk actions.
+  - **Scope**: A nested class that defines the scope of records that a user can access. It includes a `resolve` method that returns all Kiosk records for admins and only the Kiosk records owned by the user for regular users.
+
+### Methods
+- **resolve**: Determines which Kiosk records are accessible based on the user's role. If the user is an admin, all records are returned; otherwise, only the records owned by the user are returned.
+- **index?**: Returns true if the user is logged in, allowing them to view the list of Kiosk records.
+- **update?**: Returns true if the user is logged in, allowing them to update Kiosk records.
+- **show?**: Returns true if the user is logged in, allowing them to view a specific Kiosk record.
+- **clone?**: Returns true if the user is an admin, allowing them to clone Kiosk records.
+- **permitted_attributes**: Returns an array of attributes that are permitted for mass assignment when creating or updating Kiosk records. This includes various fields related to the Kiosk and nested attributes for RFID products.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the application, relying solely on the `ApplicationPolicy` for its base functionality.
+
+## Usage Examples
+To check if a user can view the Kiosk index:
+```ruby
+KioskPolicy.new(user, Kiosk).index?
+```
+
+To check if a user can update a specific Kiosk:
+```ruby
+KioskPolicy.new(user, kiosk).update?
+```
+
+## Best Practices
+- Ensure that the `user` object passed to the policy methods is always an instance of the User model to avoid unexpected behavior.
+- Regularly review and update the `permitted_attributes` method to ensure it reflects the current requirements of the Kiosk resource.
+- Use the `Scope` class to manage record visibility effectively, especially as the application scales and more complex authorization rules are needed.

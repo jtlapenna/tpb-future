@@ -1,0 +1,28 @@
+---
+description: Documentation for the config/environments directory containing environment-specific configuration files.
+globs: ['config/environments/*']
+alwaysApply: false
+---
+
+# Overview of the config/environments Directory
+
+The `config/environments` directory contains environment-specific configuration files for the application. Each file defines settings and behaviors that are tailored to a specific environment, such as production, staging, development, and testing.
+
+## Key Files and Their Roles
+- **production.rb**: Contains configuration settings for the production environment. This file is critical for ensuring that the application runs optimally in a live setting, with settings that prioritize performance and security.
+- **staging.rb**: Used for the staging environment, this file allows developers to test changes in an environment that closely mirrors production before deploying to live users.
+- **development.rb**: This file is tailored for the development environment, providing settings that facilitate debugging and development workflows, such as enabling detailed error messages and reloading code on changes.
+- **test.rb**: Contains configurations specific to the test environment, ensuring that tests run in isolation and with the necessary settings to validate application behavior without affecting other environments.
+
+## Relation to Other Parts of the Codebase
+The configuration files in this directory are integral to the overall application setup. They interact with various components of the application, such as middleware, logging, and database connections, ensuring that each environment is configured correctly. These files are loaded at application startup, influencing how the application behaves based on the current environment.
+
+## Common Patterns and Conventions
+- Each environment file typically inherits from a base configuration file (often found in `config/application.rb`), allowing for shared settings while enabling environment-specific overrides.
+- Environment files often include conditional logic to adjust settings based on the environment, such as enabling or disabling certain features or services.
+
+## Best Practices
+- Keep environment-specific configurations minimal and focused on settings that truly differ between environments. This helps maintain clarity and reduces the risk of errors.
+- Regularly review and update these files to ensure they reflect the current needs of each environment, especially before major deployments.
+- Use comments within the files to explain non-obvious configurations, which can help other developers understand the rationale behind certain settings.
+- Avoid hardcoding sensitive information directly in these files; instead, use environment variables or secure vaults to manage secrets.

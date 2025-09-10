@@ -1,0 +1,35 @@
+---
+description: Documentation for the src/store directory, which manages application state.
+globs: ['src/store/*']
+alwaysApply: false
+---
+
+# Overview of src/store Directory
+
+The `src/store` directory is responsible for managing the application's state using a centralized store. It serves as the backbone for state management, allowing different parts of the application to access and modify the state in a predictable manner.
+
+## Key Files
+
+- **store.js**: This is the main entry point for the store configuration. It initializes the store, applies middleware, and combines various modules that represent different slices of the application state.
+
+## Related Files
+
+The `src/store` directory imports modules from:
+- **src/store/modules/products.js**: This module handles the state related to products, including fetching product data and managing product-related actions.
+- **src/store/modules/cart.js**: This module manages the shopping cart state, including adding/removing items and calculating totals.
+
+Additionally, the `src/store` directory is imported by:
+- **src/main.js**: This file is typically the entry point of the application, where the store is integrated with the main application instance.
+
+## Common Patterns and Conventions
+
+- **Modular Structure**: The store is organized into modules, each responsible for a specific part of the state. This modular approach helps in maintaining a clean and manageable codebase.
+- **State Management**: The store follows a unidirectional data flow, where actions are dispatched to modify the state, and components subscribe to the store to receive updates.
+
+## Best Practices
+
+- **Keep Modules Focused**: Each module should focus on a specific domain of the application state. Avoid mixing unrelated state management logic within a single module.
+- **Use Actions and Mutations**: Clearly define actions and mutations for state changes to maintain clarity and predictability in state management.
+- **Document State Changes**: When adding new features or modifying existing state management logic, ensure to document the changes for future reference and team collaboration.
+
+By following these guidelines, developers can effectively work with the `src/store` directory and maintain a robust state management system.

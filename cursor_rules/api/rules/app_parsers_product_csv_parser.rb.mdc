@@ -1,0 +1,51 @@
+---
+description: Parser for processing product data from CSV files and syncing it with the store.
+globs: ['app/parsers/product_csv_parser.rb']
+alwaysApply: false
+---
+
+# ProductCSVParser Documentation
+
+## Overview
+The `ProductCSVParser` class is responsible for parsing product data from a CSV file and syncing it with a store's inventory. It validates the headers of the CSV file, processes each row to create `StoreSyncItem` objects, and handles any errors that may arise during the parsing process.
+
+## Key Components
+
+### Class: `ProductCSVParser`
+- **Attributes:**
+  - `@file`: The CSV file to be parsed.
+  - `@store_id`: The ID of the store to which the products belong.
+
+### Methods:
+- **`initialize(file:, store_id:)`**: Initializes the parser with the given file and store ID.
+- **`store`**: Retrieves the store object associated with the given store ID, caching it for future calls.
+- **`fixed_headers`**: Returns an array of fixed headers that are required in the CSV file (sku, name, category, stock).
+- **`dynaminc_headers`**: Retrieves dynamic headers based on the store's prices.
+- **`required_headers`**: Combines fixed and dynamic headers to determine the complete set of required headers for the CSV.
+- **`parse`**: The main method that reads the CSV file, validates headers, processes each row, and returns a result hash containing any errors and the synced store data.
+
+### Private Methods:
+- **`safe_string(value)`**: Safely converts a value to a string, stripping whitespace and returning nil if the value is blank.
+- **`safe_integer(value)`**: Safely converts a value to an integer, returning nil if the value is blank.
+- **`safe_float(value)`**: Safely converts a value to a float, returning nil if the value is blank.
+
+## Dependencies
+This file does not import or export any other files in the repository, making it a standalone component for parsing CSV data.
+
+## Usage Example
+To use the `ProductCSVParser`, you would typically instantiate it with a file and store ID, then call the `parse` method:
+```ruby
+file = File.open('path/to/products.csv')
+parser = ProductCSVParser.new(file: file, store_id: 1)
+result = parser.parse
+if result[:errors].empty?
+  puts "Sync successful!"
+else
+  puts "Errors occurred: #{result[:errors]}"
+end
+```
+
+## Best Practices
+- Ensure that the CSV file adheres to the required headers format to avoid parsing errors.
+- Handle any errors returned in the result to maintain data integrity.
+- Consider using this parser in conjunction with background jobs if processing large CSV files to avoid blocking the main application thread.

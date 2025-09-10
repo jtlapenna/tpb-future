@@ -1,0 +1,52 @@
+---
+description: Documentation for the ScreenHomeSpotlight component in a Vue.js application.
+globs: ['src/components/ScreenHomeSpotlight.vue']
+alwaysApply: false
+---
+
+# ScreenHomeSpotlight.vue Documentation
+
+## Overview
+The `ScreenHomeSpotlight.vue` file defines a Vue.js component that serves as the main spotlight screen for a home interface in an application. It manages the display of various elements such as logos, messages, and a slider for products or brands, while also handling animations and transitions.
+
+## Key Components
+- **Template Structure**: The template includes conditional rendering based on the state of the component, such as whether an index is being generated or if a brand spotlight is active.
+- **Props**: The component accepts several props:
+  - `products`: An array of product objects.
+  - `brands`: An array of brand objects.
+  - `isGeneratingIndex`: A boolean indicating if the index is currently being generated.
+  - `isActiveCartFeatureActivated`: A boolean indicating if the active cart feature is enabled.
+- **Data Properties**: The component maintains several data properties, including `storeLogoRatio`, `currentBrandLogo`, and `navLayout`.
+- **Methods**: Key methods include:
+  - `transitionEnter`: Handles the entrance animation of the component.
+  - `onTransitionLeave`: Manages the exit animation when transitioning away from this component.
+  - `logoHold` and `logoRelease`: Emit events for logo interactions.
+  - `setStoreLogoRatio`: Calculates the aspect ratio of the store logo based on its dimensions.
+  - `UpdateBrandLogo`: Updates the current brand logo based on user interaction.
+- **Computed Properties**: These properties derive values based on the component's state, such as `showDefault`, `welcomeMessage`, and `storeLogo`.
+
+## Dependencies
+This component imports the following child components:
+- `LottieContainer`: For displaying animations.
+- `TheNav`: A navigation component used within the spotlight screen.
+- `Slider`: A component for displaying a slider of products or brands.
+- `ActiveCartButton`: A button component for managing active cart features.
+
+This file does not import any other files in the repository and is not imported by any other files, making it a standalone component within the codebase.
+
+## Usage Example
+To use the `ScreenHomeSpotlight` component, include it in a parent component's template as follows:
+```html
+<ScreenHomeSpotlight
+  :products="products"
+  :brands="brands"
+  :isGeneratingIndex="isGeneratingIndex"
+  :isActiveCartFeatureActivated="isActiveCartFeatureActivated"
+/>
+```
+
+## Best Practices
+- Ensure that the props passed to the component are correctly formatted and contain the necessary data to avoid runtime errors.
+- When modifying the component, maintain the structure of the template and the logic in the methods to ensure that animations and transitions work as intended.
+- Use scoped styles to avoid conflicts with other components in the application.
+- Regularly test the component in various states (e.g., generating index, brand spotlight active) to ensure all functionalities work as expected.

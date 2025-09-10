@@ -1,0 +1,76 @@
+---
+description: Documentation for SCSS animations used in the project.
+globs: ['src/assets/scss/_animations.scss']
+alwaysApply: false
+---
+
+# SCSS Animations Documentation
+
+## Overview
+This file contains a collection of CSS keyframe animations defined in SCSS. These animations can be utilized throughout the project to enhance user interface interactions and visual effects. The animations defined here are designed to be reusable and can be applied to various elements to create dynamic visual experiences.
+
+## Key Components
+
+### 1. `@keyframes wave-pulse`
+- **Purpose**: Creates a wave-like pulsing effect.
+- **Keyframes**:
+  - **0%**: Element starts at scale 0 and full opacity.
+  - **65%**: Element scales to 0.8 while maintaining opacity.
+  - **80%**: Element reaches full scale (1) but fades out to opacity 0.
+  - **100%**: Element returns to scale 0 and opacity 0.
+
+### 2. `@keyframes alpha-pulse`
+- **Purpose**: Provides a fading pulse effect.
+- **Keyframes**:
+  - **0%**: Full opacity.
+  - **30%**: Fades to 50% opacity.
+  - **60%**: Returns to full opacity.
+  - **100%**: Maintains full opacity.
+
+### 3. `@keyframes loading`
+- **Purpose**: Creates a continuous rotation effect, typically used for loading indicators.
+- **Keyframes**:
+  - **0%**: Starts at 0 degrees.
+  - **100%**: Completes a full rotation to 360 degrees.
+
+### 4. `@keyframes swipe-dot`
+- **Purpose**: Animates an element moving from one side to another.
+- **Keyframes**:
+  - **0%**: Positioned at the right edge (0).
+  - **60%**: Moves to the far right (100%).
+  - **100%**: Stays at the far right (100%).
+
+### 5. `@keyframes swipe-alpha`
+- **Purpose**: Creates a fade-in and fade-out effect.
+- **Keyframes**:
+  - **0%**: Starts with opacity 0.
+  - **10%**: Fades in to full opacity.
+  - **50%**: Maintains full opacity.
+  - **60%**: Fades out to opacity 0.
+  - **100%**: Remains at opacity 0.
+
+### 6. `@keyframes card-flip`
+- **Purpose**: Simulates a 3D card flipping effect.
+- **Keyframes**:
+  - **0%**: Starts with no rotation.
+  - **5%**: Slightly rotates backward.
+  - **15%**: Slightly rotates forward.
+  - **20%**: Returns to no rotation.
+  - **100%**: Maintains no rotation.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone as a utility for animations.
+
+## Usage Examples
+To use these animations, you can apply them to any HTML element using the `animation` property in your SCSS or CSS files. For example:
+```scss
+.element {
+  animation: wave-pulse 2s infinite;
+}
+```
+
+## Best Practices
+- Ensure that animations are used sparingly to avoid overwhelming users.
+- Consider performance implications when applying multiple animations to elements.
+- Use the `animation-fill-mode` property to control how the animation behaves before and after execution.
+- Test animations across different devices and browsers to ensure compatibility.

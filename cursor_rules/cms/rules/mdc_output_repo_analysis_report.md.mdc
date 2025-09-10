@@ -1,0 +1,29 @@
+---
+description: Documentation for the repository analysis report, providing insights into the structure and dependencies of the codebase.
+globs: ['mdc_output/repo_analysis_report.md']
+alwaysApply: false
+---
+
+# Repository Analysis Report
+
+## Overview
+This file serves as a comprehensive analysis report of the repository located at `/Users/jeff/AI-agents/_new_cms-analysis/cms-fe-angular`. It provides insights into the directory structure, file dependencies, and key components within the codebase, helping developers understand the organization and interconnections of the various files.
+
+## Key Components
+- **Directory Structure**: The report includes a detailed tree view of the project's directory structure, showcasing the organization of files and folders, which is crucial for navigating the codebase.
+- **Code Dependency Graph**: A visual representation of the relationships between files, indicating how many files are analyzed and the total number of relationships. This helps identify core modules and potential entry points in the application.
+- **Most Important Files**: Lists files that are heavily imported across the codebase, indicating their significance and potential core functionality. This section helps developers focus on critical areas of the code.
+- **Potential Core Modules**: Highlights files that are imported by multiple other files, suggesting they may represent essential functionality within the application.
+- **Potential Entry Points**: Identifies files that import other modules but are not imported themselves, indicating they may serve as entry points into the application.
+- **Most Shared Functions, Classes, and Variables**: Although no functions or classes are shared across files, this section outlines components that are used in multiple files, indicating shared functionality.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. However, it provides a detailed analysis of the dependencies among other files, which is crucial for understanding the overall architecture of the codebase.
+
+## Usage Examples
+While this file does not contain executable code, it serves as a reference for developers to understand the structure and dependencies of the codebase. Developers can use the insights provided to make informed decisions when modifying or extending the application.
+
+## Best Practices
+- Regularly update the analysis report to reflect changes in the codebase, ensuring that it remains a reliable resource for developers.
+- Use the dependency graph to identify potential areas for refactoring or optimization, especially in heavily imported files.
+- Leverage the insights from the most important files and potential core modules to guide development efforts and prioritize tasks effectively.

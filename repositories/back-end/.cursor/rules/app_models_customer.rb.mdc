@@ -1,0 +1,46 @@
+---
+description: Documentation for the Customer model in the application.
+globs: ['app/models/customer.rb']
+alwaysApply: false
+---
+
+# Customer Model Documentation
+
+## Overview
+The `Customer` model represents a customer entity in the application, inheriting from `ApplicationRecord`. It includes validations, scopes for querying, and methods for transforming customer data.
+
+## Key Components
+- **Validations**: The model validates the presence of `customer_id`, ensuring that every customer has a unique identifier.
+- **Scopes**:
+  - `active`: Retrieves customers with an active status.
+  - `name_like(name)`: Searches for customers whose first or last names match the provided name (case-insensitive).
+  - `email_equal(email)`: Finds customers with an email that matches the provided email (case-insensitive).
+- **Associations**: The model belongs to a `store`, establishing a relationship between customers and stores.
+- **Instance Method**: `to_peak_customer`: Converts the customer instance to a simplified hash representation, including key attributes.
+- **Class Method**: `self.to_peak_customer(customer)`: A utility method that extracts specific attributes from a customer instance for external use.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It operates independently within the application.
+
+## Usage Examples
+To find all active customers:
+```ruby
+active_customers = Customer.active
+```
+
+To search for customers by name:
+```ruby
+matching_customers = Customer.name_like('John')
+```
+
+To get a customer's details in a simplified format:
+```ruby
+customer = Customer.find(1)
+peak_customer_data = customer.to_peak_customer
+```
+
+## Best Practices
+- Ensure that `customer_id` is always present when creating or updating a customer record.
+- Use the provided scopes for querying to maintain consistency and readability in your code.
+- When using the `to_peak_customer` method, be mindful of the attributes included to avoid exposing sensitive information.
+- Regularly review and update validations and scopes as the application evolves to ensure they meet current requirements.

@@ -1,0 +1,32 @@
+---
+description: Configuration for Workbox service worker caching strategies.
+globs: ['config/workbox.js']
+alwaysApply: false
+---
+
+# Workbox Configuration
+
+## Overview
+This file configures the Workbox service worker for caching strategies in a web application. It defines how different types of assets are cached and served, optimizing the performance and reliability of the application by leveraging service worker capabilities.
+
+## Key Components
+- **clientsClaim**: When set to true, this allows the service worker to take control of all clients as soon as it activates.
+- **skipWaiting**: This option allows the service worker to skip the waiting phase and activate immediately after installation.
+- **globDirectory**: Specifies the directory to cache files from, resolving to the parent directory of this configuration file.
+- **globPatterns**: An array of glob patterns that define which files to cache initially. In this case, it includes animations and images located in the `static` directory.
+- **runtimeCaching**: An array of caching rules that define how to handle requests for different URLs. Each rule includes:
+  - **urlPattern**: A regular expression that matches the URLs to cache.
+  - **handler**: The caching strategy to use (e.g., `staleWhileRevalidate`, `cacheFirst`).
+  - **options**: Additional options for the caching strategy, including the cache name and response statuses that are cacheable.
+- **importScripts**: An array of scripts to be imported into the service worker, which can include additional configuration or functionality.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a configuration file for the service worker.
+
+## Usage Examples
+To utilize this configuration, ensure that the service worker is registered in your application. The caching strategies defined here will automatically apply to the specified URL patterns when the service worker is active.
+
+## Best Practices
+- Regularly review and update the caching strategies to ensure they align with the current needs of your application.
+- Monitor the cache size and expiration settings to prevent excessive storage use.
+- Test the service worker in various scenarios to ensure that it behaves as expected, especially during updates and when offline.

@@ -1,0 +1,52 @@
+graph TD
+    %% Migration Process Diagram
+    %% This diagram illustrates the step-by-step migration workflow
+    
+    %% Define styles
+    classDef start fill:#00C796,stroke:#333,stroke-width:2px,color:white
+    classDef process fill:#7168DF,stroke:#333,stroke-width:2px,color:white
+    classDef subProcess fill:#5dc4bf,stroke:#333,stroke-width:2px,color:white
+    classDef validation fill:#EE991B,stroke:#333,stroke-width:2px,color:white
+    
+    %% Main Flow
+    A[Start Migration]:::start --> B[Theme Migration]
+    B --> C[Component Migration]
+    C --> D[Layout Migration]
+    D --> E[Utility Migration]
+    
+    %% Theme Migration Process
+    subgraph Theme Migration
+        B --> F[Extract Variables]:::subProcess
+        F --> G[Create Theme]:::subProcess
+        G --> H[Global Styles]:::subProcess
+    end
+    
+    %% Component Migration Process
+    subgraph Component Migration
+        C --> I[Analyze Styles]:::subProcess
+        I --> J[Convert to SC]:::subProcess
+        J --> K[Update Props]:::subProcess
+    end
+    
+    %% Layout Migration Process
+    subgraph Layout Migration
+        D --> L[Grid System]:::subProcess
+        D --> M[Flexbox]:::subProcess
+        D --> N[Positioning]:::subProcess
+    end
+    
+    %% Utility Migration Process
+    subgraph Utility Migration
+        E --> O[Helper Classes]:::subProcess
+        E --> P[Mixins]:::subProcess
+        E --> Q[Functions]:::subProcess
+    end
+    
+    %% Validation Flow
+    H & K & N & Q --> R[Validation]:::validation
+    R --> S[Complete]:::start
+    
+    %% Add notes
+    %% Note: Migration follows a hierarchical approach from theme to utilities
+    %% Note: Each phase includes analysis, conversion, and validation steps
+    %% Note: Parallel processes are used where dependencies allow 

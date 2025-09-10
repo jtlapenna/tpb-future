@@ -1,0 +1,33 @@
+---
+description: Documentation for the Customer parser in the Treez webhook integration.
+globs: ['app/parsers/webhooks/treez/customer.rb']
+alwaysApply: false
+---
+
+# Webhooks::Treez::Customer
+
+## Overview
+The `Webhooks::Treez::Customer` class is responsible for parsing customer data received from Treez webhooks. It extracts relevant customer information from the payload and formats it into a structured hash for further processing.
+
+## Key Components
+- **Class Definition**: `Webhooks::Treez::Customer` inherits from `Webhooks::Treez::Base`, indicating that it is part of a hierarchy of webhook parsers.
+- **Method: `parse`**: This public method is the main entry point for parsing the customer data. It returns a hash containing various customer attributes such as `customer_id`, `birthday`, `email`, and more.
+- **Private Methods**:  
+  - `drivers_license`: This method checks if the `drivers_license` field in the payload is 'N/A' and returns `nil` if true; otherwise, it returns the actual value.
+  - `notes`: Similar to `drivers_license`, this method handles the `notes` field, returning `nil` for 'N/A'.
+
+## Dependencies
+This file does not import any other files in the repository, nor is it imported by any other files. It operates independently within the context of the webhook processing system.
+
+## Usage Example
+To use the `Webhooks::Treez::Customer` class, you would typically instantiate it with a payload and call the `parse` method:
+```ruby
+payload = { 'customer_id' => '123', 'birthday' => '1990-01-01', 'drivers_license' => 'N/A', 'email' => 'example@example.com', 'first_name' => 'John', 'last_name' => 'Doe', 'gender' => 'Male', 'notes' => 'N/A', 'phone' => '555-555-5555', 'status' => 'active' }
+customer_parser = Webhooks::Treez::Customer.new(payload)
+parsed_data = customer_parser.parse
+```
+
+## Best Practices
+- Ensure that the payload passed to the `Webhooks::Treez::Customer` class is well-formed and contains all necessary fields to avoid unexpected behavior.
+- Consider adding error handling for cases where the payload may not contain expected keys or values.
+- Keep the private methods focused on a single responsibility to maintain clarity and ease of testing.

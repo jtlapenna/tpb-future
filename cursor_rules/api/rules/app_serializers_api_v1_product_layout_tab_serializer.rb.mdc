@@ -1,0 +1,31 @@
+---
+description: Serializer for product layout tab in API version 1.
+globs: ['app/serializers/api/v1/product_layout_tab_serializer.rb']
+alwaysApply: false
+---
+
+# ProductLayoutTabSerializer
+
+## Overview
+The `ProductLayoutTabSerializer` is a serializer class designed to format the output of product layout tab data in the API version 1. It inherits from `ProductLayoutValueContainerSerializer`, allowing it to leverage existing serialization logic while adding specific attributes relevant to product layout tabs.
+
+## Key Components
+- **Class Definition**: The class is defined within the `Api::V1` module, indicating that it is part of the version 1 of the API.
+- **Inheritance**: It inherits from `Api::V1::ProductLayoutValueContainerSerializer`, which means it can utilize methods and attributes defined in the parent class.
+- **Attribute**: The `attribute :name` line specifies that the `name` attribute of the product layout tab will be included in the serialized output. This is crucial for ensuring that the API response contains the necessary information about the product layout tab.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It stands alone in its functionality, relying on the parent serializer for additional context and behavior.
+
+## Usage Example
+To use this serializer, you would typically instantiate it with a product layout tab object and call the `serializable_hash` method to get the formatted output:
+```ruby
+product_layout_tab = ProductLayoutTab.find(1)  # Example of fetching a product layout tab
+serializer = Api::V1::ProductLayoutTabSerializer.new(product_layout_tab)
+serialized_output = serializer.serializable_hash
+```
+
+## Best Practices
+- Ensure that any changes to the `ProductLayoutValueContainerSerializer` are reflected in this serializer, as it inherits from that class.
+- When adding new attributes, consider the implications on the API response and ensure that they are necessary for the client consuming the API.
+- Maintain consistency in naming conventions and structure with other serializers in the `app/serializers/api/v1/` directory to promote readability and maintainability.

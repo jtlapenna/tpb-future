@@ -1,0 +1,46 @@
+---
+description: Documentation for the on-screen numeric keyboard jQuery plugin.
+globs: ['static/js/jquery.onScreenKeynumber.js']
+alwaysApply: false
+---
+
+# jQuery onScreenKeynumber Plugin
+
+## Overview
+The `jquery.onScreenKeynumber.js` file defines a jQuery plugin that provides an on-screen numeric keyboard. This keyboard can be used to input numbers into text fields, making it particularly useful for touch devices or situations where a physical keyboard is not available.
+
+## Functionality
+The plugin allows users to click on numeric keys to input numbers into a specified input field. It also includes a backspace key for deleting the last character entered. The keyboard can be positioned relative to the input field and can be made draggable if desired.
+
+## Key Components
+- **`$.fn.onScreenKeynumber`**: The main function that initializes the on-screen keyboard. It accepts an options object to customize its behavior.
+  - **Options**:
+    - `draggable`: Boolean to enable dragging of the keyboard.
+    - `topPosition`: CSS value to set the top position of the keyboard.
+    - `leftPosition`: CSS value to set the left position of the keyboard.
+
+- **`activateInput($input)`**: Activates the input field and positions the keyboard accordingly.
+- **`fixWidths()`**: Adjusts the widths of the keys based on the keyboard's total width and the browser's rendering behavior.
+- **`positionKeyboard($input)`**: Positions the keyboard below the active input field, taking into account the scroll position and the parent container's width.
+- **`renderKeyboard(keyboardId)`**: Renders the keyboard HTML structure if it does not already exist in the DOM.
+
+## Dependencies
+This file does not import any other files and is not imported by any other files in the repository. It relies solely on jQuery and jQuery UI (if draggable functionality is enabled).
+
+## Usage Example
+To use the on-screen keyboard, you can initialize it on any input field as follows:
+```javascript
+$(document).ready(function() {
+  $('#yourInputField').onScreenKeynumber({
+    draggable: true,
+    topPosition: '30%',
+    leftPosition: '50%'
+  });
+});
+```
+
+## Best Practices
+- Ensure that jQuery and jQuery UI are included in your project if you plan to use the draggable feature.
+- Customize the keyboard's position and behavior through the options provided to fit your UI needs.
+- Test the keyboard on various devices to ensure usability, especially on touch screens.
+- Keep accessibility in mind; consider how users with disabilities will interact with the on-screen keyboard.
