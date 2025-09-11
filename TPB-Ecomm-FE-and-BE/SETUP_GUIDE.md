@@ -28,8 +28,8 @@ This is The Peak Beyond's modern e-commerce platform (V2) built with:
 
 ### Prerequisites
 
-- **Node.js**: 14.x or higher
-- **npm**: 6.x or higher
+- **Node.js**: **16.20.2** (required - use `nvm use 16.20.2`)
+- **npm**: 8.x or higher
 - **PostgreSQL**: 12.x or higher
 - **AWS Account**: For Cognito and Secrets Manager
 
@@ -39,16 +39,26 @@ This is The Peak Beyond's modern e-commerce platform (V2) built with:
 # Navigate to the e-commerce project
 cd TPB-Ecomm-FE-and-BE
 
-# Install backend dependencies
-cd ThePeakBeyond_eCommerce_API
-npm install
+# Switch to required Node.js version
+nvm use 16.20.2
 
-# Install frontend dependencies
-cd ../ThePeakBeyond_eCommerce
-npm install
+# Make script executable and start servers
+chmod +x start-servers.sh
+./start-servers.sh
 ```
 
-### 2. Environment Configuration
+### 2. What the Script Does
+
+The `start-servers.sh` script automatically:
+- ✅ Switches to Node.js 16.20.2
+- ✅ Creates `.env` file if missing
+- ✅ Starts backend server (NestJS API)
+- ✅ Starts frontend server (React app)
+- ✅ Uses Node.js compatibility fixes
+- ✅ Uses sass instead of node-sass
+- ✅ Runs both servers in background with logs
+
+### 3. Environment Configuration
 
 #### Backend Environment (.env)
 
@@ -291,7 +301,19 @@ The application uses AWS Cognito for authentication:
 
 ### Common Issues
 
-#### 1. Database Connection Issues
+#### 1. Node Sass Compilation Error
+```bash
+# Error: Node Sass does not yet support your current environment
+# Solution: Already fixed! The project now uses 'sass' instead of 'node-sass'
+```
+
+#### 2. Digital Envelope Routines Error
+```bash
+# Error: error:0308010C:digital envelope routines::unsupported
+# Solution: The start-servers.sh script automatically uses --openssl-legacy-provider
+```
+
+#### 3. Database Connection Issues
 ```bash
 # Check if PostgreSQL is running
 brew services start postgresql  # macOS

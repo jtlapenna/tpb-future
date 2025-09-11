@@ -45,22 +45,39 @@ This is The Peak Beyond's modern e-commerce platform (V2) - **OUR FOUNDATION FOR
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 14.x or higher
-- npm 6.x or higher
+- **Node.js 16.20.2** (required - use `nvm use 16.20.2`)
+- npm 8.x or higher
 - PostgreSQL 12.x or higher
+
+### 2-Step Setup
+1. **Switch Node.js version:**
+   ```bash
+   nvm use 16.20.2
+   ```
+
+2. **Start both servers:**
+   ```bash
+   cd TPB-Ecomm-FE-and-BE
+   chmod +x start-servers.sh
+   ./start-servers.sh
+   ```
+
+**That's it!** The app will be running at:
+- **Frontend**: http://localhost:3000
+- **Backend**: http://localhost:3001
 - AWS Account (for Cognito and Secrets Manager)
 
-### 1. Setup Environment
-```bash
-# Clone and navigate to project
-cd TPB-Ecomm-FE-and-BE
+### What the Script Does
+The `start-servers.sh` script automatically:
+- ✅ Switches to Node.js 16.20.2
+- ✅ Creates `.env` file if missing
+- ✅ Starts backend server (NestJS API)
+- ✅ Starts frontend server (React app)
+- ✅ Uses Node.js compatibility fixes
+- ✅ Uses sass instead of node-sass
+- ✅ Runs both servers in background with logs
 
-# Install dependencies
-cd ThePeakBeyond_eCommerce_API && npm install
-cd ../ThePeakBeyond_eCommerce && npm install
-```
-
-### 2. Configure Environment Variables
+### Environment Variables
 
 **Backend** (`ThePeakBeyond_eCommerce_API/.env`):
 ```env
@@ -306,14 +323,16 @@ npm run build:prod
 ## 📚 Documentation
 
 - **Setup Guide**: [SETUP_GUIDE.md](./SETUP_GUIDE.md)
-- **Local Development**: [LOCAL_DEVELOPMENT.md](./LOCAL_DEVELOPMENT.md)
+- **Quick Start**: [QUICK_START.md](./QUICK_START.md)
 - **API Documentation**: Available at http://localhost:3001/api when running
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
-1. **Database Connection**: Ensure PostgreSQL is running and credentials are correct
-2. **AWS Configuration**: Verify AWS credentials and region settings
+1. **Node Sass Compilation Error**: ✅ **FIXED!** Project now uses 'sass' instead of 'node-sass'
+2. **Digital Envelope Routines Error**: ✅ **FIXED!** Script uses --openssl-legacy-provider
+3. **Database Connection**: Ensure PostgreSQL is running and credentials are correct
+4. **AWS Configuration**: Verify AWS credentials and region settings
 3. **Port Conflicts**: Backend uses 3001, frontend uses 3000
 4. **CORS Issues**: Backend has CORS enabled for development
 
