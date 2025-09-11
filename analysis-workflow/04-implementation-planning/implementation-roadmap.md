@@ -42,11 +42,19 @@ Based on future-considerations analysis, our implementation must support:
   - **V2 Payoff**: Provides reliability substrate
 
 #### V2 Spine Assembly
-- [ ] **User Accounts MVP**
-  - Next.js/React front-end shell
-  - Auth + Profile + Preferences + Consent
+- [ ] **Frontend Modernization** (AI-Assisted)
+  - Complete Vue.js → React 18 migration
+  - Integrate TPB-Ecomm-FE-and-BE user accounts
+  - Modern component library and state management
+  - **Timeline**: 12 weeks (750-1000 hours)
+  - **Team**: 3-4 developers
+  - **Budget**: $75k-100k
+
+- [ ] **User Accounts Integration**
+  - AWS Cognito authentication
+  - Profile management with custom attributes
   - In-store pairing flow (QR/passkey)
-  - **Timeline**: 6-8 weeks
+  - **Timeline**: 4-6 weeks (integrated with frontend)
 
 - [ ] **Data Enrichment (Products Domain)**
   - Extend schema for terpenes/effects/lab results
@@ -69,6 +77,7 @@ Based on future-considerations analysis, our implementation must support:
   - Products domain MVP with new attributes
   - Role-based access and audit trail
   - **Timeline**: 4-6 weeks
+  - **Leverage**: Modern React components from frontend modernization
 
 - [ ] **Personalization Features**
   - Effects-aware recommendations
@@ -167,6 +176,21 @@ Based on future-considerations analysis, our implementation must support:
 
 ## Technical Implementation Strategy
 
+### AI-Assisted Development Approach
+**Frontend Modernization (Phase 1)**:
+- **AI Tools**: Cursor, GitHub Copilot, React Codemod, automated testing
+- **Time Savings**: 30-40% vs. human-only development
+- **Total Effort**: 750-1000 hours (vs. 1000-1400 hours human-only)
+- **Cost Savings**: $25k-40k vs. human-only approach
+
+**Resource Comparison**:
+| Approach | Hours | Cost | Time Savings |
+|----------|-------|------|--------------|
+| **AI-Assisted (with TPB-Ecomm-FE-and-BE)** | 750-1000 | $75k-100k | 50-60% |
+| **Human-Only (with TPB-Ecomm-FE-and-BE)** | 1000-1400 | $100k-140k | 30-40% |
+| **From Scratch (AI-Assisted)** | 1200-1800 | $120k-180k | 0% |
+| **From Scratch (Human-Only)** | 1800-2400 | $180k-240k | 0% |
+
 ### Architecture Approach
 - **Strangler Pattern**: Gradually replace V1 components with V2
 - **Domain-First Migration**: Products → Orders → Promotions
@@ -203,11 +227,22 @@ Based on future-considerations analysis, our implementation must support:
 ## Resource Requirements
 
 ### Development Team
-- **Frontend Developer**: Next.js/React expertise
+
+#### Phase 1: Frontend Modernization (Months 1-3)
+- **Frontend Lead Developer**: React 18, TypeScript, Next.js expertise
+- **Frontend Developer (Mid-level)**: React, component development, testing
+- **UI/UX Developer**: Material-UI, Tailwind CSS, responsive design
+- **Backend Developer**: Rails + API integration support
+- **Total Team**: 4 developers
+- **Budget**: $75k-100k
+
+#### Phase 2+: Full Platform Development (Months 4-18)
+- **Frontend Developer**: Next.js/React expertise (from Phase 1)
 - **Backend Developer**: Rails + NestJS experience
 - **Data Engineer**: dbt + analytics platform
 - **DevOps Engineer**: AWS + containerization
 - **Product Manager**: Strategic alignment and prioritization
+- **Total Team**: 5 developers
 
 ### Infrastructure
 - **Development Environment**: Containerized local development
@@ -239,15 +274,17 @@ Based on future-considerations analysis, our implementation must support:
 
 ### Immediate Actions (Next 30 Days)
 1. **Begin V1 Stabilization** - Start with POS/CMS sync reliability
-2. **Set up Development Environment** - Containerized local development
-3. **Create Project Management** - Jira/Linear with epics and stories
-4. **Stakeholder Alignment** - Confirm resource allocation and priorities
+2. **Assemble Frontend Team** - Hire/assign 3-4 developers for modernization
+3. **Set up Development Environment** - Next.js 14 + TypeScript + AI tools
+4. **Create Project Management** - Jira/Linear with epics and stories
+5. **Stakeholder Alignment** - Confirm $75k-100k budget for frontend modernization
 
 ### Short-term Actions (Next 90 Days)
 1. **Complete V1 Stabilization** - All high-priority fixes implemented
-2. **Launch User Accounts MVP** - Basic authentication and preferences
-3. **Begin Data Enrichment** - Terpenes and effects schema extension
-4. **Start Admin UI Development** - Products domain replacement
+2. **Complete Frontend Modernization** - Vue.js → React 18 + user accounts
+3. **Launch User Accounts MVP** - Basic authentication and preferences
+4. **Begin Data Enrichment** - Terpenes and effects schema extension
+5. **Start Admin UI Development** - Products domain replacement
 
 ### Long-term Actions (Next 6-12 Months)
 1. **Launch Revenue Engines** - Both Engine A and Engine B operational
