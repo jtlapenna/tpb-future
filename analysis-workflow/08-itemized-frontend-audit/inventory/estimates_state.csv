@@ -1,0 +1,5 @@
+category,item,action,complexity,difficulty,human_min,human_max,ai_min,ai_max,risk,notes
+state,store.js,replace,M,3,12,24,7,17,low,RTK store + React Query setup
+state,modules/cart.js,replace (port RTK cart),L,4,32,64,19,45,medium,Multi-store pricing rules
+state,modules/products.js,replace,L,4,32,64,19,45,medium,Server-state via React Query
+state,user slice (new),port,M,3,12,24,7,17,low,From e-comm

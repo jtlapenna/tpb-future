@@ -1,0 +1,9 @@
+category,item,action,complexity,difficulty,human_min,human_max,ai_min,ai_max,risk,notes
+mixins,MergeConfig.js,refactor,M,3,12,24,7,17,low,Config context
+mixins,isCardWithAttributes.js,refactor,S,2,4,8,2,6,low,Utility/hook
+mixins,HasShopify.js,refactor,M,3,12,24,7,17,medium,Provider adapter
+mixins,HasProductsPaginated.js,replace,M,3,12,24,7,17,low,React Query pagination
+mixins,redirectEvent.js,refactor,S,2,4,8,2,6,low,Nav helpers
+mixins,keyboardEvents.js,replace,M,3,12,24,7,17,low,Hooks
+mixins,offlineMixin.js,replace,L,4,32,64,19,45,medium,Workbox + cache
+mixins,aeropayEvent.js,refactor,M,3,12,24,7,17,medium,Review/retain

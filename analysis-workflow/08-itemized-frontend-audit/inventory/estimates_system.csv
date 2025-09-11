@@ -1,0 +1,15 @@
+category,item,action,complexity,difficulty,human_min,human_max,ai_min,ai_max,risk,notes
+styling,SCSS -> MUI/Tailwind,replace,L,4,32,64,19,45,medium,Theme + tokens
+assets,Fonts/Images/SVGs,refactor,S,2,4,8,2,6,low,Optimize + import paths
+build,Webpack 3.x -> Vite,replace,L,4,32,64,19,45,medium,Build tool shift
+build,Babel/PostCSS configs,replace,S,2,4,8,2,6,low,Modern presets
+hosting,Firebase hosting config,refactor,M,3,12,24,7,17,low,Align with target host
+docker,Dockerfiles,refactor,S,2,4,8,2,6,low,Dev container
+router,Route mapping to Next.js,replace,M,3,12,24,7,17,low,App Router
+router,Nav helpers/guards,refactor,M,3,12,24,7,17,low,Hooks/middleware
+analytics,SDK + schema,replace/refactor,M,3,12,24,7,17,medium,Event model
+config,globals -> typed config,replace,M,3,12,24,7,17,low,Context/provider
+firebase,Functions/messaging,refactor/replace,M-L,4,24,48,14,33,medium,Server-side or admin-only
+pwa,Service worker -> Workbox,replace,M,3,12,24,7,17,medium,Precaching/runtime
+pwa,Background sync + uploads,refactor,M,3,12,24,7,17,medium,Queueing
+kiosk,On-screen keyboard,replace,M,3,12,24,7,17,low,Modern lib

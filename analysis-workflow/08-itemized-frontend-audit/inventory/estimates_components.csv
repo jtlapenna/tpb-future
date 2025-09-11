@@ -1,0 +1,24 @@
+category,item,action,complexity,difficulty,human_min,human_max,ai_min,ai_max,risk,notes
+components,ScreenHome.vue,replace,L,4,32,64,19,45,medium,Entry experience and layout orchestration
+components,ScreenHome* variants,refactor to layout system,M-L,4,24,48,14,33,medium,Consolidate 6+ variants into configurable layouts
+components,ScreenProducts.vue,replace,L,4,32,64,19,45,medium,Grid + filters + pagination
+components,ScreenProduct.vue,replace,L,4,32,64,19,45,medium,Gallery/specs/recommendations
+components,ScreenCart.vue,replace,L,4,32,64,19,45,medium,Cart rules + persistence
+components,ScreenCheckout* (Blaze/Treez/Flowhub/Leaflogix/Shopify/Covasoft),replace via provider adapters,XL,5,80,120,48,84,high,Unify flows behind adapter pattern
+components,ScreenFeaturedProducts.vue,refactor,M,3,12,24,7,17,low,Widgetize
+components,ScreenEffectsUses.vue,refactor,M,3,12,24,7,17,low,Tags/filters UX
+components,ScreenBrands.vue,refactor,M,3,12,24,7,17,medium,URL sync + filters
+components,ScreenUploadEvents.vue,refactor,M,3,12,24,7,17,low,Move to admin/dev
+components,ScreenIframeTest.vue,delete,S,2,4,8,2,6,low,Legacy
+components,ProductCard.vue,replace (port from React e-comm),M,3,12,24,7,17,low,Reuse TS interfaces
+components,ProductImage.vue,replace,M,3,12,24,7,17,low,Responsive + placeholders
+components,ProductGraphs.vue,refactor,M,3,12,24,7,17,low,Chart lib update
+components,Slider.vue,replace,M,3,12,24,7,17,low,Use modern lib
+components,Spinner.vue,replace,S,2,4,8,2,6,low,Use library
+components,ModalTemplate.vue,replace,M,3,12,24,7,17,low,MUI Dialog
+components,LottieContainer.vue,port,S,2,4,8,2,6,low,react-lottie
+components,ShareButton.vue,refactor,S,2,4,8,2,6,low,Native share
+components,ActiveCart* components,refactor/port,M,3,12,24,7,17,medium,Session handling
+components,TheSidebar.vue,replace,M,3,12,24,7,17,low,MUI Drawer
+components,TheNav.vue,replace,M,3,12,24,7,17,low,MUI AppBar + routing
+components,TheBrandSlideshow.vue,refactor,M,3,12,24,7,17,low,Carousel lib
