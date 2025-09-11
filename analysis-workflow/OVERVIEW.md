@@ -255,16 +255,22 @@ Every component ports directly to V2 development:
 - [x] **Documentation**: Comprehensive guides created for developers
 
 ### **🚀 IN PROGRESS**
+- [ ] **CRITICAL: Dependency Modernization**: Update all outdated dependencies (Weeks 1-4)
+  - React 17 → 18, TypeScript 4.3 → 5.x, Material-UI v4 → v5
+  - NestJS 8 → 10, TypeORM 0.2 → 0.3, Node.js 14 → 18+
+  - Create React App → Vite, security hardening
 - [ ] **Phase 1 Implementation**: E-commerce modernization (Months 1-3)
 - [ ] **Team Onboarding**: Developers understanding the strategy
 - [ ] **Environment Setup**: Development environment configuration
-- [ ] **Dependency Updates**: React 18, NestJS 10, security fixes
 
 ### **📋 IMMEDIATE NEXT STEPS**
-1. **Team Onboarding**: Ensure all developers read updated documentation
-2. **Environment Setup**: Complete development environment setup
-3. **Dependency Updates**: Begin React 18 and security updates
-4. **Component Analysis**: Identify high-value components for extraction
+1. **🚨 CRITICAL: Dependency Modernization** - Update all outdated dependencies (Weeks 1-4)
+   - Start with React 17 → 18, TypeScript 4.3 → 5.x
+   - Continue with Material-UI v4 → v5, Create React App → Vite
+   - Finish with NestJS 8 → 10, TypeORM 0.2 → 0.3, Node.js 14 → 18+
+2. **Team Onboarding**: Ensure all developers read updated documentation
+3. **Environment Setup**: Complete development environment setup
+4. **Component Analysis**: Identify high-value components for extraction (after dependencies updated)
 
 ## Timeline & Dependencies
 

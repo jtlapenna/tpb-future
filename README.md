@@ -15,6 +15,23 @@ This repository contains The Peak Beyond's comprehensive ecosystem of in-store h
 
 **DECISION MADE**: We are using the **TPB-Ecomm-FE-and-BE** project as our foundation for V2 development, NOT rebuilding from the legacy Vue.js system.
 
+### **🚨 IMMEDIATE PRIORITY: DEPENDENCY MODERNIZATION**
+
+**CRITICAL**: The e-commerce project has severely outdated dependencies that must be updated before any feature development:
+
+- **React**: 17.0.2 → **18.x** (Major version behind)
+- **TypeScript**: 4.3.5 → **5.x** (Major version behind)  
+- **Material-UI**: v4.12.3 → **v5 (MUI)** (Major version behind)
+- **NestJS**: 8.0.0 → **10.x** (Major version behind)
+- **Node.js**: 14 → **18+** (Major security risk)
+- **Create React App**: 4.0.3 → **Vite** (Deprecated)
+
+**Why This Must Be Done First:**
+1. **Security Vulnerabilities**: Outdated dependencies have known security issues
+2. **Compatibility Issues**: Modern tools won't work with old versions
+3. **Development Experience**: Old versions lack modern features and performance improvements
+4. **Future-Proofing**: New features require modern dependency versions
+
 **Why This Approach**:
 - ✅ **80-90% code reusability** from existing e-commerce project
 - ✅ **6-12 months faster** than rebuilding from legacy

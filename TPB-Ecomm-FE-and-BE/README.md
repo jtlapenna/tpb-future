@@ -5,7 +5,25 @@
 **Current Phase**: Phase 1 - E-commerce Modernization  
 **Timeline**: 3 months (Months 1-3)  
 **Team**: 3-4 developers assigned  
-**Priority**: 🚀 **HIGHEST** - This is our primary development focus  
+**Priority**: 🚀 **HIGHEST** - This is our primary development focus
+
+## 🚨 **IMMEDIATE PRIORITY: DEPENDENCY MODERNIZATION**
+
+**CRITICAL**: The project is using severely outdated dependencies that pose security risks and compatibility issues. **ALL development must start with dependency updates.**
+
+### **Outdated Dependencies (Security Risk)**
+- **React**: 17.0.2 → **18.x** (Major version behind)
+- **TypeScript**: 4.3.5 → **5.x** (Major version behind)  
+- **Material-UI**: v4.12.3 → **v5 (MUI)** (Major version behind)
+- **NestJS**: 8.0.0 → **10.x** (Major version behind)
+- **Node.js**: 14 → **18+** (Major security risk)
+- **Create React App**: 4.0.3 → **Vite** (Deprecated)
+
+### **Why This Must Be Done First**
+1. **Security Vulnerabilities**: Outdated dependencies have known security issues
+2. **Compatibility Issues**: Modern tools and libraries won't work with old versions
+3. **Development Experience**: Old versions lack modern features and performance improvements
+4. **Future-Proofing**: New features require modern dependency versions  
 
 ## Project Overview
 
@@ -20,12 +38,75 @@ This is The Peak Beyond's modern e-commerce platform (V2) - **OUR FOUNDATION FOR
 - **Database**: PostgreSQL with Treez POS integration
 - **Deployment**: Azure (configured via azure-pipelines.yml)
 
-### **⚠️ MODERNIZATION NEEDED**
-- **React 17 → 18**: Moderate complexity, AI-assisted migration
-- **NestJS 8 → 10**: Backend framework updates
-- **Material-UI v4 → v5**: UI framework migration
-- **Node 14 → 18+**: Runtime environment updates
-- **Security**: JWT localStorage → httpOnly cookies
+### **🚨 CRITICAL MODERNIZATION TASKS (DO FIRST)**
+
+**IMMEDIATE PRIORITY**: Update all outdated dependencies before any feature development.
+
+#### **Phase 0: Frontend Updates (Weeks 1-2)**
+1. **React 17 → 18** (S-M complexity, 8-16 hours)
+   ```bash
+   npm install react@^18.0.0 react-dom@^18.0.0 @types/react@^18.0.0 @types/react-dom@^18.0.0
+   ```
+   - Fix React 18 strict mode and new JSX transform
+   - **AI Help**: Cursor can handle breaking changes automatically
+
+2. **TypeScript 4.3 → 5.x** (S complexity, 4-8 hours)
+   ```bash
+   npm install typescript@^5.0.0 @types/node@^18.0.0
+   ```
+   - Fix stricter type checking and new compiler options
+   - **AI Help**: Cursor excels at TypeScript error fixes
+
+3. **Material-UI v4 → v5 (MUI)** (M complexity, 16-32 hours)
+   ```bash
+   npm uninstall @material-ui/core @material-ui/icons @material-ui/lab @material-ui/pickers
+   npm install @mui/material@^5.0.0 @mui/icons-material@^5.0.0 @emotion/react @emotion/styled
+   ```
+   - Fix theme structure, component props, and styling system
+   - **AI Help**: Cursor can help with component migration patterns
+
+4. **Create React App → Vite** (M complexity, 16-32 hours)
+   ```bash
+   npm uninstall react-scripts
+   npm install vite @vitejs/plugin-react
+   ```
+   - Create `vite.config.ts`, update scripts, fix import paths
+   - **AI Help**: Cursor can automate migration steps
+
+5. **Node.js 14 → 18+** (S complexity, 2-4 hours)
+   - Update `.nvmrc` and `package.json` engines
+   - **AI Help**: Cursor can help with environment setup
+
+#### **Phase 1: Backend Updates (Weeks 2-3)**
+6. **NestJS 8 → 10** (M-L complexity, 24-48 hours)
+   ```bash
+   npm install @nestjs/common@^10.0.0 @nestjs/core@^10.0.0 @nestjs/platform-express@^10.0.0
+   ```
+   - Fix decorator changes, module structure, guards
+   - **AI Help**: Cursor can help with migration patterns
+
+7. **TypeORM 0.2 → 0.3** (M complexity, 16-32 hours)
+   ```bash
+   npm install typeorm@^0.3.0 pg@^8.11.0
+   ```
+   - Fix entity definitions, query builders, migrations
+   - **AI Help**: Cursor can help with entity migration
+
+#### **Phase 2: Security & Quality (Weeks 3-4)**
+8. **Security Hardening** (M complexity, 16-32 hours)
+   - JWT localStorage → httpOnly cookies, input validation
+   - **AI Help**: Cursor can help with security patterns
+
+9. **Code Quality Tools** (S complexity, 4-8 hours)
+   ```bash
+   npm install eslint prettier eslint-config-prettier @typescript-eslint/eslint-plugin
+   ```
+   - **AI Help**: Cursor excels at code quality fixes
+
+### **🎯 Success Criteria**
+- **Week 2**: React 18, TypeScript 5, MUI v5, Vite working
+- **Week 3**: NestJS 10, TypeORM 0.3, all APIs functional  
+- **Week 4**: Security hardened, code quality tools configured
 
 ### System Architecture
 ```
