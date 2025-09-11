@@ -1,5 +1,18 @@
 # Frontend Modernization Summary (Itemized Audit)
 
+## Executive Brief (1-page)
+- Total items: 77 (pages 17, components 23, state 4, api 11, mixins 8, system 14)
+- Hours: Human 1300–2520; AI-assisted 762–1780
+- Team/duration: With 3–4 devs (avg 35 h/week/dev), ~10–16 weeks AI-assisted; ~17–30 weeks human-only
+- Top risks: Checkout adapter unification (XL), RFID/hardware, data/API contract drift
+- Mitigations: Contract-first adapters, feature flags, dark-launch, test harnesses, phased rollout
+
+### First 3 Sprints (2 weeks each)
+1) Foundations + ProductCard + Products List
+2) Product Detail + Cart (RTK) + Products/Categories/Brands APIs
+3) Checkout adapters core + ActiveCart views (baseline)
+
+
 ## Executive Overview
 - Based on full inventory of pages, components, state, API, mixins, and system areas.
 - Includes per-item actions (replace/port/refactor/delete), difficulty, and hour estimates (human vs AI).
