@@ -1,70 +1,107 @@
 # AI Agent Quick Reference Guide
 
+## 🎯 **PROJECT STATUS: ACTIVE DEVELOPMENT**
+
+**Current Phase**: V2 Foundation Development  
+**Primary Focus**: E-commerce project modernization  
+**Decision Made**: Using TPB-Ecomm-FE-and-BE as foundation  
+**Next Milestone**: Complete e-commerce modernization (3 months)  
+
 ## Project Overview
-The Peak Beyond (TPB) Future project contains legacy cannabis retail systems, strategic planning documents, and modern e-commerce extensions. The goal is to stabilize legacy systems while building V2 foundation for AI agent economy integration.
+The Peak Beyond (TPB) Future project contains legacy cannabis retail systems, strategic planning documents, and modern e-commerce extensions. **We have made a strategic decision to use the TPB-Ecomm-FE-and-BE project as our foundation for V2 development**, rather than rebuilding from legacy systems.
 
 ## Quick Navigation
 
-### 🎯 **Start Here for System Understanding**
-- **`knowledge-bases/cross-repository-knowledge-base/`** - Complete system analysis
-- **`future-considerations/1_opening_reality_check_opportunity.md`** - Strategic context
-- **`future-considerations/9_target_architecture_appendix.md`** - V2 target architecture
+### 🎯 **Start Here for Current Project Status**
+- **`PROJECT_STATUS.md`** - Current project state and decisions
+- **`DEVELOPER_ONBOARDING.md`** - Guide for new developers
+- **`analysis-workflow/OVERVIEW.md`** - Strategic decision and analysis overview
 
-### 🔧 **For Code Development**
-- **`cursor_rules/`** - Development standards and patterns
-- **`repositories/`** - Legacy code repositories
-- **`TPB-Ecomm-FE-and-BE/`** - Modern reference implementations
+### 🚀 **Primary Development Focus**
+- **`TPB-Ecomm-FE-and-BE/`** - **YOUR MAIN TARGET** - E-commerce modernization
+- **`TPB-Ecomm-FE-and-BE/SETUP_GUIDE.md`** - How to run the project
+- **`TPB-Ecomm-FE-and-BE/LOCAL_DEVELOPMENT.md`** - Development setup
 
-### 📊 **For Strategic Planning**
-- **`future-considerations/8_12_24_month_hybrid_roadmap_quarter_by_quarter.md`** - Detailed roadmap
-- **`future-considerations/11_ask_next_steps.md`** - Immediate action items
+### ⚠️ **Maintenance Only (Don't Focus Here)**
+- **`repositories/`** - Legacy systems (maintain for production only)
+- **`modern-frontend/`** - Colleague's experiment (ignore completely)
+
+### 📊 **For Strategic Context**
+- **`future-considerations/`** - Strategic business objectives
+- **`analysis-workflow/`** - Technical analysis and decisions
 
 ## Repository Quick Reference
 
-| Repository | Technology | Purpose | Status |
-|------------|------------|---------|---------|
-| `back-end/` | Rails + PostgreSQL | Core API | Production (needs stabilization) |
-| `cms-fe-angular/` | Angular 8 | Content Management | Legacy (freeze new features) |
-| `front-end/` | Vue.js 2 | Kiosk Displays | Legacy (target for React migration) |
-| `TPB-Ecomm-FE-and-BE/` | React + NestJS | Modern E-commerce | Incomplete (V2 reference) |
+| Repository | Technology | Purpose | Status | Development Focus |
+|------------|------------|---------|---------|-------------------|
+| **`TPB-Ecomm-FE-and-BE/`** | **React + NestJS** | **Modern E-commerce** | **✅ ACTIVE DEVELOPMENT** | **🚀 PRIMARY FOCUS** |
+| `repositories/back-end/` | Rails + PostgreSQL | Core API | ⚠️ Production (maintenance only) | ⚠️ Critical fixes only |
+| `repositories/cms-fe-angular/` | Angular 8 | Content Management | ⚠️ Legacy (will be replaced) | ⚠️ No development |
+| `repositories/front-end/` | Vue.js 2 | Kiosk Displays | ⚠️ Legacy (NOT being rebuilt) | ⚠️ Critical fixes only |
+| `modern-frontend/` | Next.js | Colleague's experiment | 🚫 Ignore completely | 🚫 Do not work on |
 
-## Key Strategic Concepts
+## 🎯 **CURRENT DEVELOPMENT STRATEGY**
 
-### V1 Stabilization Strategy
-- **Principle**: Every V1 fix must reduce support burden AND become V2 building block
-- **Focus**: POS/CMS sync, API contracts, auth/security, observability
-- **Timeline**: 30/60/90 day execution plan
+### **✅ APPROACH SELECTED: E-commerce Foundation**
+- **Primary Target**: `TPB-Ecomm-FE-and-BE/` project modernization
+- **Status**: Active development and modernization
+- **Timeline**: 3-month modernization phase
+- **Team**: 3-4 developers assigned
 
-### V2 Foundation
-- **Keystone**: User accounts as the spine
-- **Architecture**: API Gateway + domain services + agent-ready contracts
-- **Goal**: Position as vertical intelligence layer for cannabis retail
+### **❌ APPROACH REJECTED: Legacy Rebuild**
+- **Legacy Systems**: `repositories/` (Vue.js, Rails, Angular)
+- **Status**: Maintained for production stability only
+- **Development**: NOT our primary focus
+- **Reason**: Too expensive, too slow, limited V2 seeding value
 
-### Dual Revenue Engines
-- **Engine A**: Affiliate/content feeds (outside cannabis) → near-term cash
-- **Engine B**: Retail Data SaaS + Cannabis Agent API (inside cannabis) → scale
+### **Phase 1: E-commerce Modernization (Current)**
+- **Objective**: Modernize and secure the e-commerce project
+- **Key Tasks**: Dependency updates, security fixes, component extraction
+- **Timeline**: 3 months (Months 1-3)
 
-## Common Tasks & Where to Look
+### **Phase 2: V2 Spine Development (Next)**
+- **Objective**: Build V2 foundation using ported patterns
+- **Key Tasks**: User accounts, data enrichment, admin UI
+- **Timeline**: 3 months (Months 4-6)
 
-### Understanding Current System
-1. **`knowledge-bases/cross-repository-knowledge-base/executive-summary.md`** - High-level overview
-2. **`knowledge-bases/[repo-name]/README.md`** - Repository-specific details
-3. **`repositories/[repo-name]/README.md`** - Basic setup and usage
+### **Phase 3: Revenue Engine Development (Future)**
+- **Objective**: Launch dual revenue engines
+- **Key Tasks**: Affiliate feeds, data SaaS, agent integration
+- **Timeline**: 6 months (Months 7-12)
 
-### Planning V2 Development
-1. **`future-considerations/9_target_architecture_appendix.md`** - Target architecture
-2. **`TPB-Ecomm-FE-and-BE/`** - Modern implementation patterns
-3. **`future-considerations/3_strategy_stabilize_v_1_to_seed_v_2_not_wasted_work.md`** - Migration strategy
+## 🚀 **WHAT TO WORK ON RIGHT NOW**
 
-### Code Quality & Standards
-1. **`cursor_rules/[repo-name]/rules/`** - Development guidelines
-2. **`knowledge-bases/[repo-name]/technical/`** - Implementation patterns
-3. **`knowledge-bases/[repo-name]/system/`** - Architecture guidelines
+### **✅ PRIMARY DEVELOPMENT TARGETS**
+1. **`TPB-Ecomm-FE-and-BE/ThePeakBeyond_eCommerce/`** - React frontend modernization
+2. **`TPB-Ecomm-FE-and-BE/ThePeakBeyond_eCommerce_API/`** - NestJS backend modernization
+3. **Dependency Updates**: React 17→18, NestJS 8→10, Node 14→18+
+4. **Security Fixes**: JWT vulnerabilities, input validation
+5. **Component Extraction**: ProductCard, cart management, auth patterns
 
-### Strategic Context
-1. **`future-considerations/1_opening_reality_check_opportunity.md`** - Business thesis
-2. **`future-considerations/8_12_24_month_hybrid_roadmap_quarter_by_quarter.md`** - Execution plan
-3. **`future-considerations/11_ask_next_steps.md`** - Immediate priorities
+### **⚠️ MAINTENANCE ONLY (Don't Focus Here)**
+1. **`repositories/back-end/`** - Rails API (critical fixes only)
+2. **`repositories/front-end/`** - Vue.js kiosk (critical fixes only)
+3. **`repositories/cms-fe-angular/`** - Angular CMS (will be replaced)
+
+### **🚫 IGNORE COMPLETELY**
+1. **`modern-frontend/`** - Colleague's experiment (not our strategy)
+
+## 📚 **KEY DOCUMENTATION**
+
+### **Essential Reading (Start Here)**
+1. **`PROJECT_STATUS.md`** - Current project state and decisions
+2. **`DEVELOPER_ONBOARDING.md`** - Guide for new developers
+3. **`TPB-Ecomm-FE-and-BE/SETUP_GUIDE.md`** - How to run the project
+4. **`TPB-Ecomm-FE-and-BE/LOCAL_DEVELOPMENT.md`** - Development setup
+
+### **Context & Analysis (Read When Needed)**
+1. **`analysis-workflow/OVERVIEW.md`** - Strategic decision and analysis overview
+2. **`future-considerations/`** - Strategic business objectives
+3. **`analysis-workflow/`** - Technical analysis and decisions
+
+### **Reference (Consult As Needed)**
+1. **`repositories/`** - Legacy systems (for understanding, not development)
+2. **`knowledge-bases/`** - Detailed technical analysis
 
 ## Key Files to Bookmark
 

@@ -1,8 +1,26 @@
 # The Peak Beyond (TPB) Future Project
 
+## 🎯 **PROJECT STATUS: ACTIVE DEVELOPMENT**
+
+**Current Phase**: V2 Foundation Development  
+**Primary Focus**: Modernizing e-commerce project for V2 spine  
+**Next Milestone**: Complete e-commerce modernization (3 months)  
+**Team**: Active collaboration with development team  
+
 ## Project Overview
 
 This repository contains The Peak Beyond's comprehensive ecosystem of in-store hardware and software products, strategic planning documents, and analysis artifacts. The project encompasses legacy systems, future planning, and modern e-commerce extensions designed to position TPB as a leader in cannabis retail technology and the emerging AI agent economy.
+
+## 🚀 **CURRENT DEVELOPMENT STRATEGY**
+
+**DECISION MADE**: We are using the **TPB-Ecomm-FE-and-BE** project as our foundation for V2 development, NOT rebuilding from the legacy Vue.js system.
+
+**Why This Approach**:
+- ✅ **80-90% code reusability** from existing e-commerce project
+- ✅ **6-12 months faster** than rebuilding from legacy
+- ✅ **$50k-100k cost savings** vs complete rebuild
+- ✅ **Direct V2 seeding** - every component ports to V2 spine
+- ✅ **Modern architecture** already in place (React + TypeScript + Redux)
 
 ## Repository Structure
 
@@ -83,6 +101,7 @@ This repository contains The Peak Beyond's comprehensive ecosystem of in-store h
   - User management and authentication
   - Order processing and checkout
 - **Status**: Production system requiring stabilization
+- **Development**: ⚠️ **NOT our primary focus** - maintaining for production stability
 
 #### `cms-fe-angular/` - Angular CMS
 - **Technology**: Angular 8 with TypeScript
@@ -92,7 +111,8 @@ This repository contains The Peak Beyond's comprehensive ecosystem of in-store h
   - Product catalog administration
   - Store configuration
   - User and client management
-- **Status**: Legacy system, new features should go to modern Admin UI
+- **Status**: Legacy system, will be replaced by modern Admin UI
+- **Development**: ⚠️ **NOT our primary focus** - will be replaced
 
 #### `front-end/` - Vue.js Kiosk
 - **Technology**: Vue.js 2 with JavaScript
@@ -102,12 +122,13 @@ This repository contains The Peak Beyond's comprehensive ecosystem of in-store h
   - Shopping cart and checkout
   - Offline functionality
   - Analytics and event tracking
-- **Status**: Legacy system, target for React migration
+- **Status**: Legacy system, **NOT being rebuilt**
+- **Development**: ⚠️ **NOT our primary focus** - maintaining for production stability
 
 ---
 
-### 📁 `TPB-Ecomm-FE-and-BE/` - Modern E-commerce Extension
-**Purpose**: Unfinished side project demonstrating modern architecture with user accounts and e-commerce capabilities.
+### 📁 `TPB-Ecomm-FE-and-BE/` - **🎯 PRIMARY DEVELOPMENT FOCUS**
+**Purpose**: **OUR FOUNDATION FOR V2 DEVELOPMENT** - Modern e-commerce project with user accounts and e-commerce capabilities.
 
 #### `ThePeakBeyond_eCommerce/` - React Frontend
 - **Technology**: React with TypeScript, Redux for state management
@@ -117,7 +138,8 @@ This repository contains The Peak Beyond's comprehensive ecosystem of in-store h
   - Product browsing and favorites
   - Shopping cart and order management
   - Dashboard and purchase history
-- **Status**: Incomplete but valuable for V2 reference
+- **Status**: ✅ **ACTIVE DEVELOPMENT** - Being modernized for V2
+- **Development**: 🚀 **PRIMARY FOCUS** - This is our main development target
 
 #### `ThePeakBeyond_eCommerce_API/` - NestJS Backend
 - **Technology**: NestJS with TypeScript
@@ -127,7 +149,8 @@ This repository contains The Peak Beyond's comprehensive ecosystem of in-store h
   - User authentication and authorization
   - Product and inventory management
   - Database integration with Treez
-- **Status**: Incomplete but demonstrates modern patterns
+- **Status**: ✅ **ACTIVE DEVELOPMENT** - Being modernized for V2
+- **Development**: 🚀 **PRIMARY FOCUS** - This is our main development target
 
 ---
 
@@ -157,25 +180,32 @@ The strategic plan focuses on:
 
 ---
 
-## Getting Started
+## 🚀 **GETTING STARTED - FOR NEW DEVELOPERS & AI AGENTS**
 
-### For Developers
-1. **Legacy Systems**: Start with the knowledge bases for comprehensive documentation
-2. **Future Development**: Review future-considerations for strategic context
-3. **Modern Patterns**: Examine TPB-Ecomm-FE-and-BE for V2 reference implementations
-4. **Development Guidelines**: Follow cursor_rules for consistent code quality
+### **🎯 PRIMARY DEVELOPMENT FOCUS**
+**START HERE**: `TPB-Ecomm-FE-and-BE/` - This is our main development target
 
-### For Strategic Planning
-1. **Current State**: Review knowledge-bases for system understanding
-2. **Future Direction**: Study future-considerations for strategic roadmap
-3. **Implementation**: Use TPB-Ecomm-FE-and-BE as V2 architecture reference
-4. **Execution**: Follow quarterly roadmap in future-considerations
+1. **Read the Setup Guide**: `TPB-Ecomm-FE-and-BE/SETUP_GUIDE.md`
+2. **Review Current Status**: `TPB-Ecomm-FE-and-BE/README.md`
+3. **Follow Local Development**: `TPB-Ecomm-FE-and-BE/LOCAL_DEVELOPMENT.md`
+4. **Run the Startup Script**: `./TPB-Ecomm-FE-and-BE/start-dev.sh`
 
-### For AI Agents
-1. **System Understanding**: Start with cross-repository-knowledge-base
-2. **Code Analysis**: Use individual knowledge bases for specific repositories
-3. **Strategic Context**: Review future-considerations for business objectives
-4. **Development**: Follow cursor_rules for code generation and modification
+### **📚 UNDERSTANDING THE PROJECT**
+1. **Strategic Context**: Review `future-considerations/` for business objectives
+2. **Analysis Results**: Review `analysis-workflow/` for technical decisions
+3. **Current Status**: Read this README for project state
+4. **Development Guidelines**: Follow `cursor_rules/` for code quality
+
+### **⚠️ WHAT NOT TO FOCUS ON**
+- **Legacy Systems** (`repositories/`): Maintain for production, don't rebuild
+- **Modern Frontend** (`modern-frontend/`): Colleague's experiment, ignore
+- **Vue.js Migration**: We're NOT rebuilding the legacy Vue.js system
+
+### **🤖 FOR AI AGENTS**
+1. **Primary Focus**: Work on `TPB-Ecomm-FE-and-BE/` modernization
+2. **Current Phase**: Phase 1 - E-commerce modernization (3 months)
+3. **Key Tasks**: Dependency updates, security fixes, component extraction
+4. **Reference**: Use analysis documents for context and decisions
 
 ---
 

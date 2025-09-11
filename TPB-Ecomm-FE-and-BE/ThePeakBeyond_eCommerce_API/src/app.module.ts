@@ -7,6 +7,7 @@ import { StoreModule } from './modules/store/store.module';
 import { TagInfoModule } from './modules/tagging/tag.module';
 import { BrandModule } from './modules/brand/brand.module';
 import { ProviderModule } from './providers/database/postgres/provider.module';
+import { LocalProviderModule } from './providers/database/postgres/local-provider.module';
 import { CompanyModule } from './modules/company/company.module';
 import { FavoriteModule } from './modules/favorite/favorite.module';
 import { TreezModule } from './modules/treez/treez.module';
@@ -21,7 +22,8 @@ import { join } from 'path';
     StoreModule,
     TagInfoModule,
     BrandModule,
-    ProviderModule,
+    // Use local provider for development, AWS provider for production
+    process.env.NODE_ENV === 'development' ? LocalProviderModule : ProviderModule,
     CompanyModule,
     FavoriteModule,
     TreezModule,
