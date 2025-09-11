@@ -377,41 +377,93 @@ Determine what from TPB-Ecomm-FE-and-BE is usable for accomplishing future-consi
 
 ## Resource Requirements
 
-### Development Resources (Based on Actual Code Analysis)
+### Development Resources (Clarified Scope)
 
-**Frontend Development**:
-- **Time**: 150-200 hours (reduced due to high reusability)
+**IMPORTANT CLARIFICATION**: The resource estimates below cover **ONLY the porting and modernization of the TPB-Ecomm-FE-and-BE project components**. This does NOT include:
+- V1 legacy system modernization (Vue.js frontend, Rails API, POS sync)
+- Complete V2 spine development
+- Full revenue engine implementation
+- Complete V1 to V2 migration
+
+#### E-commerce Project Porting (TPB-Ecomm-FE-and-BE)
+
+**Frontend Component Porting**:
+- **Time**: 150-200 hours
+- **Scope**: Porting ProductCard, cart management, auth patterns from e-commerce project
 - **Skills**: React 18, TypeScript, Redux Toolkit, Material-UI v5
-- **Tools**: Vite, component library, testing frameworks
-- **Key Tasks**: Component porting, security fixes, framework updates
+- **Key Tasks**: Component extraction, security fixes, framework updates
 
-**Backend Development**:
-- **Time**: 100-150 hours (reduced due to pattern reusability)
+**Backend Pattern Porting**:
+- **Time**: 100-150 hours
+- **Scope**: Porting NestJS patterns to Rails, adapting API contracts
 - **Skills**: Rails, API design, OpenAPI, JWT security
-- **Tools**: API documentation tools, Redis caching
 - **Key Tasks**: NestJS to Rails translation, security hardening
 
-**Integration Work**:
-- **Time**: 75-100 hours (streamlined with proven patterns)
+**Integration & Modernization**:
+- **Time**: 75-100 hours
+- **Scope**: Integrating ported components with V1 systems
 - **Skills**: System integration, security architecture
-- **Tools**: API testing, monitoring tools, security scanners
-- **Key Tasks**: V1 integration, V2 spine development
+- **Key Tasks**: V1 integration, component library setup
 
-### Cost-Benefit Analysis
+**E-commerce Porting Total**: 325-450 hours
 
-**High-Value Ports (Immediate ROI)**:
-- **ProductCard Component**: 2-3 days → Immediate UI consistency
-- **Cart State Management**: 3-5 days → Proven cart functionality
-- **Product DTOs**: 1-2 days → Type-safe data contracts
-- **HTTP Client Patterns**: 5-7 days → Secure API integration
+#### V1 Legacy System Modernization (Separate Effort)
 
-**Medium-Value Ports (Strategic Value)**:
-- **Authentication Patterns**: 2-3 weeks → V2 identity foundation
-- **API Controller Patterns**: 2-3 weeks → V1 integration
-- **State Management**: 1-2 weeks → V2 spine development
+**V1 Frontend Modernization (Vue.js → React)**:
+- **Time**: 400-600 hours
+- **Scope**: Complete Vue.js frontend rebuild with React 18
+- **Skills**: React 18, TypeScript, modern build tools
+- **Key Tasks**: Complete frontend rewrite, component migration
 
-**Total Estimated Effort**: 300-450 hours (vs 800-1000 hours from scratch)
-**Time Savings**: 50-60% compared to building from scratch
+**V1 Backend Modernization (Rails API)**:
+- **Time**: 300-500 hours
+- **Scope**: Rails API modernization, security hardening
+- **Skills**: Rails, API design, security, performance optimization
+- **Key Tasks**: API modernization, security fixes, performance optimization
+
+**V1 POS Sync Modernization**:
+- **Time**: 200-350 hours
+- **Scope**: Event-driven architecture, microservices
+- **Skills**: Event-driven architecture, microservices, POS integration
+- **Key Tasks**: Parser modernization, event-driven sync, error handling
+
+**V1 Modernization Total**: 900-1450 hours
+
+#### Complete V2 Development (Separate Effort)
+
+**V2 Spine Development**:
+- **Time**: 600-800 hours
+- **Scope**: User accounts, data enrichment, agent integration
+- **Skills**: Modern architecture, agent integration, data science
+- **Key Tasks**: V2 spine implementation, agent patterns, data enrichment
+
+**Revenue Engine Development**:
+- **Time**: 400-600 hours
+- **Scope**: Dual revenue engines (affiliate feeds + data SaaS)
+- **Skills**: Content management, analytics, SaaS development
+- **Key Tasks**: Revenue engine implementation, partner integration
+
+**V2 Development Total**: 1000-1400 hours
+
+### Comprehensive Resource Breakdown
+
+**Phase 1: E-commerce Porting** (Months 1-3)
+- **Effort**: 325-450 hours
+- **Scope**: Port high-value components from e-commerce project
+- **Deliverables**: Component library, ported patterns, security fixes
+
+**Phase 2: V1 Modernization** (Months 4-9)
+- **Effort**: 900-1450 hours
+- **Scope**: Complete V1 system modernization
+- **Deliverables**: Modernized V1 systems, stabilized infrastructure
+
+**Phase 3: V2 Development** (Months 10-15)
+- **Effort**: 1000-1400 hours
+- **Scope**: V2 spine and revenue engines
+- **Deliverables**: Complete V2 platform, agent integration
+
+**Total Project Effort**: 2225-3300 hours (18-24 months)
+**E-commerce Porting Portion**: 15-20% of total effort
 
 ### Infrastructure Requirements
 **Development Environment**:
