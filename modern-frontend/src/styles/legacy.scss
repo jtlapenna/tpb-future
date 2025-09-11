@@ -1,0 +1,293 @@
+/* Legacy SCSS variables and styles ported from Vue.js app */
+
+/* Colors */
+$black: #000000;
+$bluecharcoal: #010D17;
+$charade: #2B2D37;
+$ebonyclay: #242B35;
+$shark: #1A1B21;
+$white: #ffffff;
+
+/* CSS Variables */
+:root {
+  --main-color: #0ea5e9;
+  --bg: #010D17;
+  --navs-color: #FDDA1A;
+  --font-extralight: 'muliextralight';
+  --font-light: 'mulilight';
+  --font-regular: 'muliregular';
+  --font-semibold: 'mulisemibold';
+  --font-bold: 'mulibold';
+  --font-extrabold: 'muliextrabold';
+  --font-black: 'muliblack';
+}
+
+/* Global Styles - matches legacy global.scss */
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background: var(--bg);
+  color: $white;
+  font: 20px/1.5 var(--font-light);
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Screen Home Styles - matches ScreenHomeDefault.vue */
+.screen--home {
+  left: 0;
+  background: transparent !important;
+}
+
+.store-logo {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.5;
+
+  &--horizontal {
+    width: 160px;
+    height: 60px;
+  }
+
+  &--rectangle {
+    width: 100px;
+    height: 40px;
+  }
+
+  &--square {
+    width: 90px;
+    height: 90px;
+  }
+
+  &--vertical {
+    width: 60px;
+    height: 100px;
+  }
+}
+
+.catcher {
+  position: fixed;
+  top: 290px;
+  left: 170px;
+  width: 600px;
+  font: 92px/1.09 var(--font-extralight);
+
+  &--small {
+    top: 400px;
+    left: 140px;
+    width: 740px;
+    font-size: 70px;
+  }
+}
+
+.illustration {
+  position: fixed;
+  top: 630px;
+  left: 170px;
+  width: 477px;
+  height: 353px;
+
+  .lottie-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 987px;
+    height: 730px;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+.active-button-container {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+/* Navigation Styles */
+.the-nav {
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-content: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+  }
+
+  .element {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: calc(50% - 10px);
+    height: 160px;
+    border-radius: 30px;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .link {
+    display: block;
+    position: relative;
+    height: 100%;
+    border-radius: 20px;
+    color: $white;
+    text-decoration: none;
+  }
+
+  .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: var(--main-color);
+  }
+
+  .number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: opacity 0.1s linear 0s;
+    font: 16px/1 var(--font-semibold);
+
+    &__line {
+      display: block;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: $white;
+      opacity: 0.5;
+      transform-origin: 0 0;
+    }
+  }
+
+  .label {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    left: 40px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.1s linear 0s;
+    font: 1.4em/1.21 var(--font-extrabold);
+  }
+
+  .arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba($white, 0.3);
+    border-radius: 50%;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+    &__line {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 2px;
+      transform: translate3d(-50%, -50%, 0);
+
+      &:before,
+      &:after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        background: $white;
+        border-radius: 25%;
+        content: "";
+        transform-origin: 100% 50%;
+      }
+      &:before {
+        transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+      }
+      &:after {
+        transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+      }
+    }
+  }
+
+  /* Large Navigation Styles */
+  &--large {
+    position: fixed;
+    top: 135px;
+    right: 70px;
+    bottom: 105px;
+    left: 980px;
+
+    ul {
+      margin: 0 -15px;
+      width: auto;
+    }
+
+    .element {
+      margin: 0 15px 30px;
+      width: calc(50% - 30px);
+      height: 200px;
+
+      &--large {
+        width: calc(100% - 30px);
+
+        .inner:before {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: $black;
+          opacity: 0.34;
+          content: "";
+          z-index: 1;
+        }
+      }
+    }
+
+    .number {
+      top: 30px;
+      left: 30px;
+    }
+
+    .label {
+      right: 60px;
+      left: 60px;
+      font-size: 50px;
+      line-height: 1.12;
+    }
+
+    .arrow {
+      right: 30px;
+      bottom: 30px;
+    }
+  }
+}

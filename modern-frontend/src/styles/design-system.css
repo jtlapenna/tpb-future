@@ -1,0 +1,528 @@
+/* Modern Design System - Pixel-perfect recreation of legacy styles */
+
+/* CSS Custom Properties - Design Tokens */
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-bluecharcoal: #010D17;
+  --color-charade: #2B2D37;
+  --color-ebonyclay: #242B35;
+  --color-shark: #1A1B21;
+  --color-white: #ffffff;
+  --color-main: #0ea5e9;
+  --color-bg: #010D17;
+  --color-navs: #FDDA1A;
+  
+  /* Typography */
+  --font-extralight: 'muliextralight';
+  --font-light: 'mulilight';
+  --font-regular: 'muliregular';
+  --font-semibold: 'mulisemibold';
+  --font-bold: 'mulibold';
+  --font-extrabold: 'muliextrabold';
+  --font-black: 'muliblack';
+  
+  /* Spacing */
+  --spacing-store-logo-top: 50px;
+  --spacing-store-logo-left: 50px;
+  --spacing-catcher-top: 290px;
+  --spacing-catcher-left: 170px;
+  --spacing-catcher-width: 600px;
+  --spacing-illustration-top: 630px;
+  --spacing-illustration-left: 170px;
+  --spacing-illustration-width: 477px;
+  --spacing-illustration-height: 353px;
+  --spacing-nav-top: 135px;
+  --spacing-nav-right: 70px;
+  --spacing-nav-bottom: 105px;
+  --spacing-nav-left: 980px;
+  
+  /* Border Radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --radius-button: 28px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 50px rgba(0, 0, 0, 0.5);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Font Face Definitions - Exact match to legacy */
+@font-face {
+  font-family: 'muliextralight';
+  src: url('/fonts/muli-extralight-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'mulilight';
+  src: url('/fonts/muli-light-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'muliregular';
+  src: url('/fonts/muli-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'mulisemibold';
+  src: url('/fonts/muli-semibold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'mulibold';
+  src: url('/fonts/muli-bold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'muliextrabold';
+  src: url('/fonts/muli-extrabold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'muliblack';
+  src: url('/fonts/muli-black-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global Reset - Exact match to legacy global.scss */
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background: var(--color-bg);
+  color: var(--color-white);
+  font: 20px/1.5 var(--font-light);
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Screen Base Styles */
+.screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-white);
+}
+
+.screen--home {
+  left: 0;
+  background: transparent !important;
+}
+
+/* Store Logo Styles - Exact positioning from legacy */
+.store-logo {
+  position: fixed;
+  top: var(--spacing-store-logo-top);
+  left: var(--spacing-store-logo-left);
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.5;
+}
+
+.store-logo--horizontal {
+  width: 160px;
+  height: 60px;
+}
+
+.store-logo--rectangle {
+  width: 100px;
+  height: 40px;
+}
+
+.store-logo--square {
+  width: 90px;
+  height: 90px;
+}
+
+.store-logo--vertical {
+  width: 60px;
+  height: 100px;
+}
+
+/* Welcome Message Styles - Exact positioning from legacy */
+.catcher {
+  position: fixed;
+  top: var(--spacing-catcher-top);
+  left: var(--spacing-catcher-left);
+  width: var(--spacing-catcher-width);
+  font: 92px/1.09 var(--font-extralight);
+  color: var(--color-white);
+}
+
+.catcher--small {
+  top: 400px;
+  left: 140px;
+  width: 740px;
+  font-size: 70px;
+}
+
+.catcher__line {
+  display: block;
+}
+
+/* RFID Animation Styles - Exact positioning from legacy */
+.illustration {
+  position: fixed;
+  top: var(--spacing-illustration-top);
+  left: var(--spacing-illustration-left);
+  width: var(--spacing-illustration-width);
+  height: var(--spacing-illustration-height);
+}
+
+.illustration .lottie-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 987px;
+  height: 730px;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* Animation Placeholder - Similar to store logo */
+.animation-placeholder {
+  position: fixed;
+  top: var(--spacing-catcher-top);
+  left: var(--spacing-catcher-left);
+  width: var(--spacing-catcher-width);
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font: 18px/1.2 var(--font-semibold);
+  text-align: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Navigation Styles - Exact positioning and styling from legacy */
+.the-nav {
+  position: fixed;
+  top: var(--spacing-nav-top);
+  right: var(--spacing-nav-right);
+  bottom: var(--spacing-nav-bottom);
+  left: var(--spacing-nav-left);
+}
+
+.the-nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-content: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.the-nav .element {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.the-nav .link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: var(--radius-lg);
+  color: var(--color-white);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  background: transparent;
+}
+
+.the-nav .link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.the-nav .link.router-link-exact-active {
+  background: linear-gradient(135deg, var(--color-main) 0%, #0284c7 100%);
+}
+
+.the-nav .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.the-nav--large .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.the-nav .number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.1s linear 0s;
+  font: 16px/1 var(--font-semibold);
+  color: var(--color-white);
+  z-index: 2;
+}
+
+.the-nav .number__text {
+  position: relative;
+  z-index: 2;
+  color: var(--color-white);
+}
+
+.the-nav .number__line {
+  display: block;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-white);
+  opacity: 0.5;
+  transform-origin: 0 0;
+}
+
+.the-nav .label {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 40px;
+  left: 40px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 0.1s linear 0s;
+  font: 1.4em/1.21 var(--font-extrabold);
+  color: var(--color-white);
+}
+
+.the-nav .arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.the-nav .arrow__line {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 2px;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.the-nav .arrow__line:before,
+.the-nav .arrow__line:after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: var(--color-white);
+  border-radius: 25%;
+  content: "";
+  transform-origin: 100% 50%;
+}
+
+.the-nav .arrow__line:before {
+  transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+}
+
+.the-nav .arrow__line:after {
+  transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+}
+
+/* Large Navigation Variant - Exact styling from legacy */
+.the-nav--large {
+  position: fixed;
+  top: var(--spacing-nav-top);
+  right: var(--spacing-nav-right);
+  bottom: var(--spacing-nav-bottom);
+  left: var(--spacing-nav-left);
+}
+
+.the-nav--large ul {
+  margin: 0 -15px;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.the-nav--large .element {
+  margin: 0 15px 30px;
+  width: calc(50% - 30px);
+  height: 200px;
+  background: #0ea5e9;
+  border-radius: var(--radius-xl);
+  position: relative;
+}
+
+.the-nav--large .element--large {
+  width: calc(100% - 30px);
+}
+
+.the-nav--large .element--large .inner:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-black);
+  opacity: 0.34;
+  content: "";
+  z-index: 1;
+}
+
+.the-nav--large .background {
+  background-color: var(--color-main);
+}
+
+.the-nav--large .number {
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+}
+
+.the-nav--large .label {
+  position: absolute;
+  right: 60px;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  line-height: 1.12;
+  font-weight: 800;
+  color: var(--color-white);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.the-nav--large .arrow {
+  right: 30px;
+  bottom: 30px;
+  width: 44px;
+  height: 44px;
+}
+
+/* Active Button Container */
+.active-button-container {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+/* Scrollbar Styles - Exact match to legacy */
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 50px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-main);
+  background-clip: padding-box;
+  border: 10px solid transparent;
+  border-radius: 25px;
+}
+
+.scroll-hidden::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0);
+}
