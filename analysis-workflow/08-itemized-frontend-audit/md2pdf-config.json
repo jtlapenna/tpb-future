@@ -1,0 +1,10 @@
+{
+  "stylesheet": [
+    "pdf.css"
+  ],
+  "pdf_options": {
+    "format": "A4",
+    "printBackground": true,
+    "displayHeaderFooter": false
+  }
+}
