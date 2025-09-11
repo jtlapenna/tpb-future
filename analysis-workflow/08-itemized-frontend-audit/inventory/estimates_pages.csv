@@ -1,0 +1,18 @@
+category,item,route,action,complexity,difficulty,human_min,human_max,ai_min,ai_max,risk,notes
+pages,ScreenHome.vue,/ ,replace,L,4,32,64,19,45,medium,Multiple home variants consolidated
+pages,ScreenBlank.vue,/blank,delete,S,2,4,8,2,6,low,Dev/utility only
+pages,ScreenDebugCache.vue,/debug-cache,delete,S,2,4,8,2,6,low,Dev-only
+pages,ScreenProducts.vue,/products/:categoryId,replace,L,4,32,64,19,45,medium,Category filtering
+pages,ScreenProducts.vue,/products,replace,L,4,32,64,19,45,medium,Shared with category view
+pages,ScreenProductsPromotions.vue,/on-sale,replace,M,3,12,24,7,17,medium,Promo logic
+pages,ScreenProduct.vue,/product/:id,replace,L,4,32,64,19,45,medium,Media/gallery/specs
+pages,ScreenBrands.vue,/brands,refactor,M,3,12,24,7,17,medium,Query param syncing
+pages,ScreenEffectsUses.vue,/effects-uses,refactor,M,3,12,24,7,17,medium,Tag-based UX
+pages,ScreenFeaturedProducts.vue,/featured-products,refactor,M,3,12,24,7,17,medium,Data widgets
+pages,ScreenCart.vue,/cart,replace,L,4,32,64,19,45,medium,Cart + pricing rules
+pages,ScreenCheckout.vue,/checkout,replace,XL,5,80,120,48,84,high,Provider adapters unify flows
+pages,ScreenUploadEvents.vue,/analytics,refactor,M,3,12,24,7,17,low,Move to admin/dev
+pages,ScreenIframeTest.vue,/iframe-test,delete,S,2,4,8,2,6,low,Legacy testing
+pages,ActiveCartKeepShopping.vue,/active-cart/keep-shopping,refactor/port,M,3,12,24,7,17,medium,Session + timers
+pages,ActiveCartCheckoutCompleted.vue,/active-cart/created,refactor/port,M,3,12,24,7,17,medium,Session reset
+pages,ThankYouOrderCompleted.vue,/thank-you,refactor/port,M,3,12,24,7,17,medium,Confirmation UX
