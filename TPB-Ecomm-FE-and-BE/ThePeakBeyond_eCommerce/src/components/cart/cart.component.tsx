@@ -261,6 +261,19 @@ const useStyles = makeStyles((theme)=>({
     fontWeight: 'bold',
     marginTop: '10px',
   },
+  signatureLabelContainer: {
+    marginBottom: '10px',
+  },
+  signatureLabel: {
+    display: 'inline-block',
+  },
+  termsCheckboxLabel: {
+    fontSize: '.95em',
+  },
+  deliveryFormRow: {
+    marginTop: 32,
+    width: '100%',
+  },
 }))
 
 export const Cart = () => {
@@ -629,8 +642,8 @@ export const Cart = () => {
             <h2>Terms And Conditions</h2>
             <div className={classes.termsTextArea}>{terms}</div>
             <Box className={classes.signatureContainer}>
-              <div style={{ marginBottom: '10px' }}>
-                <FormLabel style={{ display: 'inline-block' }}>
+              <div className={classes.signatureLabelContainer}>
+                <FormLabel className={classes.signatureLabel}>
                   Draw Your Signature Here
                 </FormLabel>
                 <Link
@@ -667,7 +680,7 @@ export const Cart = () => {
                   name="agreeWithTerms"
                   ref={agreeWithTermsRef}
                 />
-                <label htmlFor="agreeWithTerms" style={{ fontSize: '.95em' }}>
+                <label htmlFor="agreeWithTerms" className={classes.termsCheckboxLabel}>
                   I Agree With The Terms And Conditions
                 </label>
               </Box>
@@ -758,7 +771,7 @@ export const Cart = () => {
                   )}
                 </FormControl>
 
-                <div className="flex" style={{marginTop:32,width:'100%' }}>
+                <div className={`flex ${classes.deliveryFormRow}`}>
                   <div className="w-50 ml-0">
                     <FormControl
                       className={classes.formControl}
