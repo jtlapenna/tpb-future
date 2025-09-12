@@ -672,8 +672,12 @@ export const Products: React.FC = () => {
                 const item: IProduct =
                   data[rowIndex * columnCount + columnIndex]
                 return item ? (
-                  {/* eslint-disable-next-line react/forbid-dom-props */}
-                  <div style={style} className={classes.productGridItem} key={item.id}>
+                  <div 
+                    style={style} 
+                    className={classes.productGridItem} 
+                    key={item.id}
+                    // eslint-disable-next-line react/forbid-dom-props
+                  >
                     <ProductCard
                       product={item}
                       width={+(style?.width || -1)}

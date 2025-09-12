@@ -238,8 +238,12 @@ export const OnSales: React.FC = () => {
             {({ columnIndex, rowIndex, style, data }) => {
               const item: IProduct = data[rowIndex * columnCount + columnIndex]
               return item ? (
-                {/* eslint-disable-next-line react/forbid-dom-props */}
-                <div style={style} className={classes.productGridItem} key={item.id}>
+                <div 
+                  style={style} 
+                  className={classes.productGridItem} 
+                  key={item.id}
+                  // eslint-disable-next-line react/forbid-dom-props
+                >
                   <FeaturedProduct product={item} />
                 </div>
               ) : null
