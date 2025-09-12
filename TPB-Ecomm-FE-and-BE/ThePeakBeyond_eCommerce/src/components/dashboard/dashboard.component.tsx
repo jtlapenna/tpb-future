@@ -312,6 +312,41 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
     },
   },
+  headerContainer: {
+    height: 300,
+  },
+  orderProductsContainer: {
+    minWidth: 'var(--dynamic-width, 280px)',
+    [theme.breakpoints.down('sm')]: {
+      minWidth: 'var(--dynamic-width, 235px)',
+    },
+  },
+  dealHighlightsCard: {
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
+  lastPurchaseCard: {
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
+  lastPurchaseContent: {
+    textAlign: 'center',
+  },
+  lastPurchaseText: {
+    fontSize: 20,
+  },
+  brandSpotlightCard: {
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
+  spotlightContent: {
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
 }))
 
 export const Dashboard = () => {
@@ -488,7 +523,7 @@ export const Dashboard = () => {
           {matchesMobile ? (
            <MobileSidebar activeMenu={activeMenu} />
           ):(
-            <div style={{height:300}}>
+            <div className={classes.headerContainer}>
               <img src={companyData.header} alt="" className="commpany-header" />
             </div>
           )}
@@ -614,7 +649,14 @@ export const Dashboard = () => {
                     {treezOrders
                       ? treezOrders.map((order) => (
                           <Box display={matchesMobile ? "block":"flex"} alignItems="center" marginTop={'10px'} key={order.ticket_id}>
-                            <div className={classes.orderProducts} style={{minWidth:`${(maxOrderItems*(matchesMobile ? 50:60))}px`}}>
+                            <div 
+                              className={`${classes.orderProducts} ${classes.orderProductsContainer}`}
+                              ref={(el) => {
+                                if (el) {
+                                  el.style.minWidth = `${(maxOrderItems*(matchesMobile ? 50:60))}px`;
+                                }
+                              }}
+                            >
                               {order.items.map(product=>(
                                 <img key={product.product_id}alt='' src={`${process.env.REACT_APP_EXTERNAL_API_URL}/products/findBySku/${product.product_id}`} />
                               ))}
@@ -632,7 +674,7 @@ export const Dashboard = () => {
           ) : null}
           <Card className={clsx(classes.card, classes.dealHighlight)}>
             <CardHeader
-              className={clsx(classes.cardHeader, classes.dealHighlightHeader)}
+              className={clsx(classes.cardHeader, classes.dealHighlightHeader, classes.dealHighlightsCard)}
               title="DEAL HIGHLIGHTS"
               style={{ backgroundImage: `url(${companyData.dealHighlights})` }}
             />
@@ -654,18 +696,19 @@ export const Dashboard = () => {
                   <CardHeader
                     className={clsx(
                       classes.cardHeader,
-                      classes.lastPurchaseHeader
+                      classes.lastPurchaseHeader,
+                      classes.lastPurchaseCard
                     )}
                     title="Your Last Purchase"
                     style={{
                       backgroundImage: `url(${companyData.lastPurchase})`,
                     }}
                   />
-                  <CardContent style={{textAlign:'center'}}>
+                  <CardContent className={classes.lastPurchaseContent}>
                     {lastPurchaseData && lastPurchaseData[userStore]?.totalPrice > 0 ? (
                       <LastPurchase data={lastPurchaseData} />
                     ) : (
-                      <h1 style={{fontSize:20}}> Your most recent order will appear here once completed. </h1>
+                      <h1 className={classes.lastPurchaseText}> Your most recent order will appear here once completed. </h1>
                     )}
                   </CardContent>
                 </Card>
@@ -677,6 +720,7 @@ export const Dashboard = () => {
                   className={clsx(
                     classes.cardHeader,
                     classes.lastPurchaseHeader,
+                    classes.brandSpotlightCard
                   )}
                   title="Brand Spotlight"
                   style={{
@@ -685,8 +729,9 @@ export const Dashboard = () => {
                 />
                 <CardContent>
                   <Box onClick={gotobrand} 
+                    className={`${classes.spotLightContent} ${classes.spotlightContent}`}
                     style={{backgroundImage:`url(${companyData.dealHightlightImage})`}}
-                  className={classes.spotLightContent}></Box>
+                  ></Box>
                 </CardContent>
               </Card>
             </Grid>

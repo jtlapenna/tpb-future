@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '15px',
     },
   },
+  productGridItem: {
+    // Base styles for grid items - positioning handled by React Window
+  },
  }))
 
 const fetchProducts = async ({
@@ -235,7 +238,8 @@ export const OnSales: React.FC = () => {
             {({ columnIndex, rowIndex, style, data }) => {
               const item: IProduct = data[rowIndex * columnCount + columnIndex]
               return item ? (
-                <div style={style} key={item.id}>
+                {/* eslint-disable-next-line react/forbid-dom-props */}
+                <div style={style} className={classes.productGridItem} key={item.id}>
                   <FeaturedProduct product={item} />
                 </div>
               ) : null

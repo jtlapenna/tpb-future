@@ -85,6 +85,10 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 5,
     },
   },
+  cartItemCount: {
+    fontFamily: 'mulisemibold',
+    fontSize: '13px',
+  },
 }))
 
 export const Layout = () => {
@@ -138,14 +142,14 @@ export const Layout = () => {
         >
           <SvgCart />
           <Typography component="span" className="item-count" >
-            <span style={{ fontFamily:'mulisemibold',fontSize:'13px'}}>{cartState[userStore]?.items.length ?? 0}</span>
+            <span className={classes.cartItemCount}>{cartState[userStore]?.items.length ?? 0}</span>
           </Typography>
         </Box>
         <UserPicker />
       </Box>
       <Box className={classes.logo}>
         <span>POWERED BY</span>
-        <img src={Logo} />
+        <img src={Logo} alt="The Peak Beyond Logo" />
       </Box>
       <Box width="100%" overflow="scroll" paddingX={0} position="relative">
         <Switch>

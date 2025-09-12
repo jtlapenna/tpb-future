@@ -282,7 +282,14 @@ const useStyles = makeStyles((theme) => ({
       fontFamily:'mulibold',
       color:'hsla(0,0%,100%,.5)',
     }
-  }
+  },
+  mobileImageContainer: {
+    width: '100%',
+    textAlign: 'center',
+  },
+  tagsContainer: {
+    marginTop: 32,
+  },
 }))
 
 
@@ -365,7 +372,7 @@ export const ProductDetail = () => {
         <Box className={classes.productInfoContent}>
         
         {matchesMobile && (
-            <div style={{width:'100%',textAlign:'center'}}>
+            <div className={classes.mobileImageContainer}>
               <img
                 src={
                   product?.image_url ??
@@ -395,7 +402,7 @@ export const ProductDetail = () => {
 
           {hasTags && (
             <>
-              <div style={{marginTop:32}}>
+              <div className={classes.tagsContainer}>
                 <TextWidget
                   text={"Tags"}
                   size={16}

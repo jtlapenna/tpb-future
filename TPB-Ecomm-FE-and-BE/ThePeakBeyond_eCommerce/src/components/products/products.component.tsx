@@ -185,6 +185,30 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: '0',
     },
   },
+  categoryHeader: {
+    paddingTop: 8,
+    marginTop: 0,
+    textAlign: 'left',
+    fontFamily: 'mulibold !important',
+  },
+  tagsHeader: {
+    paddingTop: 8,
+    marginTop: 0,
+    textAlign: 'left',
+  },
+  tagsContainer: {
+    marginTop: 4,
+  },
+  tagItem: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  tagTypography: {
+    paddingRight: 0,
+  },
+  productGridItem: {
+    // Base styles for grid items - positioning handled by React Window
+  },
 }))
 
 const fetchProducts = async ({
@@ -437,7 +461,7 @@ export const Products: React.FC = () => {
           )}
          
           <ul className={"category h-100vh center "+(showSearchBox ? "mt-64":"")}>
-            <li style={{ paddingTop: 8, marginTop: 0, textAlign: 'left',  fontFamily: 'mulibold !important',}}>
+            <li className={classes.categoryHeader}>
               <TextWidget text="CATEGORIES" size={16}   />
             </li>
             {categories &&
@@ -478,7 +502,7 @@ export const Products: React.FC = () => {
                   </li>
                 )
               })}
-            <li style={{ paddingTop: 8, marginTop: 0, textAlign: 'left' }}>
+            <li className={classes.tagsHeader}>
               <TextWidget text="TAGS" size={15} />
             </li>
             {tags &&
@@ -595,7 +619,7 @@ export const Products: React.FC = () => {
             </div>
 
             {showTags && (
-              <div style={{marginTop:4}}>
+              <div className={classes.tagsContainer}>
                 <TextWidget text="TAGS" size={12}  indent={10}/>
                 <div className="product-tags-mobile">
                 {tags &&
@@ -604,19 +628,15 @@ export const Products: React.FC = () => {
                       <div
                         className={clsx(
                           classes.filterItem,
+                          classes.tagItem,
                           filterTag === tag.name ? 'active' : ''
                         )}
-                        style={{
-                          display:'flex',
-                          alignItems:'center',
-                          justifyContent:'center',
-                        }}
                         key={index}
                         onClick={() => {
                           setFilterTag(tag.name)
                         }}
                       >
-                        <Typography style={{paddingRight:0}} variant="body1" className="capital mobile-category-name">
+                        <Typography variant="body1" className={`capital mobile-category-name ${classes.tagTypography}`}>
                           {tag.name}
                         </Typography>
                       
@@ -652,7 +672,8 @@ export const Products: React.FC = () => {
                 const item: IProduct =
                   data[rowIndex * columnCount + columnIndex]
                 return item ? (
-                  <div style={style} key={item.id}>
+                  {/* eslint-disable-next-line react/forbid-dom-props */}
+                  <div style={style} className={classes.productGridItem} key={item.id}>
                     <ProductCard
                       product={item}
                       width={+(style?.width || -1)}

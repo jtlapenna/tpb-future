@@ -195,6 +195,12 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  productImageXl: {
+    width: 'calc(100% - 80px)',
+  },
+  productImageDefault: {
+    width: 'calc(100% - 60px)',
+  },
 }))
 
 interface IProductCardProps {
@@ -226,14 +232,15 @@ export const ProductCard: React.FC<IProductCardProps> = ({
   const theme = useTheme()
   const isXl = useMediaQuery(theme.breakpoints.down('xl'))
 
-  let imgStyle= {};
-
-  if(width && width!==-1){
-    if(isXl){
-      imgStyle={width:`${width-80}px`};
-    }else{
-      imgStyle={width:`${width-60}px`};
+  const getImageClassName = () => {
+    if(width && width!==-1){
+      if(isXl){
+        return classes.productImageXl;
+      }else{
+        return classes.productImageDefault;
+      }
     }
+    return '';
   }
 
   return (
@@ -281,7 +288,7 @@ export const ProductCard: React.FC<IProductCardProps> = ({
                   'https://treezculturecannabisclubbanning.s3.amazonaws.com/product/1e43a152-f84f-4022-a2c6-0c66c86e9e70_f82cd7ae-a76d-41d5-bcfb-ba04b7015908_null_20-04-21-09-27-54'
                 }
                 alt={product.name}
-                style={imgStyle}
+                className={getImageClassName()}
               />
               <FontAwesomeIcon
                 className={`favoriteIcon ${isFavorite ? 'active' : ''}`}
