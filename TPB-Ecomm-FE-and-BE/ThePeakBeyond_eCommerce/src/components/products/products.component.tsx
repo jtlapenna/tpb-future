@@ -264,6 +264,8 @@ export const Products: React.FC = () => {
       fileName = 'concentrate'
     } else if (fileName === 'cartridge') {
       fileName = 'vape'
+    } else if (fileName === 'accessorie') {
+      fileName = 'accessories'
     }
 
     try {
