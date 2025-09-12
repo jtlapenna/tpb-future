@@ -369,8 +369,8 @@ a {
 }
 
 .overflow {
-  overflow       : auto;
-  scrollbar-width: none;
+  overflow: auto;
+  /* scrollbar-width: none; - Removed due to limited browser support */
 }
 
 ::-webkit-scrollbar {
@@ -396,37 +396,37 @@ a {
 
 .fadeIn {
   position               : relative;
-  animation-delay        : 2s;
   -webkit-animation      : fadeIn 1.5s forwards;
   -webkit-animation-delay: 2s;
   animation              : fadeIn 1.5s forwards;
+  animation-delay        : 2s;
   opacity                : 0;
 }
 
 .anim-ease {
   position               : relative;
-  animation-delay        : 2s;
   -webkit-animation      : strech 1s forwards;
   -webkit-animation-delay: 2s;
   animation              : strech 1s forwards;
+  animation-delay        : 2s;
   width                  : 0;
 }
 
 .anim-ease-left {
   position               : relative;
-  animation-delay        : 2s;
   -webkit-animation      : leftright 1s forwards;
   -webkit-animation-delay: 2s;
   animation              : leftright 1s forwards;
+  animation-delay        : 2s;
   left                   : -500px;
 }
 
 .product-item {
   position               : relative;
-  animation-delay        : 1s;
   -webkit-animation      : slide 1s forwards;
   -webkit-animation-delay: 2s;
   animation              : slide 1s forwards;
+  animation-delay        : 1s;
   top                    : -100px;
 }
 
