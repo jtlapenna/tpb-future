@@ -36,7 +36,7 @@ export const useModal = () => {
     setIsOpen(false)
   }, [])
 
-  const ModalContainer = ({ children }) => (
+  const ModalContainer = ({ children }: { children: React.ReactNode }) => (
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"

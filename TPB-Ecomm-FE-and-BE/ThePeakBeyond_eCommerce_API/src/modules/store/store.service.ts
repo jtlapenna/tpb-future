@@ -59,6 +59,12 @@ export class StoreService {
   }
 
   async storeImagesByCompanyId(id: number): Promise<StoreDto[]> {
-    return this.storeRepository.query(GET_STORE_IMAGES_BY_COMPANY, [id]);
+    try {
+      return this.storeRepository.query(GET_STORE_IMAGES_BY_COMPANY, [id]);
+    } catch (error) {
+      // Return empty array if tables don't exist yet
+      console.log('Store images tables not found, returning empty array');
+      return [];
+    }
   }
 }

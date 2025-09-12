@@ -24,7 +24,7 @@ fi
 if [ ! -f "ThePeakBeyond_eCommerce/.env" ]; then
     echo "📝 Creating .env file..."
     cat > ThePeakBeyond_eCommerce/.env << 'EOF'
-REACT_APP_API_URL=http://localhost:3001
+REACT_APP_EXTERNAL_API_URL=http://localhost:3001/apiv1
 REACT_APP_AWS_REGION=us-east-1
 REACT_APP_AWS_USER_POOL=us-east-1_placeholder
 REACT_APP_AWS_CLINET_ID=placeholder_client_id

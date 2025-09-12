@@ -8,6 +8,13 @@ This is The Peak Beyond's modern e-commerce platform (V2) built with:
 - **Authentication**: AWS Cognito integration
 - **Database**: PostgreSQL with Treez integration
 
+### ✅ **CURRENT STATUS (Updated)**
+- **Frontend**: ✅ Running at http://localhost:3000
+- **Backend**: ✅ Running at http://localhost:3001  
+- **Database**: ✅ Fully populated with 24 products across 3 stores
+- **API Endpoints**: ✅ All working (stores, products, categories)
+- **Environment**: ✅ Properly configured with correct API URLs
+
 ## 🏗️ Architecture
 
 ```

@@ -8,11 +8,9 @@ import React, {
 } from 'react'
 import moment from 'moment'
 import { makeStyles ,useTheme } from '@material-ui/core/styles'
-import DateFnsUtils from '@date-io/date-fns'
 import MomentUtils from '@date-io/moment'
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers'
 import clsx from 'clsx'
@@ -31,7 +29,6 @@ import {
   Radio,
   FormControlLabel,
   RadioGroup,
-  TextField,
 } from '@material-ui/core'
 import SignatureCanvas from 'react-signature-canvas'
 import { useUserFacade } from 'state/user'
@@ -566,7 +563,7 @@ export const Cart = () => {
                     id="date-picker-inline"
                     label="Driver License Expiration Date"
                     value={dlExpiryDate}
-                    onChange={(date: Date | null) => setDlExpiryDate(date)}
+                    onChange={(date: any) => setDlExpiryDate(date ? date.toDate() : null)}
                     KeyboardButtonProps={{
                       'aria-label': 'change date',
                     }}
@@ -598,6 +595,7 @@ export const Cart = () => {
                   <img
                     width="100%"
                     src={URL.createObjectURL(frontImage)}
+                    alt="Driver license front image"
                     onClick={() => setFrontImage(null)}
                   />
                 )}
