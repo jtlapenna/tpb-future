@@ -676,7 +676,6 @@ export const Products: React.FC = () => {
                     style={style} 
                     className={classes.productGridItem} 
                     key={item.id}
-                    // eslint-disable-next-line react/forbid-dom-props
                   >
                     <ProductCard
                       product={item}

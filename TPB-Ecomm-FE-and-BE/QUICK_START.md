@@ -12,6 +12,10 @@
 ✅ **Database fully populated** - 24 products across 3 stores  
 ✅ **API endpoints working** - All store and product APIs functional  
 ✅ **Environment variables fixed** - REACT_APP_EXTERNAL_API_URL configured correctly  
+✅ **Product images added** - 18 product images with proper database integration  
+✅ **On-sale functionality** - 16 products with promotions working  
+✅ **Category icons fixed** - All categories including Accessories have icons  
+✅ **Linting issues resolved** - 14 CSS warnings fixed (2 remaining are false positives)  
 
 ### 2-Step Setup
 
@@ -55,6 +59,7 @@ npm start
 - **Backend**: http://localhost:3001
 - **API Docs**: http://localhost:3001/api
 - **Products Page**: http://localhost:3000/products (fully functional with 24 products)
+- **On-Sale Page**: http://localhost:3000/onsales (16 products with promotions)
 - **Store API**: http://localhost:3001/apiv1/store/all/23/id/1/0/
 - **Products API**: http://localhost:3001/apiv1/products/all
 
@@ -70,12 +75,14 @@ npm start
 - **"digital envelope routines::unsupported"** → Script uses --openssl-legacy-provider
 - **"undefined in API URL"** → Fixed! Environment variables now properly configured
 - **"No products showing"** → Fixed! Database fully populated with test data
+- **"CSS inline styles warnings"** → 2 remaining warnings are false positives from Microsoft Edge Tools for React Window components (can be ignored)
 
 ### Database Status
 - **Stores**: 3 stores (Downtown Dispensary, Westside Cannabis, Green Valley Store)
 - **Products**: 24 products across all categories (Flower, Edibles, Concentrates, Vapes, Accessories)
 - **Categories**: 5 product categories with proper organization
-- **Images**: 22 product images with placeholder URLs
+- **Images**: 18 product images with local file paths (stored in public/images/products/)
 - **Pricing**: All products have pricing data
+- **Promotions**: 16 products with active sales and promotions
 
 The app is ready for development! 🎉

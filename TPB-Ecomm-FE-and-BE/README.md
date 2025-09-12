@@ -24,6 +24,10 @@
 - **Node.js Compatibility**: Resolved OpenSSL issues with `--openssl-legacy-provider`
 - **API Endpoints**: All store and product endpoints now functional
 - **Startup Script**: Updated `start-servers.sh` with correct configuration
+- **Product Images**: Added 18 product images with proper database integration
+- **On-Sale Functionality**: Implemented sale products with 16 items on promotion
+- **Category Icons**: Fixed missing Accessories category icon
+- **Linting Issues**: Resolved 14 CSS inline style warnings (2 remaining are false positives)
 
 ### 📚 **Developer Documentation**
 - **[DEVELOPER_HANDOFF.md](./DEVELOPER_HANDOFF.md)** - Complete handoff guide for new developers
@@ -434,8 +438,9 @@ npm run build:prod
 2. **Digital Envelope Routines Error**: ✅ **FIXED!** Script uses --openssl-legacy-provider
 3. **Database Connection**: Ensure PostgreSQL is running and credentials are correct
 4. **AWS Configuration**: Verify AWS credentials and region settings
-3. **Port Conflicts**: Backend uses 3001, frontend uses 3000
-4. **CORS Issues**: Backend has CORS enabled for development
+5. **Port Conflicts**: Backend uses 3001, frontend uses 3000
+6. **CORS Issues**: Backend has CORS enabled for development
+7. **CSS Inline Style Warnings**: 2 remaining warnings are false positives from Microsoft Edge Tools for React Window components (can be ignored)
 
 ### Environment Variables Checklist
 - [ ] Backend `.env` file created with database credentials
