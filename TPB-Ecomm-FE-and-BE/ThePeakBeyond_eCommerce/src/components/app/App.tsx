@@ -50,7 +50,7 @@ function App() {
           if (companies[companyName]) {
             updateUserState({ company: companies[companyName] })
           } else{
-            updateUserState({ company: '23' })
+            updateUserState({ company: '2' })
           }
         })
     }

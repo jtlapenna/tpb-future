@@ -28,8 +28,9 @@ import { TagInfo } from 'src/models/tagging/tag-infos.entity';
         Favorites,
         StoreSettings,
       ],
-      synchronize: process.env.NODE_ENV === 'development', // Only in development
-      logging: process.env.NODE_ENV === 'development',
+      synchronize: false, // Disable auto-sync to prevent schema conflicts
+      logging: false, // Disable all database logging
+      autoLoadEntities: false, // Disable automatic entity loading
     }),
   ],
 })
